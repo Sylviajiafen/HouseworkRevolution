@@ -1,0 +1,6 @@
+framework module Pods_HouseworkRevolutionTests {
+  umbrella header "Pods-HouseworkRevolutionTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

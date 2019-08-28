@@ -14,6 +14,8 @@
 		03C1A54A231662DA008EAB76 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03C1A549231662DA008EAB76 /* Assets.xcassets */; };
 		03C1A54D231662DA008EAB76 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03C1A54B231662DA008EAB76 /* LaunchScreen.storyboard */; };
 		03C1A558231662DA008EAB76 /* HouseworkRevolutionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1A557231662DA008EAB76 /* HouseworkRevolutionTests.swift */; };
+		13C2546C9B3D4DD77EDFFF43 /* Pods_HouseworkRevolution.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1493339683728FA72397E709 /* Pods_HouseworkRevolution.framework */; };
+		A426424894EE163385C27B85 /* Pods_HouseworkRevolutionTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 768DABA652B8C169712D5223 /* Pods_HouseworkRevolutionTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +40,12 @@
 		03C1A553231662DA008EAB76 /* HouseworkRevolutionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HouseworkRevolutionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		03C1A557231662DA008EAB76 /* HouseworkRevolutionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseworkRevolutionTests.swift; sourceTree = "<group>"; };
 		03C1A559231662DA008EAB76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1493339683728FA72397E709 /* Pods_HouseworkRevolution.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HouseworkRevolution.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		282E80C58DF6B1DB0CB6F4EB /* Pods-HouseworkRevolutionTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HouseworkRevolutionTests.debug.xcconfig"; path = "Target Support Files/Pods-HouseworkRevolutionTests/Pods-HouseworkRevolutionTests.debug.xcconfig"; sourceTree = "<group>"; };
+		768DABA652B8C169712D5223 /* Pods_HouseworkRevolutionTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HouseworkRevolutionTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7AF5797D81AC8C443CE30B21 /* Pods-HouseworkRevolutionTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HouseworkRevolutionTests.release.xcconfig"; path = "Target Support Files/Pods-HouseworkRevolutionTests/Pods-HouseworkRevolutionTests.release.xcconfig"; sourceTree = "<group>"; };
+		BFC62AE0B2CBB8382B293A4E /* Pods-HouseworkRevolution.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HouseworkRevolution.debug.xcconfig"; path = "Target Support Files/Pods-HouseworkRevolution/Pods-HouseworkRevolution.debug.xcconfig"; sourceTree = "<group>"; };
+		C3B112AE115369AD6E6092D6 /* Pods-HouseworkRevolution.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HouseworkRevolution.release.xcconfig"; path = "Target Support Files/Pods-HouseworkRevolution/Pods-HouseworkRevolution.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13C2546C9B3D4DD77EDFFF43 /* Pods_HouseworkRevolution.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A426424894EE163385C27B85 /* Pods_HouseworkRevolutionTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,6 +74,8 @@
 				03C1A53E231662D9008EAB76 /* HouseworkRevolution */,
 				03C1A556231662DA008EAB76 /* HouseworkRevolutionTests */,
 				03C1A53D231662D9008EAB76 /* Products */,
+				C57C404516EA895692B1C48B /* Pods */,
+				2FF63852DA9196A7B69A8A6D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,11 +91,11 @@
 		03C1A53E231662D9008EAB76 /* HouseworkRevolution */ = {
 			isa = PBXGroup;
 			children = (
-				03C1A53F231662D9008EAB76 /* AppDelegate.swift */,
-				03C1A541231662D9008EAB76 /* ViewController.swift */,
 				03C1A543231662D9008EAB76 /* Main.storyboard */,
-				03C1A549231662DA008EAB76 /* Assets.xcassets */,
 				03C1A54B231662DA008EAB76 /* LaunchScreen.storyboard */,
+				03C1A53F231662D9008EAB76 /* AppDelegate.swift */,
+				03C1A549231662DA008EAB76 /* Assets.xcassets */,
+				03C1A541231662D9008EAB76 /* ViewController.swift */,
 				03C1A54E231662DA008EAB76 /* Info.plist */,
 				03C1A546231662D9008EAB76 /* HouseworkRevolution.xcdatamodeld */,
 			);
@@ -99,6 +111,26 @@
 			path = HouseworkRevolutionTests;
 			sourceTree = "<group>";
 		};
+		2FF63852DA9196A7B69A8A6D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1493339683728FA72397E709 /* Pods_HouseworkRevolution.framework */,
+				768DABA652B8C169712D5223 /* Pods_HouseworkRevolutionTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C57C404516EA895692B1C48B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BFC62AE0B2CBB8382B293A4E /* Pods-HouseworkRevolution.debug.xcconfig */,
+				C3B112AE115369AD6E6092D6 /* Pods-HouseworkRevolution.release.xcconfig */,
+				282E80C58DF6B1DB0CB6F4EB /* Pods-HouseworkRevolutionTests.debug.xcconfig */,
+				7AF5797D81AC8C443CE30B21 /* Pods-HouseworkRevolutionTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -106,9 +138,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 03C1A55C231662DA008EAB76 /* Build configuration list for PBXNativeTarget "HouseworkRevolution" */;
 			buildPhases = (
+				53B5FB76026C6D50F7EA22C9 /* [CP] Check Pods Manifest.lock */,
 				03C1A538231662D9008EAB76 /* Sources */,
 				03C1A539231662D9008EAB76 /* Frameworks */,
 				03C1A53A231662D9008EAB76 /* Resources */,
+				03C1A56223166357008EAB76 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -123,6 +157,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 03C1A55F231662DA008EAB76 /* Build configuration list for PBXNativeTarget "HouseworkRevolutionTests" */;
 			buildPhases = (
+				6DC527A6DF4C4347CE547085 /* [CP] Check Pods Manifest.lock */,
 				03C1A54F231662DA008EAB76 /* Sources */,
 				03C1A550231662DA008EAB76 /* Frameworks */,
 				03C1A551231662DA008EAB76 /* Resources */,
@@ -194,6 +229,70 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		03C1A56223166357008EAB76 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
+		53B5FB76026C6D50F7EA22C9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HouseworkRevolution-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6DC527A6DF4C4347CE547085 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HouseworkRevolutionTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		03C1A538231662D9008EAB76 /* Sources */ = {
@@ -362,6 +461,7 @@
 		};
 		03C1A55D231662DA008EAB76 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BFC62AE0B2CBB8382B293A4E /* Pods-HouseworkRevolution.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -379,6 +479,7 @@
 		};
 		03C1A55E231662DA008EAB76 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C3B112AE115369AD6E6092D6 /* Pods-HouseworkRevolution.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -396,6 +497,7 @@
 		};
 		03C1A560231662DA008EAB76 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 282E80C58DF6B1DB0CB6F4EB /* Pods-HouseworkRevolutionTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -416,6 +518,7 @@
 		};
 		03C1A561231662DA008EAB76 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7AF5797D81AC8C443CE30B21 /* Pods-HouseworkRevolutionTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
