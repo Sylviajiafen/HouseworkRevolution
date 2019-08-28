@@ -38,7 +38,7 @@ private enum Tab {
             
             case .list:
                 
-                controller = UIStoryboard.list.instantiateInitialViewController()!
+                controller = UIStoryboard.auth.instantiateInitialViewController()!
             
             case .mission:
                 

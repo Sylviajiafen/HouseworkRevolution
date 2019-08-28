@@ -21,6 +21,8 @@
 		03C1A56E23166557008EAB76 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03C1A56D23166557008EAB76 /* Auth.storyboard */; };
 		03C1A5702316658D008EAB76 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1A56F2316658D008EAB76 /* TabBarController.swift */; };
 		03C1A5732316660D008EAB76 /* UIStoryboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1A5722316660D008EAB76 /* UIStoryboard+Extension.swift */; };
+		03C1A577231668B7008EAB76 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1A576231668B7008EAB76 /* AuthViewController.swift */; };
+		03C1A57A23167436008EAB76 /* NameSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1A57923167436008EAB76 /* NameSelectionView.swift */; };
 		13C2546C9B3D4DD77EDFFF43 /* Pods_HouseworkRevolution.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1493339683728FA72397E709 /* Pods_HouseworkRevolution.framework */; };
 		A426424894EE163385C27B85 /* Pods_HouseworkRevolutionTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 768DABA652B8C169712D5223 /* Pods_HouseworkRevolutionTests.framework */; };
 /* End PBXBuildFile section */
@@ -54,6 +56,8 @@
 		03C1A56D23166557008EAB76 /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		03C1A56F2316658D008EAB76 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		03C1A5722316660D008EAB76 /* UIStoryboard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extension.swift"; sourceTree = "<group>"; };
+		03C1A576231668B7008EAB76 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		03C1A57923167436008EAB76 /* NameSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameSelectionView.swift; sourceTree = "<group>"; };
 		1493339683728FA72397E709 /* Pods_HouseworkRevolution.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HouseworkRevolution.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		282E80C58DF6B1DB0CB6F4EB /* Pods-HouseworkRevolutionTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HouseworkRevolutionTests.debug.xcconfig"; path = "Target Support Files/Pods-HouseworkRevolutionTests/Pods-HouseworkRevolutionTests.debug.xcconfig"; sourceTree = "<group>"; };
 		768DABA652B8C169712D5223 /* Pods_HouseworkRevolutionTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HouseworkRevolutionTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,6 +109,7 @@
 		03C1A53E231662D9008EAB76 /* HouseworkRevolution */ = {
 			isa = PBXGroup;
 			children = (
+				03C1A578231672AE008EAB76 /* Views */,
 				03C1A563231664BC008EAB76 /* Controllers */,
 				03C1A543231662D9008EAB76 /* Main.storyboard */,
 				03C1A565231664DE008EAB76 /* List.storyboard */,
@@ -135,6 +140,7 @@
 		03C1A563231664BC008EAB76 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				03C1A575231668A1008EAB76 /* Auth */,
 				03C1A564231664C9008EAB76 /* TabBar */,
 			);
 			path = Controllers;
@@ -154,6 +160,22 @@
 				03C1A5722316660D008EAB76 /* UIStoryboard+Extension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		03C1A575231668A1008EAB76 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				03C1A576231668B7008EAB76 /* AuthViewController.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		03C1A578231672AE008EAB76 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				03C1A57923167436008EAB76 /* NameSelectionView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		2FF63852DA9196A7B69A8A6D /* Frameworks */ = {
@@ -352,7 +374,9 @@
 				03C1A542231662D9008EAB76 /* ViewController.swift in Sources */,
 				03C1A5702316658D008EAB76 /* TabBarController.swift in Sources */,
 				03C1A540231662D9008EAB76 /* AppDelegate.swift in Sources */,
+				03C1A57A23167436008EAB76 /* NameSelectionView.swift in Sources */,
 				03C1A548231662D9008EAB76 /* HouseworkRevolution.xcdatamodeld in Sources */,
+				03C1A577231668B7008EAB76 /* AuthViewController.swift in Sources */,
 				03C1A5732316660D008EAB76 /* UIStoryboard+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

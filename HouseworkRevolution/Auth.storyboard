@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="yts-FL-6fl">
-    <device id="retina6_1" orientation="portrait">
+    <device id="retina6_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -10,20 +10,218 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Auth View Controller-->
         <scene sceneID="ERf-1O-lCU">
             <objects>
-                <viewController id="yts-FL-6fl" sceneMemberID="viewController">
+                <viewController id="yts-FL-6fl" customClass="AuthViewController" customModule="HouseworkRevolution" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DwH-Nd-TJJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view alpha="0.55000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B0o-wa-aRw">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="obm-Za-jWW">
+                                <rect key="frame" x="72" y="318" width="270" height="200"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="請為自己的家打造一組大門密碼" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A6w-Mn-8iU">
+                                        <rect key="frame" x="18.666666666666686" y="73" width="233" height="20"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" textContentType="password"/>
+                                    </textField>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="egN-nE-r20">
+                                        <rect key="frame" x="90" y="113" width="90" height="32"/>
+                                        <color key="backgroundColor" red="0.92941176470588238" green="0.41176470588235292" blue="0.42352941176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="90" id="gwg-3l-EDJ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <state key="normal" title="建立我的家">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YDU-6K-FQR">
+                                        <rect key="frame" x="83" y="166" width="179" height="29"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <state key="normal" title="已經建立過，請帶我回家 &gt;&gt;">
+                                            <color key="titleColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="showSignIn:" destination="yts-FL-6fl" eventType="touchUpInside" id="5Fl-bO-4Rz"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qnq-7O-Db9">
+                                        <rect key="frame" x="18.666666666666686" y="22" width="233" height="19"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="金窩銀窩，不如自己的狗窩">
+                                                <attributes>
+                                                    <color key="NSColor" red="0.92156862745098034" green="0.34509803921568627" blue="0.3529411764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <font key="NSFont" size="19" name=".PingFangTC-Regular"/>
+                                                    <font key="NSOriginalFont" metaFont="system" size="19"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="270" id="43F-nl-ws7"/>
+                                    <constraint firstAttribute="trailing" secondItem="YDU-6K-FQR" secondAttribute="trailing" constant="8" id="6Oe-yE-MJE"/>
+                                    <constraint firstItem="A6w-Mn-8iU" firstAttribute="centerX" secondItem="obm-Za-jWW" secondAttribute="centerX" id="PDs-rd-SYg"/>
+                                    <constraint firstItem="qnq-7O-Db9" firstAttribute="centerX" secondItem="obm-Za-jWW" secondAttribute="centerX" id="Tuf-lU-ghJ"/>
+                                    <constraint firstItem="egN-nE-r20" firstAttribute="centerX" secondItem="obm-Za-jWW" secondAttribute="centerX" id="TxU-SU-TEF"/>
+                                    <constraint firstItem="egN-nE-r20" firstAttribute="top" secondItem="A6w-Mn-8iU" secondAttribute="bottom" constant="20" id="gBb-zq-Huk"/>
+                                    <constraint firstAttribute="height" constant="200" id="kUm-O8-Nyp"/>
+                                    <constraint firstItem="qnq-7O-Db9" firstAttribute="top" secondItem="obm-Za-jWW" secondAttribute="top" constant="22" id="rFV-7z-bI2"/>
+                                    <constraint firstAttribute="bottom" secondItem="YDU-6K-FQR" secondAttribute="bottom" constant="5" id="wOF-Fl-rdi"/>
+                                    <constraint firstItem="A6w-Mn-8iU" firstAttribute="top" secondItem="qnq-7O-Db9" secondAttribute="bottom" constant="32" id="yWO-SE-iX8"/>
+                                </constraints>
+                            </view>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h29-Y5-es4">
+                                <rect key="frame" x="72" y="318" width="270" height="200"/>
+                                <subviews>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5A3-E7-NNX">
+                                        <rect key="frame" x="90" y="123" width="90" height="32"/>
+                                        <color key="backgroundColor" red="0.92941176469999998" green="0.41176470590000003" blue="0.42352941179999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="90" id="FvH-fd-Gsh"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <state key="normal" title="帶我回家">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jyY-mx-Jz6">
+                                        <rect key="frame" x="111" y="166" width="151" height="29"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <state key="normal" title="找不到家，重建一個 &gt;&gt;">
+                                            <color key="titleColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="showSignUp:" destination="yts-FL-6fl" eventType="touchUpInside" id="gs7-oA-gjt"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rlZ-Rs-NUa">
+                                        <rect key="frame" x="18.000000000000007" y="15" width="112.66666666666669" height="23"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="找尋我的家">
+                                                <attributes>
+                                                    <color key="NSColor" red="0.92156862745098034" green="0.34509803921568627" blue="0.3529411764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <font key="NSFont" size="19" name=".PingFangTC-Regular"/>
+                                                    <font key="NSOriginalFont" metaFont="system" size="19"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="...">
+                                                <attributes>
+                                                    <color key="NSColor" red="0.92156862745098034" green="0.34509803921568627" blue="0.3529411764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <font key="NSFont" metaFont="system" size="19"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="輸入大門密碼" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gWs-K4-hPl">
+                                        <rect key="frame" x="84" y="88" width="102" height="20"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" textContentType="password"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="輸入您的 id" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mVe-aM-Zrd">
+                                        <rect key="frame" x="91.666666666666657" y="58" width="87" height="20"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" textContentType="username"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="rlZ-Rs-NUa" firstAttribute="top" secondItem="h29-Y5-es4" secondAttribute="top" constant="15" id="042-f5-zAj"/>
+                                    <constraint firstAttribute="height" constant="200" id="4qc-wc-xXl"/>
+                                    <constraint firstAttribute="width" constant="270" id="73j-HB-nJe"/>
+                                    <constraint firstAttribute="trailing" secondItem="jyY-mx-Jz6" secondAttribute="trailing" constant="8" id="E8i-da-bbO"/>
+                                    <constraint firstItem="mVe-aM-Zrd" firstAttribute="top" secondItem="rlZ-Rs-NUa" secondAttribute="bottom" constant="20" id="Iqm-ob-DB8"/>
+                                    <constraint firstItem="gWs-K4-hPl" firstAttribute="top" secondItem="mVe-aM-Zrd" secondAttribute="bottom" constant="10" id="NgJ-0Y-OUt"/>
+                                    <constraint firstItem="5A3-E7-NNX" firstAttribute="top" secondItem="gWs-K4-hPl" secondAttribute="bottom" constant="15" id="Utw-q1-uVf"/>
+                                    <constraint firstItem="rlZ-Rs-NUa" firstAttribute="leading" secondItem="h29-Y5-es4" secondAttribute="leading" constant="18" id="kCg-Dt-ZF1"/>
+                                    <constraint firstItem="gWs-K4-hPl" firstAttribute="centerX" secondItem="h29-Y5-es4" secondAttribute="centerX" id="kLq-Kf-ZaV"/>
+                                    <constraint firstAttribute="bottom" secondItem="jyY-mx-Jz6" secondAttribute="bottom" constant="5" id="nR4-gt-gG2"/>
+                                    <constraint firstItem="mVe-aM-Zrd" firstAttribute="centerX" secondItem="h29-Y5-es4" secondAttribute="centerX" id="uen-M3-xXF"/>
+                                    <constraint firstItem="5A3-E7-NNX" firstAttribute="centerX" secondItem="h29-Y5-es4" secondAttribute="centerX" id="ykY-SH-laX"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OjA-R0-w8O">
+                                <rect key="frame" x="59.666666666666657" y="223" width="295" height="450"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iqh-hs-gmP">
+                                        <rect key="frame" x="21.000000000000004" y="18" width="54.333333333333343" height="23"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="我是">
+                                                <attributes>
+                                                    <color key="NSColor" red="0.92156862745098034" green="0.34509803921568627" blue="0.3529411764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <font key="NSFont" size="19" name=".PingFangTC-Regular"/>
+                                                    <font key="NSOriginalFont" metaFont="system" size="19"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="...">
+                                                <attributes>
+                                                    <color key="NSColor" red="0.92156862745098034" green="0.34509803921568627" blue="0.3529411764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <font key="NSFont" metaFont="system" size="19"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="450" id="8i6-YW-UYf"/>
+                                    <constraint firstAttribute="width" constant="295" id="H1G-tr-Kg5"/>
+                                    <constraint firstItem="iqh-hs-gmP" firstAttribute="top" secondItem="OjA-R0-w8O" secondAttribute="top" constant="18" id="hKc-bW-UxK"/>
+                                    <constraint firstItem="iqh-hs-gmP" firstAttribute="leading" secondItem="OjA-R0-w8O" secondAttribute="leading" constant="21" id="hxK-GW-4El"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="B0o-wa-aRw" firstAttribute="leading" secondItem="lao-we-X5k" secondAttribute="leading" id="5B0-ea-j6P"/>
+                            <constraint firstAttribute="bottom" secondItem="B0o-wa-aRw" secondAttribute="bottom" id="CbU-FM-oRr"/>
+                            <constraint firstItem="obm-Za-jWW" firstAttribute="centerX" secondItem="DwH-Nd-TJJ" secondAttribute="centerX" id="FbX-yr-htS"/>
+                            <constraint firstItem="h29-Y5-es4" firstAttribute="centerX" secondItem="DwH-Nd-TJJ" secondAttribute="centerX" id="H09-x0-LF4"/>
+                            <constraint firstItem="OjA-R0-w8O" firstAttribute="centerX" secondItem="DwH-Nd-TJJ" secondAttribute="centerX" id="LKS-Kf-Onz"/>
+                            <constraint firstItem="obm-Za-jWW" firstAttribute="centerY" secondItem="DwH-Nd-TJJ" secondAttribute="centerY" constant="-30" id="OB1-Wg-mgQ"/>
+                            <constraint firstItem="B0o-wa-aRw" firstAttribute="trailing" secondItem="lao-we-X5k" secondAttribute="trailing" id="UTU-Xw-uQj"/>
+                            <constraint firstItem="h29-Y5-es4" firstAttribute="centerY" secondItem="DwH-Nd-TJJ" secondAttribute="centerY" constant="-30" id="uGY-Zv-UrK"/>
+                            <constraint firstItem="B0o-wa-aRw" firstAttribute="top" secondItem="DwH-Nd-TJJ" secondAttribute="top" id="vgV-hE-sNC"/>
+                            <constraint firstItem="OjA-R0-w8O" firstAttribute="centerY" secondItem="DwH-Nd-TJJ" secondAttribute="centerY" id="ywk-Ge-yqZ"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="lao-we-X5k"/>
                     </view>
+                    <connections>
+                        <outlet property="signInView" destination="h29-Y5-es4" id="LcR-W7-YgL"/>
+                        <outlet property="signUpView" destination="obm-Za-jWW" id="2Cc-Xi-kIr"/>
+                        <outlet property="userSettingView" destination="OjA-R0-w8O" id="Pev-tG-4Lb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YIE-VN-S90" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-164" y="1"/>
+            <point key="canvasLocation" x="-917.39130434782612" y="12.053571428571429"/>
         </scene>
     </scenes>
 </document>
