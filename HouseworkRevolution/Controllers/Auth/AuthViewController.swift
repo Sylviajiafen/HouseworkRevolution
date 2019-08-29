@@ -126,9 +126,10 @@ class AuthViewController: UIViewController {
                     
                     guard let key = createPassword.text else { return }
                     
-                    AppDelegate.shared.saveUserKey(key)
+                    UserDefaults.standard.set(key, forKey: "userKey")
         
                     // TODO: 將資料存到 dataBase
+                    
                 }
             }
         }
@@ -143,11 +144,13 @@ class AuthViewController: UIViewController {
             
         } else {
             
+            // TODO: 找 dataBase 的資料
+            // 有這個使用者才存 userDefault !!
+            
             guard let key = userPassword.text else { return }
             
-            AppDelegate.shared.saveUserKey(key)
+            UserDefaults.standard.set(key, forKey: "userKey")
             
-            // TODO: 找 dataBase 的資料
         }
 
     }
