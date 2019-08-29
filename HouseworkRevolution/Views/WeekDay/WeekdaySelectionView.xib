@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WeekdaySelectionView" customModule="HouseworkRevolution" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="gpY-Yt-7zl"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" ambiguous="YES" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="354" height="53"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iVV-h3-3Cd">
+                    <rect key="frame" x="10" y="9.5" width="37" height="34"/>
+                    <color key="backgroundColor" red="1" green="0.7725490196" blue="0.4549019608" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="37" id="Bbs-fu-Dws"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <size key="titleShadowOffset" width="5" height="6"/>
+                    <state key="normal" title="一">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v72-FE-G5q">
+                    <rect key="frame" x="57" y="9.5" width="37" height="34"/>
+                    <color key="backgroundColor" red="1" green="0.7725490196" blue="0.4549019608" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="37" id="P3O-us-nd1"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <state key="normal" title="二">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nV8-sd-RF3">
+                    <rect key="frame" x="104" y="9.5" width="37" height="34"/>
+                    <color key="backgroundColor" red="1" green="0.7725490196" blue="0.4549019608" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="37" id="mPF-Y7-JuF"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <state key="normal" title="三">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BO1-SY-KYi">
+                    <rect key="frame" x="151" y="9.5" width="37" height="34"/>
+                    <color key="backgroundColor" red="1" green="0.7725490196" blue="0.4549019608" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="37" id="Epz-09-Qfk"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <state key="normal" title="四">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XEj-g8-Pbr">
+                    <rect key="frame" x="198" y="9.5" width="37" height="34"/>
+                    <color key="backgroundColor" red="1" green="0.7725490196" blue="0.4549019608" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="37" id="e3u-TG-qwE"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <state key="normal" title="五">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qbi-MH-Q1q">
+                    <rect key="frame" x="245" y="9.5" width="37" height="34"/>
+                    <color key="backgroundColor" red="1" green="0.7725490196" blue="0.4549019608" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="37" id="sNL-TC-8af"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <state key="normal" title="六">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xJO-Z5-e8T">
+                    <rect key="frame" x="292" y="9.5" width="37" height="34"/>
+                    <color key="backgroundColor" red="1" green="0.7725490196" blue="0.4549019608" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="37" id="Bmi-Lw-3Ev"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <state key="normal" title="日">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="BO1-SY-KYi" firstAttribute="leading" secondItem="nV8-sd-RF3" secondAttribute="trailing" constant="10" id="5Se-1H-j87"/>
+                <constraint firstItem="XEj-g8-Pbr" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="97X-u8-zFq"/>
+                <constraint firstItem="v72-FE-G5q" firstAttribute="leading" secondItem="iVV-h3-3Cd" secondAttribute="trailing" constant="10" id="CMA-7a-rb1"/>
+                <constraint firstItem="BO1-SY-KYi" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="CcF-8T-lEX"/>
+                <constraint firstAttribute="trailing" secondItem="xJO-Z5-e8T" secondAttribute="trailing" constant="10" id="CkZ-sb-Ty3"/>
+                <constraint firstItem="Qbi-MH-Q1q" firstAttribute="leading" secondItem="XEj-g8-Pbr" secondAttribute="trailing" constant="10" id="Dqz-aP-9jJ"/>
+                <constraint firstItem="xJO-Z5-e8T" firstAttribute="leading" secondItem="Qbi-MH-Q1q" secondAttribute="trailing" constant="10" id="LNZ-Jo-74a"/>
+                <constraint firstItem="xJO-Z5-e8T" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="WAy-zw-vOz"/>
+                <constraint firstItem="Qbi-MH-Q1q" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Z2z-mu-Hmp"/>
+                <constraint firstItem="nV8-sd-RF3" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="ihi-Ok-tQa"/>
+                <constraint firstItem="v72-FE-G5q" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="j8l-EX-yNb"/>
+                <constraint firstItem="XEj-g8-Pbr" firstAttribute="leading" secondItem="BO1-SY-KYi" secondAttribute="trailing" constant="10" id="oEF-5H-FRT"/>
+                <constraint firstItem="iVV-h3-3Cd" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="r7F-EY-ZGG"/>
+                <constraint firstItem="iVV-h3-3Cd" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="rFJ-3b-VRB"/>
+                <constraint firstItem="nV8-sd-RF3" firstAttribute="leading" secondItem="v72-FE-G5q" secondAttribute="trailing" constant="10" id="xPJ-68-bdk"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="168.84057971014494" y="35.825892857142854"/>
+        </view>
+    </objects>
+</document>

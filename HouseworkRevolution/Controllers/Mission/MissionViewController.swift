@@ -1,5 +1,3 @@
-
-//
 //  MissionViewController.swift
 //  HouseworkRevolution
 //
@@ -14,7 +12,18 @@ class MissionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+    }
+    
+    @IBAction func showAddMission(_ sender: Any) {
         
+        let addMissionViewController = UIStoryboard.mission.instantiateViewController(withIdentifier: String(describing: AddMissionViewController.self))
+        
+        guard let targetView = addMissionViewController as? AddMissionViewController else { return }
+        
+        show(targetView, sender: nil)
+    }
+    
+    @IBAction func showCheckMission(_ sender: Any) {
     }
     
 }
