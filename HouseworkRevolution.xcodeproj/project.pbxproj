@@ -23,6 +23,9 @@
 		03C1A5732316660D008EAB76 /* UIStoryboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1A5722316660D008EAB76 /* UIStoryboard+Extension.swift */; };
 		03C1A577231668B7008EAB76 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1A576231668B7008EAB76 /* AuthViewController.swift */; };
 		03C1A57A23167436008EAB76 /* NameSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1A57923167436008EAB76 /* NameSelectionView.swift */; };
+		03C1A57E23167CED008EAB76 /* NameSelectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03C1A57D23167CED008EAB76 /* NameSelectionView.xib */; };
+		03C1A58023167F82008EAB76 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1A57F23167F82008EAB76 /* UIView+Extension.swift */; };
+		03C1A5832316908D008EAB76 /* NameCallCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1A5822316908D008EAB76 /* NameCallCollectionViewCell.swift */; };
 		13C2546C9B3D4DD77EDFFF43 /* Pods_HouseworkRevolution.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1493339683728FA72397E709 /* Pods_HouseworkRevolution.framework */; };
 		A426424894EE163385C27B85 /* Pods_HouseworkRevolutionTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 768DABA652B8C169712D5223 /* Pods_HouseworkRevolutionTests.framework */; };
 /* End PBXBuildFile section */
@@ -58,6 +61,9 @@
 		03C1A5722316660D008EAB76 /* UIStoryboard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extension.swift"; sourceTree = "<group>"; };
 		03C1A576231668B7008EAB76 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		03C1A57923167436008EAB76 /* NameSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameSelectionView.swift; sourceTree = "<group>"; };
+		03C1A57D23167CED008EAB76 /* NameSelectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NameSelectionView.xib; sourceTree = "<group>"; };
+		03C1A57F23167F82008EAB76 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		03C1A5822316908D008EAB76 /* NameCallCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameCallCollectionViewCell.swift; sourceTree = "<group>"; };
 		1493339683728FA72397E709 /* Pods_HouseworkRevolution.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HouseworkRevolution.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		282E80C58DF6B1DB0CB6F4EB /* Pods-HouseworkRevolutionTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HouseworkRevolutionTests.debug.xcconfig"; path = "Target Support Files/Pods-HouseworkRevolutionTests/Pods-HouseworkRevolutionTests.debug.xcconfig"; sourceTree = "<group>"; };
 		768DABA652B8C169712D5223 /* Pods_HouseworkRevolutionTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HouseworkRevolutionTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -158,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				03C1A5722316660D008EAB76 /* UIStoryboard+Extension.swift */,
+				03C1A57F23167F82008EAB76 /* UIView+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -173,9 +180,19 @@
 		03C1A578231672AE008EAB76 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				03C1A57923167436008EAB76 /* NameSelectionView.swift */,
+				03C1A58123168D72008EAB76 /* NameSelectionView */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		03C1A58123168D72008EAB76 /* NameSelectionView */ = {
+			isa = PBXGroup;
+			children = (
+				03C1A57923167436008EAB76 /* NameSelectionView.swift */,
+				03C1A57D23167CED008EAB76 /* NameSelectionView.xib */,
+				03C1A5822316908D008EAB76 /* NameCallCollectionViewCell.swift */,
+			);
+			path = NameSelectionView;
 			sourceTree = "<group>";
 		};
 		2FF63852DA9196A7B69A8A6D /* Frameworks */ = {
@@ -285,6 +302,7 @@
 				03C1A56E23166557008EAB76 /* Auth.storyboard in Resources */,
 				03C1A54D231662DA008EAB76 /* LaunchScreen.storyboard in Resources */,
 				03C1A56A2316652F008EAB76 /* Wish.storyboard in Resources */,
+				03C1A57E23167CED008EAB76 /* NameSelectionView.xib in Resources */,
 				03C1A56C23166544008EAB76 /* Family.storyboard in Resources */,
 				03C1A54A231662DA008EAB76 /* Assets.xcassets in Resources */,
 				03C1A566231664DE008EAB76 /* List.storyboard in Resources */,
@@ -375,8 +393,10 @@
 				03C1A5702316658D008EAB76 /* TabBarController.swift in Sources */,
 				03C1A540231662D9008EAB76 /* AppDelegate.swift in Sources */,
 				03C1A57A23167436008EAB76 /* NameSelectionView.swift in Sources */,
+				03C1A58023167F82008EAB76 /* UIView+Extension.swift in Sources */,
 				03C1A548231662D9008EAB76 /* HouseworkRevolution.xcdatamodeld in Sources */,
 				03C1A577231668B7008EAB76 /* AuthViewController.swift in Sources */,
+				03C1A5832316908D008EAB76 /* NameCallCollectionViewCell.swift in Sources */,
 				03C1A5732316660D008EAB76 /* UIStoryboard+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -26,18 +26,18 @@
                                 <rect key="frame" x="72" y="318" width="270" height="200"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="請為自己的家打造一組大門密碼" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A6w-Mn-8iU">
-                                        <rect key="frame" x="18.666666666666686" y="73" width="233" height="20"/>
+                                        <rect key="frame" x="18.666666666666686" y="79.333333333333314" width="233" height="20"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" textContentType="password"/>
                                     </textField>
-                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="egN-nE-r20">
-                                        <rect key="frame" x="90" y="113" width="90" height="32"/>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="egN-nE-r20">
+                                        <rect key="frame" x="85" y="119.33333333333331" width="100" height="33"/>
                                         <color key="backgroundColor" red="0.92941176470588238" green="0.41176470588235292" blue="0.42352941176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="90" id="gwg-3l-EDJ"/>
+                                            <constraint firstAttribute="width" constant="100" id="gwg-3l-EDJ"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                         <state key="normal" title="建立我的家">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -46,6 +46,9 @@
                                                 <integer key="value" value="5"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="showUserSetting:" destination="yts-FL-6fl" eventType="touchUpInside" id="aFf-TZ-6vG"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YDU-6K-FQR">
                                         <rect key="frame" x="83" y="166" width="179" height="29"/>
@@ -58,12 +61,12 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qnq-7O-Db9">
-                                        <rect key="frame" x="18.666666666666686" y="22" width="233" height="19"/>
+                                        <rect key="frame" x="27.000000000000014" y="22" width="216.33333333333337" height="25.333333333333329"/>
                                         <attributedString key="attributedText">
                                             <fragment content="金窩銀窩，不如自己的狗窩">
                                                 <attributes>
                                                     <color key="NSColor" red="0.92156862745098034" green="0.34509803921568627" blue="0.3529411764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <font key="NSFont" size="19" name=".PingFangTC-Regular"/>
+                                                    <font key="NSFont" size="18" name="STHeitiTC-Medium"/>
                                                     <font key="NSOriginalFont" metaFont="system" size="19"/>
                                                 </attributes>
                                             </fragment>
@@ -88,13 +91,13 @@
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h29-Y5-es4">
                                 <rect key="frame" x="72" y="318" width="270" height="200"/>
                                 <subviews>
-                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5A3-E7-NNX">
-                                        <rect key="frame" x="90" y="123" width="90" height="32"/>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5A3-E7-NNX">
+                                        <rect key="frame" x="90" y="127" width="90" height="33"/>
                                         <color key="backgroundColor" red="0.92941176469999998" green="0.41176470590000003" blue="0.42352941179999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="90" id="FvH-fd-Gsh"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                         <state key="normal" title="帶我回家">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -114,13 +117,13 @@
                                             <action selector="showSignUp:" destination="yts-FL-6fl" eventType="touchUpInside" id="gs7-oA-gjt"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rlZ-Rs-NUa">
-                                        <rect key="frame" x="18.000000000000007" y="15" width="112.66666666666669" height="23"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rlZ-Rs-NUa">
+                                        <rect key="frame" x="18" y="15" width="134" height="27"/>
                                         <attributedString key="attributedText">
                                             <fragment content="找尋我的家">
                                                 <attributes>
                                                     <color key="NSColor" red="0.92156862745098034" green="0.34509803921568627" blue="0.3529411764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <font key="NSFont" size="19" name=".PingFangTC-Regular"/>
+                                                    <font key="NSFont" size="19" name="STHeitiTC-Medium"/>
                                                     <font key="NSOriginalFont" metaFont="system" size="19"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
@@ -128,7 +131,7 @@
                                             <fragment content="...">
                                                 <attributes>
                                                     <color key="NSColor" red="0.92156862745098034" green="0.34509803921568627" blue="0.3529411764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <font key="NSFont" metaFont="system" size="19"/>
+                                                    <font key="NSFont" size="19" name="STHeitiTC-Medium"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
                                             </fragment>
@@ -136,13 +139,13 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="輸入大門密碼" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gWs-K4-hPl">
-                                        <rect key="frame" x="84" y="88" width="102" height="20"/>
+                                        <rect key="frame" x="84" y="92" width="102" height="20"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" textContentType="password"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="輸入您的 id" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mVe-aM-Zrd">
-                                        <rect key="frame" x="91.666666666666657" y="58" width="87" height="20"/>
+                                        <rect key="frame" x="91.666666666666657" y="62" width="87" height="20"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" textContentType="username"/>
@@ -167,13 +170,13 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OjA-R0-w8O">
                                 <rect key="frame" x="59.666666666666657" y="223" width="295" height="450"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iqh-hs-gmP">
-                                        <rect key="frame" x="21.000000000000004" y="18" width="54.333333333333343" height="23"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iqh-hs-gmP">
+                                        <rect key="frame" x="21" y="18" width="67" height="27"/>
                                         <attributedString key="attributedText">
                                             <fragment content="我是">
                                                 <attributes>
                                                     <color key="NSColor" red="0.92156862745098034" green="0.34509803921568627" blue="0.3529411764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <font key="NSFont" size="19" name=".PingFangTC-Regular"/>
+                                                    <font key="NSFont" size="19" name="STHeitiTC-Medium"/>
                                                     <font key="NSOriginalFont" metaFont="system" size="19"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
@@ -181,20 +184,130 @@
                                             <fragment content="...">
                                                 <attributes>
                                                     <color key="NSColor" red="0.92156862745098034" green="0.34509803921568627" blue="0.3529411764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <font key="NSFont" metaFont="system" size="19"/>
+                                                    <font key="NSFont" size="19" name="STHeitiTC-Medium"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
                                             </fragment>
                                         </attributedString>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zmH-Vn-gEa">
+                                        <rect key="frame" x="0.0" y="55" width="295" height="244"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="244" id="dBU-vJ-Dsa"/>
+                                        </constraints>
+                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="15" id="wjq-zh-coA">
+                                            <size key="itemSize" width="50" height="34"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="19" minY="10" maxX="19" maxY="10"/>
+                                        </collectionViewFlowLayout>
+                                        <cells>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="NameCallCollectionViewCell" id="Qyw-dX-o9c" customClass="NameCallCollectionViewCell" customModule="HouseworkRevolution" customModuleProvider="target">
+                                                <rect key="frame" x="19" y="10" width="50" height="34"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="34"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4iH-0X-Ay3">
+                                                            <rect key="frame" x="2" y="4.3333333333333339" width="46.333333333333336" height="25.333333333333329"/>
+                                                            <attributedString key="attributedText">
+                                                                <fragment content="Label">
+                                                                    <attributes>
+                                                                        <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <font key="NSFont" size="18" name="STHeitiTC-Medium"/>
+                                                                    </attributes>
+                                                                </fragment>
+                                                            </attributedString>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </view>
+                                                <constraints>
+                                                    <constraint firstItem="4iH-0X-Ay3" firstAttribute="centerX" secondItem="Qyw-dX-o9c" secondAttribute="centerX" id="2Zm-7S-gDh"/>
+                                                    <constraint firstItem="4iH-0X-Ay3" firstAttribute="centerY" secondItem="Qyw-dX-o9c" secondAttribute="centerY" id="7lO-lT-8Vu"/>
+                                                </constraints>
+                                                <connections>
+                                                    <outlet property="nameCall" destination="4iH-0X-Ay3" id="8VN-as-uGc"/>
+                                                </connections>
+                                            </collectionViewCell>
+                                        </cells>
+                                    </collectionView>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="給自己一個稱呼" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XjB-3l-nZG">
+                                        <rect key="frame" x="88.999999999999986" y="245" width="149.66666666666663" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KXF-vJ-Ep5">
+                                        <rect key="frame" x="21" y="307" width="105" height="27"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="新增家庭">
+                                                <attributes>
+                                                    <color key="NSColor" red="0.92156862745098034" green="0.34509803921568627" blue="0.3529411764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <font key="NSFont" size="19" name=".PingFangTC-Regular"/>
+                                                    <font key="NSOriginalFont" metaFont="system" size="19"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="為家取個名吧" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aoz-rd-EOo">
+                                        <rect key="frame" x="21" y="342" width="135" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ej-zS-5dG">
+                                        <rect key="frame" x="260" y="15" width="25" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="25" id="B5R-Nt-pXk"/>
+                                            <constraint firstAttribute="height" constant="25" id="UVv-mq-Hza"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="dismiss"/>
+                                        <connections>
+                                            <action selector="dissmissUserSetting:" destination="yts-FL-6fl" eventType="touchUpInside" id="hya-RO-KYp"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ImB-JT-XWr">
+                                        <rect key="frame" x="97.333333333333343" y="388" width="100" height="33"/>
+                                        <color key="backgroundColor" red="0.92941176469999998" green="0.41176470590000003" blue="0.42352941179999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="iTL-0v-LCo"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                        <state key="normal" title="建立我的家">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="ImB-JT-XWr" firstAttribute="centerX" secondItem="OjA-R0-w8O" secondAttribute="centerX" id="1j3-pz-LVp"/>
                                     <constraint firstAttribute="height" constant="450" id="8i6-YW-UYf"/>
+                                    <constraint firstItem="zmH-Vn-gEa" firstAttribute="width" secondItem="OjA-R0-w8O" secondAttribute="width" id="AZF-K6-ifB"/>
                                     <constraint firstAttribute="width" constant="295" id="H1G-tr-Kg5"/>
+                                    <constraint firstItem="6ej-zS-5dG" firstAttribute="top" secondItem="OjA-R0-w8O" secondAttribute="top" constant="15" id="HYy-oa-WVc"/>
+                                    <constraint firstItem="zmH-Vn-gEa" firstAttribute="top" secondItem="iqh-hs-gmP" secondAttribute="bottom" constant="10" id="K1y-Ss-4XC"/>
+                                    <constraint firstItem="aoz-rd-EOo" firstAttribute="top" secondItem="KXF-vJ-Ep5" secondAttribute="bottom" constant="10" id="Lm0-lZ-NYm"/>
+                                    <constraint firstItem="aoz-rd-EOo" firstAttribute="leading" secondItem="OjA-R0-w8O" secondAttribute="leading" constant="20" id="LtQ-sZ-YUb"/>
+                                    <constraint firstItem="ImB-JT-XWr" firstAttribute="top" secondItem="aoz-rd-EOo" secondAttribute="bottom" constant="30" id="QA7-Bg-IUz"/>
+                                    <constraint firstItem="KXF-vJ-Ep5" firstAttribute="leading" secondItem="OjA-R0-w8O" secondAttribute="leading" constant="20" id="eBz-rO-VOs"/>
                                     <constraint firstItem="iqh-hs-gmP" firstAttribute="top" secondItem="OjA-R0-w8O" secondAttribute="top" constant="18" id="hKc-bW-UxK"/>
-                                    <constraint firstItem="iqh-hs-gmP" firstAttribute="leading" secondItem="OjA-R0-w8O" secondAttribute="leading" constant="21" id="hxK-GW-4El"/>
+                                    <constraint firstItem="iqh-hs-gmP" firstAttribute="leading" secondItem="OjA-R0-w8O" secondAttribute="leading" constant="20" id="hxK-GW-4El"/>
+                                    <constraint firstAttribute="trailing" secondItem="6ej-zS-5dG" secondAttribute="trailing" constant="10" id="k3S-cc-SZf"/>
+                                    <constraint firstItem="XjB-3l-nZG" firstAttribute="leading" secondItem="OjA-R0-w8O" secondAttribute="leading" constant="89" id="muA-rQ-5nW"/>
+                                    <constraint firstItem="XjB-3l-nZG" firstAttribute="top" secondItem="OjA-R0-w8O" secondAttribute="top" constant="245" id="qlI-4v-ys4"/>
+                                    <constraint firstItem="zmH-Vn-gEa" firstAttribute="leading" secondItem="OjA-R0-w8O" secondAttribute="leading" id="qxy-1F-2Qf"/>
+                                    <constraint firstItem="KXF-vJ-Ep5" firstAttribute="top" secondItem="zmH-Vn-gEa" secondAttribute="bottom" id="rYD-Iu-eWX"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -214,6 +327,8 @@
                         <viewLayoutGuide key="safeArea" id="lao-we-X5k"/>
                     </view>
                     <connections>
+                        <outlet property="customUserName" destination="XjB-3l-nZG" id="hFA-jS-0IJ"/>
+                        <outlet property="nameCallSelection" destination="zmH-Vn-gEa" id="6kz-Bv-KFQ"/>
                         <outlet property="signInView" destination="h29-Y5-es4" id="LcR-W7-YgL"/>
                         <outlet property="signUpView" destination="obm-Za-jWW" id="2Cc-Xi-kIr"/>
                         <outlet property="userSettingView" destination="OjA-R0-w8O" id="Pev-tG-4Lb"/>
@@ -224,4 +339,7 @@
             <point key="canvasLocation" x="-917.39130434782612" y="12.053571428571429"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="dismiss" width="21.333333969116211" height="21.333333969116211"/>
+    </resources>
 </document>
