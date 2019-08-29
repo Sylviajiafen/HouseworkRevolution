@@ -26,6 +26,9 @@
 		03C1A57E23167CED008EAB76 /* NameSelectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03C1A57D23167CED008EAB76 /* NameSelectionView.xib */; };
 		03C1A58023167F82008EAB76 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1A57F23167F82008EAB76 /* UIView+Extension.swift */; };
 		03C1A5832316908D008EAB76 /* NameCallCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1A5822316908D008EAB76 /* NameCallCollectionViewCell.swift */; };
+		03C1A58D2317A2EB008EAB76 /* MissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1A58C2317A2EB008EAB76 /* MissionViewController.swift */; };
+		03C1A58F2317C6D2008EAB76 /* AddMissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1A58E2317C6D2008EAB76 /* AddMissionViewController.swift */; };
+		03C1A5912317C6E7008EAB76 /* CheckMissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1A5902317C6E7008EAB76 /* CheckMissionViewController.swift */; };
 		13C2546C9B3D4DD77EDFFF43 /* Pods_HouseworkRevolution.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1493339683728FA72397E709 /* Pods_HouseworkRevolution.framework */; };
 		A426424894EE163385C27B85 /* Pods_HouseworkRevolutionTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 768DABA652B8C169712D5223 /* Pods_HouseworkRevolutionTests.framework */; };
 /* End PBXBuildFile section */
@@ -64,6 +67,9 @@
 		03C1A57D23167CED008EAB76 /* NameSelectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NameSelectionView.xib; sourceTree = "<group>"; };
 		03C1A57F23167F82008EAB76 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		03C1A5822316908D008EAB76 /* NameCallCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameCallCollectionViewCell.swift; sourceTree = "<group>"; };
+		03C1A58C2317A2EB008EAB76 /* MissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionViewController.swift; sourceTree = "<group>"; };
+		03C1A58E2317C6D2008EAB76 /* AddMissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMissionViewController.swift; sourceTree = "<group>"; };
+		03C1A5902317C6E7008EAB76 /* CheckMissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckMissionViewController.swift; sourceTree = "<group>"; };
 		1493339683728FA72397E709 /* Pods_HouseworkRevolution.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HouseworkRevolution.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		282E80C58DF6B1DB0CB6F4EB /* Pods-HouseworkRevolutionTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HouseworkRevolutionTests.debug.xcconfig"; path = "Target Support Files/Pods-HouseworkRevolutionTests/Pods-HouseworkRevolutionTests.debug.xcconfig"; sourceTree = "<group>"; };
 		768DABA652B8C169712D5223 /* Pods_HouseworkRevolutionTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HouseworkRevolutionTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -147,6 +153,7 @@
 		03C1A563231664BC008EAB76 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				03C1A58B2317A256008EAB76 /* Mission */,
 				03C1A575231668A1008EAB76 /* Auth */,
 				03C1A564231664C9008EAB76 /* TabBar */,
 			);
@@ -201,6 +208,16 @@
 			children = (
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		03C1A58B2317A256008EAB76 /* Mission */ = {
+			isa = PBXGroup;
+			children = (
+				03C1A58C2317A2EB008EAB76 /* MissionViewController.swift */,
+				03C1A58E2317C6D2008EAB76 /* AddMissionViewController.swift */,
+				03C1A5902317C6E7008EAB76 /* CheckMissionViewController.swift */,
+			);
+			path = Mission;
 			sourceTree = "<group>";
 		};
 		2FF63852DA9196A7B69A8A6D /* Frameworks */ = {
@@ -423,7 +440,10 @@
 				03C1A548231662D9008EAB76 /* HouseworkRevolution.xcdatamodeld in Sources */,
 				03C1A577231668B7008EAB76 /* AuthViewController.swift in Sources */,
 				03C1A5832316908D008EAB76 /* NameCallCollectionViewCell.swift in Sources */,
+				03C1A5912317C6E7008EAB76 /* CheckMissionViewController.swift in Sources */,
+				03C1A58F2317C6D2008EAB76 /* AddMissionViewController.swift in Sources */,
 				03C1A5732316660D008EAB76 /* UIStoryboard+Extension.swift in Sources */,
+				03C1A58D2317A2EB008EAB76 /* MissionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
