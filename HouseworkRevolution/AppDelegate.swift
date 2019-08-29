@@ -14,8 +14,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+    func application(_ application: UIApplication,
+                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+         // first open app
+        if UserDefaults.standard.value(forKey: "userKey") == nil {
+            
+            window?.rootViewController = UIStoryboard.auth.instantiateInitialViewController()!
+            
+        } else {
+            
+            window?.rootViewController = UIStoryboard.main.instantiateInitialViewController()!
+        }
+        
         return true
     }
 
@@ -42,42 +53,63 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // MARK: - Core Data stack
 
-    lazy var persistentContainer: NSPersistentContainer = {
-        
-        let container = NSPersistentContainer(name: "HouseworkRevolution")
-        
-        container.loadPersistentStores(
-            
-            completionHandler: { (storeDescription, error) in
-                
-            if let error = error as NSError? {
-              
-                fatalError("Unresolved error \(error), \(error.userInfo)")
-            }
-        })
-        
-        return container
-        
-    }()
+//    lazy var persistentContainer: NSPersistentContainer = {
+//
+//        let container = NSPersistentContainer(name: "HouseworkRevolution")
+//
+//        container.loadPersistentStores(
+//
+//            completionHandler: { (storeDescription, error) in
+//
+//            if let error = error as NSError? {
+//
+//                fatalError("Unresolved error \(error), \(error.userInfo)")
+//            }
+//        })
+//
+//        return container
+//
+//    }()
 
     // MARK: - Core Data Saving support
 
-    func saveContext () {
-        let context = persistentContainer.viewContext
-        
-        if context.hasChanges {
-            
-            do {
-                
-                try context.save()
-                
-            } catch {
-                
-                let nserror = error as NSError
-                
-                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-            }
-        }
-    }
+//    func saveContext() {
+//
+//        let context = persistentContainer.viewContext
+//
+//        if context.hasChanges {
+//
+//            do {
+//
+//                try context.save()
+//
+//            } catch {
+//
+//                let nserror = error as NSError
+//
+//                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+//            }
+//        }
+//    }
+//
+//    func saveUserKey(_ key: String) {
+//
+//        let context = persistentContainer.viewContext
+//
+//        let userInfo = UserInfo(context: context)
+//
+//        userInfo.key = key
+//
+//        do {
+//
+//            try context.save()
+//
+//        } catch {
+//
+//            let nserror = error as NSError
+//
+//            fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+//        }
+//    }
 
 }

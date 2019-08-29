@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXAggregateTarget section */
@@ -19,15 +19,33 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		12419B3BBD6B6F4183E08FD8F8664EA0 /* Pods-HouseworkRevolution-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C260908D078882B4FD751FD994B22E4 /* Pods-HouseworkRevolution-dummy.m */; };
-		4EAFEBBE9D86935A9E249C5A21571126 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		87351A2BBC8B706FF79E8440650A2C7E /* Pods-HouseworkRevolutionTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E82ACB9AE865F85F0875D38891179945 /* Pods-HouseworkRevolutionTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0441B3E976E5F55E22731AECFF0DBA88 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1411D9C2DE8CB6072DBB89D9501B3BFA /* Keychain.swift */; };
+		4AEB48FE18565A59266480250E7C3FEA /* KeychainAccess-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 86ADC75DFBD76074C6F385BFD82851D9 /* KeychainAccess-dummy.m */; };
+		6733A32A971AAB8E41D64F30BF9F3097 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		87351A2BBC8B706FF79E8440650A2C7E /* Pods-HouseworkRevolutionTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F10F21703790E6A27CE155E2DF3750B7 /* Pods-HouseworkRevolutionTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		90DA5B1144F2416969BDE04FCDC58BDF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		A544EE138EE4EFED24E8C0134C660E8D /* Pods-HouseworkRevolution-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E2E06BC598AD3A1F31157068C24B905 /* Pods-HouseworkRevolution-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F2BD58920D3B3FD0B4A6AE6686BE54E0 /* Pods-HouseworkRevolutionTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 63DC0B7AD46E2696546FEF9A7A57DA9C /* Pods-HouseworkRevolutionTests-dummy.m */; };
+		9EC4DC3F4A764364051BE6DB7FD72161 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		C545B0B78F10ADFB62C6CD1F611E753C /* Pods-HouseworkRevolution-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0387899E9989E9E79A0D1E6D04A9A3FE /* Pods-HouseworkRevolution-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC1531D30D1FF012D74E3AA6685B6F23 /* Pods-HouseworkRevolution-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E53C7B0E8E21C2164F8C868B52D269F7 /* Pods-HouseworkRevolution-dummy.m */; };
+		EEADFC5C1C5EC6E3E20506B8E069931D /* KeychainAccess-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F4C33229602472C3468A7F6CACD3F0A6 /* KeychainAccess-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F2BD58920D3B3FD0B4A6AE6686BE54E0 /* Pods-HouseworkRevolutionTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D10B1F654602CEB6AAAD11C6B50D01EF /* Pods-HouseworkRevolutionTests-dummy.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		03B8CE97C0B9BEE3E96971FC3A73F061 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 52B60EC2A583F24ACBB69C113F5488B9;
+			remoteInfo = SwiftLint;
+		};
+		1E70C42AD3E0594654547033C970E23E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 615C831BCE925ED486B225B87E44926D;
+			remoteInfo = KeychainAccess;
+		};
 		6FF85E411D33F4BA9B191AEF58E10166 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
@@ -35,45 +53,47 @@
 			remoteGlobalIDString = 9DEC750E8DCF3D911016EA0DD12DA7D6;
 			remoteInfo = "Pods-HouseworkRevolution";
 		};
-		A32096B9A93771DBB3F6A8FB6A8864F2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 52B60EC2A583F24ACBB69C113F5488B9;
-			remoteInfo = SwiftLint;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		103F56588A4DBB4D22700E1F15AE81B6 /* Pods-HouseworkRevolutionTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-HouseworkRevolutionTests.modulemap"; sourceTree = "<group>"; };
-		14F2B6B5FD00BFA7F589D3521E6A1FF5 /* Pods-HouseworkRevolutionTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-HouseworkRevolutionTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		0387899E9989E9E79A0D1E6D04A9A3FE /* Pods-HouseworkRevolution-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-HouseworkRevolution-umbrella.h"; sourceTree = "<group>"; };
+		1411D9C2DE8CB6072DBB89D9501B3BFA /* Keychain.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Keychain.swift; path = Lib/KeychainAccess/Keychain.swift; sourceTree = "<group>"; };
+		159444E2540B0BD05ACAD5B2A2B7C055 /* Pods-HouseworkRevolutionTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-HouseworkRevolutionTests.modulemap"; sourceTree = "<group>"; };
+		1DFA312DC3D4C3F5B39875B444248C57 /* Pods-HouseworkRevolution-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-HouseworkRevolution-acknowledgements.markdown"; sourceTree = "<group>"; };
 		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		37A74C307F5FAE87D1E62CB2A7C7FA79 /* Pods-HouseworkRevolutionTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HouseworkRevolutionTests.debug.xcconfig"; sourceTree = "<group>"; };
 		3AC2EFB376E60116227E5734A507DDF7 /* Pods_HouseworkRevolutionTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_HouseworkRevolutionTests.framework; path = "Pods-HouseworkRevolutionTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4C260908D078882B4FD751FD994B22E4 /* Pods-HouseworkRevolution-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-HouseworkRevolution-dummy.m"; sourceTree = "<group>"; };
-		57338753FE9D441C79B48DADCCCDB92C /* Pods-HouseworkRevolution.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HouseworkRevolution.debug.xcconfig"; sourceTree = "<group>"; };
-		5B412BA2A8E59184B7F3F47D82FED548 /* Pods-HouseworkRevolution-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-HouseworkRevolution-Info.plist"; sourceTree = "<group>"; };
-		60E61005698622E2B263A7A56F77FD48 /* Pods-HouseworkRevolutionTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HouseworkRevolutionTests.release.xcconfig"; sourceTree = "<group>"; };
-		63DC0B7AD46E2696546FEF9A7A57DA9C /* Pods-HouseworkRevolutionTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-HouseworkRevolutionTests-dummy.m"; sourceTree = "<group>"; };
-		68A01264A22A4220A07DF281D6B60F7A /* Pods-HouseworkRevolution-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-HouseworkRevolution-acknowledgements.markdown"; sourceTree = "<group>"; };
-		772B7D558E1454E7F0601327D70BBBD1 /* Pods-HouseworkRevolution.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-HouseworkRevolution.modulemap"; sourceTree = "<group>"; };
-		7E2E06BC598AD3A1F31157068C24B905 /* Pods-HouseworkRevolution-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-HouseworkRevolution-umbrella.h"; sourceTree = "<group>"; };
-		89F85ACF3D78B39506B75103B4694B36 /* SwiftLint.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftLint.xcconfig; sourceTree = "<group>"; };
-		9990DA3949A059C99B9EE12723FDB96C /* Pods-HouseworkRevolutionTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-HouseworkRevolutionTests-Info.plist"; sourceTree = "<group>"; };
+		71D8F29CB23CDC6E0BF49D58B4A52F0D /* Pods-HouseworkRevolution.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HouseworkRevolution.release.xcconfig"; sourceTree = "<group>"; };
+		86ADC75DFBD76074C6F385BFD82851D9 /* KeychainAccess-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "KeychainAccess-dummy.m"; sourceTree = "<group>"; };
+		877C7B80BBFEE6A9CEB5A21EF3955F7F /* Pods-HouseworkRevolutionTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-HouseworkRevolutionTests-Info.plist"; sourceTree = "<group>"; };
 		9B503216B02DE5F52C482624763EFB59 /* Pods_HouseworkRevolution.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_HouseworkRevolution.framework; path = "Pods-HouseworkRevolution.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D79AE59AC3FD76957EF032DAB7357A6 /* KeychainAccess.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = KeychainAccess.xcconfig; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		CBDB7B0A5D59C02EB82A3F43390A7B96 /* Pods-HouseworkRevolution.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HouseworkRevolution.release.xcconfig"; sourceTree = "<group>"; };
-		CF5ACDDD62FEB2CB8A50CCDED2C61CAB /* Pods-HouseworkRevolution-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-HouseworkRevolution-acknowledgements.plist"; sourceTree = "<group>"; };
-		DD40B59D564436B171F7829DE0484117 /* Pods-HouseworkRevolutionTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-HouseworkRevolutionTests-acknowledgements.plist"; sourceTree = "<group>"; };
-		E82ACB9AE865F85F0875D38891179945 /* Pods-HouseworkRevolutionTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-HouseworkRevolutionTests-umbrella.h"; sourceTree = "<group>"; };
+		A248553BF5DA4513B08E5AB23091D5C5 /* SwiftLint.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftLint.xcconfig; sourceTree = "<group>"; };
+		AC157BA7A0390297B4D9891CA9DD5444 /* Pods-HouseworkRevolutionTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-HouseworkRevolutionTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		AC339C5709B58DD587BD1BC0FD1219CF /* KeychainAccess.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = KeychainAccess.modulemap; sourceTree = "<group>"; };
+		AF75B0F0559AB5CDD572F79415B6F25B /* Pods-HouseworkRevolutionTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-HouseworkRevolutionTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		B02B90B82593CFDD0193B015B156F2DC /* Pods-HouseworkRevolution-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-HouseworkRevolution-frameworks.sh"; sourceTree = "<group>"; };
+		B406087EA73E4552464C1C11287EFE74 /* KeychainAccess-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "KeychainAccess-Info.plist"; sourceTree = "<group>"; };
+		CA6F9086BDBE845D75F493765BFA6BD4 /* Pods-HouseworkRevolution.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HouseworkRevolution.debug.xcconfig"; sourceTree = "<group>"; };
+		D10B1F654602CEB6AAAD11C6B50D01EF /* Pods-HouseworkRevolutionTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-HouseworkRevolutionTests-dummy.m"; sourceTree = "<group>"; };
+		D59D205AEEA374A4DD398B33FD11A505 /* Pods-HouseworkRevolution-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-HouseworkRevolution-Info.plist"; sourceTree = "<group>"; };
+		D5B623018CAAAA6E139B80684392D97A /* Pods-HouseworkRevolution.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-HouseworkRevolution.modulemap"; sourceTree = "<group>"; };
+		E07D67F8AE3D9671692EC4392861D8DF /* Pods-HouseworkRevolution-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-HouseworkRevolution-acknowledgements.plist"; sourceTree = "<group>"; };
+		E28282CE5DE29E884135BC1F2450DD61 /* Pods-HouseworkRevolutionTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HouseworkRevolutionTests.release.xcconfig"; sourceTree = "<group>"; };
+		E53C7B0E8E21C2164F8C868B52D269F7 /* Pods-HouseworkRevolution-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-HouseworkRevolution-dummy.m"; sourceTree = "<group>"; };
+		E8EE7F078656FABB8F6821D10FF994BB /* KeychainAccess.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = KeychainAccess.framework; path = KeychainAccess.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F10F21703790E6A27CE155E2DF3750B7 /* Pods-HouseworkRevolutionTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-HouseworkRevolutionTests-umbrella.h"; sourceTree = "<group>"; };
+		F4C33229602472C3468A7F6CACD3F0A6 /* KeychainAccess-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KeychainAccess-umbrella.h"; sourceTree = "<group>"; };
+		F630C2DFCF5B759F726AC47B4DB1F4AE /* KeychainAccess-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KeychainAccess-prefix.pch"; sourceTree = "<group>"; };
+		FC1FD49210F39D56D318C0D4A47E6FE8 /* Pods-HouseworkRevolutionTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HouseworkRevolutionTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		A2FA36506ED0F3AFD6F1A4205E1A83EA /* Frameworks */ = {
+		7668D0A8468B5894E555ECAA4EC50BC1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4EAFEBBE9D86935A9E249C5A21571126 /* Foundation.framework in Frameworks */,
+				9EC4DC3F4A764364051BE6DB7FD72161 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,49 +105,92 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C2C836351E75388A52231B8024ACD1E1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6733A32A971AAB8E41D64F30BF9F3097 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4D4478411E0F8F068F61AA4A764ABAFC /* Products */ = {
+		334CB72FBBA9763B17443993B6727765 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				9B503216B02DE5F52C482624763EFB59 /* Pods_HouseworkRevolution.framework */,
-				3AC2EFB376E60116227E5734A507DDF7 /* Pods_HouseworkRevolutionTests.framework */,
+				5326AEB83B0E3D4C76BCBB25C14462CE /* KeychainAccess */,
+				734E1A136E6101550A2955F15D90E098 /* SwiftLint */,
 			);
-			name = Products;
+			name = Pods;
 			sourceTree = "<group>";
 		};
-		61C223AC7D6835A8BAA9E82B7A44B154 /* Pods-HouseworkRevolution */ = {
+		3E72FA91DFAF1D97D19DF27D501122F6 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				772B7D558E1454E7F0601327D70BBBD1 /* Pods-HouseworkRevolution.modulemap */,
-				68A01264A22A4220A07DF281D6B60F7A /* Pods-HouseworkRevolution-acknowledgements.markdown */,
-				CF5ACDDD62FEB2CB8A50CCDED2C61CAB /* Pods-HouseworkRevolution-acknowledgements.plist */,
-				4C260908D078882B4FD751FD994B22E4 /* Pods-HouseworkRevolution-dummy.m */,
-				5B412BA2A8E59184B7F3F47D82FED548 /* Pods-HouseworkRevolution-Info.plist */,
-				7E2E06BC598AD3A1F31157068C24B905 /* Pods-HouseworkRevolution-umbrella.h */,
-				57338753FE9D441C79B48DADCCCDB92C /* Pods-HouseworkRevolution.debug.xcconfig */,
-				CBDB7B0A5D59C02EB82A3F43390A7B96 /* Pods-HouseworkRevolution.release.xcconfig */,
+				A248553BF5DA4513B08E5AB23091D5C5 /* SwiftLint.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SwiftLint";
+			sourceTree = "<group>";
+		};
+		5326AEB83B0E3D4C76BCBB25C14462CE /* KeychainAccess */ = {
+			isa = PBXGroup;
+			children = (
+				1411D9C2DE8CB6072DBB89D9501B3BFA /* Keychain.swift */,
+				A709805C3224F809A8701FEBB23660CF /* Support Files */,
+			);
+			name = KeychainAccess;
+			path = KeychainAccess;
+			sourceTree = "<group>";
+		};
+		5C38DBF103B35CACED0BABCD9FE40ECC /* Pods-HouseworkRevolution */ = {
+			isa = PBXGroup;
+			children = (
+				D5B623018CAAAA6E139B80684392D97A /* Pods-HouseworkRevolution.modulemap */,
+				1DFA312DC3D4C3F5B39875B444248C57 /* Pods-HouseworkRevolution-acknowledgements.markdown */,
+				E07D67F8AE3D9671692EC4392861D8DF /* Pods-HouseworkRevolution-acknowledgements.plist */,
+				E53C7B0E8E21C2164F8C868B52D269F7 /* Pods-HouseworkRevolution-dummy.m */,
+				B02B90B82593CFDD0193B015B156F2DC /* Pods-HouseworkRevolution-frameworks.sh */,
+				D59D205AEEA374A4DD398B33FD11A505 /* Pods-HouseworkRevolution-Info.plist */,
+				0387899E9989E9E79A0D1E6D04A9A3FE /* Pods-HouseworkRevolution-umbrella.h */,
+				CA6F9086BDBE845D75F493765BFA6BD4 /* Pods-HouseworkRevolution.debug.xcconfig */,
+				71D8F29CB23CDC6E0BF49D58B4A52F0D /* Pods-HouseworkRevolution.release.xcconfig */,
 			);
 			name = "Pods-HouseworkRevolution";
 			path = "Target Support Files/Pods-HouseworkRevolution";
 			sourceTree = "<group>";
 		};
-		965877409E01FB3D85D85E90E6B30185 /* Pods */ = {
+		734E1A136E6101550A2955F15D90E098 /* SwiftLint */ = {
 			isa = PBXGroup;
 			children = (
-				9AED61B9A1CFA211C061344F741DBA07 /* SwiftLint */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		9AED61B9A1CFA211C061344F741DBA07 /* SwiftLint */ = {
-			isa = PBXGroup;
-			children = (
-				EEA599FE5C15138FF0981CCFB01E55AA /* Support Files */,
+				3E72FA91DFAF1D97D19DF27D501122F6 /* Support Files */,
 			);
 			name = SwiftLint;
 			path = SwiftLint;
+			sourceTree = "<group>";
+		};
+		A709805C3224F809A8701FEBB23660CF /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				AC339C5709B58DD587BD1BC0FD1219CF /* KeychainAccess.modulemap */,
+				9D79AE59AC3FD76957EF032DAB7357A6 /* KeychainAccess.xcconfig */,
+				86ADC75DFBD76074C6F385BFD82851D9 /* KeychainAccess-dummy.m */,
+				B406087EA73E4552464C1C11287EFE74 /* KeychainAccess-Info.plist */,
+				F630C2DFCF5B759F726AC47B4DB1F4AE /* KeychainAccess-prefix.pch */,
+				F4C33229602472C3468A7F6CACD3F0A6 /* KeychainAccess-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/KeychainAccess";
+			sourceTree = "<group>";
+		};
+		AB170F8C2201EDC05F4C03BC5A555670 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				5C38DBF103B35CACED0BABCD9FE40ECC /* Pods-HouseworkRevolution */,
+				C4A1A782A7F6BEE1D4E8E86AFA3AAF4C /* Pods-HouseworkRevolutionTests */,
+			);
+			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
 		C0834CEBB1379A84116EF29F93051C60 /* iOS */ = {
@@ -138,29 +201,20 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		C5919D6D0864353A829FB7C7DCC80B1C /* Pods-HouseworkRevolutionTests */ = {
+		C4A1A782A7F6BEE1D4E8E86AFA3AAF4C /* Pods-HouseworkRevolutionTests */ = {
 			isa = PBXGroup;
 			children = (
-				103F56588A4DBB4D22700E1F15AE81B6 /* Pods-HouseworkRevolutionTests.modulemap */,
-				14F2B6B5FD00BFA7F589D3521E6A1FF5 /* Pods-HouseworkRevolutionTests-acknowledgements.markdown */,
-				DD40B59D564436B171F7829DE0484117 /* Pods-HouseworkRevolutionTests-acknowledgements.plist */,
-				63DC0B7AD46E2696546FEF9A7A57DA9C /* Pods-HouseworkRevolutionTests-dummy.m */,
-				9990DA3949A059C99B9EE12723FDB96C /* Pods-HouseworkRevolutionTests-Info.plist */,
-				E82ACB9AE865F85F0875D38891179945 /* Pods-HouseworkRevolutionTests-umbrella.h */,
-				37A74C307F5FAE87D1E62CB2A7C7FA79 /* Pods-HouseworkRevolutionTests.debug.xcconfig */,
-				60E61005698622E2B263A7A56F77FD48 /* Pods-HouseworkRevolutionTests.release.xcconfig */,
+				159444E2540B0BD05ACAD5B2A2B7C055 /* Pods-HouseworkRevolutionTests.modulemap */,
+				AC157BA7A0390297B4D9891CA9DD5444 /* Pods-HouseworkRevolutionTests-acknowledgements.markdown */,
+				AF75B0F0559AB5CDD572F79415B6F25B /* Pods-HouseworkRevolutionTests-acknowledgements.plist */,
+				D10B1F654602CEB6AAAD11C6B50D01EF /* Pods-HouseworkRevolutionTests-dummy.m */,
+				877C7B80BBFEE6A9CEB5A21EF3955F7F /* Pods-HouseworkRevolutionTests-Info.plist */,
+				F10F21703790E6A27CE155E2DF3750B7 /* Pods-HouseworkRevolutionTests-umbrella.h */,
+				FC1FD49210F39D56D318C0D4A47E6FE8 /* Pods-HouseworkRevolutionTests.debug.xcconfig */,
+				E28282CE5DE29E884135BC1F2450DD61 /* Pods-HouseworkRevolutionTests.release.xcconfig */,
 			);
 			name = "Pods-HouseworkRevolutionTests";
 			path = "Target Support Files/Pods-HouseworkRevolutionTests";
-			sourceTree = "<group>";
-		};
-		CE41DD47A990EA49B8633FB8E39AA2AB /* Targets Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				61C223AC7D6835A8BAA9E82B7A44B154 /* Pods-HouseworkRevolution */,
-				C5919D6D0864353A829FB7C7DCC80B1C /* Pods-HouseworkRevolutionTests */,
-			);
-			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
 		CF1408CF629C7361332E53B88F7BD30C = {
@@ -168,9 +222,9 @@
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
-				965877409E01FB3D85D85E90E6B30185 /* Pods */,
-				4D4478411E0F8F068F61AA4A764ABAFC /* Products */,
-				CE41DD47A990EA49B8633FB8E39AA2AB /* Targets Support Files */,
+				334CB72FBBA9763B17443993B6727765 /* Pods */,
+				F4E877A9F55BFF5C07CF28A8AEC66450 /* Products */,
+				AB170F8C2201EDC05F4C03BC5A555670 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
@@ -182,18 +236,35 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		EEA599FE5C15138FF0981CCFB01E55AA /* Support Files */ = {
+		F4E877A9F55BFF5C07CF28A8AEC66450 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				89F85ACF3D78B39506B75103B4694B36 /* SwiftLint.xcconfig */,
+				E8EE7F078656FABB8F6821D10FF994BB /* KeychainAccess.framework */,
+				9B503216B02DE5F52C482624763EFB59 /* Pods_HouseworkRevolution.framework */,
+				3AC2EFB376E60116227E5734A507DDF7 /* Pods_HouseworkRevolutionTests.framework */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/SwiftLint";
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		39CC3E71CEA7805FCA03E3A1CC052EEA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EEADFC5C1C5EC6E3E20506B8E069931D /* KeychainAccess-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		443EB6546695BC1D58F3680E798BB75C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C545B0B78F10ADFB62C6CD1F611E753C /* Pods-HouseworkRevolution-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5E0B417BDF27E64D4BBC8F4FAAD7D178 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -202,17 +273,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AA301873CFF6AB45AD6E6E66D414A936 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A544EE138EE4EFED24E8C0134C660E8D /* Pods-HouseworkRevolution-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		615C831BCE925ED486B225B87E44926D /* KeychainAccess */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4BEE926243448802ACA6F07A75D9C025 /* Build configuration list for PBXNativeTarget "KeychainAccess" */;
+			buildPhases = (
+				39CC3E71CEA7805FCA03E3A1CC052EEA /* Headers */,
+				C4DE4004EE1661FE4BC4E6C40415F599 /* Sources */,
+				7668D0A8468B5894E555ECAA4EC50BC1 /* Frameworks */,
+				AE292B4411627ABE21EB769134C1E8BB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KeychainAccess;
+			productName = KeychainAccess;
+			productReference = E8EE7F078656FABB8F6821D10FF994BB /* KeychainAccess.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		8A2CB99B7C0E04A2725E68A42C01E7AD /* Pods-HouseworkRevolutionTests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = E484B6760524E0E1C654D92569EE9809 /* Build configuration list for PBXNativeTarget "Pods-HouseworkRevolutionTests" */;
@@ -234,17 +315,18 @@
 		};
 		9DEC750E8DCF3D911016EA0DD12DA7D6 /* Pods-HouseworkRevolution */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 55D481C127B561EDA58C7F2ED926573E /* Build configuration list for PBXNativeTarget "Pods-HouseworkRevolution" */;
+			buildConfigurationList = 8193CEBBCD228233784F2282E5CCEEC9 /* Build configuration list for PBXNativeTarget "Pods-HouseworkRevolution" */;
 			buildPhases = (
-				AA301873CFF6AB45AD6E6E66D414A936 /* Headers */,
-				C908B8EBD9103E140EBED6AFD5F708D1 /* Sources */,
-				A2FA36506ED0F3AFD6F1A4205E1A83EA /* Frameworks */,
-				2159CDE7E4F0AB61782C1C653B9D0C5F /* Resources */,
+				443EB6546695BC1D58F3680E798BB75C /* Headers */,
+				8EA36E495D1E4484A43674CCC0758EE2 /* Sources */,
+				C2C836351E75388A52231B8024ACD1E1 /* Frameworks */,
+				D12F91B8A3DFB397101EBBC268E23DD7 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				E8502B3E98480A7F48CB805A2998D870 /* PBXTargetDependency */,
+				21470DAFD150AC10DC5BD1F2ED406B47 /* PBXTargetDependency */,
+				C86EDC97C25955D7E428D9734327FDD4 /* PBXTargetDependency */,
 			);
 			name = "Pods-HouseworkRevolution";
 			productName = "Pods-HouseworkRevolution";
@@ -261,17 +343,18 @@
 				LastUpgradeCheck = 1100;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 10.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = 4D4478411E0F8F068F61AA4A764ABAFC /* Products */;
+			productRefGroup = F4E877A9F55BFF5C07CF28A8AEC66450 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				615C831BCE925ED486B225B87E44926D /* KeychainAccess */,
 				9DEC750E8DCF3D911016EA0DD12DA7D6 /* Pods-HouseworkRevolution */,
 				8A2CB99B7C0E04A2725E68A42C01E7AD /* Pods-HouseworkRevolutionTests */,
 				52B60EC2A583F24ACBB69C113F5488B9 /* SwiftLint */,
@@ -280,14 +363,21 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		2159CDE7E4F0AB61782C1C653B9D0C5F /* Resources */ = {
+		5B9EBD47B3566411F2F1680EBB9878C5 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5B9EBD47B3566411F2F1680EBB9878C5 /* Resources */ = {
+		AE292B4411627ABE21EB769134C1E8BB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D12F91B8A3DFB397101EBBC268E23DD7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -297,6 +387,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		8EA36E495D1E4484A43674CCC0758EE2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC1531D30D1FF012D74E3AA6685B6F23 /* Pods-HouseworkRevolution-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9621584ED246E7740944CF1A75639E0C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -305,28 +403,35 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C908B8EBD9103E140EBED6AFD5F708D1 /* Sources */ = {
+		C4DE4004EE1661FE4BC4E6C40415F599 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				12419B3BBD6B6F4183E08FD8F8664EA0 /* Pods-HouseworkRevolution-dummy.m in Sources */,
+				0441B3E976E5F55E22731AECFF0DBA88 /* Keychain.swift in Sources */,
+				4AEB48FE18565A59266480250E7C3FEA /* KeychainAccess-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		21470DAFD150AC10DC5BD1F2ED406B47 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = KeychainAccess;
+			target = 615C831BCE925ED486B225B87E44926D /* KeychainAccess */;
+			targetProxy = 1E70C42AD3E0594654547033C970E23E /* PBXContainerItemProxy */;
+		};
 		26FAA9991F39E77F5297114A6A6175A5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-HouseworkRevolution";
 			target = 9DEC750E8DCF3D911016EA0DD12DA7D6 /* Pods-HouseworkRevolution */;
 			targetProxy = 6FF85E411D33F4BA9B191AEF58E10166 /* PBXContainerItemProxy */;
 		};
-		E8502B3E98480A7F48CB805A2998D870 /* PBXTargetDependency */ = {
+		C86EDC97C25955D7E428D9734327FDD4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = SwiftLint;
 			target = 52B60EC2A583F24ACBB69C113F5488B9 /* SwiftLint */;
-			targetProxy = A32096B9A93771DBB3F6A8FB6A8864F2 /* PBXContainerItemProxy */;
+			targetProxy = 03B8CE97C0B9BEE3E96971FC3A73F061 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -397,7 +502,7 @@
 		};
 		2848DB09B21151805EFC33AF92B82EBD /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 37A74C307F5FAE87D1E62CB2A7C7FA79 /* Pods-HouseworkRevolutionTests.debug.xcconfig */;
+			baseConfigurationReference = FC1FD49210F39D56D318C0D4A47E6FE8 /* Pods-HouseworkRevolutionTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -493,9 +598,83 @@
 			};
 			name = Release;
 		};
+		4071EDB7F210E1768222F3A2E7EB580C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CA6F9086BDBE845D75F493765BFA6BD4 /* Pods-HouseworkRevolution.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-HouseworkRevolution/Pods-HouseworkRevolution-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-HouseworkRevolution/Pods-HouseworkRevolution.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		4D7B47C1C925E85EF583F90672CFDCED /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9D79AE59AC3FD76957EF032DAB7357A6 /* KeychainAccess.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/KeychainAccess/KeychainAccess-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/KeychainAccess/KeychainAccess-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/KeychainAccess/KeychainAccess.modulemap";
+				PRODUCT_MODULE_NAME = KeychainAccess;
+				PRODUCT_NAME = KeychainAccess;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		5234EFD59C90A11D17FBF9244B64B6FA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 60E61005698622E2B263A7A56F77FD48 /* Pods-HouseworkRevolutionTests.release.xcconfig */;
+			baseConfigurationReference = E28282CE5DE29E884135BC1F2450DD61 /* Pods-HouseworkRevolutionTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -532,12 +711,10 @@
 			};
 			name = Release;
 		};
-		652DCBCD436D1372E1B020BB42E70E03 /* Debug */ = {
+		5D237BFE5BE554A49204FA025EAC7A41 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 57338753FE9D441C79B48DADCCCDB92C /* Pods-HouseworkRevolution.debug.xcconfig */;
+			baseConfigurationReference = 9D79AE59AC3FD76957EF032DAB7357A6 /* KeychainAccess.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -547,71 +724,31 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-HouseworkRevolution/Pods-HouseworkRevolution-Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/KeychainAccess/KeychainAccess-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/KeychainAccess/KeychainAccess-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-HouseworkRevolution/Pods-HouseworkRevolution.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				MODULEMAP_FILE = "Target Support Files/KeychainAccess/KeychainAccess.modulemap";
+				PRODUCT_MODULE_NAME = KeychainAccess;
+				PRODUCT_NAME = KeychainAccess;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
-		716BD5FDE3BD1C7ED401DEC05FDCBC8D /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = CBDB7B0A5D59C02EB82A3F43390A7B96 /* Pods-HouseworkRevolution.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-HouseworkRevolution/Pods-HouseworkRevolution-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-HouseworkRevolution/Pods-HouseworkRevolution.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 		84D7C4574E8F0F3095623F0E06F5B402 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 89F85ACF3D78B39506B75103B4694B36 /* SwiftLint.xcconfig */;
+			baseConfigurationReference = A248553BF5DA4513B08E5AB23091D5C5 /* SwiftLint.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -628,7 +765,7 @@
 		};
 		DEED47E09AF743F48544C1C4FEADEF47 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 89F85ACF3D78B39506B75103B4694B36 /* SwiftLint.xcconfig */;
+			baseConfigurationReference = A248553BF5DA4513B08E5AB23091D5C5 /* SwiftLint.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -642,6 +779,45 @@
 			};
 			name = Debug;
 		};
+		EDDDBCDA3B769E054BA5D2B1A03477EC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 71D8F29CB23CDC6E0BF49D58B4A52F0D /* Pods-HouseworkRevolution.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-HouseworkRevolution/Pods-HouseworkRevolution-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-HouseworkRevolution/Pods-HouseworkRevolution.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -654,11 +830,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		55D481C127B561EDA58C7F2ED926573E /* Build configuration list for PBXNativeTarget "Pods-HouseworkRevolution" */ = {
+		4BEE926243448802ACA6F07A75D9C025 /* Build configuration list for PBXNativeTarget "KeychainAccess" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				652DCBCD436D1372E1B020BB42E70E03 /* Debug */,
-				716BD5FDE3BD1C7ED401DEC05FDCBC8D /* Release */,
+				5D237BFE5BE554A49204FA025EAC7A41 /* Debug */,
+				4D7B47C1C925E85EF583F90672CFDCED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8193CEBBCD228233784F2282E5CCEEC9 /* Build configuration list for PBXNativeTarget "Pods-HouseworkRevolution" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4071EDB7F210E1768222F3A2E7EB580C /* Debug */,
+				EDDDBCDA3B769E054BA5D2B1A03477EC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
