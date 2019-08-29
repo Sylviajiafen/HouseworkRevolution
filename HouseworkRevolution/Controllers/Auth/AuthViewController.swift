@@ -20,6 +20,10 @@ class AuthViewController: UIViewController {
     
     @IBOutlet weak var customUserName: UITextField!
     
+    @IBOutlet weak var createPassword: UITextField!
+    
+    @IBOutlet weak var createHomeName: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,9 +41,17 @@ class AuthViewController: UIViewController {
     
     @IBAction func showUserSetting(_ sender: Any) {
         
-        userSettingView.isHidden = false
+        if createPassword.text == "" {
+            
+            showAlertOfNilText()
+        
+        } else {
+        
+            userSettingView.isHidden = false
+         
+            // TODO: 建一筆新資料存到 dataBase
+        }
     }
-    
     
     @IBAction func showSignIn(_ sender: Any) {
         
@@ -56,9 +68,9 @@ class AuthViewController: UIViewController {
         userSettingView.isHidden = true
     }
     
-    func showAlertOfNilName() {
+    func showAlertOfNilText() {
         
-        let alert = UIAlertController(title: nil, message: "自訂名稱不可空白唷！", preferredStyle: .alert)
+        let alert = UIAlertController(title: nil, message: "欄位留白囉", preferredStyle: .alert)
         
         let action = UIAlertAction(title: "OK", style: .cancel)
         
@@ -68,11 +80,58 @@ class AuthViewController: UIViewController {
         
     }
     
+    func showShouldSelect() {
+            
+            let alert = UIAlertController(title: nil, message: "選擇一個稱呼後才能建立家唷", preferredStyle: .alert)
+            
+            let action = UIAlertAction(title: "OK", style: .cancel)
+            
+            alert.addAction(action)
+            
+            present(alert, animated: true, completion: nil)
+        
+    }
+    
+    var selectedNameIndex: Int?
+    
     let nameCalls = ["老爸", "老媽", "兒子", "女兒",
                      "爹地", "媽咪", "哥哥", "姊姊",
                      "爸爸", "媽媽", "弟弟", "妹妹",
                      "男友", "女友", "室友", "情人",
                      "自訂"]
+    
+    @IBAction func createNewHome(_ sender: Any) {
+        
+        if selectedNameIndex == nil {
+            
+            showShouldSelect()
+        
+        } else {
+            
+            if selectedNameIndex == nameCalls.count - 1 && customUserName.text == "" {
+                
+                showAlertOfNilText()
+                
+            } else {
+             
+                if createHomeName.text == "" {
+                    
+                    showAlertOfNilText()
+                    
+                } else {
+                    
+                    // TODO: 將資料存到 dataBase
+                }
+            }
+        }
+        
+    }
+    
+    @IBAction func findHome(_ sender: Any) {
+        
+        // TODO: 找 dataBase 的資料
+    }
+    
 }
 
 extension AuthViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -93,10 +152,6 @@ extension AuthViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
         nameCallItem.nameCall.text = nameCalls[indexPath.row]
         
-        nameCallItem.clipsToBounds = true
-        
-        nameCallItem.layer.cornerRadius = 5
-        
         return nameCallItem
     }
     
@@ -116,6 +171,8 @@ extension AuthViewController: UICollectionViewDelegate, UICollectionViewDataSour
             
         }
         
+        selectedNameIndex = indexPath.row
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
@@ -134,30 +191,4 @@ extension AuthViewController: UICollectionViewDelegate, UICollectionViewDataSour
             
         }
     }
-}
-
-extension AuthViewController: UITextFieldDelegate {
-    
-    // 設定按下完成按鈕後若 customUserName 沒有被隱藏，而且 text 是 nil 才 showAlert
-    
-//    func textFieldDidEndEditing(_ textField: UITextField) {
-//
-//        switch textField {
-//
-//        case customUserName:
-//
-//            if textField.text == nil {
-//
-//                showAlertOfNilName()
-//
-//            } else {
-//
-//                // TODO
-//            }
-//
-//        default:
-//
-//            print("textFieldDidEndEditing")
-//        }
-//    }
 }
