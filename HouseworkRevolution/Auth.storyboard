@@ -113,7 +113,6 @@
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="findHome:" destination="yts-FL-6fl" eventType="touchUpInside" id="jud-S4-ZU1"/>
-                                            <segue destination="TJr-xP-AUc" kind="show" id="ra4-KZ-yF0"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jyY-mx-Jz6">
@@ -308,7 +307,6 @@
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="createNewHome:" destination="yts-FL-6fl" eventType="touchUpInside" id="CFW-7n-xvU"/>
-                                            <segue destination="TJr-xP-AUc" kind="show" id="ynr-PU-1TB"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -370,19 +368,8 @@
             </objects>
             <point key="canvasLocation" x="-917.39130434782612" y="12.053571428571429"/>
         </scene>
-        <!--Main-->
-        <scene sceneID="pJ7-he-j7Q">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Main" id="TJr-xP-AUc" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mzb-KE-jiQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-152" y="2"/>
-        </scene>
     </scenes>
     <resources>
         <image name="dismiss" width="21.333333969116211" height="21.333333969116211"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="ra4-KZ-yF0"/>
-    </inferredMetricsTieBreakers>
 </document>

@@ -129,7 +129,9 @@ class AuthViewController: UIViewController {
                     UserDefaults.standard.set(key, forKey: "userKey")
         
                     // TODO: 將資料存到 dataBase
+                    let rootVC = UIStoryboard.main.instantiateInitialViewController()!
                     
+                    self.show(rootVC, sender: nil)
                 }
             }
         }
@@ -151,6 +153,9 @@ class AuthViewController: UIViewController {
             
             UserDefaults.standard.set(key, forKey: "userKey")
             
+            let rootVC = UIStoryboard.main.instantiateInitialViewController()!
+            
+            self.show(rootVC, sender: nil)
         }
 
     }
