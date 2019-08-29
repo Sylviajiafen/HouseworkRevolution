@@ -359,6 +359,8 @@
                         <outlet property="nameCallSelection" destination="zmH-Vn-gEa" id="6kz-Bv-KFQ"/>
                         <outlet property="signInView" destination="h29-Y5-es4" id="LcR-W7-YgL"/>
                         <outlet property="signUpView" destination="obm-Za-jWW" id="2Cc-Xi-kIr"/>
+                        <outlet property="userID" destination="mVe-aM-Zrd" id="o17-4V-lO1"/>
+                        <outlet property="userPassword" destination="gWs-K4-hPl" id="Rka-Hf-1Pg"/>
                         <outlet property="userSettingView" destination="OjA-R0-w8O" id="Pev-tG-4Lb"/>
                     </connections>
                 </viewController>

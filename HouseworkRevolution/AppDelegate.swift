@@ -11,11 +11,21 @@ import CoreData
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    static let shared = AppDelegate()
 
     var window: UIWindow?
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+    func application(_ application: UIApplication,
+                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        // Without Log In
+        
+        window?.rootViewController = UIStoryboard.auth.instantiateInitialViewController()!
+        
+        
+        print(" Core data file path: \(NSPersistentContainer.defaultDirectoryURL())")
+        
         return true
     }
 
@@ -62,7 +72,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // MARK: - Core Data Saving support
 
-    func saveContext () {
+    func saveContext() {
+        
         let context = persistentContainer.viewContext
         
         if context.hasChanges {
@@ -79,5 +90,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
+    
+    func saveUserKey(_ key: String) {
+        
+        let context = persistentContainer.viewContext
+        
+        let userInfo = UserInfo(context: context)
+        
+        userInfo.key = key
+        
+        do {
+            
+            try context.save()
+            
+        } catch {
+            
+            let nserror = error as NSError
+            
+            fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+        }
+    }
+    
+    
 
 }

@@ -24,6 +24,10 @@ class AuthViewController: UIViewController {
     
     @IBOutlet weak var createHomeName: UITextField!
     
+    @IBOutlet weak var userID: UITextField!
+    
+    @IBOutlet weak var userPassword: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -120,6 +124,10 @@ class AuthViewController: UIViewController {
                     
                 } else {
                     
+                    guard let key = createPassword.text else { return }
+                    
+                    AppDelegate.shared.saveUserKey(key)
+        
                     // TODO: 將資料存到 dataBase
                 }
             }
@@ -129,7 +137,19 @@ class AuthViewController: UIViewController {
     
     @IBAction func findHome(_ sender: Any) {
         
-        // TODO: 找 dataBase 的資料
+        if userPassword.text == "" || userID.text == "" {
+            
+            showAlertOfNilText()
+            
+        } else {
+            
+            guard let key = userPassword.text else { return }
+            
+            AppDelegate.shared.saveUserKey(key)
+            
+            // TODO: 找 dataBase 的資料
+        }
+
     }
     
 }
