@@ -7,7 +7,7 @@ target 'HouseworkRevolution' do
 
   # Pods for HouseworkRevolution
 pod 'SwiftLint'
-
+pod 'KeychainAccess'
 
   target 'HouseworkRevolutionTests' do
     inherit! :search_paths

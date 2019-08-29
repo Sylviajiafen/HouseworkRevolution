@@ -15,7 +15,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-         viewControllers = tabs.map({ $0.controller() })
+        viewControllers = tabs.map({ $0.controller() })
     }
 
 }
