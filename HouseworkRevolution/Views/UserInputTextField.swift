@@ -32,7 +32,7 @@ class UserInputTextField: UITextField {
             underline.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 5.0)
             ])
         
-        underline.backgroundColor = UIColor(named: "superLightGray")
+        underline.backgroundColor = UIColor.superLightGray
     }
 
 }

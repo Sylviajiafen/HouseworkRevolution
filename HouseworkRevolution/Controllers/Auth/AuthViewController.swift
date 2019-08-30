@@ -176,7 +176,7 @@ extension AuthViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
         guard let nameCallItem = item as? NameCallCollectionViewCell else { return UICollectionViewCell() }
         
-        nameCallItem.backgroundColor = UIColor(red: 255/255, green: 209/255, blue: 116/255, alpha: 1)
+        nameCallItem.backgroundColor = UIColor.buttonUnSelected
         
         nameCallItem.nameCall.text = nameCalls[indexPath.row]
         
@@ -189,7 +189,7 @@ extension AuthViewController: UICollectionViewDelegate, UICollectionViewDataSour
             
               as? NameCallCollectionViewCell else { return }
         
-        nameCallItem.backgroundColor = UIColor(red: 255/255, green: 165/255, blue: 40/255, alpha: 1)
+        nameCallItem.backgroundColor = UIColor.buttonSelected
         
         nameCallItem.nameCall.textColor = .darkGray
         
@@ -209,7 +209,7 @@ extension AuthViewController: UICollectionViewDelegate, UICollectionViewDataSour
             
             as? NameCallCollectionViewCell else { return }
         
-        nameCallItem.backgroundColor = UIColor(red: 255/255, green: 209/255, blue: 116/255, alpha: 1)
+        nameCallItem.backgroundColor = UIColor.buttonUnSelected
         
         nameCallItem.nameCall.textColor = .white
         
