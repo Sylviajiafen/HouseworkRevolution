@@ -84,21 +84,22 @@ extension AddMissionViewController: UIPickerViewDelegate, UIPickerViewDataSource
     ) -> Int { return 7 }
     
     func pickerView(_ pickerView: UIPickerView,
-                    titleForRow row: Int, forComponent component: Int
+                    viewForRow row: Int,
+                    forComponent component: Int,
+                    reusing view: UIView?) -> UIView {
         
-    ) -> String? {
-        return weekday[row].rawValue }
-    
-//    func pickerView(_ pickerView: UIPickerView,
-//                    rowHeightForComponent component: Int
-//    ) -> CGFloat { return 40.0 }
-//    
-//    func pickerView(_ pickerView: UIPickerView,
-//                    viewForRow row: Int,
-//                    forComponent component: Int,
-//                    reusing view: UIView?) -> UIView {
-//        
-//    }
-    
-    
+        let pickerLabel = UILabel()
+        
+        pickerLabel.font = UIFont(name: "Helvetica Neue", size: 15.0)
+        
+        pickerLabel.textColor = UIColor.noticeGray
+        
+        pickerLabel.text = weekday[row].rawValue
+        
+        pickerLabel.textAlignment = .center
+        
+        return pickerLabel
+        
+    }
+
 }

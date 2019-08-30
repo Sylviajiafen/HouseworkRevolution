@@ -191,7 +191,7 @@ extension AuthViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
         nameCallItem.backgroundColor = UIColor.buttonSelected
         
-        nameCallItem.nameCall.textColor = .darkGray
+        nameCallItem.nameCall.textColor = UIColor.noticeGray
         
         if indexPath.row == nameCalls.count - 1 {
             
