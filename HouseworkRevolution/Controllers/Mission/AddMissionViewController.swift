@@ -9,10 +9,25 @@
 import UIKit
 
 class AddMissionViewController: UIViewController {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        weekdayPicker.delegate = self
+        
+        weekdayPicker.dataSource = self
+        
+        weekdayPicker.tintColor = .darkGray
+        
+        tiredSlider.setThumbImage(UIImage(named: "icons8-heart"), for: .normal)
+    
+    }
 
     @IBOutlet weak var addHouseworkBtn: UIButton!
     
     @IBOutlet weak var customHousework: UITextField!
+    
+    @IBOutlet weak var weekdayPicker: UIPickerView!
     
     @IBOutlet weak var tiredSlider: UISlider!
     
@@ -23,14 +38,10 @@ class AddMissionViewController: UIViewController {
         tiredValue.text = "\(Int(sender.value))"
         
     }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        tiredSlider.setThumbImage(UIImage(named: "icons8-heart"), for: .normal)
-    }
     
-    var houseworks: [String] = [] {
+    var weekday: [Weekdays] = [.Monday, .Tuesday, .Wednesday, .Thursday, .Friday, .Saturday, .Sunday]
+    
+    var houseworks: [String] = ["打掃", "倒垃圾", "洗衣服", "做便當", "買菜", "清冰箱"] {
         
         didSet {
             
@@ -55,5 +66,39 @@ class AddMissionViewController: UIViewController {
             
         }
     }
+    
+    func setUpPicker() {
+        
+        weekdayPicker.tintColor = .darkGray
+    }
+    
+}
+
+extension AddMissionViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int { return 1 }
+    
+    func pickerView(_ pickerView: UIPickerView,
+                    numberOfRowsInComponent component: Int
+        
+    ) -> Int { return 7 }
+    
+    func pickerView(_ pickerView: UIPickerView,
+                    titleForRow row: Int, forComponent component: Int
+        
+    ) -> String? {
+        return weekday[row].rawValue }
+    
+//    func pickerView(_ pickerView: UIPickerView,
+//                    rowHeightForComponent component: Int
+//    ) -> CGFloat { return 40.0 }
+//    
+//    func pickerView(_ pickerView: UIPickerView,
+//                    viewForRow row: Int,
+//                    forComponent component: Int,
+//                    reusing view: UIView?) -> UIView {
+//        
+//    }
+    
     
 }
