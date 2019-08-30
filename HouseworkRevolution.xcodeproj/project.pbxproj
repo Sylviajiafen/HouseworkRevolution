@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0302D9C12318FBC800DE7921 /* HouseworkCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0302D9C02318FBC800DE7921 /* HouseworkCollectionViewCell.swift */; };
+		0302D9C32318FBE900DE7921 /* FamilyMemberCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0302D9C22318FBE900DE7921 /* FamilyMemberCollectionViewCell.swift */; };
+		0302D9C5231912E800DE7921 /* ShowAddSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0302D9C4231912E800DE7921 /* ShowAddSegue.swift */; };
 		03C1A540231662D9008EAB76 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1A53F231662D9008EAB76 /* AppDelegate.swift */; };
 		03C1A542231662D9008EAB76 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1A541231662D9008EAB76 /* ViewController.swift */; };
 		03C1A545231662D9008EAB76 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03C1A543231662D9008EAB76 /* Main.storyboard */; };
@@ -48,6 +51,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0302D9C02318FBC800DE7921 /* HouseworkCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseworkCollectionViewCell.swift; sourceTree = "<group>"; };
+		0302D9C22318FBE900DE7921 /* FamilyMemberCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyMemberCollectionViewCell.swift; sourceTree = "<group>"; };
+		0302D9C4231912E800DE7921 /* ShowAddSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowAddSegue.swift; sourceTree = "<group>"; };
 		03C1A53C231662D9008EAB76 /* HouseworkRevolution.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HouseworkRevolution.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03C1A53F231662D9008EAB76 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		03C1A541231662D9008EAB76 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +112,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0302D9BE2318FB7800DE7921 /* FamilyMember */ = {
+			isa = PBXGroup;
+			children = (
+				0302D9C22318FBE900DE7921 /* FamilyMemberCollectionViewCell.swift */,
+			);
+			path = FamilyMember;
+			sourceTree = "<group>";
+		};
+		0302D9BF2318FB9C00DE7921 /* Houseworks */ = {
+			isa = PBXGroup;
+			children = (
+				0302D9C02318FBC800DE7921 /* HouseworkCollectionViewCell.swift */,
+			);
+			path = Houseworks;
+			sourceTree = "<group>";
+		};
+		0302D9C6231912EF00DE7921 /* CustomSegue */ = {
+			isa = PBXGroup;
+			children = (
+				0302D9C4231912E800DE7921 /* ShowAddSegue.swift */,
+			);
+			path = CustomSegue;
+			sourceTree = "<group>";
+		};
 		03C1A533231662D9008EAB76 = {
 			isa = PBXGroup;
 			children = (
@@ -161,6 +191,7 @@
 		03C1A563231664BC008EAB76 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				0302D9C6231912EF00DE7921 /* CustomSegue */,
 				03C1A58B2317A256008EAB76 /* Mission */,
 				03C1A575231668A1008EAB76 /* Auth */,
 				03C1A564231664C9008EAB76 /* TabBar */,
@@ -198,19 +229,21 @@
 		03C1A578231672AE008EAB76 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0302D9BF2318FB9C00DE7921 /* Houseworks */,
+				0302D9BE2318FB7800DE7921 /* FamilyMember */,
 				03C1A5952318D287008EAB76 /* UserInputTextField.swift */,
 				03C1A5922317D711008EAB76 /* WeekDay */,
-				03C1A58123168D72008EAB76 /* NameSelectionView */,
+				03C1A58123168D72008EAB76 /* NameCall */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		03C1A58123168D72008EAB76 /* NameSelectionView */ = {
+		03C1A58123168D72008EAB76 /* NameCall */ = {
 			isa = PBXGroup;
 			children = (
 				03C1A5822316908D008EAB76 /* NameCallCollectionViewCell.swift */,
 			);
-			path = NameSelectionView;
+			path = NameCall;
 			sourceTree = "<group>";
 		};
 		03C1A58423177103008EAB76 /* Model */ = {
@@ -452,15 +485,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0302D9C12318FBC800DE7921 /* HouseworkCollectionViewCell.swift in Sources */,
 				03C1A542231662D9008EAB76 /* ViewController.swift in Sources */,
 				03C1A5702316658D008EAB76 /* TabBarController.swift in Sources */,
 				03C1A540231662D9008EAB76 /* AppDelegate.swift in Sources */,
 				03C1A57A23167436008EAB76 /* WeekdaySelectionView.swift in Sources */,
 				03C1A58023167F82008EAB76 /* UIView+Extension.swift in Sources */,
 				03C1A548231662D9008EAB76 /* HouseworkRevolution.xcdatamodeld in Sources */,
+				0302D9C5231912E800DE7921 /* ShowAddSegue.swift in Sources */,
 				03C1A577231668B7008EAB76 /* AuthViewController.swift in Sources */,
 				03C1A5832316908D008EAB76 /* NameCallCollectionViewCell.swift in Sources */,
 				03C1A59E2318F147008EAB76 /* UIColor+ Extension.swift in Sources */,
+				0302D9C32318FBE900DE7921 /* FamilyMemberCollectionViewCell.swift in Sources */,
 				03C1A5912317C6E7008EAB76 /* CheckMissionViewController.swift in Sources */,
 				03C1A58F2317C6D2008EAB76 /* AddMissionViewController.swift in Sources */,
 				03C1A5942318C7A3008EAB76 /* Weekday.swift in Sources */,

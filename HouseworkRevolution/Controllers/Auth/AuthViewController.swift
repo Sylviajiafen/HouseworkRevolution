@@ -129,6 +129,7 @@ class AuthViewController: UIViewController {
                     UserDefaults.standard.set(key, forKey: "userKey")
         
                     // TODO: 將資料存到 dataBase
+                    // 要把 textField、cell 中的文字一起存
                     let rootVC = UIStoryboard.main.instantiateInitialViewController()!
                     
                     self.show(rootVC, sender: nil)
@@ -197,8 +198,12 @@ extension AuthViewController: UICollectionViewDelegate, UICollectionViewDataSour
             
             customUserName.isHidden = false
             
+            // TODO: 變數存 textField 的文字
+            
         }
         
+        // TODO: 將 cell 中 label 的文字存到一個變數中
+        //
         selectedNameIndex = indexPath.row
         
     }
@@ -219,4 +224,5 @@ extension AuthViewController: UICollectionViewDelegate, UICollectionViewDataSour
             
         }
     }
+    
 }

@@ -9,12 +9,18 @@ import UIKit
 
 class MissionViewController: UIViewController {
 
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let swipeRight: UISwipeGestureRecognizer =
+            UISwipeGestureRecognizer(target: self, action: #selector(showAddMission(_:)))
+        
+        swipeRight.direction = UISwipeGestureRecognizer.Direction.right
+        
     }
     
-    @IBAction func showAddMission(_ sender: Any) {
+    @IBAction func showAddMission(_ sender: UISwipeGestureRecognizer) {
         
         let addMissionViewController = UIStoryboard.mission.instantiateViewController(withIdentifier: String(describing: AddMissionViewController.self))
         
@@ -22,6 +28,9 @@ class MissionViewController: UIViewController {
         
         show(targetView, sender: nil)
     }
+    
+    
+    
     
     @IBAction func showCheckMission(_ sender: Any) {
     }
