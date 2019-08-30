@@ -157,6 +157,7 @@ class AuthViewController: UIViewController {
             let rootVC = UIStoryboard.main.instantiateInitialViewController()!
             
             self.show(rootVC, sender: nil)
+            
         }
 
     }

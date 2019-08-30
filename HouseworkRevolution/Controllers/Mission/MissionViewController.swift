@@ -29,10 +29,13 @@ class MissionViewController: UIViewController {
         show(targetView, sender: nil)
     }
     
-    
-    
-    
     @IBAction func showCheckMission(_ sender: Any) {
+        
+        let checkMissionViewController = UIStoryboard.mission.instantiateViewController(withIdentifier: String(describing: CheckMissionViewController.self))
+        
+        guard let targetView = checkMissionViewController as? CheckMissionViewController else { return }
+        
+        show(targetView, sender: nil)
     }
     
 }
