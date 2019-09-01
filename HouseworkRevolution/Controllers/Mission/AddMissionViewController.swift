@@ -67,7 +67,7 @@ class AddMissionViewController: UIViewController {
     
     @IBAction func backToRoot(_ sender: UIButton) {
         
-        self.dismiss(animated: false, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     
     // TODO: 從雲端抓取
@@ -76,7 +76,10 @@ class AddMissionViewController: UIViewController {
     var weekday: [Weekdays] = [.Monday, .Tuesday, .Wednesday, .Thursday, .Friday, .Saturday, .Sunday]
     
     // TODO: 從雲端抓取，存入變數
-    var houseworks: [String] = ["打掃", "倒垃圾", "洗衣服", "做便當", "買菜", "清冰箱"] {
+    // 預設家事標籤的array 還是可以留在專案裡，但使用者新增的要上傳 fire base
+    // 在一開始 viewDidLoad  fetch database 的時候就先append 進 array 中
+    
+    var houseworks: [String] = ["掃地", "拖地", "倒垃圾", "洗衣服", "煮飯", "買菜", "掃廁所"] {
         
         didSet {
             

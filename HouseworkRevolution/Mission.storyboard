@@ -19,58 +19,106 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Tkw-e8-0cH">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5i3-Dy-6aA">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <subviews>
+                                    <button opaque="NO" alpha="0.85000002384185791" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r89-0W-B5S">
+                                        <rect key="frame" x="16" y="2" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="22u-dX-Ife"/>
+                                            <constraint firstAttribute="height" constant="40" id="wkW-ac-0Y3"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="back"/>
+                                        <connections>
+                                            <action selector="backToRoot:" destination="qPN-MY-sez" eventType="touchUpInside" id="I3Z-wk-KEY"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="一週家事" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M5Z-2O-rfR">
+                                        <rect key="frame" x="141.5" y="6" width="92" height="32.5"/>
+                                        <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="23"/>
+                                        <color key="textColor" name="titleLightBlue"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" name="projectBackground"/>
+                                <constraints>
+                                    <constraint firstItem="M5Z-2O-rfR" firstAttribute="centerX" secondItem="5i3-Dy-6aA" secondAttribute="centerX" id="1Pk-Oz-obI"/>
+                                    <constraint firstAttribute="height" constant="44" id="MWP-kr-kiJ"/>
+                                    <constraint firstItem="M5Z-2O-rfR" firstAttribute="centerY" secondItem="5i3-Dy-6aA" secondAttribute="centerY" id="XrN-AE-QGs"/>
+                                    <constraint firstItem="r89-0W-B5S" firstAttribute="top" secondItem="5i3-Dy-6aA" secondAttribute="top" constant="2" id="j1A-8h-ZdU"/>
+                                    <constraint firstItem="r89-0W-B5S" firstAttribute="leading" secondItem="5i3-Dy-6aA" secondAttribute="leading" constant="16" id="mpw-LY-198"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Tkw-e8-0cH">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <color key="separatorColor" name="projectBackground"/>
                                 <color key="sectionIndexBackgroundColor" name="projectBackground"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MissionListTableViewCell" id="OcY-1K-iwP" customClass="MissionListTableViewCell" customModule="HouseworkRevolution" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OcY-1K-iwP" id="ltY-uh-cFh">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LWf-cM-61v">
-                                                    <rect key="frame" x="91" y="10" width="43" height="24"/>
+                                                    <rect key="frame" x="40" y="10" width="43" height="24"/>
                                                     <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="17"/>
                                                     <color key="textColor" name="noticeGray"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E77-TQ-wI3">
+                                                    <rect key="frame" x="329" y="7" width="31" height="30"/>
+                                                    <state key="normal" title="移除"/>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" name="projectBackground"/>
                                             <constraints>
-                                                <constraint firstItem="LWf-cM-61v" firstAttribute="leading" secondItem="ltY-uh-cFh" secondAttribute="leading" constant="91" id="7UE-nZ-cnV"/>
+                                                <constraint firstItem="E77-TQ-wI3" firstAttribute="centerY" secondItem="ltY-uh-cFh" secondAttribute="centerY" id="5bq-t9-iGO"/>
+                                                <constraint firstItem="LWf-cM-61v" firstAttribute="leading" secondItem="ltY-uh-cFh" secondAttribute="leading" constant="40" id="7UE-nZ-cnV"/>
+                                                <constraint firstAttribute="trailing" secondItem="E77-TQ-wI3" secondAttribute="trailing" constant="15" id="Dn5-Bo-n3N"/>
                                                 <constraint firstItem="LWf-cM-61v" firstAttribute="centerY" secondItem="ltY-uh-cFh" secondAttribute="centerY" id="csI-6L-1Id"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" name="projectBackground"/>
                                         <connections>
                                             <outlet property="missionLabel" destination="LWf-cM-61v" id="Gkh-Kp-aYh"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MissionEmptyTableViewCell" id="cmz-wp-e17" customClass="MissionEmptyTableViewCell" customModule="HouseworkRevolution" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="99.5" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cmz-wp-e17" id="mi1-Wn-mHx">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="還沒建立家事唷！" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LAk-T4-Vfo">
+                                                    <rect key="frame" x="40" y="10" width="136" height="24"/>
+                                                    <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="17"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="LAk-T4-Vfo" firstAttribute="leading" secondItem="mi1-Wn-mHx" secondAttribute="leading" constant="40" id="jbF-lM-URl"/>
+                                                <constraint firstItem="LAk-T4-Vfo" firstAttribute="centerY" secondItem="mi1-Wn-mHx" secondAttribute="centerY" id="uiR-tG-f7l"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" name="projectBackground"/>
+                                    </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" alpha="0.85000002384185791" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r89-0W-B5S">
-                                <rect key="frame" x="16" y="60" width="40" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="40" id="22u-dX-Ife"/>
-                                    <constraint firstAttribute="height" constant="40" id="wkW-ac-0Y3"/>
-                                </constraints>
-                                <state key="normal" title="Button" image="back"/>
-                                <connections>
-                                    <action selector="backToRoot:" destination="qPN-MY-sez" eventType="touchUpInside" id="I3Z-wk-KEY"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" name="projectBackground"/>
                         <constraints>
                             <constraint firstItem="WfD-li-yIQ" firstAttribute="trailing" secondItem="Tkw-e8-0cH" secondAttribute="trailing" id="1EG-wF-clE"/>
-                            <constraint firstItem="WfD-li-yIQ" firstAttribute="leading" secondItem="r89-0W-B5S" secondAttribute="leading" constant="-16" id="41P-jB-Bft"/>
+                            <constraint firstItem="5i3-Dy-6aA" firstAttribute="top" secondItem="WfD-li-yIQ" secondAttribute="top" id="CMw-wX-7dI"/>
                             <constraint firstItem="WfD-li-yIQ" firstAttribute="bottom" secondItem="Tkw-e8-0cH" secondAttribute="bottom" id="JyM-LL-ODz"/>
                             <constraint firstItem="Tkw-e8-0cH" firstAttribute="leading" secondItem="WfD-li-yIQ" secondAttribute="leading" id="LTY-L5-GXR"/>
-                            <constraint firstItem="r89-0W-B5S" firstAttribute="top" secondItem="WfD-li-yIQ" secondAttribute="top" constant="40" id="Q38-2J-rNT"/>
-                            <constraint firstItem="Tkw-e8-0cH" firstAttribute="top" secondItem="WfD-li-yIQ" secondAttribute="top" id="pRV-B8-IEb"/>
+                            <constraint firstItem="5i3-Dy-6aA" firstAttribute="trailing" secondItem="WfD-li-yIQ" secondAttribute="trailing" id="YxX-eK-aTi"/>
+                            <constraint firstItem="5i3-Dy-6aA" firstAttribute="leading" secondItem="WfD-li-yIQ" secondAttribute="leading" id="acF-Zj-Qf7"/>
+                            <constraint firstItem="Tkw-e8-0cH" firstAttribute="top" secondItem="5i3-Dy-6aA" secondAttribute="bottom" id="pRV-B8-IEb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="WfD-li-yIQ"/>
                     </view>
@@ -435,6 +483,9 @@
         </namedColor>
         <namedColor name="projectBackground">
             <color red="0.98799997568130493" green="0.97600001096725464" blue="0.92900002002716064" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="titleLightBlue">
+            <color red="0.46274509803921571" green="0.69019607843137254" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

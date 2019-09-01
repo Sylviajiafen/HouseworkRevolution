@@ -22,3 +22,20 @@ enum Weekdays: String {
     
     case Sunday = "星期日"
 }
+
+enum WeekdayInEng: String {
+    
+    case Monday
+    
+    case Tuesday
+    
+    case Wednesday
+    
+    case Thursday
+    
+    case Friday
+    
+    case Saturday
+    
+    case Sunday
+}

@@ -15,28 +15,56 @@ class CheckMissionViewController: UIViewController {
         
         missionListTableView.delegate = self
         missionListTableView.dataSource = self
+        missionListTableView.backgroundColor = UIColor.projectBackground
         
         missionOfWeek = ["Monday": ["掃地", "洗衣"],
                          "Tuesday": ["鏟貓砂", "洗碗", "煮飯"]]
         
+        // MARK: regist header
+        let headerXib = UINib(nibName: String(describing: WeekdaySectionHeaderView.self), bundle: nil)
+        
+        missionListTableView.register(headerXib, forHeaderFooterViewReuseIdentifier: String(describing: WeekdaySectionHeaderView.self))
     }
     
     @IBOutlet weak var missionListTableView: UITableView!
     
     // TODO: 跟 dataBase 要一週任務，放進變數中
     var missionOfWeek = [String: [String]]()
+    
+    var weekday: [Weekdays] = [.Monday, .Tuesday, .Wednesday, .Thursday, .Friday, .Saturday, .Sunday]
 }
 
 extension CheckMissionViewController: UITableViewDelegate, UITableViewDataSource {
     
+    // MARK: Section Header
     func numberOfSections(in tableView: UITableView) -> Int {
         
-        return missionOfWeek.count
+        return weekday.count
     }
     
     func tableView(_ tableView: UITableView,
-                   numberOfRowsInSection section: Int
+                   heightForHeaderInSection section: Int
+    ) -> CGFloat {
+        
+        return 50.0
+    }
     
+    func tableView(_ tableView: UITableView,
+                   viewForHeaderInSection section: Int
+    ) -> UIView? {
+        
+        guard let header = missionListTableView.dequeueReusableHeaderFooterView(
+            withIdentifier: String(describing: WeekdaySectionHeaderView.self))
+            as? WeekdaySectionHeaderView else { return nil }
+        
+        header.weekdayLabel.text = weekday[section].rawValue
+        
+        return header
+    }
+    
+    // MARK: TableView Cell
+    func tableView(_ tableView: UITableView,
+                   numberOfRowsInSection section: Int
     ) -> Int {
         
         guard let missionOfDay = missionOfWeek[changeSectionIntoWeekday(section)] else { return 1 }
@@ -46,19 +74,30 @@ extension CheckMissionViewController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView,
                    cellForRowAt indexPath: IndexPath
-    
     ) -> UITableViewCell {
         
-        let cell = missionListTableView.dequeueReusableCell(
-            withIdentifier: String(describing: MissionListTableViewCell.self), for: indexPath)
-        
-        guard let mission = cell as? MissionListTableViewCell else { return UITableViewCell() }
-        
-        guard let missionOfDay = missionOfWeek[changeSectionIntoWeekday(indexPath.section)] else { return UITableViewCell() }
-        
-        mission.missionLabel.text = missionOfDay[indexPath.row]
-        
-        return mission
+        if let missionOfDay = missionOfWeek[changeSectionIntoWeekday(indexPath.section)] {
+            
+            let cell = missionListTableView.dequeueReusableCell(
+                withIdentifier: String(describing: MissionListTableViewCell.self), for: indexPath)
+            
+            guard let mission = cell as? MissionListTableViewCell else { return UITableViewCell() }
+            
+            mission.missionLabel.text = missionOfDay[indexPath.row]
+            
+            // TODO: 寫移除家事的 func (寫在 View)
+            
+            return mission
+            
+        } else {
+            
+            let cell = missionListTableView.dequeueReusableCell(
+                withIdentifier: String(describing: MissionEmptyTableViewCell.self), for: indexPath)
+            
+            guard let emptyMission = cell as? MissionEmptyTableViewCell else { return UITableViewCell() }
+            
+            return emptyMission
+        }
     }
     
     func changeSectionIntoWeekday(_ section: Int) -> String {
