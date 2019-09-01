@@ -7,8 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0302D9C12318FBC800DE7921 /* HouseworkCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0302D9C02318FBC800DE7921 /* HouseworkCollectionViewCell.swift */; };
+		0302D9C32318FBE900DE7921 /* FamilyMemberCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0302D9C22318FBE900DE7921 /* FamilyMemberCollectionViewCell.swift */; };
+		0302D9C5231912E800DE7921 /* ShowAddSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0302D9C4231912E800DE7921 /* ShowAddSegue.swift */; };
+		0302D9C92319259F00DE7921 /* MissionListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0302D9C82319259F00DE7921 /* MissionListTableViewCell.swift */; };
+		0302D9CB231AB0AF00DE7921 /* WeekdaySectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0302D9CA231AB0AF00DE7921 /* WeekdaySectionHeaderView.xib */; };
+		0302D9CD231AB0DA00DE7921 /* WeekdaySectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0302D9CC231AB0DA00DE7921 /* WeekdaySectionHeaderView.swift */; };
+		0302D9D4231B63E600DE7921 /* MissionEmptyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0302D9D3231B63E600DE7921 /* MissionEmptyTableViewCell.swift */; };
 		03C1A540231662D9008EAB76 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1A53F231662D9008EAB76 /* AppDelegate.swift */; };
-		03C1A542231662D9008EAB76 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1A541231662D9008EAB76 /* ViewController.swift */; };
 		03C1A545231662D9008EAB76 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03C1A543231662D9008EAB76 /* Main.storyboard */; };
 		03C1A548231662D9008EAB76 /* HouseworkRevolution.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 03C1A546231662D9008EAB76 /* HouseworkRevolution.xcdatamodeld */; };
 		03C1A54A231662DA008EAB76 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03C1A549231662DA008EAB76 /* Assets.xcassets */; };
@@ -22,10 +28,17 @@
 		03C1A5702316658D008EAB76 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1A56F2316658D008EAB76 /* TabBarController.swift */; };
 		03C1A5732316660D008EAB76 /* UIStoryboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1A5722316660D008EAB76 /* UIStoryboard+Extension.swift */; };
 		03C1A577231668B7008EAB76 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1A576231668B7008EAB76 /* AuthViewController.swift */; };
-		03C1A57A23167436008EAB76 /* NameSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1A57923167436008EAB76 /* NameSelectionView.swift */; };
-		03C1A57E23167CED008EAB76 /* NameSelectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03C1A57D23167CED008EAB76 /* NameSelectionView.xib */; };
+		03C1A57A23167436008EAB76 /* WeekdaySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1A57923167436008EAB76 /* WeekdaySelectionView.swift */; };
+		03C1A57E23167CED008EAB76 /* WeekdaySelectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03C1A57D23167CED008EAB76 /* WeekdaySelectionView.xib */; };
 		03C1A58023167F82008EAB76 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1A57F23167F82008EAB76 /* UIView+Extension.swift */; };
 		03C1A5832316908D008EAB76 /* NameCallCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1A5822316908D008EAB76 /* NameCallCollectionViewCell.swift */; };
+		03C1A58D2317A2EB008EAB76 /* MissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1A58C2317A2EB008EAB76 /* MissionViewController.swift */; };
+		03C1A58F2317C6D2008EAB76 /* AddMissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1A58E2317C6D2008EAB76 /* AddMissionViewController.swift */; };
+		03C1A5912317C6E7008EAB76 /* CheckMissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1A5902317C6E7008EAB76 /* CheckMissionViewController.swift */; };
+		03C1A5942318C7A3008EAB76 /* Weekday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1A5932318C7A3008EAB76 /* Weekday.swift */; };
+		03C1A5962318D287008EAB76 /* UserInputTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1A5952318D287008EAB76 /* UserInputTextField.swift */; };
+		03C1A59C2318F059008EAB76 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1A59B2318F059008EAB76 /* UIImage+Extension.swift */; };
+		03C1A59E2318F147008EAB76 /* UIColor+ Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1A59D2318F147008EAB76 /* UIColor+ Extension.swift */; };
 		13C2546C9B3D4DD77EDFFF43 /* Pods_HouseworkRevolution.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1493339683728FA72397E709 /* Pods_HouseworkRevolution.framework */; };
 		A426424894EE163385C27B85 /* Pods_HouseworkRevolutionTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 768DABA652B8C169712D5223 /* Pods_HouseworkRevolutionTests.framework */; };
 /* End PBXBuildFile section */
@@ -41,9 +54,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0302D9C02318FBC800DE7921 /* HouseworkCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseworkCollectionViewCell.swift; sourceTree = "<group>"; };
+		0302D9C22318FBE900DE7921 /* FamilyMemberCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyMemberCollectionViewCell.swift; sourceTree = "<group>"; };
+		0302D9C4231912E800DE7921 /* ShowAddSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowAddSegue.swift; sourceTree = "<group>"; };
+		0302D9C82319259F00DE7921 /* MissionListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionListTableViewCell.swift; sourceTree = "<group>"; };
+		0302D9CA231AB0AF00DE7921 /* WeekdaySectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeekdaySectionHeaderView.xib; sourceTree = "<group>"; };
+		0302D9CC231AB0DA00DE7921 /* WeekdaySectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekdaySectionHeaderView.swift; sourceTree = "<group>"; };
+		0302D9D3231B63E600DE7921 /* MissionEmptyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionEmptyTableViewCell.swift; sourceTree = "<group>"; };
 		03C1A53C231662D9008EAB76 /* HouseworkRevolution.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HouseworkRevolution.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03C1A53F231662D9008EAB76 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		03C1A541231662D9008EAB76 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		03C1A544231662D9008EAB76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		03C1A547231662D9008EAB76 /* HouseworkRevolution.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HouseworkRevolution.xcdatamodel; sourceTree = "<group>"; };
 		03C1A549231662DA008EAB76 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -60,10 +79,17 @@
 		03C1A56F2316658D008EAB76 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		03C1A5722316660D008EAB76 /* UIStoryboard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extension.swift"; sourceTree = "<group>"; };
 		03C1A576231668B7008EAB76 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
-		03C1A57923167436008EAB76 /* NameSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameSelectionView.swift; sourceTree = "<group>"; };
-		03C1A57D23167CED008EAB76 /* NameSelectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NameSelectionView.xib; sourceTree = "<group>"; };
+		03C1A57923167436008EAB76 /* WeekdaySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekdaySelectionView.swift; sourceTree = "<group>"; };
+		03C1A57D23167CED008EAB76 /* WeekdaySelectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeekdaySelectionView.xib; sourceTree = "<group>"; };
 		03C1A57F23167F82008EAB76 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		03C1A5822316908D008EAB76 /* NameCallCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameCallCollectionViewCell.swift; sourceTree = "<group>"; };
+		03C1A58C2317A2EB008EAB76 /* MissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionViewController.swift; sourceTree = "<group>"; };
+		03C1A58E2317C6D2008EAB76 /* AddMissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMissionViewController.swift; sourceTree = "<group>"; };
+		03C1A5902317C6E7008EAB76 /* CheckMissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckMissionViewController.swift; sourceTree = "<group>"; };
+		03C1A5932318C7A3008EAB76 /* Weekday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weekday.swift; sourceTree = "<group>"; };
+		03C1A5952318D287008EAB76 /* UserInputTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInputTextField.swift; sourceTree = "<group>"; };
+		03C1A59B2318F059008EAB76 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		03C1A59D2318F147008EAB76 /* UIColor+ Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+ Extension.swift"; sourceTree = "<group>"; };
 		1493339683728FA72397E709 /* Pods_HouseworkRevolution.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HouseworkRevolution.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		282E80C58DF6B1DB0CB6F4EB /* Pods-HouseworkRevolutionTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HouseworkRevolutionTests.debug.xcconfig"; path = "Target Support Files/Pods-HouseworkRevolutionTests/Pods-HouseworkRevolutionTests.debug.xcconfig"; sourceTree = "<group>"; };
 		768DABA652B8C169712D5223 /* Pods_HouseworkRevolutionTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HouseworkRevolutionTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -92,6 +118,59 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0302D9C6231912EF00DE7921 /* CustomSegue */ = {
+			isa = PBXGroup;
+			children = (
+				0302D9C4231912E800DE7921 /* ShowAddSegue.swift */,
+			);
+			path = CustomSegue;
+			sourceTree = "<group>";
+		};
+		0302D9CE231AB31300DE7921 /* WeekdaySectionHeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				0302D9CA231AB0AF00DE7921 /* WeekdaySectionHeaderView.xib */,
+				0302D9CC231AB0DA00DE7921 /* WeekdaySectionHeaderView.swift */,
+			);
+			path = WeekdaySectionHeaderView;
+			sourceTree = "<group>";
+		};
+		0302D9CF231B632F00DE7921 /* Mission */ = {
+			isa = PBXGroup;
+			children = (
+				0302D9D2231B638800DE7921 /* CheckMission */,
+				0302D9D1231B638000DE7921 /* AddMission */,
+			);
+			path = Mission;
+			sourceTree = "<group>";
+		};
+		0302D9D0231B633700DE7921 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				03C1A58123168D72008EAB76 /* NameCall */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		0302D9D1231B638000DE7921 /* AddMission */ = {
+			isa = PBXGroup;
+			children = (
+				0302D9C22318FBE900DE7921 /* FamilyMemberCollectionViewCell.swift */,
+				0302D9C02318FBC800DE7921 /* HouseworkCollectionViewCell.swift */,
+			);
+			path = AddMission;
+			sourceTree = "<group>";
+		};
+		0302D9D2231B638800DE7921 /* CheckMission */ = {
+			isa = PBXGroup;
+			children = (
+				0302D9C82319259F00DE7921 /* MissionListTableViewCell.swift */,
+				0302D9D3231B63E600DE7921 /* MissionEmptyTableViewCell.swift */,
+				0302D9CE231AB31300DE7921 /* WeekdaySectionHeaderView */,
+			);
+			path = CheckMission;
+			sourceTree = "<group>";
+		};
 		03C1A533231662D9008EAB76 = {
 			isa = PBXGroup;
 			children = (
@@ -128,9 +207,9 @@
 				03C1A571231665F3008EAB76 /* Extension */,
 				03C1A53F231662D9008EAB76 /* AppDelegate.swift */,
 				03C1A549231662DA008EAB76 /* Assets.xcassets */,
-				03C1A541231662D9008EAB76 /* ViewController.swift */,
 				03C1A54E231662DA008EAB76 /* Info.plist */,
 				03C1A546231662D9008EAB76 /* HouseworkRevolution.xcdatamodeld */,
+				03C1A5922317D711008EAB76 /* WeekDay */,
 			);
 			path = HouseworkRevolution;
 			sourceTree = "<group>";
@@ -147,8 +226,10 @@
 		03C1A563231664BC008EAB76 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				03C1A58B2317A256008EAB76 /* Mission */,
 				03C1A575231668A1008EAB76 /* Auth */,
 				03C1A564231664C9008EAB76 /* TabBar */,
+				0302D9C6231912EF00DE7921 /* CustomSegue */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -166,6 +247,8 @@
 			children = (
 				03C1A5722316660D008EAB76 /* UIStoryboard+Extension.swift */,
 				03C1A57F23167F82008EAB76 /* UIView+Extension.swift */,
+				03C1A59B2318F059008EAB76 /* UIImage+Extension.swift */,
+				03C1A59D2318F147008EAB76 /* UIColor+ Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -181,26 +264,46 @@
 		03C1A578231672AE008EAB76 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				03C1A58123168D72008EAB76 /* NameSelectionView */,
+				03C1A5952318D287008EAB76 /* UserInputTextField.swift */,
+				0302D9D0231B633700DE7921 /* Auth */,
+				0302D9CF231B632F00DE7921 /* Mission */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		03C1A58123168D72008EAB76 /* NameSelectionView */ = {
+		03C1A58123168D72008EAB76 /* NameCall */ = {
 			isa = PBXGroup;
 			children = (
-				03C1A57923167436008EAB76 /* NameSelectionView.swift */,
-				03C1A57D23167CED008EAB76 /* NameSelectionView.xib */,
 				03C1A5822316908D008EAB76 /* NameCallCollectionViewCell.swift */,
 			);
-			path = NameSelectionView;
+			path = NameCall;
 			sourceTree = "<group>";
 		};
 		03C1A58423177103008EAB76 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				03C1A5932318C7A3008EAB76 /* Weekday.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		03C1A58B2317A256008EAB76 /* Mission */ = {
+			isa = PBXGroup;
+			children = (
+				03C1A58C2317A2EB008EAB76 /* MissionViewController.swift */,
+				03C1A58E2317C6D2008EAB76 /* AddMissionViewController.swift */,
+				03C1A5902317C6E7008EAB76 /* CheckMissionViewController.swift */,
+			);
+			path = Mission;
+			sourceTree = "<group>";
+		};
+		03C1A5922317D711008EAB76 /* WeekDay */ = {
+			isa = PBXGroup;
+			children = (
+				03C1A57923167436008EAB76 /* WeekdaySelectionView.swift */,
+				03C1A57D23167CED008EAB76 /* WeekdaySelectionView.xib */,
+			);
+			path = WeekDay;
 			sourceTree = "<group>";
 		};
 		2FF63852DA9196A7B69A8A6D /* Frameworks */ = {
@@ -311,9 +414,10 @@
 				03C1A56E23166557008EAB76 /* Auth.storyboard in Resources */,
 				03C1A54D231662DA008EAB76 /* LaunchScreen.storyboard in Resources */,
 				03C1A56A2316652F008EAB76 /* Wish.storyboard in Resources */,
-				03C1A57E23167CED008EAB76 /* NameSelectionView.xib in Resources */,
+				03C1A57E23167CED008EAB76 /* WeekdaySelectionView.xib in Resources */,
 				03C1A56C23166544008EAB76 /* Family.storyboard in Resources */,
 				03C1A54A231662DA008EAB76 /* Assets.xcassets in Resources */,
+				0302D9CB231AB0AF00DE7921 /* WeekdaySectionHeaderView.xib in Resources */,
 				03C1A566231664DE008EAB76 /* List.storyboard in Resources */,
 				03C1A56823166518008EAB76 /* Mission.storyboard in Resources */,
 				03C1A545231662D9008EAB76 /* Main.storyboard in Resources */,
@@ -415,15 +519,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03C1A542231662D9008EAB76 /* ViewController.swift in Sources */,
+				0302D9C12318FBC800DE7921 /* HouseworkCollectionViewCell.swift in Sources */,
 				03C1A5702316658D008EAB76 /* TabBarController.swift in Sources */,
 				03C1A540231662D9008EAB76 /* AppDelegate.swift in Sources */,
-				03C1A57A23167436008EAB76 /* NameSelectionView.swift in Sources */,
+				03C1A57A23167436008EAB76 /* WeekdaySelectionView.swift in Sources */,
 				03C1A58023167F82008EAB76 /* UIView+Extension.swift in Sources */,
 				03C1A548231662D9008EAB76 /* HouseworkRevolution.xcdatamodeld in Sources */,
+				0302D9C5231912E800DE7921 /* ShowAddSegue.swift in Sources */,
 				03C1A577231668B7008EAB76 /* AuthViewController.swift in Sources */,
 				03C1A5832316908D008EAB76 /* NameCallCollectionViewCell.swift in Sources */,
+				03C1A59E2318F147008EAB76 /* UIColor+ Extension.swift in Sources */,
+				0302D9C32318FBE900DE7921 /* FamilyMemberCollectionViewCell.swift in Sources */,
+				0302D9CD231AB0DA00DE7921 /* WeekdaySectionHeaderView.swift in Sources */,
+				03C1A5912317C6E7008EAB76 /* CheckMissionViewController.swift in Sources */,
+				03C1A58F2317C6D2008EAB76 /* AddMissionViewController.swift in Sources */,
+				0302D9C92319259F00DE7921 /* MissionListTableViewCell.swift in Sources */,
+				03C1A5942318C7A3008EAB76 /* Weekday.swift in Sources */,
+				03C1A5962318D287008EAB76 /* UserInputTextField.swift in Sources */,
+				03C1A59C2318F059008EAB76 /* UIImage+Extension.swift in Sources */,
 				03C1A5732316660D008EAB76 /* UIStoryboard+Extension.swift in Sources */,
+				0302D9D4231B63E600DE7921 /* MissionEmptyTableViewCell.swift in Sources */,
+				03C1A58D2317A2EB008EAB76 /* MissionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

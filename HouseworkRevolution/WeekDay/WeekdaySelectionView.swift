@@ -8,17 +8,9 @@
 
 import UIKit
 
-class NameSelectionView: UIView {
+class WeekdaySelectionView: UIView {
     
     @IBOutlet var contentView: UIView!
-    
-    @IBOutlet weak var firstLeftBtn: UIButton!
-    
-    @IBOutlet weak var secondLeftBtn: UIButton!
-    
-    @IBOutlet weak var secondRightBtn: UIButton!
-    
-    @IBOutlet weak var firstRightBtn: UIButton!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -37,7 +29,7 @@ class NameSelectionView: UIView {
         backgroundColor = .white
         
         Bundle.main.loadNibNamed(
-            String(describing: NameSelectionView.self),
+            String(describing: WeekdaySelectionView.self),
             owner: self,
             options: nil)
 
@@ -70,22 +62,14 @@ class NameSelectionView: UIView {
         
         let calls = delegate.nameCallsInLine(view: self)
         
-        firstLeftBtn.setTitle(calls[0], for: .normal)
-        
-        secondLeftBtn.setTitle(calls[1], for: .normal)
-        
-        secondRightBtn.setTitle(calls[2], for: .normal)
-        
-        firstRightBtn.setTitle(calls[3], for: .normal)
-        
     }
 
 }
 
 protocol NameSelectionViewDelegate: AnyObject {
     
-    func userDidSelect(at: UIButton, in view: NameSelectionView)
+    func userDidSelect(at: UIButton, in view: WeekdaySelectionView)
     
-    func nameCallsInLine(view: NameSelectionView) -> [String]
+    func nameCallsInLine(view: WeekdaySelectionView) -> [String]
     
 }

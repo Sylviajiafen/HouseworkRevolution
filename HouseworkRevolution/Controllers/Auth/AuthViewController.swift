@@ -129,6 +129,7 @@ class AuthViewController: UIViewController {
                     UserDefaults.standard.set(key, forKey: "userKey")
         
                     // TODO: 將資料存到 dataBase
+                    // 要把 textField、cell 中的文字一起存
                     let rootVC = UIStoryboard.main.instantiateInitialViewController()!
                     
                     self.show(rootVC, sender: nil)
@@ -156,6 +157,7 @@ class AuthViewController: UIViewController {
             let rootVC = UIStoryboard.main.instantiateInitialViewController()!
             
             self.show(rootVC, sender: nil)
+            
         }
 
     }
@@ -176,7 +178,7 @@ extension AuthViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
         guard let nameCallItem = item as? NameCallCollectionViewCell else { return UICollectionViewCell() }
         
-        nameCallItem.backgroundColor = UIColor(red: 255/255, green: 209/255, blue: 116/255, alpha: 1)
+        nameCallItem.backgroundColor = UIColor.buttonUnSelected
         
         nameCallItem.nameCall.text = nameCalls[indexPath.row]
         
@@ -189,16 +191,20 @@ extension AuthViewController: UICollectionViewDelegate, UICollectionViewDataSour
             
               as? NameCallCollectionViewCell else { return }
         
-        nameCallItem.backgroundColor = UIColor(red: 255/255, green: 165/255, blue: 40/255, alpha: 1)
+        nameCallItem.backgroundColor = UIColor.buttonSelected
         
-        nameCallItem.nameCall.textColor = .darkGray
+        nameCallItem.nameCall.textColor = UIColor.noticeGray
         
         if indexPath.row == nameCalls.count - 1 {
             
             customUserName.isHidden = false
             
+            // TODO: 變數存 textField 的文字
+            
         }
         
+        // TODO: 將 cell 中 label 的文字存到一個變數中
+        //
         selectedNameIndex = indexPath.row
         
     }
@@ -209,7 +215,7 @@ extension AuthViewController: UICollectionViewDelegate, UICollectionViewDataSour
             
             as? NameCallCollectionViewCell else { return }
         
-        nameCallItem.backgroundColor = UIColor(red: 255/255, green: 209/255, blue: 116/255, alpha: 1)
+        nameCallItem.backgroundColor = UIColor.buttonUnSelected
         
         nameCallItem.nameCall.textColor = .white
         
@@ -219,4 +225,5 @@ extension AuthViewController: UICollectionViewDelegate, UICollectionViewDataSour
             
         }
     }
+    
 }
