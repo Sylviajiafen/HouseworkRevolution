@@ -14,6 +14,7 @@
 		0302D9CB231AB0AF00DE7921 /* WeekdaySectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0302D9CA231AB0AF00DE7921 /* WeekdaySectionHeaderView.xib */; };
 		0302D9CD231AB0DA00DE7921 /* WeekdaySectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0302D9CC231AB0DA00DE7921 /* WeekdaySectionHeaderView.swift */; };
 		0302D9D4231B63E600DE7921 /* MissionEmptyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0302D9D3231B63E600DE7921 /* MissionEmptyTableViewCell.swift */; };
+		0302D9D7231CC1D600DE7921 /* WishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0302D9D6231CC1D600DE7921 /* WishViewController.swift */; };
 		03C1A540231662D9008EAB76 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1A53F231662D9008EAB76 /* AppDelegate.swift */; };
 		03C1A545231662D9008EAB76 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03C1A543231662D9008EAB76 /* Main.storyboard */; };
 		03C1A548231662D9008EAB76 /* HouseworkRevolution.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 03C1A546231662D9008EAB76 /* HouseworkRevolution.xcdatamodeld */; };
@@ -61,6 +62,7 @@
 		0302D9CA231AB0AF00DE7921 /* WeekdaySectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeekdaySectionHeaderView.xib; sourceTree = "<group>"; };
 		0302D9CC231AB0DA00DE7921 /* WeekdaySectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekdaySectionHeaderView.swift; sourceTree = "<group>"; };
 		0302D9D3231B63E600DE7921 /* MissionEmptyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionEmptyTableViewCell.swift; sourceTree = "<group>"; };
+		0302D9D6231CC1D600DE7921 /* WishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishViewController.swift; sourceTree = "<group>"; };
 		03C1A53C231662D9008EAB76 /* HouseworkRevolution.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HouseworkRevolution.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03C1A53F231662D9008EAB76 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		03C1A544231662D9008EAB76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -171,6 +173,14 @@
 			path = CheckMission;
 			sourceTree = "<group>";
 		};
+		0302D9D5231CC1A400DE7921 /* Wish */ = {
+			isa = PBXGroup;
+			children = (
+				0302D9D6231CC1D600DE7921 /* WishViewController.swift */,
+			);
+			path = Wish;
+			sourceTree = "<group>";
+		};
 		03C1A533231662D9008EAB76 = {
 			isa = PBXGroup;
 			children = (
@@ -226,6 +236,7 @@
 		03C1A563231664BC008EAB76 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				0302D9D5231CC1A400DE7921 /* Wish */,
 				03C1A58B2317A256008EAB76 /* Mission */,
 				03C1A575231668A1008EAB76 /* Auth */,
 				03C1A564231664C9008EAB76 /* TabBar */,
@@ -524,6 +535,7 @@
 				03C1A540231662D9008EAB76 /* AppDelegate.swift in Sources */,
 				03C1A57A23167436008EAB76 /* WeekdaySelectionView.swift in Sources */,
 				03C1A58023167F82008EAB76 /* UIView+Extension.swift in Sources */,
+				0302D9D7231CC1D600DE7921 /* WishViewController.swift in Sources */,
 				03C1A548231662D9008EAB76 /* HouseworkRevolution.xcdatamodeld in Sources */,
 				0302D9C5231912E800DE7921 /* ShowAddSegue.swift in Sources */,
 				03C1A577231668B7008EAB76 /* AuthViewController.swift in Sources */,
@@ -703,6 +715,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2MN93DQ7G3;
 				INFOPLIST_FILE = HouseworkRevolution/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -721,6 +734,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2MN93DQ7G3;
 				INFOPLIST_FILE = HouseworkRevolution/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

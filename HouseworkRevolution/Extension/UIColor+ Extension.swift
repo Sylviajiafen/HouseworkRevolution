@@ -33,6 +33,8 @@ private enum ProjectColor: String {
     case titleBlue
     
     case titleLightBlue
+    
+    case darkSky
 }
 
 extension UIColor {
