@@ -51,13 +51,13 @@
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o0A-8m-XR2">
-                                <rect key="frame" x="67.5" y="218.5" width="240" height="170"/>
+                                <rect key="frame" x="67.5" y="228.5" width="240" height="170"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.94999999999999996" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="raJ-Jc-ssn">
-                                        <rect key="frame" x="0.0" y="18" width="240" height="120"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.90000000000000002" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="raJ-Jc-ssn">
+                                        <rect key="frame" x="0.0" y="18" width="240" height="85"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="120" id="L1T-Ps-V4G"/>
+                                            <constraint firstAttribute="height" constant="85" id="L1T-Ps-V4G"/>
                                         </constraints>
                                         <string key="text">                                                                                                                                         有什麼願望是一直被家事耽擱著呢？</string>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -70,7 +70,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </textView>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Xl-4V-ABr">
-                                        <rect key="frame" x="25" y="144" width="77" height="25"/>
+                                        <rect key="frame" x="25" y="109" width="77" height="25"/>
                                         <color key="backgroundColor" name="lightLake"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="77" id="rR1-jD-sXX"/>
@@ -90,7 +90,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NMZ-MR-t2b">
-                                        <rect key="frame" x="138" y="144" width="77" height="25"/>
+                                        <rect key="frame" x="138" y="109" width="77" height="25"/>
                                         <color key="backgroundColor" name="lightPink"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="25" id="D9Q-dy-4z1"/>
@@ -129,7 +129,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="7ou-j6-ho2" kind="presentation" modalPresentationStyle="overCurrentContext" id="qve-dN-1Jd"/>
+                                    <segue destination="7ou-j6-ho2" kind="presentation" identifier="showWish" modalPresentationStyle="currentContext" modalTransitionStyle="crossDissolve" id="qve-dN-1Jd"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -139,7 +139,7 @@
                             <constraint firstItem="Pd4-G2-eju" firstAttribute="centerY" secondItem="QHD-MI-E0A" secondAttribute="centerY" constant="-30" id="JOB-ou-4Hw"/>
                             <constraint firstItem="n3N-f5-pHs" firstAttribute="trailing" secondItem="3WP-Tb-qSy" secondAttribute="trailing" constant="20" id="RGV-f1-a1m"/>
                             <constraint firstItem="fMf-LE-jSf" firstAttribute="centerX" secondItem="QHD-MI-E0A" secondAttribute="centerX" constant="30" id="RgI-f2-W8A"/>
-                            <constraint firstItem="o0A-8m-XR2" firstAttribute="centerY" secondItem="QHD-MI-E0A" secondAttribute="centerY" constant="-30" id="Rjm-5C-qTd"/>
+                            <constraint firstItem="o0A-8m-XR2" firstAttribute="centerY" secondItem="QHD-MI-E0A" secondAttribute="centerY" constant="-20" id="Rjm-5C-qTd"/>
                             <constraint firstItem="n3N-f5-pHs" firstAttribute="bottom" secondItem="3WP-Tb-qSy" secondAttribute="bottom" constant="16" id="Uo4-eN-Oiy"/>
                             <constraint firstItem="bi3-1v-daG" firstAttribute="top" secondItem="n3N-f5-pHs" secondAttribute="top" constant="54" id="UwH-Ge-yWW"/>
                             <constraint firstItem="Pd4-G2-eju" firstAttribute="centerX" secondItem="QHD-MI-E0A" secondAttribute="centerX" id="dZz-K2-gKz"/>
@@ -160,23 +160,103 @@
             </objects>
             <point key="canvasLocation" x="349.60000000000002" y="-266.71664167916043"/>
         </scene>
-        <!--View Controller-->
+        <!--Show Wishes View Controller-->
         <scene sceneID="xKQ-5B-wxP">
             <objects>
-                <viewController id="7ou-j6-ho2" sceneMemberID="viewController">
+                <viewController id="7ou-j6-ho2" customClass="ShowWishesViewController" customModule="HouseworkRevolution" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9BP-yI-22f">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <subviews>
+                            <button opaque="NO" alpha="0.75" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AxV-wN-WgP">
+                                <rect key="frame" x="20" y="30" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="402-if-Qcs"/>
+                                    <constraint firstAttribute="height" constant="40" id="F3l-si-7hN"/>
+                                </constraints>
+                                <state key="normal" image="back"/>
+                                <connections>
+                                    <action selector="backToRoot:" destination="7ou-j6-ho2" eventType="touchUpInside" id="fIV-yL-euF"/>
+                                </connections>
+                            </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="QjD-mX-17I">
+                                <rect key="frame" x="0.0" y="80" width="375" height="587"/>
+                                <color key="backgroundColor" name="darkSky"/>
+                                <collectionViewLayout key="collectionViewLayout" id="e5r-nM-hWI" customClass="ShowWishesLayout" customModule="HouseworkRevolution" customModuleProvider="target"/>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="WishCollectionViewCell" id="wLX-B7-UGS" customClass="WishCollectionViewCell" customModule="HouseworkRevolution" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="124" height="129"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="124" height="129"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view clipsSubviews="YES" alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lsg-Uw-pMk">
+                                                    <rect key="frame" x="0.0" y="0.0" width="124" height="129"/>
+                                                    <subviews>
+                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5aV-uD-lUK">
+                                                            <rect key="frame" x="10" y="5" width="104" height="119"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                            <size key="shadowOffset" width="0.0" height="-5"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="5aV-uD-lUK" secondAttribute="trailing" constant="10" id="Tnf-I2-VgX"/>
+                                                        <constraint firstAttribute="bottom" secondItem="5aV-uD-lUK" secondAttribute="bottom" constant="5" id="UK0-25-xJb"/>
+                                                        <constraint firstItem="5aV-uD-lUK" firstAttribute="leading" secondItem="lsg-Uw-pMk" secondAttribute="leading" constant="10" id="gAU-vm-QVB"/>
+                                                        <constraint firstItem="5aV-uD-lUK" firstAttribute="top" secondItem="lsg-Uw-pMk" secondAttribute="top" constant="5" id="xF4-F6-Bua"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                        </view>
+                                        <color key="backgroundColor" name="superLightGray"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="lsg-Uw-pMk" secondAttribute="trailing" id="99K-FZ-7Oa"/>
+                                            <constraint firstItem="lsg-Uw-pMk" firstAttribute="top" secondItem="wLX-B7-UGS" secondAttribute="top" id="fsH-ht-cBw"/>
+                                            <constraint firstAttribute="bottom" secondItem="lsg-Uw-pMk" secondAttribute="bottom" id="iM6-SB-wn6"/>
+                                            <constraint firstItem="lsg-Uw-pMk" firstAttribute="leading" secondItem="wLX-B7-UGS" secondAttribute="leading" id="mub-6k-byD"/>
+                                        </constraints>
+                                        <size key="customSize" width="124" height="129"/>
+                                        <connections>
+                                            <outlet property="wishContent" destination="5aV-uD-lUK" id="4xa-a1-VX8"/>
+                                            <outlet property="wishView" destination="lsg-Uw-pMk" id="bOX-Mi-nfM"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.90000000000000002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="偷看中......" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iPU-83-3Qb">
+                                <rect key="frame" x="149.5" y="40" width="76" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" name="darkSky"/>
+                        <constraints>
+                            <constraint firstItem="QjD-mX-17I" firstAttribute="leading" secondItem="9zL-Wg-do7" secondAttribute="leading" id="4Ll-6F-e7V"/>
+                            <constraint firstItem="QjD-mX-17I" firstAttribute="top" secondItem="AxV-wN-WgP" secondAttribute="bottom" constant="10" id="4R4-Jm-2n8"/>
+                            <constraint firstItem="iPU-83-3Qb" firstAttribute="centerX" secondItem="9BP-yI-22f" secondAttribute="centerX" id="B6I-YS-1XE"/>
+                            <constraint firstItem="9zL-Wg-do7" firstAttribute="bottom" secondItem="QjD-mX-17I" secondAttribute="bottom" id="VCO-Ms-R02"/>
+                            <constraint firstItem="9zL-Wg-do7" firstAttribute="trailing" secondItem="QjD-mX-17I" secondAttribute="trailing" id="cJb-Sh-x73"/>
+                            <constraint firstItem="QjD-mX-17I" firstAttribute="top" secondItem="iPU-83-3Qb" secondAttribute="bottom" constant="20" id="fwV-6F-6dQ"/>
+                            <constraint firstItem="9zL-Wg-do7" firstAttribute="leading" secondItem="AxV-wN-WgP" secondAttribute="leading" constant="-20" id="lla-xm-Rbw"/>
+                            <constraint firstItem="AxV-wN-WgP" firstAttribute="top" secondItem="9zL-Wg-do7" secondAttribute="top" constant="10" id="xNx-77-pb1"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="9zL-Wg-do7"/>
                     </view>
+                    <connections>
+                        <outlet property="wishesCollectionView" destination="QjD-mX-17I" id="bMX-b9-CNl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y6i-wm-o2U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1064" y="-260"/>
+            <point key="canvasLocation" x="1063.2" y="-260.41979010494754"/>
         </scene>
     </scenes>
     <resources>
+        <image name="back" width="128" height="128"/>
         <image name="lamp" width="2000" height="2000"/>
         <namedColor name="darkSky">
             <color red="0.27058823529411763" green="0.45882352941176469" blue="0.67450980392156867" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -189,6 +269,9 @@
         </namedColor>
         <namedColor name="noticeGray">
             <color red="0.37599998712539673" green="0.36500000953674316" blue="0.36500000953674316" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="superLightGray">
+            <color red="0.9179999828338623" green="0.91399997472763062" blue="0.91399997472763062" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
