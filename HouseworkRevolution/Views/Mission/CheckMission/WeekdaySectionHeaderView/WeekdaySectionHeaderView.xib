@@ -34,7 +34,6 @@
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" name="projectBackground"/>
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="75s-Iv-8gB" secondAttribute="trailing" id="ISF-cL-Ut1"/>
                 <constraint firstItem="75s-Iv-8gB" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="KnP-FS-oEy"/>

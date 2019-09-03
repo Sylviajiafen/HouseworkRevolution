@@ -61,7 +61,7 @@ extension CheckMissionViewController: UITableViewDelegate, UITableViewDataSource
         guard let header = missionListTableView.dequeueReusableHeaderFooterView(
             withIdentifier: String(describing: WeekdaySectionHeaderView.self))
             as? WeekdaySectionHeaderView else { return nil }
-        
+             
         header.weekdayLabel.text = weekday[section].rawValue
         
         return header

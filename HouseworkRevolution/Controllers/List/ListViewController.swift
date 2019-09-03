@@ -49,6 +49,11 @@ class ListViewController: UIViewController {
     
     func setUpCollectionView() {
         
+        dailyMissionCollectionView.register(
+                UINib(nibName: String(describing: DailyMissionHeaderView.self), bundle: nil),
+                forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+                withReuseIdentifier: String(describing: DailyMissionHeaderView.self))
+        
         dailyMissionFlowLayout.sectionInset = UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing)
         
         dailyMissionFlowLayout.minimumLineSpacing = spacing
@@ -58,6 +63,8 @@ class ListViewController: UIViewController {
         guard let screenWidth = fullScreenSize?.width else { return }
         
         dailyMissionFlowLayout.headerReferenceSize = CGSize(width: screenWidth, height: 40.0)
+        
+//        dailyMissionFlowLayout.footerReferenceSize = CGSize(width: 0, height: 0)
         
     }
 
@@ -70,6 +77,33 @@ extension ListViewController: UICollectionViewDelegate,
     ) -> Int {
         
         return 2
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        viewForSupplementaryElementOfKind kind: String,
+                        at indexPath: IndexPath
+        
+    ) -> UICollectionReusableView {
+        
+        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
+                                    withReuseIdentifier: String(describing: DailyMissionHeaderView.self),
+                                    for: indexPath)
+        
+        if kind == UICollectionView.elementKindSectionHeader {
+            
+            guard let headerView = header as? DailyMissionHeaderView else { return UICollectionReusableView() }
+            
+            if indexPath.section == 0 {
+                
+                headerView.sectionTitle.text = "還有哪些家事任務呢？"
+                
+            } else {
+                
+                headerView.sectionTitle.text = "完成了！"
+            }
+        }
+        
+        return header
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int
@@ -101,11 +135,13 @@ extension ListViewController: UICollectionViewDelegate,
             
         case 0:
             
+            missionItem.backgroundColor = UIColor.cellGreen
             missionItem.dailyMissionLabel.text = dailyMissionUnDone[indexPath.row]
             missionItem.missionChargerLabel.text = missionCharger[indexPath.row]
             
         case 1:
             
+            missionItem.backgroundColor = UIColor.lightCellGreen
             missionItem.dailyMissionLabel.text = dailyMissionDone[indexPath.row]
             missionItem.missionChargerLabel.text = missionCharger[indexPath.row]
             
