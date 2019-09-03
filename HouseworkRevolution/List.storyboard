@@ -1,29 +1,129 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wsL-hy-qOl">
-    <device id="retina6_1" orientation="portrait">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--List View Controller-->
         <scene sceneID="V6D-CF-tcK">
             <objects>
-                <viewController id="wsL-hy-qOl" sceneMemberID="viewController">
+                <viewController id="wsL-hy-qOl" customClass="ListViewController" customModule="HouseworkRevolution" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dcs-Tp-7o0">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="vAc-W7-L9m">
+                                <rect key="frame" x="0.0" y="100" width="375" height="518"/>
+                                <color key="backgroundColor" name="projectBackground"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Wnl-3l-bKo">
+                                    <size key="itemSize" width="150" height="134"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DailyMissionCollectionViewCell" id="omV-TC-a25" customClass="DailyMissionCollectionViewCell" customModule="HouseworkRevolution" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="134"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="150" height="134"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Na0-mg-ApF">
+                                                    <rect key="frame" x="5" y="5" width="130" height="44.5"/>
+                                                    <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="13"/>
+                                                    <color key="textColor" name="superLightGray"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hgg-xN-Xt6">
+                                                    <rect key="frame" x="52" y="54.5" width="46.5" height="25.5"/>
+                                                    <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="18"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <color key="backgroundColor" name="cellGreen"/>
+                                        <constraints>
+                                            <constraint firstItem="Na0-mg-ApF" firstAttribute="top" secondItem="omV-TC-a25" secondAttribute="top" constant="5" id="6Uk-ms-2k9"/>
+                                            <constraint firstItem="Na0-mg-ApF" firstAttribute="leading" secondItem="omV-TC-a25" secondAttribute="leading" constant="5" id="E4G-DP-5im"/>
+                                            <constraint firstItem="hgg-xN-Xt6" firstAttribute="centerX" secondItem="omV-TC-a25" secondAttribute="centerX" id="jKu-mT-zki"/>
+                                            <constraint firstItem="hgg-xN-Xt6" firstAttribute="centerY" secondItem="omV-TC-a25" secondAttribute="centerY" id="lyV-Yr-osa"/>
+                                            <constraint firstAttribute="trailing" secondItem="Na0-mg-ApF" secondAttribute="trailing" constant="15" id="oht-Do-YPV"/>
+                                            <constraint firstItem="hgg-xN-Xt6" firstAttribute="top" secondItem="Na0-mg-ApF" secondAttribute="bottom" constant="5" id="sCx-E4-Y6Q"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <integer key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="dailyMissionLabel" destination="hgg-xN-Xt6" id="Een-M3-RtB"/>
+                                            <outlet property="missionChargerLabel" destination="Na0-mg-ApF" id="8Oa-7A-f2h"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vkp-nA-0xo">
+                                <rect key="frame" x="0.0" y="20" width="375" height="80"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="今日家事" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FEN-FY-N72">
+                                        <rect key="frame" x="141.5" y="23.5" width="92" height="33"/>
+                                        <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="23"/>
+                                        <color key="textColor" name="lightCellGreen"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" name="projectBackground"/>
+                                <constraints>
+                                    <constraint firstItem="FEN-FY-N72" firstAttribute="centerX" secondItem="Vkp-nA-0xo" secondAttribute="centerX" id="Nvk-kd-fvi"/>
+                                    <constraint firstAttribute="height" constant="80" id="fwy-GG-8jg"/>
+                                    <constraint firstItem="FEN-FY-N72" firstAttribute="centerY" secondItem="Vkp-nA-0xo" secondAttribute="centerY" id="wW0-qL-DrN"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" name="projectBackground"/>
+                        <constraints>
+                            <constraint firstItem="UdL-Fb-Cy1" firstAttribute="trailing" secondItem="vAc-W7-L9m" secondAttribute="trailing" id="1hy-MJ-5Ng"/>
+                            <constraint firstItem="vAc-W7-L9m" firstAttribute="top" secondItem="Vkp-nA-0xo" secondAttribute="bottom" id="9UA-jg-luG"/>
+                            <constraint firstItem="vAc-W7-L9m" firstAttribute="leading" secondItem="UdL-Fb-Cy1" secondAttribute="leading" id="E2p-eL-fkV"/>
+                            <constraint firstItem="UdL-Fb-Cy1" firstAttribute="bottom" secondItem="vAc-W7-L9m" secondAttribute="bottom" id="K71-MB-hjc"/>
+                            <constraint firstItem="Vkp-nA-0xo" firstAttribute="leading" secondItem="UdL-Fb-Cy1" secondAttribute="leading" id="S4b-IC-VLn"/>
+                            <constraint firstItem="Vkp-nA-0xo" firstAttribute="top" secondItem="UdL-Fb-Cy1" secondAttribute="top" id="g0y-0Q-mLg"/>
+                            <constraint firstItem="UdL-Fb-Cy1" firstAttribute="trailing" secondItem="Vkp-nA-0xo" secondAttribute="trailing" id="qsl-gV-v92"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="UdL-Fb-Cy1"/>
                     </view>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="dailyMissionCollectionView" destination="vAc-W7-L9m" id="aBZ-e4-pKO"/>
+                        <outlet property="dailyMissionFlowLayout" destination="Wnl-3l-bKo" id="AQ5-Di-gbi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3aM-UJ-WWQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-119" y="-210"/>
+            <point key="canvasLocation" x="-119.2" y="-210.04497751124438"/>
         </scene>
     </scenes>
+    <resources>
+        <namedColor name="cellGreen">
+            <color red="0.56862745098039214" green="0.69019607843137254" blue="0.16078431372549021" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="lightCellGreen">
+            <color red="0.83921568627450982" green="0.89411764705882357" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="projectBackground">
+            <color red="0.98799997568130493" green="0.97600001096725464" blue="0.92900002002716064" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="superLightGray">
+            <color red="0.9179999828338623" green="0.91399997472763062" blue="0.91399997472763062" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

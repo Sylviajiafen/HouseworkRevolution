@@ -169,26 +169,26 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5aV-uD-lUK">
-                                                    <rect key="frame" x="5" y="5" width="114" height="119"/>
+                                                    <rect key="frame" x="5" y="5" width="99" height="119"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                     <size key="shadowOffset" width="0.0" height="-5"/>
                                                 </label>
                                                 <view clipsSubviews="YES" alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lsg-Uw-pMk">
-                                                    <rect key="frame" x="20" y="20" width="84" height="89"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="124" height="129"/>
                                                     <color key="backgroundColor" name="lightGreen"/>
                                                 </view>
                                             </subviews>
                                         </view>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="lsg-Uw-pMk" secondAttribute="trailing" constant="20" id="99K-FZ-7Oa"/>
-                                            <constraint firstAttribute="trailing" secondItem="5aV-uD-lUK" secondAttribute="trailing" constant="5" id="Dpu-i1-C6p"/>
+                                            <constraint firstAttribute="trailing" secondItem="lsg-Uw-pMk" secondAttribute="trailing" id="99K-FZ-7Oa"/>
+                                            <constraint firstAttribute="trailing" secondItem="5aV-uD-lUK" secondAttribute="trailing" constant="20" id="Dpu-i1-C6p"/>
                                             <constraint firstItem="5aV-uD-lUK" firstAttribute="leading" secondItem="wLX-B7-UGS" secondAttribute="leading" constant="5" id="Im0-KD-Yk3"/>
                                             <constraint firstAttribute="bottom" secondItem="5aV-uD-lUK" secondAttribute="bottom" constant="5" id="TWD-Zu-0a7"/>
-                                            <constraint firstItem="lsg-Uw-pMk" firstAttribute="top" secondItem="wLX-B7-UGS" secondAttribute="top" constant="20" id="fsH-ht-cBw"/>
-                                            <constraint firstAttribute="bottom" secondItem="lsg-Uw-pMk" secondAttribute="bottom" constant="20" id="iM6-SB-wn6"/>
-                                            <constraint firstItem="lsg-Uw-pMk" firstAttribute="leading" secondItem="wLX-B7-UGS" secondAttribute="leading" constant="20" id="mub-6k-byD"/>
+                                            <constraint firstItem="lsg-Uw-pMk" firstAttribute="top" secondItem="wLX-B7-UGS" secondAttribute="top" id="fsH-ht-cBw"/>
+                                            <constraint firstAttribute="bottom" secondItem="lsg-Uw-pMk" secondAttribute="bottom" id="iM6-SB-wn6"/>
+                                            <constraint firstItem="lsg-Uw-pMk" firstAttribute="leading" secondItem="wLX-B7-UGS" secondAttribute="leading" id="mub-6k-byD"/>
                                             <constraint firstItem="5aV-uD-lUK" firstAttribute="top" secondItem="wLX-B7-UGS" secondAttribute="top" constant="5" id="uGg-os-c1w"/>
                                         </constraints>
                                         <size key="customSize" width="124" height="129"/>

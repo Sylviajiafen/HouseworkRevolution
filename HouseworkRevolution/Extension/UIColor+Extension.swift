@@ -35,6 +35,10 @@ private enum ProjectColor: String {
     case titleLightBlue
     
     case darkSky
+    
+    case cellGreen
+    
+    case lightCellGreen
 }
 
 extension UIColor {

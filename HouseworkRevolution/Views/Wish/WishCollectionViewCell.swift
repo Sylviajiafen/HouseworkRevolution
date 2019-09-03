@@ -29,9 +29,9 @@ class WishCollectionViewCell: UICollectionViewCell {
         
         deleteBtn.setImage(image, for: .normal)
         
-        deleteBtn.topAnchor.constraint(equalTo: self.topAnchor, constant: 30).isActive = true
+        deleteBtn.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: -20).isActive = true
         
-        deleteBtn.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        deleteBtn.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -8).isActive = true
         
         deleteBtn.widthAnchor.constraint(equalToConstant: 15).isActive = true
         
