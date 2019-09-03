@@ -28,6 +28,11 @@ class CheckMissionViewController: UIViewController {
     
     @IBOutlet weak var missionListTableView: UITableView!
     
+    @IBAction func backToRoot(_ sender: UIButton) {
+        
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     // TODO: 跟 dataBase 要一週任務，放進變數中
     var missionOfWeek = [String: [String]]()
     

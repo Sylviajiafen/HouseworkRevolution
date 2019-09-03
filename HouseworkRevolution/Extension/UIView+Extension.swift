@@ -10,20 +10,20 @@ import UIKit
 
 extension UIView {
     
-    func stickSubView(_ objectView: UIView) {
+    func rotate() {
+            
+        let rotation: CABasicAnimation = CABasicAnimation(keyPath: "transform.rotation")
         
-        objectView.removeFromSuperview()
+        rotation.fromValue = -Double.pi / 8
         
-        addSubview(objectView)
+        rotation.toValue = Double.pi / 8
+            
+        rotation.duration = 0.01
+            
+        rotation.repeatCount = 20
+            
+        self.layer.add(rotation, forKey: nil)
         
-        objectView.translatesAutoresizingMaskIntoConstraints = false
-        
-        objectView.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        
-        objectView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-        
-        objectView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        
-        objectView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
     }
+    
 }
