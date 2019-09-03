@@ -191,32 +191,28 @@
                                             <rect key="frame" x="0.0" y="0.0" width="124" height="129"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5aV-uD-lUK">
+                                                    <rect key="frame" x="5" y="5" width="114" height="119"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <size key="shadowOffset" width="0.0" height="-5"/>
+                                                </label>
                                                 <view clipsSubviews="YES" alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lsg-Uw-pMk">
-                                                    <rect key="frame" x="0.0" y="0.0" width="124" height="129"/>
-                                                    <subviews>
-                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5aV-uD-lUK">
-                                                            <rect key="frame" x="10" y="5" width="104" height="119"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <nil key="highlightedColor"/>
-                                                            <size key="shadowOffset" width="0.0" height="-5"/>
-                                                        </label>
-                                                    </subviews>
-                                                    <constraints>
-                                                        <constraint firstAttribute="trailing" secondItem="5aV-uD-lUK" secondAttribute="trailing" constant="10" id="Tnf-I2-VgX"/>
-                                                        <constraint firstAttribute="bottom" secondItem="5aV-uD-lUK" secondAttribute="bottom" constant="5" id="UK0-25-xJb"/>
-                                                        <constraint firstItem="5aV-uD-lUK" firstAttribute="leading" secondItem="lsg-Uw-pMk" secondAttribute="leading" constant="10" id="gAU-vm-QVB"/>
-                                                        <constraint firstItem="5aV-uD-lUK" firstAttribute="top" secondItem="lsg-Uw-pMk" secondAttribute="top" constant="5" id="xF4-F6-Bua"/>
-                                                    </constraints>
+                                                    <rect key="frame" x="20" y="10" width="84" height="109"/>
+                                                    <color key="backgroundColor" name="lightGreen"/>
                                                 </view>
                                             </subviews>
                                         </view>
-                                        <color key="backgroundColor" name="superLightGray"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="lsg-Uw-pMk" secondAttribute="trailing" id="99K-FZ-7Oa"/>
-                                            <constraint firstItem="lsg-Uw-pMk" firstAttribute="top" secondItem="wLX-B7-UGS" secondAttribute="top" id="fsH-ht-cBw"/>
-                                            <constraint firstAttribute="bottom" secondItem="lsg-Uw-pMk" secondAttribute="bottom" id="iM6-SB-wn6"/>
-                                            <constraint firstItem="lsg-Uw-pMk" firstAttribute="leading" secondItem="wLX-B7-UGS" secondAttribute="leading" id="mub-6k-byD"/>
+                                            <constraint firstAttribute="trailing" secondItem="lsg-Uw-pMk" secondAttribute="trailing" constant="20" id="99K-FZ-7Oa"/>
+                                            <constraint firstAttribute="trailing" secondItem="5aV-uD-lUK" secondAttribute="trailing" constant="5" id="Dpu-i1-C6p"/>
+                                            <constraint firstItem="5aV-uD-lUK" firstAttribute="leading" secondItem="wLX-B7-UGS" secondAttribute="leading" constant="5" id="Im0-KD-Yk3"/>
+                                            <constraint firstAttribute="bottom" secondItem="5aV-uD-lUK" secondAttribute="bottom" constant="5" id="TWD-Zu-0a7"/>
+                                            <constraint firstItem="lsg-Uw-pMk" firstAttribute="top" secondItem="wLX-B7-UGS" secondAttribute="top" constant="10" id="fsH-ht-cBw"/>
+                                            <constraint firstAttribute="bottom" secondItem="lsg-Uw-pMk" secondAttribute="bottom" constant="10" id="iM6-SB-wn6"/>
+                                            <constraint firstItem="lsg-Uw-pMk" firstAttribute="leading" secondItem="wLX-B7-UGS" secondAttribute="leading" constant="20" id="mub-6k-byD"/>
+                                            <constraint firstItem="5aV-uD-lUK" firstAttribute="top" secondItem="wLX-B7-UGS" secondAttribute="top" constant="5" id="uGg-os-c1w"/>
                                         </constraints>
                                         <size key="customSize" width="124" height="129"/>
                                         <connections>
@@ -261,6 +257,9 @@
         <namedColor name="darkSky">
             <color red="0.27058823529411763" green="0.45882352941176469" blue="0.67450980392156867" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="lightGreen">
+            <color red="0.61176470588235299" green="0.83529411764705885" blue="0.77254901960784317" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="lightLake">
             <color red="0.64313725490196083" green="0.84313725490196079" blue="0.88235294117647056" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -269,9 +268,6 @@
         </namedColor>
         <namedColor name="noticeGray">
             <color red="0.37599998712539673" green="0.36500000953674316" blue="0.36500000953674316" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="superLightGray">
-            <color red="0.9179999828338623" green="0.91399997472763062" blue="0.91399997472763062" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

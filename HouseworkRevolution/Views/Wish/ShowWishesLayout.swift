@@ -36,7 +36,9 @@ class ShowWishesLayout: UICollectionViewLayout {
     
     override func prepare() {
        
-        guard cache.isEmpty == true, let collectionView = collectionView else { return }
+        cache.removeAll()
+        
+        guard let collectionView = collectionView else { return }
         
         let columnWidth = contentWidth / CGFloat(numberOfColumns)
         
@@ -48,6 +50,7 @@ class ShowWishesLayout: UICollectionViewLayout {
         }
         
         var column = 0
+        
         var yOffset = [CGFloat](repeating: 0, count: numberOfColumns)
         
         for item in 0 ..< collectionView.numberOfItems(inSection: 0) {
@@ -72,7 +75,14 @@ class ShowWishesLayout: UICollectionViewLayout {
             
             yOffset[column] += height
             
-            column = column < (numberOfColumns - 1) ? (column + 1) : 0
+            if column < numberOfColumns - 1 {
+                
+                column += 1
+                
+            } else {
+                
+                column = 0
+            }
         }
     }
     

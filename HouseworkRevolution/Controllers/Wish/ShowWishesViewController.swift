@@ -15,6 +15,8 @@ class ShowWishesViewController: UIViewController {
         
         wishesCollectionView.dataSource = self
         
+        wishesCollectionView.delegate = self
+        
         if let layout = wishesCollectionView.collectionViewLayout as? ShowWishesLayout {
             
             layout.delegate = self
@@ -36,62 +38,86 @@ class ShowWishesViewController: UIViewController {
     // TODO: 抓 dataBase 資料
     var wishArr: [String] = ["看電影", "寫小說", "睡到自然醒", "通宵追劇", "回娘家", "和老公離婚", "買下那個包！", "很長很長很長很長很長很長很長很長的願望"]
     
-    var wishes = [String]()
+    var wishes = [String]() {
+        
+        didSet {
+            
+            wishesCollectionView.reloadData()
+            
+            wishesCollectionView.collectionViewLayout.invalidateLayout()
+        }
+    }
     
-    var wishContentHeight: CGFloat?
+    var height: CGFloat?
+    
 }
 
-extension ShowWishesViewController: UICollectionViewDataSource, ShowWishesLayoutDelegate {
+extension ShowWishesViewController: UICollectionViewDataSource,
+                                    UICollectionViewDelegate,
+                                    ShowWishesLayoutDelegate,
+                                    WishCollectionViewCellDelegate {
     
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int
     ) -> Int {
         
-        return wishArr.count
+        return wishes.count
     }
     
     func collectionView(_ collectionView: UICollectionView,
-                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+                        cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
         
         let cell = wishesCollectionView.dequeueReusableCell(
             withReuseIdentifier: String(describing: WishCollectionViewCell.self), for: indexPath)
         
         guard let wishCell = cell as? WishCollectionViewCell else { return UICollectionViewCell() }
         
+        wishCell.delegate = self
+        
+        height = wishCell.frame.height
+        
         wishCell.wishContent.text = wishes[indexPath.row]
         
-        // TODO: 刪除願望是刪除 shuffled arr ，所以刪除後要把整個 shuffled 過的願望傳到雲端洗掉之前的 wish arr
+        wishCell.showDelete()
+        
+        if wishes.count == 1 {
+            
+            wishCell.blockDelete()
+        }
         
         return wishCell
     }
     
-    func collectionView(_collectionView: UICollectionView, heightForItemAtIndexPath indexPath: IndexPath) -> CGFloat {
-    
-        let randomHeight = Int.random(in: 50...300)
+    func collectionView(_collectionView: UICollectionView,
+                        heightForItemAtIndexPath indexPath: IndexPath
+    ) -> CGFloat {
         
-        guard let wishContentHeight = wishContentHeight else { return CGFloat(randomHeight) }
+        let randomHeight = CGFloat.random(in: 60...300)
         
-        switch  randomHeight % 5 {
+        print(randomHeight)
+        
+        if randomHeight == height {
             
-        case 0:
-            return 10.0
-
-        case 1:
-            return 20.0
-
-        case 2:
-            return 30.0
-
-        case 3:
-            return 40.0
-
-        case 4:
-            return 50.0
-
-        default:
-            return CGFloat(randomHeight)
+            height = CGFloat.random(in: 60...300)
+            
+            return height ?? 60.0
+            
+        } else {
+            
+            return randomHeight
         }
-
     }
     
+    func userDidHitDelete(_ cell: UICollectionViewCell) {
+        
+        guard let toBeRemovedIndex = wishesCollectionView.indexPath(for: cell) else { return }
+        
+        wishes.remove(at: toBeRemovedIndex.row)
+        
+        wishesCollectionView.reloadData()
+
+        // TODO: 刪除願望是刪除 shuffled arr ，所以刪除後要把整個 shuffled 過的願望傳到雲端洗掉之前的 wish arr
+        
+    }
 }
