@@ -29,13 +29,13 @@ class WishCollectionViewCell: UICollectionViewCell {
         
         deleteBtn.setImage(image, for: .normal)
         
-        deleteBtn.topAnchor.constraint(equalTo: self.topAnchor, constant: 10).isActive = true
+        deleteBtn.topAnchor.constraint(equalTo: self.topAnchor, constant: 30).isActive = true
         
         deleteBtn.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
         
-        deleteBtn.widthAnchor.constraint(equalToConstant: 20).isActive = true
+        deleteBtn.widthAnchor.constraint(equalToConstant: 15).isActive = true
         
-        deleteBtn.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        deleteBtn.heightAnchor.constraint(equalToConstant: 15).isActive = true
     
         deleteBtn.addTarget(self, action: #selector(deleteWish), for: .touchUpInside)
         

@@ -95,18 +95,17 @@ extension ShowWishesViewController: UICollectionViewDataSource,
         
         let randomHeight = CGFloat.random(in: 60...300)
         
-        print(randomHeight)
-        
         if randomHeight == height {
-            
+
             height = CGFloat.random(in: 60...300)
-            
+
             return height ?? 60.0
-            
+
         } else {
-            
+
             return randomHeight
         }
+        
     }
     
     func userDidHitDelete(_ cell: UICollectionViewCell) {
