@@ -14,7 +14,9 @@ class WishViewController: UIViewController {
         super.viewDidLoad()
         
         setUpLamp()
-        makeWishView.isHidden = true
+        
+        makeWishView.alpha = 0
+        
         wishInput.delegate = self
 
     }
@@ -36,21 +38,29 @@ class WishViewController: UIViewController {
     }
 
     @objc func tapOnImage() {
-        
-//        makeWishView.isHidden = false
+    
         lamp.rotate()
         
-        print(123)
-       
+        if makeWishView.alpha == 0 {
+        
+            UIView.animate(withDuration: 1.5) { [weak self] in
+            
+                self?.makeWishView.alpha = 1
+            }
+            
+        } else {
+            
+            UIView.animate(withDuration: 1) { [weak self] in
+                
+                self?.makeWishView.alpha = 0
+            }
+
+        }
+    
     }
     // 以上為神燈點擊事件
     
     @IBOutlet weak var wishInput: UITextView!
-    
-    @IBAction func cancelWish(_ sender: UIButton) {
-        
-        makeWishView.isHidden = true
-    }
     
     @IBAction func makeWish(_ sender: UIButton) {
         // TODO: 將願望加到 database
@@ -77,7 +87,7 @@ class WishViewController: UIViewController {
         
         present(alert, animated: true, completion: nil)
         
-        makeWishView.isHidden = true
+        makeWishView.alpha = 0
     }
 }
 
