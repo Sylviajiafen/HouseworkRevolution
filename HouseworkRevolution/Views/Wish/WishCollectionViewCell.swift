@@ -29,8 +29,6 @@ class WishCollectionViewCell: UICollectionViewCell {
         
         deleteBtn.setImage(image, for: .normal)
         
-//        let verticalConstant = self.frame.height / 2
-        
         deleteBtn.topAnchor.constraint(equalTo: self.topAnchor, constant: 10).isActive = true
         
         deleteBtn.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true

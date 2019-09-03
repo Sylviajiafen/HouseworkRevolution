@@ -10,8 +10,6 @@ import UIKit
 
 class WishViewController: UIViewController {
 
-    let placeHolder = UILabel()
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,7 +26,7 @@ class WishViewController: UIViewController {
     // 神燈相關設定：待換圖、建立小動畫
     @IBOutlet weak var lamp: UIImageView!
     
-    func setUpLamp(){
+    func setUpLamp() {
         
         lamp.isUserInteractionEnabled = true
         
@@ -39,7 +37,10 @@ class WishViewController: UIViewController {
 
     @objc func tapOnImage() {
         
-        makeWishView.isHidden = false
+//        makeWishView.isHidden = false
+        lamp.rotate()
+        
+        print(123)
        
     }
     // 以上為神燈點擊事件
