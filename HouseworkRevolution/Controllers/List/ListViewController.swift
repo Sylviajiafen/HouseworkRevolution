@@ -202,8 +202,6 @@ extension ListViewController: UICollectionViewDragDelegate {
                         at indexPath: IndexPath
     ) -> [UIDragItem] {
         
-        print("==== itemsForBeginning: \(dailyMission[indexPath.row]), at: \(indexPath)")
-        
         switch  indexPath.section {
         
         case 0:
@@ -237,29 +235,9 @@ extension ListViewController: UICollectionViewDropDelegate {
                         withDestinationIndexPath destinationIndexPath: IndexPath?
     ) -> UICollectionViewDropProposal {
         
-        print("==== dropSesionDidUpdate, destination: \(destinationIndexPath)")
-        
         if collectionView.hasActiveDrag {
             
-//            if let destination = destinationIndexPath {
-//
-//                switch destination.section {
-//
-//                case 0:
-//                    return UICollectionViewDropProposal(operation: .move)
-//                    print("in section 0 move")
-//
-//                case 1:
-//                    return UICollectionViewDropProposal(operation: .move)
-//
-//                default:
-//                    return UICollectionViewDropProposal(operation: .forbidden)
-//                }
-//
-//            } else {
-            
-                return UICollectionViewDropProposal(operation: .move, intent: .insertIntoDestinationIndexPath)
-//            }
+            return UICollectionViewDropProposal(operation: .move, intent: .insertIntoDestinationIndexPath)
 
         }
         
@@ -299,8 +277,6 @@ extension ListViewController: UICollectionViewDropDelegate {
     func collectionView(_ collectionView: UICollectionView,
                         performDropWith coordinator: UICollectionViewDropCoordinator
     ) {
-    
-        print("==== performDropWith, index: \(coordinator.destinationIndexPath), item: \(coordinator.items.first)")
         
             let defaultDestination = IndexPath(item: 0, section: 1)
         
@@ -308,7 +284,6 @@ extension ListViewController: UICollectionViewDropDelegate {
 
                 guard let destination = coordinator.destinationIndexPath else {
                 
-                    print("無目的")
                     reorderItems(coordinator: coordinator,
                                  destinationIndexPath: defaultDestination,
                                  collectionView: collectionView)
@@ -316,7 +291,6 @@ extension ListViewController: UICollectionViewDropDelegate {
                     return
                 }
                 
-                print("有目的")
                 switch destination.section {
                     
                 case 0:
