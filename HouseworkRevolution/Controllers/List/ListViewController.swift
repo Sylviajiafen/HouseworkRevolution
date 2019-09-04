@@ -243,7 +243,26 @@ extension ListViewController: UICollectionViewDropDelegate {
         
         if collectionView.hasActiveDrag {
             
-            return UICollectionViewDropProposal(operation: .move, intent: .insertIntoDestinationIndexPath)
+//            if let destination = destinationIndexPath {
+//
+//                switch destination.section {
+//
+//                case 0:
+//                    return UICollectionViewDropProposal(operation: .move)
+//                    print("in section 0 move")
+//
+//                case 1:
+//                    return UICollectionViewDropProposal(operation: .move)
+//
+//                default:
+//                    return UICollectionViewDropProposal(operation: .forbidden)
+//                }
+//
+//            } else {
+            
+                return UICollectionViewDropProposal(operation: .move, intent: .insertIntoDestinationIndexPath)
+//            }
+
         }
         
         return UICollectionViewDropProposal(operation: .forbidden)
@@ -290,7 +309,8 @@ extension ListViewController: UICollectionViewDropDelegate {
             if coordinator.proposal.operation == .move {
 
                 guard let destination = coordinator.destinationIndexPath else {
-                    
+                
+                    print("無目的")
                     reorderItems(coordinator: coordinator,
                                  destinationIndexPath: defaultDestination,
                                  collectionView: collectionView)
@@ -298,9 +318,20 @@ extension ListViewController: UICollectionViewDropDelegate {
                     return
                 }
                 
-                reorderItems(coordinator: coordinator,
-                             destinationIndexPath: destination,
-                             collectionView: collectionView)
+                print("有目的")
+                switch destination.section {
+                    
+                case 0:
+                    return
+                    
+                case 1:
+                    reorderItems(coordinator: coordinator,
+                                 destinationIndexPath: destination,
+                                 collectionView: collectionView)
+                default:
+                    return
+                }
+    
             }
 
     }
