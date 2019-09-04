@@ -20,8 +20,6 @@ class ListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-
         fullScreenSize = UIScreen.main.bounds.size
         
         setUpCollectionView()
