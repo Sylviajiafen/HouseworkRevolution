@@ -18,6 +18,11 @@
 		0302D9DA231CEEDF00DE7921 /* ShowWishesLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0302D9D9231CEEDF00DE7921 /* ShowWishesLayout.swift */; };
 		0302D9DC231CFD0000DE7921 /* ShowWishesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0302D9DB231CFD0000DE7921 /* ShowWishesViewController.swift */; };
 		0302D9DE231D002800DE7921 /* WishCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0302D9DD231D002800DE7921 /* WishCollectionViewCell.swift */; };
+		0302D9E3231E5B8400DE7921 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0302D9E2231E5B8400DE7921 /* ListViewController.swift */; };
+		0302D9E6231E650600DE7921 /* DailyMissionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0302D9E5231E650600DE7921 /* DailyMissionCollectionViewCell.swift */; };
+		0302D9EA231E7A0800DE7921 /* DailyMissionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0302D9E8231E7A0800DE7921 /* DailyMissionHeaderView.swift */; };
+		0302D9EB231E7A0800DE7921 /* DailyMissionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0302D9E9231E7A0800DE7921 /* DailyMissionHeaderView.xib */; };
+		0302D9ED231FB6DC00DE7921 /* dailyMission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0302D9EC231FB6DC00DE7921 /* dailyMission.swift */; };
 		03C1A540231662D9008EAB76 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1A53F231662D9008EAB76 /* AppDelegate.swift */; };
 		03C1A545231662D9008EAB76 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03C1A543231662D9008EAB76 /* Main.storyboard */; };
 		03C1A548231662D9008EAB76 /* HouseworkRevolution.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 03C1A546231662D9008EAB76 /* HouseworkRevolution.xcdatamodeld */; };
@@ -67,6 +72,11 @@
 		0302D9D9231CEEDF00DE7921 /* ShowWishesLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowWishesLayout.swift; sourceTree = "<group>"; };
 		0302D9DB231CFD0000DE7921 /* ShowWishesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowWishesViewController.swift; sourceTree = "<group>"; };
 		0302D9DD231D002800DE7921 /* WishCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishCollectionViewCell.swift; sourceTree = "<group>"; };
+		0302D9E2231E5B8400DE7921 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		0302D9E5231E650600DE7921 /* DailyMissionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyMissionCollectionViewCell.swift; sourceTree = "<group>"; };
+		0302D9E8231E7A0800DE7921 /* DailyMissionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyMissionHeaderView.swift; sourceTree = "<group>"; };
+		0302D9E9231E7A0800DE7921 /* DailyMissionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DailyMissionHeaderView.xib; sourceTree = "<group>"; };
+		0302D9EC231FB6DC00DE7921 /* dailyMission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dailyMission.swift; sourceTree = "<group>"; };
 		03C1A53C231662D9008EAB76 /* HouseworkRevolution.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HouseworkRevolution.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03C1A53F231662D9008EAB76 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		03C1A544231662D9008EAB76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -193,6 +203,32 @@
 			path = Wish;
 			sourceTree = "<group>";
 		};
+		0302D9E1231E5B5E00DE7921 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				0302D9E2231E5B8400DE7921 /* ListViewController.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		0302D9E4231E64DD00DE7921 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				0302D9E7231E719500DE7921 /* DailyMissionHeaderView */,
+				0302D9E5231E650600DE7921 /* DailyMissionCollectionViewCell.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		0302D9E7231E719500DE7921 /* DailyMissionHeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				0302D9E8231E7A0800DE7921 /* DailyMissionHeaderView.swift */,
+				0302D9E9231E7A0800DE7921 /* DailyMissionHeaderView.xib */,
+			);
+			path = DailyMissionHeaderView;
+			sourceTree = "<group>";
+		};
 		03C1A533231662D9008EAB76 = {
 			isa = PBXGroup;
 			children = (
@@ -247,6 +283,7 @@
 		03C1A563231664BC008EAB76 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				0302D9E1231E5B5E00DE7921 /* List */,
 				0302D9D5231CC1A400DE7921 /* Wish */,
 				03C1A58B2317A256008EAB76 /* Mission */,
 				03C1A575231668A1008EAB76 /* Auth */,
@@ -290,6 +327,7 @@
 				0302D9D0231B633700DE7921 /* Auth */,
 				0302D9CF231B632F00DE7921 /* Mission */,
 				0302D9D8231CEE7A00DE7921 /* Wish */,
+				0302D9E4231E64DD00DE7921 /* List */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -306,6 +344,7 @@
 			isa = PBXGroup;
 			children = (
 				03C1A5932318C7A3008EAB76 /* Weekday.swift */,
+				0302D9EC231FB6DC00DE7921 /* dailyMission.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -433,6 +472,7 @@
 				0302D9CB231AB0AF00DE7921 /* WeekdaySectionHeaderView.xib in Resources */,
 				03C1A566231664DE008EAB76 /* List.storyboard in Resources */,
 				03C1A56823166518008EAB76 /* Mission.storyboard in Resources */,
+				0302D9EB231E7A0800DE7921 /* DailyMissionHeaderView.xib in Resources */,
 				03C1A545231662D9008EAB76 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -533,13 +573,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				0302D9C12318FBC800DE7921 /* HouseworkCollectionViewCell.swift in Sources */,
+				0302D9E6231E650600DE7921 /* DailyMissionCollectionViewCell.swift in Sources */,
 				03C1A5702316658D008EAB76 /* TabBarController.swift in Sources */,
 				03C1A540231662D9008EAB76 /* AppDelegate.swift in Sources */,
 				0302D9DA231CEEDF00DE7921 /* ShowWishesLayout.swift in Sources */,
 				03C1A58023167F82008EAB76 /* UIView+Extension.swift in Sources */,
+				0302D9EA231E7A0800DE7921 /* DailyMissionHeaderView.swift in Sources */,
 				0302D9D7231CC1D600DE7921 /* WishViewController.swift in Sources */,
 				03C1A548231662D9008EAB76 /* HouseworkRevolution.xcdatamodeld in Sources */,
 				0302D9C5231912E800DE7921 /* ShowAddSegue.swift in Sources */,
+				0302D9E3231E5B8400DE7921 /* ListViewController.swift in Sources */,
 				0302D9DC231CFD0000DE7921 /* ShowWishesViewController.swift in Sources */,
 				03C1A577231668B7008EAB76 /* AuthViewController.swift in Sources */,
 				03C1A5832316908D008EAB76 /* NameCallCollectionViewCell.swift in Sources */,
@@ -547,6 +590,7 @@
 				0302D9C32318FBE900DE7921 /* FamilyMemberCollectionViewCell.swift in Sources */,
 				0302D9CD231AB0DA00DE7921 /* WeekdaySectionHeaderView.swift in Sources */,
 				03C1A5912317C6E7008EAB76 /* CheckMissionViewController.swift in Sources */,
+				0302D9ED231FB6DC00DE7921 /* dailyMission.swift in Sources */,
 				03C1A58F2317C6D2008EAB76 /* AddMissionViewController.swift in Sources */,
 				0302D9C92319259F00DE7921 /* MissionListTableViewCell.swift in Sources */,
 				0302D9DE231D002800DE7921 /* WishCollectionViewCell.swift in Sources */,
