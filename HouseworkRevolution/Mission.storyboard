@@ -59,18 +59,28 @@
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MissionListTableViewCell" id="OcY-1K-iwP" customClass="MissionListTableViewCell" customModule="HouseworkRevolution" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OcY-1K-iwP" id="ltY-uh-cFh">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OcY-1K-iwP" id="ltY-uh-cFh">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LWf-cM-61v">
-                                                    <rect key="frame" x="40" y="9" width="46.5" height="25.5"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LWf-cM-61v">
+                                                    <rect key="frame" x="40" y="7.5" width="80" height="35"/>
+                                                    <color key="backgroundColor" name="titleLightBlue"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="35" id="e9h-oX-zMc"/>
+                                                        <constraint firstAttribute="width" constant="80" id="nIO-bl-CBu"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="18"/>
-                                                    <color key="textColor" name="contentBlue"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <integer key="value" value="8"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E77-TQ-wI3">
-                                                    <rect key="frame" x="329" y="7" width="31" height="30"/>
+                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E77-TQ-wI3">
+                                                    <rect key="frame" x="150" y="7" width="31" height="30"/>
                                                     <state key="normal" title="移除"/>
                                                 </button>
                                             </subviews>
@@ -78,8 +88,9 @@
                                             <constraints>
                                                 <constraint firstItem="E77-TQ-wI3" firstAttribute="centerY" secondItem="ltY-uh-cFh" secondAttribute="centerY" id="5bq-t9-iGO"/>
                                                 <constraint firstItem="LWf-cM-61v" firstAttribute="leading" secondItem="ltY-uh-cFh" secondAttribute="leading" constant="40" id="7UE-nZ-cnV"/>
-                                                <constraint firstAttribute="trailing" secondItem="E77-TQ-wI3" secondAttribute="trailing" constant="15" id="Dn5-Bo-n3N"/>
+                                                <constraint firstItem="E77-TQ-wI3" firstAttribute="leading" secondItem="LWf-cM-61v" secondAttribute="trailing" constant="30" id="HYe-ro-V00"/>
                                                 <constraint firstItem="LWf-cM-61v" firstAttribute="centerY" secondItem="ltY-uh-cFh" secondAttribute="centerY" id="csI-6L-1Id"/>
+                                                <constraint firstItem="LWf-cM-61v" firstAttribute="top" secondItem="ltY-uh-cFh" secondAttribute="top" constant="7.5" id="qFN-f1-gx5"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" name="projectBackground"/>
@@ -95,7 +106,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="還沒建立家事唷！" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LAk-T4-Vfo">
-                                                    <rect key="frame" x="40" y="10" width="136" height="24"/>
+                                                    <rect key="frame" x="40" y="5" width="136" height="33.5"/>
                                                     <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="17"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -103,6 +114,7 @@
                                             </subviews>
                                             <color key="backgroundColor" name="projectBackground"/>
                                             <constraints>
+                                                <constraint firstItem="LAk-T4-Vfo" firstAttribute="top" secondItem="mi1-Wn-mHx" secondAttribute="top" constant="5" id="Fbo-Uc-2EL"/>
                                                 <constraint firstItem="LAk-T4-Vfo" firstAttribute="leading" secondItem="mi1-Wn-mHx" secondAttribute="leading" constant="40" id="jbF-lM-URl"/>
                                                 <constraint firstItem="LAk-T4-Vfo" firstAttribute="centerY" secondItem="mi1-Wn-mHx" secondAttribute="centerY" id="uiR-tG-f7l"/>
                                             </constraints>
@@ -410,8 +422,8 @@
                                     <constraint firstAttribute="width" constant="120" id="aHP-g0-MQf"/>
                                 </constraints>
                             </pickerView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="當設定為大於 5 時，神燈精靈會出現喔！" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AmN-Cv-62C">
-                                <rect key="frame" x="131" y="514" width="229" height="18"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="當設定為大於 5 時，神燈精靈會出現喔！" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AmN-Cv-62C">
+                                <rect key="frame" x="129" y="507" width="222.5" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.37647058820000001" green="0.36470588240000001" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -480,9 +492,6 @@
         <image name="information" width="16" height="16"/>
         <image name="lightGreenCircle" width="64" height="64"/>
         <image name="remove" width="16" height="16"/>
-        <namedColor name="contentBlue">
-            <color red="0.39215686274509803" green="0.65098039215686276" blue="0.75686274509803919" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="projectBackground">
             <color red="0.98799997568130493" green="0.97600001096725464" blue="0.92900002002716064" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
