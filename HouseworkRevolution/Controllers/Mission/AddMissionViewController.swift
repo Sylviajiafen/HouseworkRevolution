@@ -50,7 +50,7 @@ class AddMissionViewController: UIViewController {
     
     @IBAction func addNewHousework(_ sender: UIButton) {
         
-        guard let newHousework = customHousework.text else { return}
+        guard let newHousework = customHousework.text else { return }
         
         guard newHousework != "" else { showAlertOfNilText(); return }
         
@@ -77,13 +77,15 @@ class AddMissionViewController: UIViewController {
     
     // TODO: 從雲端抓取，存入變數
     // 預設家事標籤的array 還是可以留在專案裡，但使用者新增的要上傳 fire base
-    // 在一開始 viewDidLoad  fetch database 的時候就先append 進 array 中
+    // 在一開始 viewDidLoad  fetch database 的時候就先爸把使用者新增的家事 append 進 array 中
+    // 預設家事標籤用 enum 存，並去判斷搭配的圖
     
     var houseworks: [String] = ["掃地", "拖地", "倒垃圾", "洗衣服", "煮飯", "買菜", "掃廁所"] {
         
         didSet {
             
             houseworksCollection.reloadData()
+            
         }
     }
     
@@ -108,7 +110,7 @@ extension AddMissionViewController: UIPickerViewDelegate, UIPickerViewDataSource
     func pickerView(_ pickerView: UIPickerView,
                     numberOfRowsInComponent component: Int
         
-    ) -> Int { return 7 }
+    ) -> Int { return weekday.count }
     
     func pickerView(_ pickerView: UIPickerView,
                     viewForRow row: Int,
@@ -168,7 +170,7 @@ extension AddMissionViewController: UICollectionViewDelegate, UICollectionViewDa
             
             guard let houseworkCell = cell as? HouseworkCollectionViewCell else { return UICollectionViewCell() }
             
-            houseworkCell.backgroundColor = UIColor.buttonUnSelected
+            setUpHouseworkLabelfor(houseworkCell, background: UIColor.buttonUnSelected, textColor: .white)
             
             houseworkCell.houseworkLabel.text = houseworks[indexPath.row]
             
@@ -202,9 +204,7 @@ extension AddMissionViewController: UICollectionViewDelegate, UICollectionViewDa
                 
                 as? HouseworkCollectionViewCell else { return }
             
-            houseworkCell.backgroundColor = UIColor.buttonSelected
-            
-            houseworkCell.houseworkLabel.textColor = UIColor.noticeGray
+            setUpHouseworkLabelfor(houseworkCell, background: UIColor.buttonSelected, textColor: UIColor.noticeGray)
             
         case familyMemberCollection:
             
@@ -212,9 +212,7 @@ extension AddMissionViewController: UICollectionViewDelegate, UICollectionViewDa
                 
                 as? FamilyMemberCollectionViewCell else { return }
             
-            familyCell.backgroundColor = UIColor.buttonSelected
-            
-            familyCell.memberLabel.textColor = UIColor.noticeGray
+            setUpfamilyLabelfor(familyCell, background: UIColor.buttonSelected, textColor: UIColor.noticeGray)
             
         default:
             
@@ -234,9 +232,7 @@ extension AddMissionViewController: UICollectionViewDelegate, UICollectionViewDa
                 
                 as? HouseworkCollectionViewCell else { return }
             
-            houseworkCell.backgroundColor = UIColor.buttonUnSelected
-            
-            houseworkCell.houseworkLabel.textColor = .white
+            setUpHouseworkLabelfor(houseworkCell, background: UIColor.buttonUnSelected, textColor: .white)
         
         case familyMemberCollection:
             
@@ -244,9 +240,7 @@ extension AddMissionViewController: UICollectionViewDelegate, UICollectionViewDa
                 
                 as? FamilyMemberCollectionViewCell else { return }
             
-            familyCell.backgroundColor = UIColor.buttonUnSelected
-            
-            familyCell.memberLabel.textColor = .white
+            setUpfamilyLabelfor(familyCell, background: UIColor.buttonUnSelected, textColor: .white)
             
         default:
             
@@ -255,4 +249,19 @@ extension AddMissionViewController: UICollectionViewDelegate, UICollectionViewDa
         
     }
     
+    func setUpHouseworkLabelfor(_ cell: HouseworkCollectionViewCell, background: UIColor?, textColor: UIColor?) {
+        
+        guard let background = background, let textColor = textColor else { return }
+        
+        cell.backgroundColor = background
+        cell.houseworkLabel.textColor = textColor
+    }
+    
+    func setUpfamilyLabelfor(_ cell: FamilyMemberCollectionViewCell, background: UIColor?, textColor: UIColor?) {
+        
+        guard let background = background, let textColor = textColor else { return }
+        
+        cell.backgroundColor = background
+        cell.memberLabel.textColor = textColor
+    }
 }
