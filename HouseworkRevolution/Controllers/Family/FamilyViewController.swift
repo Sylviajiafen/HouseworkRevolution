@@ -18,6 +18,11 @@ class FamilyViewController: UIViewController {
         invitingFamilyTableView.delegate = self
         invitingFamilyTableView.dataSource = self
         
+        // MARK: regist header
+        let headerXib = UINib(nibName: String(describing: InvitingFamilySectionHeaderView.self), bundle: nil)
+        
+        invitingFamilyTableView.register(headerXib, forHeaderFooterViewReuseIdentifier: String(describing: InvitingFamilySectionHeaderView.self))
+        
         // TODO: 抓 invitingFamily 資料
         invitingFamilyList = [InvitingFamilyList(family: "好狗窩", from: "媽咪"),
                             InvitingFamilyList(family: "壞狗窩", from: "爸比")]
@@ -28,6 +33,31 @@ class FamilyViewController: UIViewController {
 
 extension FamilyViewController: UITableViewDelegate, UITableViewDataSource {
     
+    // MARK: Section Header
+    func numberOfSections(in tableView: UITableView
+    ) -> Int {
+        
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView,
+                   heightForHeaderInSection section: Int
+    ) -> CGFloat {
+    
+        return 44.0
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int
+    ) -> UIView? {
+        
+        guard let header = invitingFamilyTableView.dequeueReusableHeaderFooterView(
+            withIdentifier: String(describing: InvitingFamilySectionHeaderView.self))
+            as? InvitingFamilySectionHeaderView else { return nil }
+        
+        return header
+    }
+    
+    // MARK: TableView Cell
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         switch tableView {
