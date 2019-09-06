@@ -159,18 +159,31 @@ extension FamilyViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int
     ) -> CGFloat {
-
-        return 10.0
+        
+        if tableView == familyMemberTableView {
+            
+            return 10.0
+        } else {
+            
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int
     ) -> UIView? {
         
-        let footer = UIView()
+        if tableView == familyMemberTableView {
+            
+            let footer = UIView()
+            
+            footer.backgroundColor = UIColor.projectBackground
+            
+            return footer
+        } else {
+            
+            return nil
+        }
         
-        footer.backgroundColor = UIColor.projectBackground
-        
-        return footer
     }
     
     // MARK: TableView Cell

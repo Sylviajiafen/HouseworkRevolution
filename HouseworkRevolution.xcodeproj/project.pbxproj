@@ -54,6 +54,8 @@
 		03FEAC102322054600722A34 /* FamilyMemberSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FEAC0F2322054600722A34 /* FamilyMemberSectionHeader.swift */; };
 		03FEAC122322057E00722A34 /* FamilyMemberSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03FEAC112322057E00722A34 /* FamilyMemberSectionHeader.xib */; };
 		03FEAC152322069100722A34 /* FamilyMemberTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FEAC142322069100722A34 /* FamilyMemberTableViewCell.swift */; };
+		03FEAC1B2322610500722A34 /* SearchUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FEAC1A2322610500722A34 /* SearchUserViewController.swift */; };
+		03FEAC1E23226FFA00722A34 /* SearchUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FEAC1D23226FFA00722A34 /* SearchUserTableViewCell.swift */; };
 		13C2546C9B3D4DD77EDFFF43 /* Pods_HouseworkRevolution.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1493339683728FA72397E709 /* Pods_HouseworkRevolution.framework */; };
 		A426424894EE163385C27B85 /* Pods_HouseworkRevolutionTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 768DABA652B8C169712D5223 /* Pods_HouseworkRevolutionTests.framework */; };
 /* End PBXBuildFile section */
@@ -120,6 +122,8 @@
 		03FEAC0F2322054600722A34 /* FamilyMemberSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyMemberSectionHeader.swift; sourceTree = "<group>"; };
 		03FEAC112322057E00722A34 /* FamilyMemberSectionHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FamilyMemberSectionHeader.xib; sourceTree = "<group>"; };
 		03FEAC142322069100722A34 /* FamilyMemberTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyMemberTableViewCell.swift; sourceTree = "<group>"; };
+		03FEAC1A2322610500722A34 /* SearchUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserViewController.swift; sourceTree = "<group>"; };
+		03FEAC1D23226FFA00722A34 /* SearchUserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserTableViewCell.swift; sourceTree = "<group>"; };
 		1493339683728FA72397E709 /* Pods_HouseworkRevolution.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HouseworkRevolution.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		282E80C58DF6B1DB0CB6F4EB /* Pods-HouseworkRevolutionTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HouseworkRevolutionTests.debug.xcconfig"; path = "Target Support Files/Pods-HouseworkRevolutionTests/Pods-HouseworkRevolutionTests.debug.xcconfig"; sourceTree = "<group>"; };
 		768DABA652B8C169712D5223 /* Pods_HouseworkRevolutionTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HouseworkRevolutionTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -248,6 +252,7 @@
 		0302D9EE2321E32800DE7921 /* Family */ = {
 			isa = PBXGroup;
 			children = (
+				03FEAC1C23226FD500722A34 /* SearchUserTableView */,
 				03FEAC0E2322050000722A34 /* FamilyMemberTableView */,
 				03FEAC082321F3C000722A34 /* invitingFamilyTableView */,
 			);
@@ -258,6 +263,7 @@
 			isa = PBXGroup;
 			children = (
 				0302D9F22321E49200DE7921 /* FamilyViewController.swift */,
+				03FEAC1A2322610500722A34 /* SearchUserViewController.swift */,
 			);
 			path = Family;
 			sourceTree = "<group>";
@@ -416,19 +422,27 @@
 		03FEAC0E2322050000722A34 /* FamilyMemberTableView */ = {
 			isa = PBXGroup;
 			children = (
-				03FEAC132322058200722A34 /* FamilyMemberSectionHeader */,
+				03FEAC132322058200722A34 /* FamilyMemberSectionHeaderFooter */,
 				03FEAC142322069100722A34 /* FamilyMemberTableViewCell.swift */,
 			);
 			path = FamilyMemberTableView;
 			sourceTree = "<group>";
 		};
-		03FEAC132322058200722A34 /* FamilyMemberSectionHeader */ = {
+		03FEAC132322058200722A34 /* FamilyMemberSectionHeaderFooter */ = {
 			isa = PBXGroup;
 			children = (
 				03FEAC0F2322054600722A34 /* FamilyMemberSectionHeader.swift */,
 				03FEAC112322057E00722A34 /* FamilyMemberSectionHeader.xib */,
 			);
-			path = FamilyMemberSectionHeader;
+			path = FamilyMemberSectionHeaderFooter;
+			sourceTree = "<group>";
+		};
+		03FEAC1C23226FD500722A34 /* SearchUserTableView */ = {
+			isa = PBXGroup;
+			children = (
+				03FEAC1D23226FFA00722A34 /* SearchUserTableViewCell.swift */,
+			);
+			path = SearchUserTableView;
 			sourceTree = "<group>";
 		};
 		2FF63852DA9196A7B69A8A6D /* Frameworks */ = {
@@ -646,6 +660,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03FEAC1E23226FFA00722A34 /* SearchUserTableViewCell.swift in Sources */,
 				0302D9C12318FBC800DE7921 /* HouseworkCollectionViewCell.swift in Sources */,
 				0302D9E6231E650600DE7921 /* DailyMissionCollectionViewCell.swift in Sources */,
 				03FEAC102322054600722A34 /* FamilyMemberSectionHeader.swift in Sources */,
@@ -663,6 +678,7 @@
 				0302D9E3231E5B8400DE7921 /* ListViewController.swift in Sources */,
 				0302D9DC231CFD0000DE7921 /* ShowWishesViewController.swift in Sources */,
 				0302D9F52321E74F00DE7921 /* Data.swift in Sources */,
+				03FEAC1B2322610500722A34 /* SearchUserViewController.swift in Sources */,
 				03C1A577231668B7008EAB76 /* AuthViewController.swift in Sources */,
 				03C1A5832316908D008EAB76 /* NameCallCollectionViewCell.swift in Sources */,
 				03C1A59E2318F147008EAB76 /* UIColor+Extension.swift in Sources */,
