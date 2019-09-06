@@ -12,4 +12,11 @@ class FamilyMemberCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var memberLabel: UILabel!
     
+    func setUpLabelfor(background: UIColor?, textColor: UIColor?) {
+        
+        guard let background = background, let textColor = textColor else { return }
+        
+        self.backgroundColor = background
+        self.memberLabel.textColor = textColor
+    }
 }

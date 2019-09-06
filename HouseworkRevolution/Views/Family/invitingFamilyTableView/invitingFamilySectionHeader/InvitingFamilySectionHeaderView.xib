@@ -22,21 +22,20 @@
                     <color key="backgroundColor" name="projectBackground"/>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="有人邀請您加入家庭！" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VUM-Kj-nhv">
-                    <rect key="frame" x="0.0" y="30" width="375" height="24"/>
+                    <rect key="frame" x="0.0" y="25" width="375" height="25"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="24" id="lMp-cy-K2t"/>
+                        <constraint firstAttribute="height" constant="25" id="lMp-cy-K2t"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="STHeitiTC-Medium" family="Heiti TC" pointSize="17"/>
+                    <fontDescription key="fontDescription" name="STHeitiTC-Medium" family="Heiti TC" pointSize="19"/>
                     <color key="textColor" name="projectTitle"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="54f-W6-wku" secondAttribute="trailing" id="9tW-pM-WLy"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="54f-W6-wku" secondAttribute="bottom" id="FO5-QP-Mjn"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="VUM-Kj-nhv" secondAttribute="trailing" id="M5n-1U-hBi"/>
-                <constraint firstItem="VUM-Kj-nhv" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="Vrx-fX-tfv"/>
+                <constraint firstItem="VUM-Kj-nhv" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="5" id="Vrx-fX-tfv"/>
                 <constraint firstItem="54f-W6-wku" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="m4j-Du-jYM"/>
                 <constraint firstItem="54f-W6-wku" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="pN5-SU-vuD"/>
                 <constraint firstItem="VUM-Kj-nhv" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="tzF-dS-9yD"/>

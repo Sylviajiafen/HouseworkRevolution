@@ -170,7 +170,7 @@ extension AddMissionViewController: UICollectionViewDelegate, UICollectionViewDa
             
             guard let houseworkCell = cell as? HouseworkCollectionViewCell else { return UICollectionViewCell() }
             
-            setUpHouseworkLabelfor(houseworkCell, background: UIColor.buttonUnSelected, textColor: .white)
+            houseworkCell.setUpLabelfor(background: UIColor.buttonUnSelected, textColor: .white)
             
             houseworkCell.houseworkLabel.text = houseworks[indexPath.row]
             
@@ -182,7 +182,7 @@ extension AddMissionViewController: UICollectionViewDelegate, UICollectionViewDa
             
             guard let familyCell = cell as? FamilyMemberCollectionViewCell else { return UICollectionViewCell() }
             
-            familyCell.backgroundColor = UIColor.buttonUnSelected
+            familyCell.setUpLabelfor(background: UIColor.buttonUnSelected, textColor: UIColor.white)
             
             familyCell.memberLabel.text = familyMember[indexPath.row]
             
@@ -204,7 +204,7 @@ extension AddMissionViewController: UICollectionViewDelegate, UICollectionViewDa
                 
                 as? HouseworkCollectionViewCell else { return }
             
-            setUpHouseworkLabelfor(houseworkCell, background: UIColor.buttonSelected, textColor: UIColor.noticeGray)
+            houseworkCell.setUpLabelfor(background: UIColor.buttonSelected, textColor: UIColor.noticeGray)
             
         case familyMemberCollection:
             
@@ -212,7 +212,7 @@ extension AddMissionViewController: UICollectionViewDelegate, UICollectionViewDa
                 
                 as? FamilyMemberCollectionViewCell else { return }
             
-            setUpfamilyLabelfor(familyCell, background: UIColor.buttonSelected, textColor: UIColor.noticeGray)
+            familyCell.setUpLabelfor(background: UIColor.buttonSelected, textColor: UIColor.noticeGray)
             
         default:
             
@@ -232,7 +232,7 @@ extension AddMissionViewController: UICollectionViewDelegate, UICollectionViewDa
                 
                 as? HouseworkCollectionViewCell else { return }
             
-            setUpHouseworkLabelfor(houseworkCell, background: UIColor.buttonUnSelected, textColor: .white)
+            houseworkCell.setUpLabelfor(background: UIColor.buttonUnSelected, textColor: .white)
         
         case familyMemberCollection:
             
@@ -240,7 +240,7 @@ extension AddMissionViewController: UICollectionViewDelegate, UICollectionViewDa
                 
                 as? FamilyMemberCollectionViewCell else { return }
             
-            setUpfamilyLabelfor(familyCell, background: UIColor.buttonUnSelected, textColor: .white)
+            familyCell.setUpLabelfor(background: UIColor.buttonUnSelected, textColor: UIColor.white)
             
         default:
             
@@ -249,19 +249,4 @@ extension AddMissionViewController: UICollectionViewDelegate, UICollectionViewDa
         
     }
     
-    func setUpHouseworkLabelfor(_ cell: HouseworkCollectionViewCell, background: UIColor?, textColor: UIColor?) {
-        
-        guard let background = background, let textColor = textColor else { return }
-        
-        cell.backgroundColor = background
-        cell.houseworkLabel.textColor = textColor
-    }
-    
-    func setUpfamilyLabelfor(_ cell: FamilyMemberCollectionViewCell, background: UIColor?, textColor: UIColor?) {
-        
-        guard let background = background, let textColor = textColor else { return }
-        
-        cell.backgroundColor = background
-        cell.memberLabel.textColor = textColor
-    }
 }

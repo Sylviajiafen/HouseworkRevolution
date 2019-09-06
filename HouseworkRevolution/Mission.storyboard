@@ -50,7 +50,7 @@
                                     <constraint firstItem="r89-0W-B5S" firstAttribute="top" secondItem="5i3-Dy-6aA" secondAttribute="top" constant="5" id="j1A-8h-ZdU"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Tkw-e8-0cH">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" contentInsetAdjustmentBehavior="never" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Tkw-e8-0cH">
                                 <rect key="frame" x="0.0" y="75" width="375" height="592"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <color key="separatorColor" name="projectBackground"/>
@@ -59,12 +59,12 @@
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="MissionListTableViewCell" id="OcY-1K-iwP" customClass="MissionListTableViewCell" customModule="HouseworkRevolution" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OcY-1K-iwP" id="ltY-uh-cFh">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OcY-1K-iwP" id="ltY-uh-cFh">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LWf-cM-61v">
-                                                    <rect key="frame" x="40" y="7.5" width="80" height="35"/>
+                                                    <rect key="frame" x="40" y="8" width="80" height="35"/>
                                                     <color key="backgroundColor" name="titleLightBlue"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="35" id="e9h-oX-zMc"/>
@@ -79,8 +79,8 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E77-TQ-wI3">
-                                                    <rect key="frame" x="150" y="7" width="31" height="30"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E77-TQ-wI3">
+                                                    <rect key="frame" x="150" y="10.5" width="31" height="30"/>
                                                     <state key="normal" title="移除"/>
                                                 </button>
                                             </subviews>
@@ -90,6 +90,7 @@
                                                 <constraint firstItem="LWf-cM-61v" firstAttribute="leading" secondItem="ltY-uh-cFh" secondAttribute="leading" constant="40" id="7UE-nZ-cnV"/>
                                                 <constraint firstItem="E77-TQ-wI3" firstAttribute="leading" secondItem="LWf-cM-61v" secondAttribute="trailing" constant="30" id="HYe-ro-V00"/>
                                                 <constraint firstItem="LWf-cM-61v" firstAttribute="centerY" secondItem="ltY-uh-cFh" secondAttribute="centerY" id="csI-6L-1Id"/>
+                                                <constraint firstItem="E77-TQ-wI3" firstAttribute="top" secondItem="ltY-uh-cFh" secondAttribute="top" constant="10" id="geI-gk-ihd"/>
                                                 <constraint firstItem="LWf-cM-61v" firstAttribute="top" secondItem="ltY-uh-cFh" secondAttribute="top" constant="7.5" id="qFN-f1-gx5"/>
                                             </constraints>
                                         </tableViewCellContentView>

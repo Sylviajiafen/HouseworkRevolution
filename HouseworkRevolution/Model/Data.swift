@@ -6,10 +6,16 @@
 //  Copyright © 2019 Sylvia Jia Fen . All rights reserved.
 //
 
-
-struct InvitingFamilyList {
+struct InvitingFamily {
     
     let family: String
     
     let from: String
+}
+
+struct Member {
+    
+    let name: String
+    
+    let memberId: String
 }

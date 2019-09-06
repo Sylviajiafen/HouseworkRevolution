@@ -11,4 +11,12 @@ import UIKit
 class HouseworkCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var houseworkLabel: UILabel!
+    
+    func setUpLabelfor(background: UIColor?, textColor: UIColor?) {
+        
+        guard let background = background, let textColor = textColor else { return }
+        
+        self.backgroundColor = background
+        self.houseworkLabel.textColor = textColor
+    }
 }
