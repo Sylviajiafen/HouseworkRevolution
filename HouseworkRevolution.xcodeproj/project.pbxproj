@@ -304,6 +304,7 @@
 				03C1A571231665F3008EAB76 /* Extension */,
 				03C1A53F231662D9008EAB76 /* AppDelegate.swift */,
 				03C1A549231662DA008EAB76 /* Assets.xcassets */,
+				03FEAC1F2322DCE000722A34 /* New Group */,
 				03C1A54E231662DA008EAB76 /* Info.plist */,
 				03C1A546231662D9008EAB76 /* HouseworkRevolution.xcdatamodeld */,
 			);
@@ -443,6 +444,13 @@
 				03FEAC1D23226FFA00722A34 /* SearchUserTableViewCell.swift */,
 			);
 			path = SearchUserTableView;
+			sourceTree = "<group>";
+		};
+		03FEAC1F2322DCE000722A34 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 		2FF63852DA9196A7B69A8A6D /* Frameworks */ = {

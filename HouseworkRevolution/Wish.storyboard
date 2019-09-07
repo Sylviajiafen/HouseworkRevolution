@@ -19,6 +19,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wishBackground" translatesAutoresizingMaskIntoConstraints="NO" id="ath-Yb-0dU">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="每天努力做家事的你，" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bi3-1v-daG">
                                 <rect key="frame" x="50.5" y="74" width="174" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -110,17 +113,20 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" name="darkSky"/>
                         <constraints>
                             <constraint firstItem="sX7-sh-M65" firstAttribute="centerX" secondItem="QHD-MI-E0A" secondAttribute="centerX" id="0FF-kO-b7w"/>
                             <constraint firstItem="Pd4-G2-eju" firstAttribute="centerY" secondItem="QHD-MI-E0A" secondAttribute="centerY" constant="-30" id="JOB-ou-4Hw"/>
                             <constraint firstItem="o0A-8m-XR2" firstAttribute="top" secondItem="Pd4-G2-eju" secondAttribute="bottom" constant="10" id="JlV-nC-sKU"/>
+                            <constraint firstItem="ath-Yb-0dU" firstAttribute="bottom" secondItem="QHD-MI-E0A" secondAttribute="bottom" id="LKb-IN-0hT"/>
                             <constraint firstItem="n3N-f5-pHs" firstAttribute="trailing" secondItem="3WP-Tb-qSy" secondAttribute="trailing" constant="20" id="RGV-f1-a1m"/>
                             <constraint firstItem="fMf-LE-jSf" firstAttribute="centerX" secondItem="QHD-MI-E0A" secondAttribute="centerX" constant="30" id="RgI-f2-W8A"/>
                             <constraint firstItem="n3N-f5-pHs" firstAttribute="bottom" secondItem="3WP-Tb-qSy" secondAttribute="bottom" constant="16" id="Uo4-eN-Oiy"/>
                             <constraint firstItem="bi3-1v-daG" firstAttribute="top" secondItem="n3N-f5-pHs" secondAttribute="top" constant="54" id="UwH-Ge-yWW"/>
                             <constraint firstItem="Pd4-G2-eju" firstAttribute="centerX" secondItem="QHD-MI-E0A" secondAttribute="centerX" id="dZz-K2-gKz"/>
+                            <constraint firstItem="ath-Yb-0dU" firstAttribute="leading" secondItem="n3N-f5-pHs" secondAttribute="leading" id="he9-7t-fBb"/>
+                            <constraint firstAttribute="top" secondItem="ath-Yb-0dU" secondAttribute="top" id="m5D-Z6-gSy"/>
                             <constraint firstItem="sX7-sh-M65" firstAttribute="top" secondItem="n3N-f5-pHs" secondAttribute="top" constant="156" id="qQX-gV-gFk"/>
+                            <constraint firstAttribute="trailing" secondItem="ath-Yb-0dU" secondAttribute="trailing" id="qyi-me-7t9"/>
                             <constraint firstItem="o0A-8m-XR2" firstAttribute="centerX" secondItem="QHD-MI-E0A" secondAttribute="centerX" id="ts5-S7-QDK"/>
                             <constraint firstItem="bi3-1v-daG" firstAttribute="centerX" secondItem="QHD-MI-E0A" secondAttribute="centerX" constant="-50" id="x7H-fs-Pob"/>
                             <constraint firstItem="fMf-LE-jSf" firstAttribute="top" secondItem="bi3-1v-daG" secondAttribute="bottom" constant="10" id="zIf-bE-iQh"/>
@@ -145,6 +151,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkWishBackground" translatesAutoresizingMaskIntoConstraints="NO" id="Das-GL-Rpi">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
                             <button opaque="NO" alpha="0.75" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AxV-wN-WgP">
                                 <rect key="frame" x="20" y="30" width="40" height="40"/>
                                 <constraints>
@@ -158,7 +167,7 @@
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="QjD-mX-17I">
                                 <rect key="frame" x="0.0" y="80" width="375" height="587"/>
-                                <color key="backgroundColor" name="darkSky"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewLayout key="collectionViewLayout" id="e5r-nM-hWI" customClass="ShowWishesLayout" customModule="HouseworkRevolution" customModuleProvider="target"/>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="WishCollectionViewCell" id="wLX-B7-UGS" customClass="WishCollectionViewCell" customModule="HouseworkRevolution" customModuleProvider="target">
@@ -177,7 +186,7 @@
                                                 </label>
                                                 <view clipsSubviews="YES" alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lsg-Uw-pMk">
                                                     <rect key="frame" x="0.0" y="0.0" width="124" height="129"/>
-                                                    <color key="backgroundColor" name="lightGreen"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </view>
                                             </subviews>
                                         </view>
@@ -199,22 +208,27 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.90000000000000002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="偷看中......" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iPU-83-3Qb">
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.90000000000000002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="偷看中......" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iPU-83-3Qb">
                                 <rect key="frame" x="149.5" y="40" width="76" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" name="darkSky"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="QjD-mX-17I" firstAttribute="leading" secondItem="9zL-Wg-do7" secondAttribute="leading" id="4Ll-6F-e7V"/>
                             <constraint firstItem="QjD-mX-17I" firstAttribute="top" secondItem="AxV-wN-WgP" secondAttribute="bottom" constant="10" id="4R4-Jm-2n8"/>
                             <constraint firstItem="iPU-83-3Qb" firstAttribute="centerX" secondItem="9BP-yI-22f" secondAttribute="centerX" id="B6I-YS-1XE"/>
                             <constraint firstItem="9zL-Wg-do7" firstAttribute="bottom" secondItem="QjD-mX-17I" secondAttribute="bottom" id="VCO-Ms-R02"/>
+                            <constraint firstItem="Das-GL-Rpi" firstAttribute="top" secondItem="9BP-yI-22f" secondAttribute="top" id="WxY-vl-9og"/>
+                            <constraint firstItem="9zL-Wg-do7" firstAttribute="trailing" secondItem="Das-GL-Rpi" secondAttribute="trailing" id="YdH-yo-lbN"/>
+                            <constraint firstItem="9zL-Wg-do7" firstAttribute="bottom" secondItem="Das-GL-Rpi" secondAttribute="bottom" id="agE-J5-Ail"/>
                             <constraint firstItem="9zL-Wg-do7" firstAttribute="trailing" secondItem="QjD-mX-17I" secondAttribute="trailing" id="cJb-Sh-x73"/>
-                            <constraint firstItem="QjD-mX-17I" firstAttribute="top" secondItem="iPU-83-3Qb" secondAttribute="bottom" constant="20" id="fwV-6F-6dQ"/>
+                            <constraint firstItem="QjD-mX-17I" firstAttribute="top" secondItem="9BP-yI-22f" secondAttribute="bottom" constant="-587" id="fwV-6F-6dQ"/>
+                            <constraint firstItem="Das-GL-Rpi" firstAttribute="top" secondItem="iPU-83-3Qb" secondAttribute="top" constant="-40" id="k48-gN-oig"/>
                             <constraint firstItem="9zL-Wg-do7" firstAttribute="leading" secondItem="AxV-wN-WgP" secondAttribute="leading" constant="-20" id="lla-xm-Rbw"/>
+                            <constraint firstItem="Das-GL-Rpi" firstAttribute="leading" secondItem="9zL-Wg-do7" secondAttribute="leading" id="tep-T3-wt7"/>
                             <constraint firstItem="AxV-wN-WgP" firstAttribute="top" secondItem="9zL-Wg-do7" secondAttribute="top" constant="10" id="xNx-77-pb1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9zL-Wg-do7"/>
@@ -230,18 +244,14 @@
     </scenes>
     <resources>
         <image name="back" width="128" height="128"/>
+        <image name="checkWishBackground" width="2349" height="3733"/>
         <image name="lamp" width="2000" height="2000"/>
+        <image name="wishBackground" width="2349" height="3733"/>
         <namedColor name="buttonUnSelected">
-            <color red="1" green="0.81999999284744263" blue="0.45500001311302185" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="darkSky">
-            <color red="0.27058823529411763" green="0.45882352941176469" blue="0.67450980392156867" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="lightGreen">
-            <color red="0.61176470588235299" green="0.83529411764705885" blue="0.77254901960784317" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.81960784313725488" blue="0.45490196078431372" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="noticeGray">
-            <color red="0.37599998712539673" green="0.36500000953674316" blue="0.36500000953674316" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.37647058823529411" green="0.36470588235294116" blue="0.36470588235294116" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

@@ -55,10 +55,46 @@ private enum Tab {
         }
         
         //TODO
-        controller.tabBarItem = UITabBarItem(title: nil, image: UIImage(named: "icons8-heart"), selectedImage: UIImage(named: "icons8-heart"))
+        controller.tabBarItem = tabBarItem()
         
-        controller.tabBarItem.imageInsets = UIEdgeInsets(top: 6.0, left: 0.0, bottom: -6.0, right: 0.0)
+        controller.tabBarItem.imageInsets = UIEdgeInsets(top: 6.0, left: 6.0, bottom: -6.0, right: -6.0)
         
         return controller
     }
+    
+    func tabBarItem() -> UITabBarItem {
+        
+        switch self {
+            
+        case .list:
+            return UITabBarItem(
+                title: nil,
+                image: UIImage.asset(.listUnselected),
+                selectedImage: UIImage.asset(.listSelected)
+            )
+            
+        case .mission:
+            return UITabBarItem(
+                title: nil,
+                image: UIImage.asset(.missionUnselected),
+                selectedImage: UIImage.asset(.missionSelected)
+            )
+            
+        case .wish:
+            return UITabBarItem(
+                title: nil,
+                image: UIImage.asset(.wishUnselected),
+                selectedImage: UIImage.asset(.wishSelected)
+            )
+            
+        case .family:
+            return UITabBarItem(
+                title: nil,
+                image: UIImage.asset(.familyUnselected),
+                selectedImage: UIImage.asset(.familySelected)
+            )
+
+        }
+    }
 }
+

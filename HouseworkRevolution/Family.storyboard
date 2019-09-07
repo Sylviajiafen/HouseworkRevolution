@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GUe-sm-w7G">
-    <device id="retina4_0" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -16,11 +16,11 @@
             <objects>
                 <viewController id="GUe-sm-w7G" customClass="FamilyViewController" customModule="HouseworkRevolution" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="O6v-vE-GBM">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="稱呼" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QFk-C9-5UP">
-                                <rect key="frame" x="110" y="50" width="100" height="33"/>
+                                <rect key="frame" x="157" y="50" width="100" height="33"/>
                                 <color key="backgroundColor" name="buttonSelected"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="bqe-aw-eAT"/>
@@ -35,7 +35,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OaG-Ua-B8d">
-                                <rect key="frame" x="215" y="50" width="30" height="30"/>
+                                <rect key="frame" x="262" y="50" width="30" height="30"/>
                                 <state key="normal" title="edit"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的 ID" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aFi-62-gf7" userLabel="家事內容">
@@ -48,13 +48,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="F8rMwuu24tFqpqW1LIKA" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="pFn-JW-Q06">
-                                <rect key="frame" x="40" y="139" width="190" height="22"/>
+                                <rect key="frame" x="40.000000000000014" y="139" width="223.33333333333337" height="22"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <color key="textColor" name="darkSky"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lI4-ng-Dvc">
-                                <rect key="frame" x="240" y="139" width="60" height="25"/>
+                                <rect key="frame" x="273.33333333333331" y="139" width="60" height="25"/>
                                 <color key="backgroundColor" red="0.61176470589999998" green="0.83529411760000005" blue="0.7725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="fBE-Ja-Nu6"/>
@@ -71,7 +71,7 @@
                                 </userDefinedRuntimeAttributes>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="請妥善保存，換手機、重載app、邀請家人時會用到唷！" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KDv-2m-Dgj">
-                                <rect key="frame" x="126" y="110" width="184" height="13"/>
+                                <rect key="frame" x="126" y="110" width="278" height="13"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <color key="textColor" red="0.37647058820000001" green="0.36470588240000001" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -90,20 +90,20 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="可愛的家" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fx7-tx-vl4">
-                                <rect key="frame" x="40" y="222" width="240" height="28"/>
+                                <rect key="frame" x="40" y="222" width="334" height="28"/>
                                 <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="20"/>
                                 <color key="textColor" name="contentBlue"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" contentInsetAdjustmentBehavior="never" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="enA-Gb-zpx">
-                                <rect key="frame" x="40" y="260" width="240" height="188"/>
+                                <rect key="frame" x="40" y="260" width="334" height="356"/>
                                 <color key="backgroundColor" name="projectBackground"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="FamilyMemberTableViewCell" id="kra-ym-SOB" customClass="FamilyMemberTableViewCell" customModule="HouseworkRevolution" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="55.5" width="240" height="44"/>
+                                        <rect key="frame" x="0.0" y="55.333333333333343" width="334" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kra-ym-SOB" id="BkK-T8-fMc">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="334" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="成員" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xMo-QX-kdC">
@@ -121,7 +121,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="XQ8gMqFhCON6V97jP6Fl" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="awh-AW-7ru">
-                                                    <rect key="frame" x="75" y="12" width="149" height="20"/>
+                                                    <rect key="frame" x="75" y="12" width="133" height="20"/>
                                                     <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -150,27 +150,27 @@
                                 </connections>
                             </tableView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" contentInsetAdjustmentBehavior="never" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5sy-HF-Iy3">
-                                <rect key="frame" x="30" y="458" width="270" height="80"/>
+                                <rect key="frame" x="30" y="626" width="364" height="80"/>
                                 <color key="backgroundColor" name="projectBackground"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="Yea-7V-RBm"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="InvitingFamilyTableViewCell" id="zC9-eu-jhm" customClass="InvitingFamilyTableViewCell" customModule="HouseworkRevolution" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="270" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="364" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zC9-eu-jhm" id="HiJ-hG-b6W">
-                                            <rect key="frame" x="0.0" y="0.0" width="270" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="364" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="的「\()」邀請您加入家庭" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wy1-rJ-i58">
-                                                    <rect key="frame" x="78" y="12" width="169" height="18"/>
+                                                    <rect key="frame" x="78" y="12" width="127" height="18"/>
                                                     <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
                                                     <color key="textColor" name="noticeGray"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="家的名字" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kYh-LF-GWx">
-                                                    <rect key="frame" x="0.0" y="10" width="75" height="23.5"/>
+                                                    <rect key="frame" x="0.0" y="9.9999999999999982" width="75" height="23.333333333333329"/>
                                                     <color key="backgroundColor" name="projectTitleLight"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="23.5" id="NhW-Sg-ASn"/>
@@ -186,7 +186,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iRQ-BA-TUK">
-                                                    <rect key="frame" x="270" y="13" width="15" height="15"/>
+                                                    <rect key="frame" x="215" y="13" width="15" height="15"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="15" id="9Id-Df-aPl"/>
                                                         <constraint firstAttribute="height" constant="15" id="vm4-g9-aYG"/>
@@ -194,7 +194,7 @@
                                                     <state key="normal" title="Y"/>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cDa-dq-QsB">
-                                                    <rect key="frame" x="290" y="13" width="15" height="15"/>
+                                                    <rect key="frame" x="235" y="13" width="15" height="15"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="15" id="NNf-Ym-vIL"/>
                                                         <constraint firstAttribute="height" constant="15" id="PCR-id-xvO"/>
@@ -227,7 +227,7 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hC6-eN-Frp">
-                                <rect key="frame" x="235" y="224" width="25" height="25"/>
+                                <rect key="frame" x="329" y="224" width="25" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="Wk5-lQ-NC1"/>
                                     <constraint firstAttribute="width" constant="25" id="fof-4t-plI"/>
@@ -287,19 +287,19 @@
             <objects>
                 <viewController id="i2m-rZ-DpT" customClass="SearchUserViewController" customModule="HouseworkRevolution" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="feY-u6-7sb">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view alpha="0.25" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zbV-aU-W31">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <viewLayoutGuide key="safeArea" id="5aW-e1-kEj"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z56-kV-9uE">
-                                <rect key="frame" x="0.0" y="20" width="320" height="200"/>
+                                <rect key="frame" x="0.0" y="20" width="414" height="200"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aBy-2X-xpI">
-                                        <rect key="frame" x="290" y="8" width="22" height="22"/>
+                                        <rect key="frame" x="384" y="8" width="22" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="22" id="FrU-m1-qwY"/>
                                             <constraint firstAttribute="height" constant="22" id="W12-up-HnB"/>
@@ -310,7 +310,7 @@
                                         </connections>
                                     </button>
                                     <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="請輸入欲加入成員的 id" translatesAutoresizingMaskIntoConstraints="NO" id="3ZN-rv-pXR">
-                                        <rect key="frame" x="0.0" y="30" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="30" width="508" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="YSo-BF-T4h"/>
                                         </constraints>
@@ -319,25 +319,25 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </searchBar>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" contentInsetAdjustmentBehavior="never" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8T8-7v-2tb">
-                                        <rect key="frame" x="0.0" y="74" width="320" height="126"/>
+                                        <rect key="frame" x="0.0" y="74" width="414" height="126"/>
                                         <color key="backgroundColor" name="projectBackground"/>
                                         <color key="separatorColor" name="projectBackground"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchUserTableViewCell" rowHeight="67" id="jRV-vW-RBG" customClass="SearchUserTableViewCell" customModule="HouseworkRevolution" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="28" width="320" height="67"/>
+                                                <rect key="frame" x="0.0" y="28" width="414" height="67"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jRV-vW-RBG" id="O3W-vZ-3W3">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="66.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="66.666666666666671"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="XQ8gMqFhCON6V97jP6Fl" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SwX-kb-Lbb">
-                                                            <rect key="frame" x="75" y="23" width="149" height="14.5"/>
+                                                            <rect key="frame" x="75" y="43" width="149" height="14.666666666666664"/>
                                                             <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
                                                             <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="成員" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wci-kJ-m4M">
-                                                            <rect key="frame" x="10" y="12" width="55" height="36.5"/>
+                                                            <rect key="frame" x="10" y="12" width="55" height="76.666666666666671"/>
                                                             <color key="backgroundColor" name="buttonUnSelected"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="55" id="8E9-k5-Zah"/>
@@ -352,7 +352,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Ga-lP-B7f">
-                                                            <rect key="frame" x="280" y="20" width="25" height="25"/>
+                                                            <rect key="frame" x="280" y="40" width="25" height="25"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="25" id="3jP-xh-4Fw"/>
                                                                 <constraint firstAttribute="height" constant="25" id="gUN-KA-3Ix"/>
@@ -431,8 +431,8 @@
     </scenes>
     <resources>
         <image name="add2" width="64" height="64"/>
-        <image name="information" width="16" height="16"/>
-        <image name="remove" width="16" height="16"/>
+        <image name="information" width="21.333333969116211" height="21.333333969116211"/>
+        <image name="remove" width="21.333333969116211" height="21.333333969116211"/>
         <namedColor name="buttonSelected">
             <color red="1" green="0.6470588235294118" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -449,10 +449,10 @@
             <color red="0.27058823529411763" green="0.45882352941176469" blue="0.67450980392156867" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="noticeGray">
-            <color red="0.37599998712539673" green="0.36500000953674316" blue="0.36500000953674316" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.37647058823529411" green="0.36470588235294116" blue="0.36470588235294116" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="projectBackground">
-            <color red="0.98799997568130493" green="0.97600001096725464" blue="0.92900002002716064" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.9882352941176471" green="0.97647058823529409" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="projectTitleLight">
             <color red="0.94499999284744263" green="0.54900002479553223" blue="0.55699998140335083" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
