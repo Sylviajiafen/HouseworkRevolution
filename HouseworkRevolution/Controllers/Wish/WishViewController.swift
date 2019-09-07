@@ -63,6 +63,7 @@ class WishViewController: UIViewController {
     @IBOutlet weak var wishInput: UITextView!
     
     @IBAction func makeWish(_ sender: UIButton) {
+        // TODO: 判斷欄位空白
         // TODO: 將願望加到 database
         showMakeWish()
         wishContent = wishInput.text

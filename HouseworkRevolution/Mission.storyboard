@@ -153,8 +153,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lfg-od-cmz">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sHt-bI-mhb">
+                                <rect key="frame" x="187.5" y="0.0" width="187.5" height="618"/>
+                                <color key="backgroundColor" name="lightPink"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sgm-K8-aai">
                                 <rect key="frame" x="0.0" y="0.0" width="187.5" height="618"/>
+                                <color key="backgroundColor" name="lightLake"/>
+                            </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="missionBackground" translatesAutoresizingMaskIntoConstraints="NO" id="iaI-1a-6bf">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rty-rF-L6x">
+                                <rect key="frame" x="187.5" y="333.5" width="187.5" height="284.5"/>
+                                <color key="backgroundColor" red="0.88235294117647056" green="0.68235294117647061" blue="0.64313725490196072" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="25"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="新增家事"/>
+                                <connections>
+                                    <action selector="showAddMission:" destination="KA1-fB-xnW" eventType="touchUpInside" id="102-VY-BF9"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lfg-od-cmz">
+                                <rect key="frame" x="0.0" y="0.0" width="187.5" height="279"/>
                                 <color key="backgroundColor" red="0.64313725490196072" green="0.84313725490196079" blue="0.88235294117647056" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="25"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -164,26 +185,28 @@
                                     <action selector="showCheckMission:" destination="KA1-fB-xnW" eventType="touchUpInside" id="hFK-0A-hj4"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rty-rF-L6x">
-                                <rect key="frame" x="187.5" y="0.0" width="187.5" height="618"/>
-                                <color key="backgroundColor" red="0.88235294117647056" green="0.68235294117647061" blue="0.64313725490196072" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="25"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="新增家事"/>
-                                <connections>
-                                    <action selector="showAddMission:" destination="KA1-fB-xnW" eventType="touchUpInside" id="102-VY-BF9"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="gZs-Je-rTB" firstAttribute="trailing" secondItem="rty-rF-L6x" secondAttribute="trailing" id="2Vl-4W-CRf"/>
+                            <constraint firstItem="iaI-1a-6bf" firstAttribute="leading" secondItem="gZs-Je-rTB" secondAttribute="leading" id="3As-D7-nSu"/>
                             <constraint firstItem="gZs-Je-rTB" firstAttribute="bottom" secondItem="rty-rF-L6x" secondAttribute="bottom" id="4qS-50-xPj"/>
-                            <constraint firstItem="gZs-Je-rTB" firstAttribute="bottom" secondItem="Lfg-od-cmz" secondAttribute="bottom" id="Nve-Oy-gX1"/>
+                            <constraint firstItem="sgm-K8-aai" firstAttribute="top" secondItem="bhu-vj-Nx6" secondAttribute="top" id="CKF-gM-dKn"/>
+                            <constraint firstItem="gZs-Je-rTB" firstAttribute="trailing" secondItem="iaI-1a-6bf" secondAttribute="trailing" id="Gl8-rc-pwg"/>
+                            <constraint firstItem="sHt-bI-mhb" firstAttribute="leading" secondItem="gZs-Je-rTB" secondAttribute="centerX" id="N3c-y1-WdD"/>
+                            <constraint firstItem="gZs-Je-rTB" firstAttribute="centerY" secondItem="Lfg-od-cmz" secondAttribute="bottom" constant="40" id="Nve-Oy-gX1"/>
+                            <constraint firstItem="gZs-Je-rTB" firstAttribute="trailing" secondItem="sHt-bI-mhb" secondAttribute="trailing" id="PWy-RU-acT"/>
+                            <constraint firstItem="sHt-bI-mhb" firstAttribute="top" secondItem="bhu-vj-Nx6" secondAttribute="top" id="ayG-QK-PaH"/>
                             <constraint firstItem="Lfg-od-cmz" firstAttribute="width" secondItem="bhu-vj-Nx6" secondAttribute="width" multiplier="1/2" id="clZ-vm-ugP"/>
+                            <constraint firstItem="iaI-1a-6bf" firstAttribute="top" secondItem="bhu-vj-Nx6" secondAttribute="top" id="dPa-CF-PId"/>
+                            <constraint firstItem="gZs-Je-rTB" firstAttribute="bottom" secondItem="sHt-bI-mhb" secondAttribute="bottom" id="jAg-cc-ERf"/>
                             <constraint firstItem="Lfg-od-cmz" firstAttribute="leading" secondItem="gZs-Je-rTB" secondAttribute="leading" id="kF3-db-VA5"/>
-                            <constraint firstItem="rty-rF-L6x" firstAttribute="top" secondItem="bhu-vj-Nx6" secondAttribute="top" id="lNk-jv-I8c"/>
+                            <constraint firstItem="gZs-Je-rTB" firstAttribute="centerX" secondItem="sgm-K8-aai" secondAttribute="trailing" id="kHs-pX-xLM"/>
+                            <constraint firstItem="rty-rF-L6x" firstAttribute="top" secondItem="bhu-vj-Nx6" secondAttribute="centerY" id="lNk-jv-I8c"/>
+                            <constraint firstItem="gZs-Je-rTB" firstAttribute="bottom" secondItem="iaI-1a-6bf" secondAttribute="bottom" id="nH4-cQ-ZsK"/>
+                            <constraint firstItem="sgm-K8-aai" firstAttribute="leading" secondItem="gZs-Je-rTB" secondAttribute="leading" id="ph4-dW-Ncu"/>
                             <constraint firstItem="rty-rF-L6x" firstAttribute="width" secondItem="bhu-vj-Nx6" secondAttribute="width" multiplier="1/2" id="tSd-Ak-woO"/>
+                            <constraint firstItem="gZs-Je-rTB" firstAttribute="bottom" secondItem="sgm-K8-aai" secondAttribute="bottom" id="vwX-iy-pAq"/>
                             <constraint firstItem="Lfg-od-cmz" firstAttribute="top" secondItem="bhu-vj-Nx6" secondAttribute="top" id="zj9-FQ-eWf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gZs-Je-rTB"/>
@@ -496,9 +519,16 @@
     <resources>
         <image name="information" width="16" height="16"/>
         <image name="lightGreenCircle" width="64" height="64"/>
+        <image name="missionBackground" width="2349" height="3733"/>
         <image name="remove" width="16" height="16"/>
+        <namedColor name="lightLake">
+            <color red="0.64313725490196083" green="0.84313725490196079" blue="0.88235294117647056" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="lightPink">
+            <color red="0.88235294117647056" green="0.68235294117647061" blue="0.64313725490196083" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="projectBackground">
-            <color red="0.98799997568130493" green="0.97600001096725464" blue="0.92900002002716064" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.9882352941176471" green="0.97647058823529409" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="titleLightBlue">
             <color red="0.46274509803921571" green="0.69019607843137254" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NRv-e1-cGi">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina6_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -16,26 +16,26 @@
             <objects>
                 <viewController id="NRv-e1-cGi" customClass="WishViewController" customModule="HouseworkRevolution" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QHD-MI-E0A">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wishBackground" translatesAutoresizingMaskIntoConstraints="NO" id="ath-Yb-0dU">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="每天努力做家事的你，" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bi3-1v-daG">
-                                <rect key="frame" x="50.5" y="74" width="174" height="21"/>
+                                <rect key="frame" x="70" y="98" width="174" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="是否記得好好愛自己呢？" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fMf-LE-jSf">
-                                <rect key="frame" x="122" y="105" width="191" height="21"/>
+                                <rect key="frame" x="141.66666666666666" y="129" width="190.99999999999997" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sX7-sh-M65">
-                                <rect key="frame" x="52" y="176" width="271" height="25.5"/>
+                                <rect key="frame" x="71.666666666666686" y="200" width="271" height="25.666666666666657"/>
                                 <attributedString key="attributedText">
                                     <fragment content="快來向神燈精靈許個願犒賞自己吧">
                                         <attributes>
@@ -47,14 +47,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lamp" translatesAutoresizingMaskIntoConstraints="NO" id="Pd4-G2-eju">
-                                <rect key="frame" x="137.5" y="253.5" width="100" height="100"/>
+                                <rect key="frame" x="157" y="368" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="ehh-Zs-jHB"/>
                                     <constraint firstAttribute="height" constant="100" id="idk-qk-v7S"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o0A-8m-XR2">
-                                <rect key="frame" x="67.5" y="363.5" width="240" height="150"/>
+                                <rect key="frame" x="87" y="478" width="240" height="150"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.90000000000000002" contentMode="scaleToFill" scrollEnabled="NO" text="有什麼願望是一直被家事耽擱的呢？" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="raJ-Jc-ssn">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="85"/>
@@ -72,7 +72,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </textView>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NMZ-MR-t2b">
-                                        <rect key="frame" x="81.5" y="91" width="77" height="25"/>
+                                        <rect key="frame" x="81.666666666666657" y="91" width="77" height="25"/>
                                         <color key="backgroundColor" name="buttonUnSelected"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="25" id="D9Q-dy-4z1"/>
@@ -104,7 +104,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3WP-Tb-qSy">
-                                <rect key="frame" x="209" y="621" width="146" height="30"/>
+                                <rect key="frame" x="248" y="816" width="146" height="30"/>
                                 <state key="normal" title="偷看神燈裡有什麼 &gt;&gt;">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -148,14 +148,14 @@
             <objects>
                 <viewController id="7ou-j6-ho2" customClass="ShowWishesViewController" customModule="HouseworkRevolution" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9BP-yI-22f">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkWishBackground" translatesAutoresizingMaskIntoConstraints="NO" id="Das-GL-Rpi">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                             </imageView>
                             <button opaque="NO" alpha="0.75" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AxV-wN-WgP">
-                                <rect key="frame" x="20" y="30" width="40" height="40"/>
+                                <rect key="frame" x="20" y="54" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="402-if-Qcs"/>
                                     <constraint firstAttribute="height" constant="40" id="F3l-si-7hN"/>
@@ -166,7 +166,7 @@
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="QjD-mX-17I">
-                                <rect key="frame" x="0.0" y="80" width="375" height="587"/>
+                                <rect key="frame" x="0.0" y="104" width="414" height="758"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewLayout key="collectionViewLayout" id="e5r-nM-hWI" customClass="ShowWishesLayout" customModule="HouseworkRevolution" customModuleProvider="target"/>
                                 <cells>
@@ -209,7 +209,7 @@
                                 </cells>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.90000000000000002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="偷看中......" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iPU-83-3Qb">
-                                <rect key="frame" x="149.5" y="40" width="76" height="20"/>
+                                <rect key="frame" x="169" y="40" width="76" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -225,7 +225,6 @@
                             <constraint firstItem="9zL-Wg-do7" firstAttribute="trailing" secondItem="Das-GL-Rpi" secondAttribute="trailing" id="YdH-yo-lbN"/>
                             <constraint firstItem="9zL-Wg-do7" firstAttribute="bottom" secondItem="Das-GL-Rpi" secondAttribute="bottom" id="agE-J5-Ail"/>
                             <constraint firstItem="9zL-Wg-do7" firstAttribute="trailing" secondItem="QjD-mX-17I" secondAttribute="trailing" id="cJb-Sh-x73"/>
-                            <constraint firstItem="QjD-mX-17I" firstAttribute="top" secondItem="9BP-yI-22f" secondAttribute="bottom" constant="-587" id="fwV-6F-6dQ"/>
                             <constraint firstItem="Das-GL-Rpi" firstAttribute="top" secondItem="iPU-83-3Qb" secondAttribute="top" constant="-40" id="k48-gN-oig"/>
                             <constraint firstItem="9zL-Wg-do7" firstAttribute="leading" secondItem="AxV-wN-WgP" secondAttribute="leading" constant="-20" id="lla-xm-Rbw"/>
                             <constraint firstItem="Das-GL-Rpi" firstAttribute="leading" secondItem="9zL-Wg-do7" secondAttribute="leading" id="tep-T3-wt7"/>
