@@ -313,15 +313,9 @@
                                         <rect key="frame" x="0.0" y="30" width="375" height="170"/>
                                         <color key="backgroundColor" name="projectBackground"/>
                                         <color key="separatorColor" name="projectBackground"/>
-                                        <searchBar key="tableHeaderView" contentMode="redraw" searchBarStyle="minimal" placeholder="請輸入欲加入成員的 id" id="3ZN-rv-pXR">
+                                        <searchBar key="tableHeaderView" contentMode="redraw" searchBarStyle="minimal" placeholder="請輸入欲加入成員的 id" id="UDy-7i-S2p">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                            <color key="backgroundColor" name="projectBackground"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="44" id="YSo-BF-T4h"/>
-                                            </constraints>
-                                            <color key="tintColor" name="noticeGray"/>
-                                            <color key="barTintColor" name="noticeGray"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </searchBar>
                                         <prototypes>
@@ -411,9 +405,9 @@
                         <viewLayoutGuide key="safeArea" id="SvD-3B-7Pr"/>
                     </view>
                     <connections>
-                        <outlet property="searchDisplayController" destination="NRA-af-0VG" id="eF1-ED-Ogl"/>
+                        <outlet property="searchDisplayController" destination="bYP-eN-Bxm" id="CiG-wd-BbQ"/>
                         <outlet property="showResultTableView" destination="8T8-7v-2tb" id="9Kc-iL-eIv"/>
-                        <outlet property="userIdSearchBar" destination="3ZN-rv-pXR" id="fL3-NR-piJ"/>
+                        <outlet property="userIdSearchBar" destination="UDy-7i-S2p" id="Bg9-Fo-cQJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PNY-ug-kcw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -423,6 +417,14 @@
                         <outlet property="searchContentsController" destination="i2m-rZ-DpT" id="7QF-bp-vnI"/>
                         <outlet property="searchResultsDataSource" destination="i2m-rZ-DpT" id="a13-oi-JLU"/>
                         <outlet property="searchResultsDelegate" destination="i2m-rZ-DpT" id="TQA-OL-0x2"/>
+                    </connections>
+                </searchDisplayController>
+                <searchDisplayController id="bYP-eN-Bxm">
+                    <connections>
+                        <outlet property="delegate" destination="i2m-rZ-DpT" id="Pdx-xi-wjZ"/>
+                        <outlet property="searchContentsController" destination="i2m-rZ-DpT" id="FAZ-pZ-dUI"/>
+                        <outlet property="searchResultsDataSource" destination="i2m-rZ-DpT" id="BsW-xY-dvx"/>
+                        <outlet property="searchResultsDelegate" destination="i2m-rZ-DpT" id="u4P-1A-CYG"/>
                     </connections>
                 </searchDisplayController>
             </objects>

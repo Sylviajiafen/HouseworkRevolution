@@ -34,7 +34,8 @@ class FamilyViewController: UIViewController {
         
         // TODO: 抓 invitingFamily 資料 (寫在 function)
         // TODO: 判斷 invitingFamily.count == 0 時， tableView 隱藏 (寫在function 裡, parameter 一個為 tableView)
-        // TODO: 用 fireBase 監聽各list 的變化 ：把 showInvitingOrNot(), tableView.reloadData 放在 completion 裡
+        // TODO: 放 pull refresh ：把 showInvitingOrNot(), tableView.reloadData 放在 completion 裡
+        
         invitingFamilyList = [InvitingFamily(family: "好狗窩", from: "媽咪"),
                                     InvitingFamily(family: "壞狗窩", from: "爸比")]
         

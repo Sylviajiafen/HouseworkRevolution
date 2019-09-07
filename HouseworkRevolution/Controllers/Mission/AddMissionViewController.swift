@@ -76,8 +76,8 @@ class AddMissionViewController: UIViewController {
     var weekday: [Weekdays] = [.Monday, .Tuesday, .Wednesday, .Thursday, .Friday, .Saturday, .Sunday]
     
     // TODO: 從雲端抓取，存入變數
-    // 預設家事標籤的array 還是可以留在專案裡，但使用者新增的要上傳 fire base
-    // 在一開始 viewDidLoad  fetch database 的時候就先爸把使用者新增的家事 append 進 array 中
+    // 預設家事標籤的array 從 fireBase 抓，並搭配圖（或寫死在專案裡）
+    // 在一開始 viewDidLoad  fetch database 的時候就先把使用者新增的家事 append 進 array 中，並配預設的圖
     // 預設家事標籤用 enum 存，並去判斷搭配的圖
     
     var houseworks: [String] = ["掃地", "拖地", "倒垃圾", "洗衣服", "煮飯", "買菜", "掃廁所"] {

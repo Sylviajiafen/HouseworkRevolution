@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KA1-fB-xnW">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -16,20 +16,20 @@
             <objects>
                 <viewController storyboardIdentifier="CheckMissionViewController" id="dbK-ow-rFb" customClass="CheckMissionViewController" customModule="HouseworkRevolution" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="i86-k5-e5O">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5i3-Dy-6aA">
-                                <rect key="frame" x="0.0" y="20" width="375" height="55"/>
+                                <rect key="frame" x="0.0" y="20" width="414" height="55"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="一週家事" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M5Z-2O-rfR">
-                                        <rect key="frame" x="141.5" y="11.5" width="92" height="32.5"/>
+                                        <rect key="frame" x="161" y="11.666666666666668" width="92" height="32"/>
                                         <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="23"/>
                                         <color key="textColor" name="titleLightBlue"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r89-0W-B5S">
-                                        <rect key="frame" x="320" y="5" width="40" height="40"/>
+                                        <rect key="frame" x="359" y="5" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="22u-dX-Ife"/>
                                             <constraint firstAttribute="height" constant="40" id="wkW-ac-0Y3"/>
@@ -51,20 +51,20 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" contentInsetAdjustmentBehavior="never" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Tkw-e8-0cH">
-                                <rect key="frame" x="0.0" y="75" width="375" height="592"/>
+                                <rect key="frame" x="0.0" y="75" width="414" height="661"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <color key="separatorColor" name="projectBackground"/>
                                 <color key="sectionIndexBackgroundColor" name="projectBackground"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="MissionListTableViewCell" id="OcY-1K-iwP" customClass="MissionListTableViewCell" customModule="HouseworkRevolution" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="55.333333333333343" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OcY-1K-iwP" id="ltY-uh-cFh">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LWf-cM-61v">
-                                                    <rect key="frame" x="40" y="8" width="80" height="35"/>
+                                                    <rect key="frame" x="40" y="7.6666666666666643" width="80" height="35"/>
                                                     <color key="backgroundColor" name="titleLightBlue"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="35" id="e9h-oX-zMc"/>
@@ -80,7 +80,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E77-TQ-wI3">
-                                                    <rect key="frame" x="150" y="10.5" width="31" height="30"/>
+                                                    <rect key="frame" x="150" y="10.333333333333336" width="31" height="30"/>
                                                     <state key="normal" title="移除"/>
                                                 </button>
                                             </subviews>
@@ -100,14 +100,14 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="MissionEmptyTableViewCell" id="cmz-wp-e17" customClass="MissionEmptyTableViewCell" customModule="HouseworkRevolution" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="99.5" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="99.333333333333343" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cmz-wp-e17" id="mi1-Wn-mHx">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="還沒建立家事唷！" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LAk-T4-Vfo">
-                                                    <rect key="frame" x="40" y="5" width="136" height="33.5"/>
+                                                    <rect key="frame" x="40" y="5" width="136" height="33.666666666666664"/>
                                                     <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="17"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -150,23 +150,23 @@
             <objects>
                 <viewController id="KA1-fB-xnW" customClass="MissionViewController" customModule="HouseworkRevolution" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bhu-vj-Nx6">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sHt-bI-mhb">
-                                <rect key="frame" x="187.5" y="0.0" width="187.5" height="618"/>
+                                <rect key="frame" x="207" y="0.0" width="207" height="687"/>
                                 <color key="backgroundColor" name="lightPink"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sgm-K8-aai">
-                                <rect key="frame" x="0.0" y="0.0" width="187.5" height="618"/>
+                                <rect key="frame" x="0.0" y="0.0" width="207" height="687"/>
                                 <color key="backgroundColor" name="lightLake"/>
                             </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="missionBackground" translatesAutoresizingMaskIntoConstraints="NO" id="iaI-1a-6bf">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.34999999999999998" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="missionBackground" translatesAutoresizingMaskIntoConstraints="NO" id="iaI-1a-6bf">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="687"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rty-rF-L6x">
-                                <rect key="frame" x="187.5" y="333.5" width="187.5" height="284.5"/>
-                                <color key="backgroundColor" red="0.88235294117647056" green="0.68235294117647061" blue="0.64313725490196072" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rty-rF-L6x">
+                                <rect key="frame" x="207" y="60" width="207" height="627"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="25"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="新增家事"/>
@@ -174,9 +174,9 @@
                                     <action selector="showAddMission:" destination="KA1-fB-xnW" eventType="touchUpInside" id="102-VY-BF9"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lfg-od-cmz">
-                                <rect key="frame" x="0.0" y="0.0" width="187.5" height="279"/>
-                                <color key="backgroundColor" red="0.64313725490196072" green="0.84313725490196079" blue="0.88235294117647056" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lfg-od-cmz">
+                                <rect key="frame" x="0.0" y="0.0" width="207" height="621"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="25"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="-1" maxY="0.0"/>
@@ -194,7 +194,7 @@
                             <constraint firstItem="sgm-K8-aai" firstAttribute="top" secondItem="bhu-vj-Nx6" secondAttribute="top" id="CKF-gM-dKn"/>
                             <constraint firstItem="gZs-Je-rTB" firstAttribute="trailing" secondItem="iaI-1a-6bf" secondAttribute="trailing" id="Gl8-rc-pwg"/>
                             <constraint firstItem="sHt-bI-mhb" firstAttribute="leading" secondItem="gZs-Je-rTB" secondAttribute="centerX" id="N3c-y1-WdD"/>
-                            <constraint firstItem="gZs-Je-rTB" firstAttribute="centerY" secondItem="Lfg-od-cmz" secondAttribute="bottom" constant="40" id="Nve-Oy-gX1"/>
+                            <constraint firstItem="gZs-Je-rTB" firstAttribute="bottom" secondItem="Lfg-od-cmz" secondAttribute="bottom" constant="66" id="Nve-Oy-gX1"/>
                             <constraint firstItem="gZs-Je-rTB" firstAttribute="trailing" secondItem="sHt-bI-mhb" secondAttribute="trailing" id="PWy-RU-acT"/>
                             <constraint firstItem="sHt-bI-mhb" firstAttribute="top" secondItem="bhu-vj-Nx6" secondAttribute="top" id="ayG-QK-PaH"/>
                             <constraint firstItem="Lfg-od-cmz" firstAttribute="width" secondItem="bhu-vj-Nx6" secondAttribute="width" multiplier="1/2" id="clZ-vm-ugP"/>
@@ -202,7 +202,7 @@
                             <constraint firstItem="gZs-Je-rTB" firstAttribute="bottom" secondItem="sHt-bI-mhb" secondAttribute="bottom" id="jAg-cc-ERf"/>
                             <constraint firstItem="Lfg-od-cmz" firstAttribute="leading" secondItem="gZs-Je-rTB" secondAttribute="leading" id="kF3-db-VA5"/>
                             <constraint firstItem="gZs-Je-rTB" firstAttribute="centerX" secondItem="sgm-K8-aai" secondAttribute="trailing" id="kHs-pX-xLM"/>
-                            <constraint firstItem="rty-rF-L6x" firstAttribute="top" secondItem="bhu-vj-Nx6" secondAttribute="centerY" id="lNk-jv-I8c"/>
+                            <constraint firstItem="rty-rF-L6x" firstAttribute="top" secondItem="bhu-vj-Nx6" secondAttribute="top" constant="60" id="lNk-jv-I8c"/>
                             <constraint firstItem="gZs-Je-rTB" firstAttribute="bottom" secondItem="iaI-1a-6bf" secondAttribute="bottom" id="nH4-cQ-ZsK"/>
                             <constraint firstItem="sgm-K8-aai" firstAttribute="leading" secondItem="gZs-Je-rTB" secondAttribute="leading" id="ph4-dW-Ncu"/>
                             <constraint firstItem="rty-rF-L6x" firstAttribute="width" secondItem="bhu-vj-Nx6" secondAttribute="width" multiplier="1/2" id="tSd-Ak-woO"/>
@@ -225,20 +225,20 @@
             <objects>
                 <viewController storyboardIdentifier="AddMissionViewController" id="qPN-MY-sez" customClass="AddMissionViewController" customModule="HouseworkRevolution" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xwM-hE-MRy">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="新增家事" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cvr-yP-CcA">
-                                <rect key="frame" x="141.5" y="35" width="92" height="33"/>
+                                <rect key="frame" x="161" y="35" width="92" height="33"/>
                                 <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="23"/>
                                 <color key="textColor" red="0.94509803920000002" green="0.54901960780000003" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zrb-0p-apS">
-                                <rect key="frame" x="0.0" y="597" width="375" height="70"/>
+                                <rect key="frame" x="0.0" y="666" width="414" height="70"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FEa-Hf-C45">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="23"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="完  成"/>
@@ -258,7 +258,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LQD-eJ-u9P">
-                                <rect key="frame" x="325" y="30" width="40" height="40"/>
+                                <rect key="frame" x="364" y="30" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="BH9-n3-kYl"/>
                                     <constraint firstAttribute="width" constant="40" id="Uhb-fX-svK"/>
@@ -269,7 +269,7 @@
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="HSx-Qg-0cF">
-                                <rect key="frame" x="30" y="138" width="315" height="130"/>
+                                <rect key="frame" x="30" y="138" width="354" height="130"/>
                                 <color key="backgroundColor" red="0.98823529409999999" green="0.97647058819999999" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="130" id="ATC-ma-Hzt"/>
@@ -289,7 +289,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fEP-TC-Rqd">
-                                                    <rect key="frame" x="18" y="5.5" width="44" height="24"/>
+                                                    <rect key="frame" x="18" y="5.6666666666666679" width="44" height="24"/>
                                                     <fontDescription key="fontDescription" name="STHeitiTC-Medium" family="Heiti TC" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -324,7 +324,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="S5P-LX-jhV">
-                                <rect key="frame" x="30" y="379" width="315" height="35"/>
+                                <rect key="frame" x="30" y="379" width="354" height="35"/>
                                 <color key="backgroundColor" red="0.98823529409999999" green="0.97647058819999999" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="ffs-VC-Tua"/>
@@ -344,7 +344,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xiO-Ef-uNd">
-                                                    <rect key="frame" x="10.5" y="5.5" width="44" height="24"/>
+                                                    <rect key="frame" x="10.666666666666664" y="5.6666666666666679" width="44" height="24"/>
                                                     <fontDescription key="fontDescription" name="STHeitiTC-Medium" family="Heiti TC" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -417,7 +417,7 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6PY-Jq-tiF">
-                                <rect key="frame" x="135.5" y="278" width="120" height="33"/>
+                                <rect key="frame" x="135.66666666666666" y="278" width="120" height="33"/>
                                 <color key="backgroundColor" red="0.61176470588235299" green="0.83529411764705885" blue="0.77254901960784317" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="cdA-W6-Vgx"/>
@@ -436,7 +436,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="自訂家事" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dbt-qY-wdd">
-                                <rect key="frame" x="30" y="278" width="90.5" height="33"/>
+                                <rect key="frame" x="30.000000000000007" y="278" width="90.666666666666686" height="33"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -450,7 +450,7 @@
                                 </constraints>
                             </pickerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="當設定為大於 5 時，神燈精靈會出現喔！" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AmN-Cv-62C">
-                                <rect key="frame" x="125" y="508" width="240" height="12"/>
+                                <rect key="frame" x="125" y="508" width="279" height="12"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <color key="textColor" red="0.37647058820000001" green="0.36470588240000001" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -517,10 +517,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="information" width="16" height="16"/>
+        <image name="information" width="21.333333969116211" height="21.333333969116211"/>
         <image name="lightGreenCircle" width="64" height="64"/>
         <image name="missionBackground" width="2349" height="3733"/>
-        <image name="remove" width="16" height="16"/>
+        <image name="remove" width="21.333333969116211" height="21.333333969116211"/>
         <namedColor name="lightLake">
             <color red="0.64313725490196083" green="0.84313725490196079" blue="0.88235294117647056" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
