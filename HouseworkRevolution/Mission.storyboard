@@ -542,6 +542,7 @@
                     <connections>
                         <outlet property="addHouseworkBtn" destination="6PY-Jq-tiF" id="aMa-55-bjH"/>
                         <outlet property="customHousework" destination="Dbt-qY-wdd" id="utr-cO-8Ms"/>
+                        <outlet property="editHouseworkBtn" destination="seL-Ym-mAd" id="IpN-RB-Crg"/>
                         <outlet property="familyMemberCollection" destination="S5P-LX-jhV" id="wmY-04-dhe"/>
                         <outlet property="houseworksCollection" destination="HSx-Qg-0cF" id="zhu-PG-eWg"/>
                         <outlet property="tiredSlider" destination="f1z-1Q-Www" id="Enk-UO-2c6"/>

@@ -26,7 +26,9 @@ class AddMissionViewController: UIViewController {
         weekdayPicker.dataSource = self
         
         tiredSlider.setThumbImage(UIImage(named: "icons8-heart"), for: .normal)
-    
+        
+        editHouseworkBtn.isSelected = false
+  
     }
     
     @IBOutlet weak var houseworksCollection: UICollectionView!
@@ -34,6 +36,8 @@ class AddMissionViewController: UIViewController {
     @IBOutlet weak var familyMemberCollection: UICollectionView!
     
     @IBOutlet weak var addHouseworkBtn: UIButton!
+
+    @IBOutlet weak var editHouseworkBtn: UIButton!
     
     @IBOutlet weak var customHousework: UITextField!
     
@@ -73,6 +77,7 @@ class AddMissionViewController: UIViewController {
         if sender.isSelected == true {
             
             shouldEditCell = true
+            
         } else {
             
             shouldEditCell = false
@@ -215,7 +220,8 @@ extension AddMissionViewController: UICollectionViewDelegate,
             
         case familyMemberCollection:
             
-            let cell = familyMemberCollection.dequeueReusableCell(withReuseIdentifier: String(describing: FamilyMemberCollectionViewCell.self), for: indexPath)
+            let cell = familyMemberCollection.dequeueReusableCell(
+                withReuseIdentifier: String(describing: FamilyMemberCollectionViewCell.self), for: indexPath)
             
             guard let familyCell = cell as? FamilyMemberCollectionViewCell else { return UICollectionViewCell() }
             
@@ -291,6 +297,10 @@ extension AddMissionViewController: UICollectionViewDelegate,
         guard let index = houseworksCollection.indexPath(for: cell) else { return }
         
         houseworks.remove(at: index.item)
+        
+        shouldEditCell = false
+        
+        editHouseworkBtn.isSelected = false
         
     }
     
