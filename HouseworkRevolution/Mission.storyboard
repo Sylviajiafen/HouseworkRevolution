@@ -294,10 +294,23 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PGh-Jq-Iws">
+                                                    <rect key="frame" x="68" y="0.0" width="12" height="12"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="12" id="9Tu-KU-f8d"/>
+                                                        <constraint firstAttribute="width" constant="12" id="mQ5-mT-8GR"/>
+                                                    </constraints>
+                                                    <state key="normal" image="deleteCell"/>
+                                                    <connections>
+                                                        <action selector="deleteHousework:" destination="ith-lK-mu6" eventType="touchUpInside" id="56r-uZ-P9L"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                         </view>
                                         <constraints>
+                                            <constraint firstItem="PGh-Jq-Iws" firstAttribute="top" secondItem="ith-lK-mu6" secondAttribute="top" id="1On-Kk-Cd4"/>
                                             <constraint firstItem="fEP-TC-Rqd" firstAttribute="centerX" secondItem="ith-lK-mu6" secondAttribute="centerX" id="BGg-ap-hXC"/>
+                                            <constraint firstAttribute="trailing" secondItem="PGh-Jq-Iws" secondAttribute="trailing" id="uXH-7u-arH"/>
                                             <constraint firstItem="fEP-TC-Rqd" firstAttribute="centerY" secondItem="ith-lK-mu6" secondAttribute="centerY" id="v7Y-ZH-uui"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
@@ -306,6 +319,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
+                                            <outlet property="deleteCellBtn" destination="PGh-Jq-Iws" id="oga-Tw-dcv"/>
                                             <outlet property="houseworkLabel" destination="fEP-TC-Rqd" id="wmo-6x-YjN"/>
                                         </connections>
                                     </collectionViewCell>
@@ -455,6 +469,28 @@
                                 <color key="textColor" red="0.37647058820000001" green="0.36470588240000001" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="seL-Ym-mAd">
+                                <rect key="frame" x="127" y="98" width="20" height="20"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="8YU-Sb-fR8"/>
+                                    <constraint firstAttribute="width" constant="20" id="yeZ-YA-bcp"/>
+                                </constraints>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="editCell_unselected">
+                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <state key="disabled" title="123" image="editCell_unselected"/>
+                                <state key="selected" image="editCell_selected"/>
+                                <state key="highlighted" title="1234" image="editCell_selected">
+                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="editCell:" destination="qPN-MY-sez" eventType="touchUpInside" id="VZb-VU-DFE"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" name="projectBackground"/>
                         <constraints>
@@ -462,6 +498,7 @@
                             <constraint firstItem="6sw-aV-9MW" firstAttribute="top" secondItem="ZTJ-8l-VPj" secondAttribute="bottom" constant="37" id="1Tr-IM-ouc"/>
                             <constraint firstItem="ZTJ-8l-VPj" firstAttribute="leading" secondItem="oCr-gg-4eL" secondAttribute="leading" constant="30" id="8hU-ne-5Ut"/>
                             <constraint firstItem="S5P-LX-jhV" firstAttribute="leading" secondItem="oCr-gg-4eL" secondAttribute="leading" constant="30" id="8un-9Q-fIV"/>
+                            <constraint firstItem="seL-Ym-mAd" firstAttribute="leading" secondItem="DgZ-vE-dSy" secondAttribute="trailing" constant="5" id="AGX-TC-Mst"/>
                             <constraint firstItem="oCr-gg-4eL" firstAttribute="trailing" secondItem="AmN-Cv-62C" secondAttribute="trailing" constant="10" id="AH7-ur-Qyc"/>
                             <constraint firstItem="fvt-MB-C2W" firstAttribute="top" secondItem="AmN-Cv-62C" secondAttribute="bottom" constant="16" id="B93-Tm-2HH"/>
                             <constraint firstItem="yF7-Ju-9wd" firstAttribute="leading" secondItem="oCr-gg-4eL" secondAttribute="leading" constant="30" id="DJB-yU-Cst"/>
@@ -491,6 +528,7 @@
                             <constraint firstItem="DgZ-vE-dSy" firstAttribute="leading" secondItem="oCr-gg-4eL" secondAttribute="leading" constant="30" id="hB2-OI-coC"/>
                             <constraint firstItem="8FC-ZM-HdF" firstAttribute="leading" secondItem="f1z-1Q-Www" secondAttribute="trailing" constant="11" id="hC6-4X-4yF"/>
                             <constraint firstItem="f1z-1Q-Www" firstAttribute="top" secondItem="fj8-H5-OUW" secondAttribute="bottom" constant="15" id="hFN-ip-WEQ"/>
+                            <constraint firstItem="HSx-Qg-0cF" firstAttribute="top" secondItem="seL-Ym-mAd" secondAttribute="bottom" constant="20" id="hdx-iO-Bxg"/>
                             <constraint firstItem="LQD-eJ-u9P" firstAttribute="trailing" secondItem="oCr-gg-4eL" secondAttribute="trailing" constant="-10" id="hdz-Zf-s02"/>
                             <constraint firstItem="zrb-0p-apS" firstAttribute="leading" secondItem="oCr-gg-4eL" secondAttribute="leading" id="i9B-WW-yW9"/>
                             <constraint firstItem="f1z-1Q-Www" firstAttribute="leading" secondItem="oCr-gg-4eL" secondAttribute="leading" constant="30" id="iu2-Rh-Yes"/>
@@ -513,10 +551,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LYi-sy-DAK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1237.5999999999999" y="-321.58920539730138"/>
+            <point key="canvasLocation" x="1234.7826086956522" y="-322.01086956521743"/>
         </scene>
     </scenes>
     <resources>
+        <image name="deleteCell" width="32" height="32"/>
+        <image name="editCell_selected" width="64" height="64"/>
+        <image name="editCell_unselected" width="64" height="64"/>
         <image name="information" width="21.333333969116211" height="21.333333969116211"/>
         <image name="lightGreenCircle" width="64" height="64"/>
         <image name="missionBackground" width="2349" height="3733"/>

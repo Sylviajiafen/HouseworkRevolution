@@ -17,6 +17,7 @@ class CheckMissionViewController: UIViewController {
         missionListTableView.dataSource = self
         missionListTableView.backgroundColor = UIColor.projectBackground
         
+        // 的TODO: 預設的家事標籤搭配圖
         missionOfWeek = ["Monday": ["掃地", "洗衣"],
                          "Tuesday": ["鏟貓砂", "洗碗", "煮飯"]]
         

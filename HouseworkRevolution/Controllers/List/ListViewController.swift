@@ -34,6 +34,11 @@ class ListViewController: UIViewController {
         ]
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        
+        animateTheNoticeLabel()
+    }
+    
     @IBOutlet weak var dailyMissionCollectionView: UICollectionView! {
         
         didSet {
@@ -52,6 +57,8 @@ class ListViewController: UIViewController {
     }
     
     @IBOutlet weak var dailyMissionFlowLayout: UICollectionViewFlowLayout!
+    
+    @IBOutlet weak var noticeLabel: UILabel!
     
     var fullScreenSize: CGSize?
     
@@ -80,6 +87,18 @@ class ListViewController: UIViewController {
         
         dailyMissionFlowLayout.headerReferenceSize = CGSize(width: screenWidth, height: 40.0)
         
+    }
+    
+    var itemHeight: CGFloat = 0.0
+    
+    func animateTheNoticeLabel() {
+        
+        noticeLabel.alpha = 1
+        
+        UIView.animate(withDuration: 5.0) { [weak self] in
+            
+            self?.noticeLabel.alpha = 0
+        }
     }
 
 }
@@ -145,19 +164,23 @@ extension ListViewController: UICollectionViewDelegate,
         
         guard let missionItem = item as? DailyMissionCollectionViewCell else { return UICollectionViewCell() }
         
+        missionItem.layer.cornerRadius = itemHeight / 2
+        
         switch  indexPath.section {
             
         case 0:
             
             missionItem.backgroundColor = UIColor.cellGreen
             missionItem.dailyMissionLabel.text = dailyMission[indexPath.row]["mission"]
-            missionItem.missionChargerLabel.text = dailyMission[indexPath.row]["charger"]
+//            missionItem.missionChargerLabel.text = dailyMission[indexPath.row]["charger"]
+            missionItem.missionChargerLabel.text = ""
             
         case 1:
             
             missionItem.backgroundColor = UIColor.lightCellGreen
             missionItem.dailyMissionLabel.text = missionDone[indexPath.row].content
-            missionItem.missionChargerLabel.text = missionDone[indexPath.row].charger
+//            missionItem.missionChargerLabel.text = missionDone[indexPath.row].charger
+            missionItem.missionChargerLabel.text = ""
             
         default:
             break
@@ -184,6 +207,8 @@ extension ListViewController: UICollectionViewDelegateFlowLayout {
         if let screenWidth = fullScreenSize?.width {
             
             let width = (screenWidth - totalSpacing) / numberOfItemsPerRow
+            
+            itemHeight = width
             
             return CGSize(width: width, height: width)
             
@@ -238,7 +263,7 @@ extension ListViewController: UICollectionViewDropDelegate {
         if collectionView.hasActiveDrag {
             
             return UICollectionViewDropProposal(operation: .move, intent: .insertIntoDestinationIndexPath)
-
+            
         }
         
         return UICollectionViewDropProposal(operation: .forbidden)
