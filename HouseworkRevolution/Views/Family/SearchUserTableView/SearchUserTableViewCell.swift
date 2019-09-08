@@ -14,6 +14,13 @@ class SearchUserTableViewCell: UITableViewCell {
     
     @IBOutlet weak var searchingMemberId: UILabel!
     
+    @IBAction func addMemberDidPressed(_ sender: Any) {
+        
+        delegate?.addMember(self)
+    }
+    
+    weak var delegate: SearchUserTableViewCellDelegate?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -25,4 +32,9 @@ class SearchUserTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+}
+
+protocol SearchUserTableViewCellDelegate: AnyObject {
+    
+    func addMember(_ cell: SearchUserTableViewCell)
 }

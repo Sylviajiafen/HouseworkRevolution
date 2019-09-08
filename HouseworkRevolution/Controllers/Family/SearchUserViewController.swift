@@ -47,12 +47,12 @@ class SearchUserViewController: UIViewController {
             showResultTableView.reloadData()
         }
     }
-    
-    var searchController: UISearchController?
 }
 
 extension SearchUserViewController: UITableViewDataSource,
+                                    SearchUserTableViewCellDelegate,
                                     UISearchBarDelegate {
+    
     
     // MARK: Set TableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int
@@ -61,6 +61,7 @@ extension SearchUserViewController: UITableViewDataSource,
         if shouldShowSearchResult {
             
             return filteredData.count
+            
         } else {
             
             return 1
@@ -76,6 +77,8 @@ extension SearchUserViewController: UITableViewDataSource,
                 withIdentifier: String(describing: SearchUserTableViewCell.self), for: indexPath)
             
             guard let searchingCell = cell as? SearchUserTableViewCell else { return UITableViewCell() }
+            
+            searchingCell.delegate = self
             
             searchingCell.searchingMemberName.text = filteredData[indexPath.row].name
             searchingCell.searchingMemberId.text = filteredData[indexPath.row].memberId
@@ -127,4 +130,31 @@ extension SearchUserViewController: UITableViewDataSource,
             })
         }
     }
+    
+    // MARK: Add Member
+    func addMember(_ cell: SearchUserTableViewCell) {
+        
+        userIdSearchBar.text = ""
+        
+        shouldShowSearchResult = false
+        
+        let index = showResultTableView.indexPath(for: cell)
+        
+        // TODO: 判斷對象是否已被邀請，如無再更新 dataBase
+        // show 不同 alert
+        showAlertOfAddingMember(message: "邀請成功！")
+    }
+    
+    // TODO: 看要不要改掉用套件
+    func showAlertOfAddingMember(message: String) {
+        
+        let alert = UIAlertController(title: message, message: nil, preferredStyle: .alert)
+        
+        let action = UIAlertAction(title: "OK", style: .cancel)
+        
+        alert.addAction(action)
+        
+        present(alert, animated: true, completion: nil)
+    }
+        
 }

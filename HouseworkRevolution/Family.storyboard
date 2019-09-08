@@ -354,6 +354,9 @@
                                                                 <constraint firstAttribute="height" constant="35" id="gUN-KA-3Ix"/>
                                                             </constraints>
                                                             <state key="normal" image="addMember"/>
+                                                            <connections>
+                                                                <action selector="addMemberDidPressed:" destination="jRV-vW-RBG" eventType="touchUpInside" id="sgO-tT-hhZ"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                     <color key="backgroundColor" name="projectBackground"/>

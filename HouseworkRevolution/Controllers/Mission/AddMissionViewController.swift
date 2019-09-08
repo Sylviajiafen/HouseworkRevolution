@@ -63,6 +63,8 @@ class AddMissionViewController: UIViewController {
     @IBAction func createHousework(_ sender: UIButton) {
         
         // TODO: 將任務存到雲端
+        
+        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func backToRoot(_ sender: UIButton) {
