@@ -47,7 +47,7 @@ class AuthViewController: UIViewController {
         
         if createPassword.text == "" {
             
-            showAlertOfNilText()
+            showAlertOf(message: "欄位留白囉")
         
         } else {
         
@@ -72,27 +72,15 @@ class AuthViewController: UIViewController {
         userSettingView.isHidden = true
     }
     
-    func showAlertOfNilText() {
+    func showAlertOf(message: String) {
         
-        let alert = UIAlertController(title: nil, message: "欄位留白囉", preferredStyle: .alert)
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
         
         let action = UIAlertAction(title: "OK", style: .cancel)
         
         alert.addAction(action)
         
         present(alert, animated: true, completion: nil)
-        
-    }
-    
-    func showShouldSelect() {
-            
-            let alert = UIAlertController(title: nil, message: "選擇一個稱呼後才能建立家唷", preferredStyle: .alert)
-            
-            let action = UIAlertAction(title: "OK", style: .cancel)
-            
-            alert.addAction(action)
-            
-            present(alert, animated: true, completion: nil)
         
     }
     
@@ -108,19 +96,19 @@ class AuthViewController: UIViewController {
         
         if selectedNameIndex == nil {
             
-            showShouldSelect()
+            showAlertOf(message: "選擇一個稱呼吧")
         
         } else {
             
             if selectedNameIndex == nameCalls.count - 1 && customUserName.text == "" {
                 
-                showAlertOfNilText()
+                showAlertOf(message: "欄位留白囉")
                 
             } else {
              
                 if createHomeName.text == "" {
                     
-                    showAlertOfNilText()
+                    showAlertOf(message: "欄位留白囉")
                     
                 } else {
                     
@@ -143,7 +131,7 @@ class AuthViewController: UIViewController {
         
         if userPassword.text == "" || userID.text == "" {
             
-            showAlertOfNilText()
+            showAlertOf(message: "欄位留白囉")
             
         } else {
             

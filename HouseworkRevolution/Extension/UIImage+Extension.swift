@@ -14,6 +14,15 @@ enum ImageAsset: String {
     case dismiss
     case information
     case lightGreenCircle
+    
+    case listUnselected
+    case listSelected
+    case missionUnselected
+    case missionSelected
+    case wishUnselected
+    case wishSelected
+    case familyUnselected
+    case familySelected
 }
 
 extension UIImage {

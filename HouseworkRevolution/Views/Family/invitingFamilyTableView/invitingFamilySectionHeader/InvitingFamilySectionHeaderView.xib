@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="InvitingFamilySectionHeaderView" customModule="HouseworkRevolution" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="54f-W6-wku">
+                    <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                    <color key="backgroundColor" name="projectBackground"/>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="有人邀請您加入家庭！" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VUM-Kj-nhv">
+                    <rect key="frame" x="0.0" y="25" width="375" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="25" id="lMp-cy-K2t"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="STHeitiTC-Medium" family="Heiti TC" pointSize="19"/>
+                    <color key="textColor" name="projectTitle"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="54f-W6-wku" secondAttribute="trailing" id="9tW-pM-WLy"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="54f-W6-wku" secondAttribute="bottom" id="FO5-QP-Mjn"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="VUM-Kj-nhv" secondAttribute="trailing" id="M5n-1U-hBi"/>
+                <constraint firstItem="VUM-Kj-nhv" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="5" id="Vrx-fX-tfv"/>
+                <constraint firstItem="54f-W6-wku" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="m4j-Du-jYM"/>
+                <constraint firstItem="54f-W6-wku" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="pN5-SU-vuD"/>
+                <constraint firstItem="VUM-Kj-nhv" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="tzF-dS-9yD"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="projectBackground">
+            <color red="0.98799997568130493" green="0.97600001096725464" blue="0.92900002002716064" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="projectTitle">
+            <color red="0.92199999094009399" green="0.3449999988079071" blue="0.3529999852180481" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

@@ -33,7 +33,7 @@ class CheckMissionViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-    // TODO: 跟 dataBase 要一週任務，放進變數中
+    // TODO: 跟 dataBase 要一週任務，放進變數中，要放pull refresh
     var missionOfWeek = [String: [String]]()
     
     var weekday: [Weekdays] = [.Monday, .Tuesday, .Wednesday, .Thursday, .Friday, .Saturday, .Sunday]
