@@ -377,6 +377,32 @@
                                                     <outlet property="searchingMemberName" destination="Wci-kJ-m4M" id="uwC-ge-pkm"/>
                                                 </connections>
                                             </tableViewCell>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ShowDefaultTableViewCell" id="UaQ-eP-DWI" customClass="ShowDefaultTableViewCell" customModule="HouseworkRevolution" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="175" width="375" height="44"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="UaQ-eP-DWI" id="iPM-sl-0xE">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="showDefaultRseult" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J53-AS-7j7">
+                                                            <rect key="frame" x="0.0" y="10" width="375" height="23.5"/>
+                                                            <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
+                                                            <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="J53-AS-7j7" secondAttribute="bottom" constant="10" id="I8T-pc-ARh"/>
+                                                        <constraint firstItem="J53-AS-7j7" firstAttribute="top" secondItem="iPM-sl-0xE" secondAttribute="top" constant="10" id="Nst-1Z-o1P"/>
+                                                        <constraint firstItem="J53-AS-7j7" firstAttribute="leading" secondItem="iPM-sl-0xE" secondAttribute="leading" id="V1y-hu-Qyf"/>
+                                                        <constraint firstAttribute="trailing" secondItem="J53-AS-7j7" secondAttribute="trailing" id="mWT-Xc-ZnA"/>
+                                                    </constraints>
+                                                </tableViewCellContentView>
+                                                <color key="backgroundColor" name="projectBackground"/>
+                                                <connections>
+                                                    <outlet property="defaultLabel" destination="J53-AS-7j7" id="bk0-5t-wIC"/>
+                                                </connections>
+                                            </tableViewCell>
                                         </prototypes>
                                     </tableView>
                                 </subviews>
@@ -428,7 +454,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="789.85507246376812" y="0.81521739130434789"/>
+            <point key="canvasLocation" x="789.60000000000002" y="0.44977511244377816"/>
         </scene>
     </scenes>
     <resources>

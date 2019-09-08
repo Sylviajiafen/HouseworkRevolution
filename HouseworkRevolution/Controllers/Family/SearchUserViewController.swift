@@ -35,7 +35,6 @@ class SearchUserViewController: UIViewController {
             
             showResultTableView.reloadData()
             
-            print("shouldShow的 didset")
         }
     }
     
@@ -53,13 +52,11 @@ class SearchUserViewController: UIViewController {
 }
 
 extension SearchUserViewController: UITableViewDataSource,
-                                    UISearchBarDelegate
-                                    {
+                                    UISearchBarDelegate {
     
-    // MARK : Set TableView
+    // MARK: Set TableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int
     ) -> Int {
-        print("========  reload numberOfRows")
         
         if shouldShowSearchResult {
             
@@ -75,10 +72,8 @@ extension SearchUserViewController: UITableViewDataSource,
         
         if shouldShowSearchResult {
             
-            print("========  reload Cell")
-            
-            let cell = showResultTableView.dequeueReusableCell(withIdentifier: String(describing: SearchUserTableViewCell.self),
-                                                               for: indexPath)
+            let cell = showResultTableView.dequeueReusableCell(
+                withIdentifier: String(describing: SearchUserTableViewCell.self), for: indexPath)
             
             guard let searchingCell = cell as? SearchUserTableViewCell else { return UITableViewCell() }
             
@@ -89,63 +84,47 @@ extension SearchUserViewController: UITableViewDataSource,
             
         } else {
             
-            return UITableViewCell()
+            let cell = showResultTableView.dequeueReusableCell(
+                withIdentifier: String(describing: ShowDefaultTableViewCell.self), for: indexPath)
+                
+            guard let showDefaultCell = cell as? ShowDefaultTableViewCell else { return UITableViewCell() }
+                
+            showDefaultCell.defaultLabel.text = "找找家人在哪裡～"
+            
+            return showDefaultCell
         }
     }
     
     // Mark: Search Bar
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
-        shouldShowSearchResult = true
-
-        guard let searchingString = userIdSearchBar.text else { return }
-
-        filteredData = userData.filter({ (data) -> Bool in
-
-            return data.memberId.contains(searchingString)
-        })
-
+        updateResult()
     }
     
-    // Mark: Search Controller
-//    func configureSearchController() {
-//
-//        searchController = UISearchController(searchResultsController: self)
-//        searchController?.searchResultsUpdater = self
-//        searchController?.delegate = self
-//    }
-//
-//    func updateSearchResults(for searchController: UISearchController) {
-//
-//        print("=======update")
-//
-//        guard let searchingString = userIdSearchBar.text else { return }
-//
-//        filteredData = userData.filter({ (data) -> Bool in
-//
-//            return data.memberId.contains(searchingString)
-//        })
-//
-//        showResultTableView.reloadData()
-//    }
-//
-//    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-//
-//        print("==========begin")
-//        shouldShowSearchResult = true
-//        showResultTableView.reloadData()
-//    }
-//
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
 
-        print("==========clicked")
-
-//        if !shouldShowSearchResult {
-//
-//            shouldShowSearchResult = true
-//            showResultTableView.reloadData()
-//        }
-//
-//        userIdSearchBar.resignFirstResponder()
+        updateResult()
+        userIdSearchBar.resignFirstResponder()
+    }
+    
+    func updateResult() {
+        
+        shouldShowSearchResult = true
+        
+        guard let searchingString = userIdSearchBar.text else { return }
+        
+        if searchingString == "" {
+            
+            shouldShowSearchResult = false
+            
+            return
+            
+        } else {
+        
+            filteredData = userData.filter({ (data) -> Bool in
+            
+            return data.memberId.contains(searchingString)
+            })
+        }
     }
 }
