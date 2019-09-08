@@ -152,6 +152,8 @@ extension SearchUserViewController: UITableViewDataSource,
         
         let action = UIAlertAction(title: "OK", style: .cancel)
         
+        action.setValue(UIColor.lightGreen, forKey: "titleTextColor")
+        
         alert.addAction(action)
         
         present(alert, animated: true, completion: nil)

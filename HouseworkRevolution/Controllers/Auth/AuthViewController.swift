@@ -78,6 +78,8 @@ class AuthViewController: UIViewController {
         
         let action = UIAlertAction(title: "OK", style: .cancel)
         
+        action.setValue(UIColor.lightGreen, forKey: "titleTextColor")
+        
         alert.addAction(action)
         
         present(alert, animated: true, completion: nil)

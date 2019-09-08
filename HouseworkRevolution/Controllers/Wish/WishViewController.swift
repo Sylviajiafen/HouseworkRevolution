@@ -66,6 +66,7 @@ class WishViewController: UIViewController {
         // TODO: 判斷欄位空白
         // TODO: 將願望加到 database
         showMakeWish()
+        
         wishContent = wishInput.text
     }
     
@@ -83,6 +84,8 @@ class WishViewController: UIViewController {
         let alert = UIAlertController(title: nil, message: "許願成功", preferredStyle: .alert)
         
         let action = UIAlertAction(title: "OK", style: .cancel)
+        
+        action.setValue(UIColor.lightGreen, forKey: "titleTextColor")
         
         alert.addAction(action)
         

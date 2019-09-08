@@ -40,8 +40,10 @@ class CheckMissionViewController: UIViewController {
     var weekday: [Weekdays] = [.Monday, .Tuesday, .Wednesday, .Thursday, .Friday, .Saturday, .Sunday]
 }
 
-extension CheckMissionViewController: UITableViewDelegate, UITableViewDataSource {
-    
+extension CheckMissionViewController: UITableViewDelegate,
+                                      UITableViewDataSource,
+MissionListTableViewCellDelegate {
+  
     // MARK: Section Header
     func numberOfSections(in tableView: UITableView) -> Int {
         
@@ -91,7 +93,7 @@ extension CheckMissionViewController: UITableViewDelegate, UITableViewDataSource
             
             mission.missionLabel.text = missionOfDay[indexPath.row]
             
-            // TODO: 寫移除家事的 func (寫在 View)
+            mission.delegate = self
             
             return mission
             
@@ -136,6 +138,17 @@ extension CheckMissionViewController: UITableViewDelegate, UITableViewDataSource
         }
     }
     
+    // Mark: Remove Mission
+    func removeMission(_ cell: MissionListTableViewCell) {
+        
+        guard let index = missionListTableView.indexPath(for: cell) else { return }
+        
+        missionOfWeek[changeSectionIntoWeekday(index.section)]?.remove(at: index.row)
+        
+        missionListTableView.deleteRows(at: [index], with: .middle)
+        
+        //TODO: 更新dataBase
+    }
 }
 
 //TODO: 若建立 Firebase 時存入的家事時間直接是 0 - 6，則不需轉換，dictionary 變數變為 「[Int: [String]]」
