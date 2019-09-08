@@ -91,7 +91,7 @@ class AddMissionViewController: UIViewController {
     
     // TODO: 從雲端抓取，存入變數
     // 預設家事標籤的array存在專案裡，並搭配圖
-    // 在一開始 viewWillAppear fetch database 使用者的家事標籤，（如果有這個array的話才）把 houseworks 洗掉(會進didSet)，沒有的話就不抓 dataBase
+    // 在一開始 viewWillAppear fetch database 使用者的家事標籤，（如果有家事標籤array的話才）把 houseworks 洗掉(會進didSet)，沒有的話就不抓 dataBase
     // 預設家事標籤用 enum 存，並去判斷搭配的圖
     
     var houseworks: [String] = ["掃地", "拖地", "倒垃圾", "洗衣服", "煮飯", "買菜", "掃廁所"] {
@@ -101,7 +101,7 @@ class AddMissionViewController: UIViewController {
             
             houseworksCollection.reloadData()
             
-            // TODO: 更新雲端（新增 或 洗掉原本的array）
+            // TODO: 更新雲端（新增(使用者有更改這個 array 時才讓 dataBase 存一個家事標籤 array，並把這些預設的一起存進去) 或 洗掉原本的array）
         }
     }
     
