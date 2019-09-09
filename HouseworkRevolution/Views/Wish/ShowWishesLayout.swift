@@ -14,7 +14,7 @@ class ShowWishesLayout: UICollectionViewLayout {
     
     fileprivate var numberOfColumns = 2
     
-    fileprivate var cellPadding: CGFloat = 2
+    fileprivate var cellPadding: CGFloat = 10
 
     fileprivate var cache = [UICollectionViewLayoutAttributes]()
     

@@ -25,14 +25,19 @@ class AddMissionViewController: UIViewController {
         
         weekdayPicker.dataSource = self
         
-        tiredSlider.setThumbImage(UIImage(named: "icons8-heart"), for: .normal)
-    
+        tiredSlider.setThumbImage(UIImage(named: "valueHeart"), for: .normal)
+        
+        editHouseworkBtn.isSelected = false
+  
     }
+    
     @IBOutlet weak var houseworksCollection: UICollectionView!
     
     @IBOutlet weak var familyMemberCollection: UICollectionView!
     
     @IBOutlet weak var addHouseworkBtn: UIButton!
+
+    @IBOutlet weak var editHouseworkBtn: UIButton!
     
     @IBOutlet weak var customHousework: UITextField!
     
@@ -55,9 +60,8 @@ class AddMissionViewController: UIViewController {
         guard newHousework != "" else { showAlertOfNilText(); return }
         
         houseworks.append(newHousework)
-        
-        // TODO: 標籤要同時存到雲端
     
+        customHousework.text = ""
     }
     
     @IBAction func createHousework(_ sender: UIButton) {
@@ -65,6 +69,20 @@ class AddMissionViewController: UIViewController {
         // TODO: 將任務存到雲端
         
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func editCell(_ sender: UIButton) {
+        
+        sender.isSelected.toggle()
+        
+        if sender.isSelected == true {
+            
+            shouldEditCell = true
+            
+        } else {
+            
+            shouldEditCell = false
+        }
     }
     
     @IBAction func backToRoot(_ sender: UIButton) {
@@ -78,16 +96,26 @@ class AddMissionViewController: UIViewController {
     var weekday: [Weekdays] = [.Monday, .Tuesday, .Wednesday, .Thursday, .Friday, .Saturday, .Sunday]
     
     // TODO: 從雲端抓取，存入變數
-    // 預設家事標籤的array 從 fireBase 抓，並搭配圖（或寫死在專案裡）
-    // 在一開始 viewDidLoad  fetch database 的時候就先把使用者新增的家事 append 進 array 中，並配預設的圖
+    // 預設家事標籤的array存在專案裡，並搭配圖
+    // 在一開始 viewWillAppear fetch database 使用者的家事標籤，（如果有家事標籤array的話才）把 houseworks 洗掉(會進didSet)，沒有的話就不抓 dataBase
     // 預設家事標籤用 enum 存，並去判斷搭配的圖
     
     var houseworks: [String] = ["掃地", "拖地", "倒垃圾", "洗衣服", "煮飯", "買菜", "掃廁所"] {
         
         didSet {
+            print("======== 家事標籤 didSet")
             
             houseworksCollection.reloadData()
             
+            // TODO: 更新雲端（新增(使用者有更改這個 array 時才讓 dataBase 存一個家事標籤 array，並把這些預設的一起存進去) 或 洗掉原本的array）
+        }
+    }
+    
+    var shouldEditCell: Bool = false {
+        
+        didSet {
+            
+            houseworksCollection.reloadData()
         }
     }
     
@@ -96,6 +124,8 @@ class AddMissionViewController: UIViewController {
         let alert = UIAlertController(title: nil, message: "欄位留白囉", preferredStyle: .alert)
         
         let action = UIAlertAction(title: "OK", style: .cancel)
+        
+        action.setValue(UIColor.lightGreen, forKey: "titleTextColor")
         
         alert.addAction(action)
         
@@ -137,7 +167,9 @@ extension AddMissionViewController: UIPickerViewDelegate, UIPickerViewDataSource
 
 }
 
-extension AddMissionViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension AddMissionViewController: UICollectionViewDelegate,
+                                    UICollectionViewDataSource,
+                                    HouseworkCollectionViewCellDelegate {
     
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int
@@ -176,11 +208,23 @@ extension AddMissionViewController: UICollectionViewDelegate, UICollectionViewDa
             
             houseworkCell.houseworkLabel.text = houseworks[indexPath.row]
             
+            houseworkCell.delegate = self
+            
+            if shouldEditCell == true {
+                    
+                houseworkCell.deleteCellBtn.isHidden = false
+                
+            } else {
+                
+                houseworkCell.deleteCellBtn.isHidden = true
+            }
+            
             return houseworkCell
             
         case familyMemberCollection:
             
-            let cell = familyMemberCollection.dequeueReusableCell(withReuseIdentifier: String(describing: FamilyMemberCollectionViewCell.self), for: indexPath)
+            let cell = familyMemberCollection.dequeueReusableCell(
+                withReuseIdentifier: String(describing: FamilyMemberCollectionViewCell.self), for: indexPath)
             
             guard let familyCell = cell as? FamilyMemberCollectionViewCell else { return UICollectionViewCell() }
             
@@ -248,6 +292,18 @@ extension AddMissionViewController: UICollectionViewDelegate, UICollectionViewDa
             
             return
         }
+        
+    }
+    
+    func deleteHousework(_ cell: HouseworkCollectionViewCell) {
+        
+        guard let index = houseworksCollection.indexPath(for: cell) else { return }
+        
+        houseworks.remove(at: index.item)
+        
+        shouldEditCell = false
+        
+        editHouseworkBtn.isSelected = false
         
     }
     

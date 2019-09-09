@@ -20,14 +20,11 @@ class WishCollectionViewCell: UICollectionViewCell {
     
     func showDelete() {
         
-        // TODO: 改圖
-        let image = UIImage(named: "delete-file-from-cloud")
-        
         self.addSubview(deleteBtn)
         
         deleteBtn.translatesAutoresizingMaskIntoConstraints = false
         
-        deleteBtn.setImage(image, for: .normal)
+        deleteBtn.setImage(UIImage.asset(.deleteWish), for: .normal)
         
         deleteBtn.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: -20).isActive = true
         

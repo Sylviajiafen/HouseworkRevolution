@@ -9,10 +9,16 @@
 import UIKit
 
 class MissionListTableViewCell: UITableViewCell {
+    
+    weak var delegate: MissionListTableViewCellDelegate?
 
     @IBOutlet weak var missionLabel: UILabel!
     
-     // TODO: 寫移除家事的 func
+     // TODO: 寫移除家事的 func，更新 dataBase
+    @IBAction func removeDidPressed(_ sender: Any) {
+        
+        delegate?.removeMission(self)
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,4 +31,9 @@ class MissionListTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+}
+
+protocol MissionListTableViewCellDelegate: AnyObject {
+    
+    func removeMission(_ cell: MissionListTableViewCell)
 }

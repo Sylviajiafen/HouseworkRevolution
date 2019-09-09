@@ -13,6 +13,8 @@ class FamilyViewController: UIViewController {
     @IBOutlet weak var familyMemberTableView: UITableView!
     @IBOutlet weak var invitingFamilyTableView: UITableView!
     
+    @IBOutlet weak var userCallLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -44,7 +46,42 @@ class FamilyViewController: UIViewController {
 //        invitedMemberList = [Member(name: "老爸", memberId: "XQ8gMqFhCON6V97jP6Fl")]
         
         familyMember = [Member(name: "媽咪", memberId: "F8rMwuu24tFqpqW1LIKA")]
+    }
+    
+    @IBAction func editUserCall(_ sender: Any) {
         
+        let alert = UIAlertController(title: "編輯稱呼", message: "換個自己喜歡的稱呼吧", preferredStyle: .alert)
+        
+        alert.addTextField(configurationHandler: nil)
+        
+        let okAction = UIAlertAction(title: "更改", style: .default) { [weak self] _ in
+            
+            guard alert.textFields?[0].text != "" else { return }
+            
+            self?.changedUserCall = alert.textFields?[0].text
+                
+            self?.userCallLabel.text = self?.changedUserCall
+        }
+        
+        okAction.setValue(UIColor.lightGreen, forKey: "titleTextColor")
+        
+        alert.addAction(okAction)
+        
+        let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+        
+        cancelAction.setValue(UIColor.lightGreen, forKey: "titleTextColor")
+        
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
+    var changedUserCall: String? {
+        
+        didSet {
+            
+            // TODO: 更新 dataBase user 名稱
+        }
     }
     
     var familyMember: [Member] = []
@@ -69,6 +106,7 @@ class FamilyViewController: UIViewController {
             invitingFamilyTableView.isHidden = false
         }
     }
+    
     
 }
 

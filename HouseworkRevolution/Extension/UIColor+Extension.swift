@@ -71,4 +71,6 @@ extension UIColor {
     static let cellGreen = ProjectColor(.cellGreen)
     
     static let lightCellGreen = ProjectColor(.lightCellGreen)
+    
+    static let lightGreen = ProjectColor(.lightGreen)
 }

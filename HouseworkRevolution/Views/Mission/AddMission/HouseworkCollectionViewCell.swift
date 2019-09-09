@@ -11,6 +11,9 @@ import UIKit
 class HouseworkCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var houseworkLabel: UILabel!
+    @IBOutlet weak var deleteCellBtn: UIButton!
+    
+    weak var delegate: HouseworkCollectionViewCellDelegate?
     
     func setUpLabelfor(background: UIColor?, textColor: UIColor?) {
         
@@ -19,4 +22,14 @@ class HouseworkCollectionViewCell: UICollectionViewCell {
         self.backgroundColor = background
         self.houseworkLabel.textColor = textColor
     }
+    
+    @IBAction func deleteHousework(_ sender: UIButton) {
+        
+        delegate?.deleteHousework(self)
+    }
+}
+
+protocol HouseworkCollectionViewCellDelegate: AnyObject {
+    
+    func deleteHousework(_ cell: HouseworkCollectionViewCell)
 }

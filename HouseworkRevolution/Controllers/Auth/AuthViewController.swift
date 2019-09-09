@@ -60,11 +60,22 @@ class AuthViewController: UIViewController {
     @IBAction func showSignIn(_ sender: Any) {
         
         signInView.isHidden = false
+        
+        signUpView.isHidden = true
+        
+        createPassword.text = nil
     }
     
     @IBAction func showSignUp(_ sender: Any) {
         
         signInView.isHidden = true
+        
+        userID.text = nil
+        
+        userPassword.text = nil
+        
+        signUpView.isHidden = false
+        
     }
     
     @IBAction func dissmissUserSetting(_ sender: Any) {
@@ -77,6 +88,8 @@ class AuthViewController: UIViewController {
         let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
         
         let action = UIAlertAction(title: "OK", style: .cancel)
+        
+        action.setValue(UIColor.lightGreen, forKey: "titleTextColor")
         
         alert.addAction(action)
         
@@ -108,7 +121,7 @@ class AuthViewController: UIViewController {
              
                 if createHomeName.text == "" {
                     
-                    showAlertOf(message: "欄位留白囉")
+                    showAlertOf(message: "記得幫自己的家取個名唷")
                     
                 } else {
                     

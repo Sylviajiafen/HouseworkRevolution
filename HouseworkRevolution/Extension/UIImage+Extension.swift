@@ -23,6 +23,8 @@ enum ImageAsset: String {
     case wishSelected
     case familyUnselected
     case familySelected
+    
+    case deleteWish
 }
 
 extension UIImage {

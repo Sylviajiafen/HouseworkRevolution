@@ -94,10 +94,10 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h29-Y5-es4">
-                                <rect key="frame" x="72" y="318" width="270" height="200"/>
+                                <rect key="frame" x="57" y="318" width="300" height="200"/>
                                 <subviews>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5A3-E7-NNX">
-                                        <rect key="frame" x="90" y="131" width="90" height="33"/>
+                                        <rect key="frame" x="105" y="131" width="90" height="33"/>
                                         <color key="backgroundColor" red="0.92941176469999998" green="0.41176470590000003" blue="0.42352941179999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="90" id="FvH-fd-Gsh"/>
@@ -116,7 +116,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jyY-mx-Jz6">
-                                        <rect key="frame" x="109" y="166" width="151" height="29"/>
+                                        <rect key="frame" x="139" y="166" width="151" height="29"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <state key="normal" title="找不到家，重建一個 &gt;&gt;">
                                             <color key="titleColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -147,13 +147,13 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="輸入大門密碼" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gWs-K4-hPl" customClass="UserInputTextField" customModule="HouseworkRevolution" customModuleProvider="target">
-                                        <rect key="frame" x="78" y="94" width="114" height="22"/>
+                                        <rect key="frame" x="93" y="94" width="114" height="22"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <textInputTraits key="textInputTraits" textContentType="password"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="輸入您的 id" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mVe-aM-Zrd" customClass="UserInputTextField" customModule="HouseworkRevolution" customModuleProvider="target">
-                                        <rect key="frame" x="86.666666666666657" y="57" width="97" height="22"/>
+                                        <rect key="frame" x="101.66666666666666" y="57" width="97" height="22"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <textInputTraits key="textInputTraits" textContentType="username"/>
@@ -163,7 +163,7 @@
                                 <constraints>
                                     <constraint firstItem="rlZ-Rs-NUa" firstAttribute="top" secondItem="h29-Y5-es4" secondAttribute="top" constant="15" id="042-f5-zAj"/>
                                     <constraint firstAttribute="height" constant="200" id="4qc-wc-xXl"/>
-                                    <constraint firstAttribute="width" constant="270" id="73j-HB-nJe"/>
+                                    <constraint firstAttribute="width" constant="300" id="73j-HB-nJe"/>
                                     <constraint firstAttribute="trailing" secondItem="jyY-mx-Jz6" secondAttribute="trailing" constant="10" id="E8i-da-bbO"/>
                                     <constraint firstItem="mVe-aM-Zrd" firstAttribute="top" secondItem="rlZ-Rs-NUa" secondAttribute="bottom" constant="15" id="Iqm-ob-DB8"/>
                                     <constraint firstItem="gWs-K4-hPl" firstAttribute="top" secondItem="mVe-aM-Zrd" secondAttribute="bottom" constant="15" id="NgJ-0Y-OUt"/>

@@ -112,6 +112,8 @@ extension SearchUserViewController: UITableViewDataSource,
     
     func updateResult() {
         
+        // TODO: fetch dataBase userData
+        
         shouldShowSearchResult = true
         
         guard let searchingString = userIdSearchBar.text else { return }
@@ -151,6 +153,8 @@ extension SearchUserViewController: UITableViewDataSource,
         let alert = UIAlertController(title: message, message: nil, preferredStyle: .alert)
         
         let action = UIAlertAction(title: "OK", style: .cancel)
+        
+        action.setValue(UIColor.lightGreen, forKey: "titleTextColor")
         
         alert.addAction(action)
         
