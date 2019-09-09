@@ -1,20 +1,24 @@
 PODS:
+  - IQKeyboardManagerSwift (6.4.0)
   - KeychainAccess (3.2.0)
   - SwiftLint (0.34.0)
 
 DEPENDENCIES:
+  - IQKeyboardManagerSwift
   - KeychainAccess
   - SwiftLint
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - IQKeyboardManagerSwift
     - KeychainAccess
     - SwiftLint
 
 SPEC CHECKSUMS:
+  IQKeyboardManagerSwift: ed9b04ee0e3067ffba543283462d619f944b05e5
   KeychainAccess: 3b1bf8a77eb4c6ea1ce9404c292e48f948954c6b
   SwiftLint: 79d48a17c6565dc286c37efb8322c7b450f95c67
 
-PODFILE CHECKSUM: dc717e20de1c2de30319cfa2d6905f5752f2a4db
+PODFILE CHECKSUM: a35a3530ab14c4d73385fa569669eaeca6c4f8eb
 
 COCOAPODS: 1.7.5

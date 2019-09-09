@@ -34,9 +34,13 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OaG-Ua-B8d">
-                                <rect key="frame" x="242.5" y="50" width="30" height="30"/>
-                                <state key="normal" title="edit"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OaG-Ua-B8d">
+                                <rect key="frame" x="242.5" y="50" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="25" id="C6d-WQ-dXk"/>
+                                    <constraint firstAttribute="height" constant="25" id="aIy-5k-wFY"/>
+                                </constraints>
+                                <state key="normal" title="edit" image="editTitle"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的 ID" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aFi-62-gf7" userLabel="家事內容">
                                 <rect key="frame" x="30" y="98" width="76" height="33"/>
@@ -121,7 +125,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="XQ8gMqFhCON6V97jP6Fl" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="awh-AW-7ru">
-                                                    <rect key="frame" x="75" y="12" width="134" height="20"/>
+                                                    <rect key="frame" x="75" y="12" width="149" height="20"/>
                                                     <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -319,7 +323,7 @@
                                             <textInputTraits key="textInputTraits"/>
                                         </searchBar>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchUserTableViewCell" rowHeight="103" id="jRV-vW-RBG" customClass="SearchUserTableViewCell" customModule="HouseworkRevolution" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="SearchUserTableViewCell" rowHeight="103" id="jRV-vW-RBG" customClass="SearchUserTableViewCell" customModule="HouseworkRevolution" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="72" width="375" height="103"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jRV-vW-RBG" id="O3W-vZ-3W3">
@@ -380,7 +384,7 @@
                                                     <outlet property="searchingMemberName" destination="Wci-kJ-m4M" id="uwC-ge-pkm"/>
                                                 </connections>
                                             </tableViewCell>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ShowDefaultTableViewCell" id="UaQ-eP-DWI" customClass="ShowDefaultTableViewCell" customModule="HouseworkRevolution" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ShowDefaultTableViewCell" id="UaQ-eP-DWI" customClass="ShowDefaultTableViewCell" customModule="HouseworkRevolution" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="175" width="375" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="UaQ-eP-DWI" id="iPM-sl-0xE">
@@ -462,6 +466,7 @@
     </scenes>
     <resources>
         <image name="addMember" width="24" height="24"/>
+        <image name="editTitle" width="48" height="48"/>
         <image name="information" width="16" height="16"/>
         <image name="no" width="24" height="24"/>
         <image name="remove" width="16" height="16"/>

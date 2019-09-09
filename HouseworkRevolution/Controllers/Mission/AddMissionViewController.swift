@@ -25,7 +25,7 @@ class AddMissionViewController: UIViewController {
         
         weekdayPicker.dataSource = self
         
-        tiredSlider.setThumbImage(UIImage(named: "icons8-heart"), for: .normal)
+        tiredSlider.setThumbImage(UIImage(named: "valueHeart"), for: .normal)
         
         editHouseworkBtn.isSelected = false
   
@@ -61,6 +61,7 @@ class AddMissionViewController: UIViewController {
         
         houseworks.append(newHousework)
     
+        customHousework.text = ""
     }
     
     @IBAction func createHousework(_ sender: UIButton) {

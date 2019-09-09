@@ -18,9 +18,9 @@ extension UIView {
         
         rotation.toValue = Double.pi / 8
             
-        rotation.duration = 0.01
+        rotation.duration = 0.005
             
-        rotation.repeatCount = 20
+        rotation.repeatCount = 60
             
         self.layer.add(rotation, forKey: nil)
         

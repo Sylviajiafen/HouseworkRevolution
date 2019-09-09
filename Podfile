@@ -8,6 +8,7 @@ target 'HouseworkRevolution' do
   # Pods for HouseworkRevolution
 pod 'SwiftLint'
 pod 'KeychainAccess'
+pod 'IQKeyboardManagerSwift'
 
   target 'HouseworkRevolutionTests' do
     inherit! :search_paths
