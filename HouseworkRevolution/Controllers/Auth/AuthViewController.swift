@@ -121,7 +121,7 @@ class AuthViewController: UIViewController {
              
                 if createHomeName.text == "" {
                     
-                    showAlertOf(message: "欄位留白囉")
+                    showAlertOf(message: "記得幫自己的家取個名唷")
                     
                 } else {
                     

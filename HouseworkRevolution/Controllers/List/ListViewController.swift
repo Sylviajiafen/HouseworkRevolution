@@ -17,10 +17,17 @@ class ListViewController: UIViewController {
     
     // 找 LUKE 討論
     
+    @IBOutlet weak var magicLampView: UIView!
+    @IBOutlet weak var lampViewWishLabel: UILabel!
+    @IBOutlet weak var skipBtn: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         fullScreenSize = UIScreen.main.bounds.size
+        
+        magicLampView.alpha = 0.0
+        skipBtn.alpha = 0.0
         
         setUpCollectionView()
         
@@ -32,6 +39,7 @@ class ListViewController: UIViewController {
             ["charger": "5女兒", "mission": "5煮飯"],
             ["charger": "6老媽", "mission": "6晾衣服"]
         ]
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -70,6 +78,10 @@ class ListViewController: UIViewController {
     
     var missionBeDropped = Mission(charger: "", content: "")
     
+    let showAnimate = UIViewPropertyAnimator(duration: 0.8, curve: .linear)
+    
+    let viewDisappearAnimate = UIViewPropertyAnimator(duration: 0.5, curve: .linear)
+    
     func setUpCollectionView() {
         
         dailyMissionCollectionView.register(
@@ -100,7 +112,55 @@ class ListViewController: UIViewController {
             self?.noticeLabel.alpha = 0
         }
     }
+    
+    // TODO: 判斷疲勞值並秀 view
+    func magicLampViewShow() {
+        
+        print("============magic!!")
+        
+        skipBtn.alpha = 1.0
+        
+        showAnimate.addAnimations { [weak self] in
 
+            self?.magicLampView.alpha = 1.0
+        }
+        
+        viewDisappearAnimate.addAnimations { [weak self] in
+            
+            self?.magicLampView.alpha = 0.0
+        }
+        
+        showAnimate.addCompletion { [weak self] _ in
+            
+            self?.viewDisappearAnimate.startAnimation(afterDelay: 3.0)
+        }
+        
+        viewDisappearAnimate.addCompletion({ [weak self] (_) in
+            
+            self?.skipBtn.alpha = 0.0
+        })
+        
+        viewDisappearAnimate.isInterruptible = true
+        
+        showAnimate.isInterruptible = true
+        
+        showAnimate.startAnimation()
+    }
+    
+    @IBAction func skipAnimateOfMagicView(_ sender: Any) {
+        
+        print("skip!!!!!!!!!!!!!!!!!!!!!")
+        
+        showAnimate.stopAnimation(true)
+        
+        viewDisappearAnimate.stopAnimation(true)
+        
+        magicLampView.alpha = 0.0
+        
+        skipBtn.alpha = 0.0
+    
+    }
+    
 }
 
 extension ListViewController: UICollectionViewDelegate,
@@ -294,6 +354,11 @@ extension ListViewController: UICollectionViewDropDelegate {
                     
                         coordinator.drop(item.dragItem, toItemAt: destinationIndexPath)
                     
+                    // TODO: indexPath 會變，所以要存一個疲勞值的 parameter，用此疲勞值去判斷
+                        if sourceIndexPath == IndexPath(item: 2, section: 0) {
+                        
+                            self?.magicLampViewShow()
+                        }
                     }
                 }
             }
