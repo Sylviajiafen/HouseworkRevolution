@@ -18,6 +18,8 @@ class WishViewController: UIViewController {
         makeWishView.alpha = 0
         
         wishInput.delegate = self
+        
+        wishInput.text = defaultWish
 
     }
     
@@ -25,7 +27,8 @@ class WishViewController: UIViewController {
     
     var wishContent: String?  // 待決定是否保留
     
-    // 神燈相關設定：待換圖、建立小動畫
+    let defaultWish = "有什麼願望是被家事耽擱的呢？"
+    
     @IBOutlet weak var lamp: UIImageView!
     
     func setUpLamp() {
@@ -63,9 +66,13 @@ class WishViewController: UIViewController {
     @IBOutlet weak var wishInput: UITextView!
     
     @IBAction func makeWish(_ sender: UIButton) {
-        // TODO: 判斷欄位空白
+        
         // TODO: 將願望加到 database
-        showMakeWish()
+        
+        guard wishInput.text != "" && wishInput.text != defaultWish
+            else { showMakeWish(message: "忘記留下願望了啦", wishInput: 1.0); return }
+        
+        showMakeWish(message: "許願成功！", wishInput: 0.0)
         
         wishContent = wishInput.text
     }
@@ -79,9 +86,9 @@ class WishViewController: UIViewController {
         destination.wishArr.append(wish)
     }
     
-    func showMakeWish() {
+    func showMakeWish(message: String, wishInput viewAlpha: CGFloat) {
         
-        let alert = UIAlertController(title: nil, message: "許願成功", preferredStyle: .alert)
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
         
         let action = UIAlertAction(title: "OK", style: .cancel)
         
@@ -91,7 +98,7 @@ class WishViewController: UIViewController {
         
         present(alert, animated: true, completion: nil)
         
-        makeWishView.alpha = 0
+        makeWishView.alpha = viewAlpha
     }
 }
 
@@ -114,4 +121,6 @@ extension WishViewController: UITextViewDelegate {
         
         return changedText.count <= 100
     }
+    
+    
 }

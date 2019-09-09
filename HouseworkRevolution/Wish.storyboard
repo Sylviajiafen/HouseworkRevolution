@@ -59,7 +59,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o0A-8m-XR2">
                                 <rect key="frame" x="87" y="415" width="240" height="120"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.90000000000000002" contentMode="scaleToFill" scrollEnabled="NO" text="有什麼願望是一直被家事耽擱的呢？" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="raJ-Jc-ssn">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.90000000000000002" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="raJ-Jc-ssn">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="85"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>

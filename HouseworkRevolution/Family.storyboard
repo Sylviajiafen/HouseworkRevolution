@@ -35,12 +35,15 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OaG-Ua-B8d">
-                                <rect key="frame" x="242.5" y="50" width="25" height="25"/>
+                                <rect key="frame" x="242.5" y="56" width="20" height="20"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="25" id="C6d-WQ-dXk"/>
-                                    <constraint firstAttribute="height" constant="25" id="aIy-5k-wFY"/>
+                                    <constraint firstAttribute="width" constant="20" id="C6d-WQ-dXk"/>
+                                    <constraint firstAttribute="height" constant="20" id="aIy-5k-wFY"/>
                                 </constraints>
                                 <state key="normal" title="edit" image="editTitle"/>
+                                <connections>
+                                    <action selector="editUserCall:" destination="GUe-sm-w7G" eventType="touchUpInside" id="d0n-U3-zhg"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的 ID" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aFi-62-gf7" userLabel="家事內容">
                                 <rect key="frame" x="30" y="98" width="76" height="33"/>
@@ -258,7 +261,7 @@
                             <constraint firstItem="fx7-tx-vl4" firstAttribute="leading" secondItem="ltO-1B-Up1" secondAttribute="leading" constant="40" id="Uid-Hs-BRM"/>
                             <constraint firstItem="OaG-Ua-B8d" firstAttribute="leading" secondItem="QFk-C9-5UP" secondAttribute="trailing" constant="5" id="Wmf-bt-6WX"/>
                             <constraint firstItem="ltO-1B-Up1" firstAttribute="trailing" secondItem="enA-Gb-zpx" secondAttribute="trailing" constant="40" id="XvT-UZ-PAw"/>
-                            <constraint firstItem="OaG-Ua-B8d" firstAttribute="top" secondItem="ltO-1B-Up1" secondAttribute="top" constant="30" id="aXc-5a-wAI"/>
+                            <constraint firstItem="OaG-Ua-B8d" firstAttribute="top" secondItem="ltO-1B-Up1" secondAttribute="top" constant="36" id="aXc-5a-wAI"/>
                             <constraint firstItem="ltO-1B-Up1" firstAttribute="trailing" secondItem="fx7-tx-vl4" secondAttribute="trailing" constant="40" id="crV-0q-fdB"/>
                             <constraint firstItem="Ba2-Yt-Bmj" firstAttribute="leading" secondItem="ltO-1B-Up1" secondAttribute="leading" constant="30" id="eva-9G-Mb8"/>
                             <constraint firstItem="enA-Gb-zpx" firstAttribute="leading" secondItem="ltO-1B-Up1" secondAttribute="leading" constant="40" id="gPc-Hh-U9J"/>
@@ -280,6 +283,7 @@
                     <connections>
                         <outlet property="familyMemberTableView" destination="enA-Gb-zpx" id="DQ8-5F-eo2"/>
                         <outlet property="invitingFamilyTableView" destination="5sy-HF-Iy3" id="Lp0-8j-hee"/>
+                        <outlet property="userCallLabel" destination="QFk-C9-5UP" id="TiJ-nE-EkX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q9b-Dr-Mgm" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -466,7 +470,7 @@
     </scenes>
     <resources>
         <image name="addMember" width="24" height="24"/>
-        <image name="editTitle" width="48" height="48"/>
+        <image name="editTitle" width="170" height="170"/>
         <image name="information" width="16" height="16"/>
         <image name="no" width="24" height="24"/>
         <image name="remove" width="16" height="16"/>

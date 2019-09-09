@@ -19,9 +19,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="listBackground" translatesAutoresizingMaskIntoConstraints="NO" id="8zw-tm-UZ1">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="593"/>
+                            </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="vAc-W7-L9m">
                                 <rect key="frame" x="0.0" y="90" width="375" height="503"/>
-                                <color key="backgroundColor" name="projectBackground"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Wnl-3l-bKo">
                                     <size key="itemSize" width="150" height="134"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -96,13 +99,17 @@
                         <constraints>
                             <constraint firstItem="UdL-Fb-Cy1" firstAttribute="trailing" secondItem="vAc-W7-L9m" secondAttribute="trailing" id="1hy-MJ-5Ng"/>
                             <constraint firstItem="vAc-W7-L9m" firstAttribute="top" secondItem="Vkp-nA-0xo" secondAttribute="bottom" id="9UA-jg-luG"/>
+                            <constraint firstItem="UdL-Fb-Cy1" firstAttribute="trailing" secondItem="8zw-tm-UZ1" secondAttribute="trailing" id="BMS-Qv-2hY"/>
                             <constraint firstItem="vAc-W7-L9m" firstAttribute="leading" secondItem="UdL-Fb-Cy1" secondAttribute="leading" id="E2p-eL-fkV"/>
                             <constraint firstItem="UdL-Fb-Cy1" firstAttribute="bottom" secondItem="x0e-KW-84U" secondAttribute="bottom" constant="10" id="Gt6-6b-ow0"/>
                             <constraint firstItem="x0e-KW-84U" firstAttribute="top" secondItem="vAc-W7-L9m" secondAttribute="bottom" id="K71-MB-hjc"/>
                             <constraint firstItem="x0e-KW-84U" firstAttribute="trailing" secondItem="UdL-Fb-Cy1" secondAttribute="trailing" constant="-25" id="P9y-RX-2ul"/>
                             <constraint firstItem="Vkp-nA-0xo" firstAttribute="leading" secondItem="UdL-Fb-Cy1" secondAttribute="leading" id="S4b-IC-VLn"/>
                             <constraint firstItem="x0e-KW-84U" firstAttribute="leading" secondItem="UdL-Fb-Cy1" secondAttribute="leading" constant="25" id="a03-ZK-653"/>
+                            <constraint firstItem="x0e-KW-84U" firstAttribute="top" secondItem="8zw-tm-UZ1" secondAttribute="bottom" id="cyb-sf-fqB"/>
                             <constraint firstItem="Vkp-nA-0xo" firstAttribute="top" secondItem="UdL-Fb-Cy1" secondAttribute="top" id="g0y-0Q-mLg"/>
+                            <constraint firstItem="8zw-tm-UZ1" firstAttribute="top" secondItem="dcs-Tp-7o0" secondAttribute="top" id="jZa-0w-Zqy"/>
+                            <constraint firstItem="8zw-tm-UZ1" firstAttribute="leading" secondItem="UdL-Fb-Cy1" secondAttribute="leading" id="jzQ-og-feE"/>
                             <constraint firstItem="UdL-Fb-Cy1" firstAttribute="trailing" secondItem="Vkp-nA-0xo" secondAttribute="trailing" id="qsl-gV-v92"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="UdL-Fb-Cy1"/>
@@ -120,6 +127,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="listBackground" width="2349" height="3733"/>
         <namedColor name="lightCellGreen">
             <color red="0.76470588235294112" green="0.84705882352941175" blue="0.51372549019607838" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
