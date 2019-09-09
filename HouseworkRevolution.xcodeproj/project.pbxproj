@@ -32,7 +32,6 @@
 		03C1A54A231662DA008EAB76 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03C1A549231662DA008EAB76 /* Assets.xcassets */; };
 		03C1A54D231662DA008EAB76 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03C1A54B231662DA008EAB76 /* LaunchScreen.storyboard */; };
 		03C1A558231662DA008EAB76 /* HouseworkRevolutionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1A557231662DA008EAB76 /* HouseworkRevolutionTests.swift */; };
-		03C1A566231664DE008EAB76 /* List.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03C1A565231664DE008EAB76 /* List.storyboard */; };
 		03C1A56823166518008EAB76 /* Mission.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03C1A56723166518008EAB76 /* Mission.storyboard */; };
 		03C1A56A2316652F008EAB76 /* Wish.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03C1A5692316652F008EAB76 /* Wish.storyboard */; };
 		03C1A56C23166544008EAB76 /* Family.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03C1A56B23166544008EAB76 /* Family.storyboard */; };
@@ -57,6 +56,8 @@
 		03FEAC1B2322610500722A34 /* SearchUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FEAC1A2322610500722A34 /* SearchUserViewController.swift */; };
 		03FEAC1E23226FFA00722A34 /* SearchUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FEAC1D23226FFA00722A34 /* SearchUserTableViewCell.swift */; };
 		03FEAC212324CC9400722A34 /* ShowDefaultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FEAC202324CC9400722A34 /* ShowDefaultTableViewCell.swift */; };
+		03FEAC232326599A00722A34 /* List.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03FEAC222326599A00722A34 /* List.storyboard */; };
+		03FEAC242326599A00722A34 /* List.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03FEAC222326599A00722A34 /* List.storyboard */; };
 		13C2546C9B3D4DD77EDFFF43 /* Pods_HouseworkRevolution.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1493339683728FA72397E709 /* Pods_HouseworkRevolution.framework */; };
 		A426424894EE163385C27B85 /* Pods_HouseworkRevolutionTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 768DABA652B8C169712D5223 /* Pods_HouseworkRevolutionTests.framework */; };
 /* End PBXBuildFile section */
@@ -101,7 +102,6 @@
 		03C1A553231662DA008EAB76 /* HouseworkRevolutionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HouseworkRevolutionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		03C1A557231662DA008EAB76 /* HouseworkRevolutionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseworkRevolutionTests.swift; sourceTree = "<group>"; };
 		03C1A559231662DA008EAB76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		03C1A565231664DE008EAB76 /* List.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = List.storyboard; sourceTree = "<group>"; };
 		03C1A56723166518008EAB76 /* Mission.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Mission.storyboard; sourceTree = "<group>"; };
 		03C1A5692316652F008EAB76 /* Wish.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Wish.storyboard; sourceTree = "<group>"; };
 		03C1A56B23166544008EAB76 /* Family.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Family.storyboard; sourceTree = "<group>"; };
@@ -126,6 +126,7 @@
 		03FEAC1A2322610500722A34 /* SearchUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserViewController.swift; sourceTree = "<group>"; };
 		03FEAC1D23226FFA00722A34 /* SearchUserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserTableViewCell.swift; sourceTree = "<group>"; };
 		03FEAC202324CC9400722A34 /* ShowDefaultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDefaultTableViewCell.swift; sourceTree = "<group>"; };
+		03FEAC222326599A00722A34 /* List.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = List.storyboard; sourceTree = "<group>"; };
 		1493339683728FA72397E709 /* Pods_HouseworkRevolution.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HouseworkRevolution.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		282E80C58DF6B1DB0CB6F4EB /* Pods-HouseworkRevolutionTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HouseworkRevolutionTests.debug.xcconfig"; path = "Target Support Files/Pods-HouseworkRevolutionTests/Pods-HouseworkRevolutionTests.debug.xcconfig"; sourceTree = "<group>"; };
 		768DABA652B8C169712D5223 /* Pods_HouseworkRevolutionTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HouseworkRevolutionTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -297,9 +298,9 @@
 				03C1A578231672AE008EAB76 /* Views */,
 				03C1A563231664BC008EAB76 /* Controllers */,
 				03C1A543231662D9008EAB76 /* Main.storyboard */,
-				03C1A565231664DE008EAB76 /* List.storyboard */,
 				03C1A56723166518008EAB76 /* Mission.storyboard */,
 				03C1A5692316652F008EAB76 /* Wish.storyboard */,
+				03FEAC222326599A00722A34 /* List.storyboard */,
 				03C1A56B23166544008EAB76 /* Family.storyboard */,
 				03C1A56D23166557008EAB76 /* Auth.storyboard */,
 				03C1A54B231662DA008EAB76 /* LaunchScreen.storyboard */,
@@ -559,11 +560,11 @@
 				03C1A56C23166544008EAB76 /* Family.storyboard in Resources */,
 				03C1A54A231662DA008EAB76 /* Assets.xcassets in Resources */,
 				0302D9CB231AB0AF00DE7921 /* WeekdaySectionHeaderView.xib in Resources */,
-				03C1A566231664DE008EAB76 /* List.storyboard in Resources */,
 				03C1A56823166518008EAB76 /* Mission.storyboard in Resources */,
 				0302D9EB231E7A0800DE7921 /* DailyMissionHeaderView.xib in Resources */,
 				03FEAC0D2321F5C900722A34 /* InvitingFamilySectionHeaderView.xib in Resources */,
 				03FEAC122322057E00722A34 /* FamilyMemberSectionHeader.xib in Resources */,
+				03FEAC232326599A00722A34 /* List.storyboard in Resources */,
 				03C1A545231662D9008EAB76 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -572,6 +573,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03FEAC242326599A00722A34 /* List.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

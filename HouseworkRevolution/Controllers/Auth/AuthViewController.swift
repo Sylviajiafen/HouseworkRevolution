@@ -60,11 +60,22 @@ class AuthViewController: UIViewController {
     @IBAction func showSignIn(_ sender: Any) {
         
         signInView.isHidden = false
+        
+        signUpView.isHidden = true
+        
+        createPassword.text = nil
     }
     
     @IBAction func showSignUp(_ sender: Any) {
         
         signInView.isHidden = true
+        
+        userID.text = nil
+        
+        userPassword.text = nil
+        
+        signUpView.isHidden = false
+        
     }
     
     @IBAction func dissmissUserSetting(_ sender: Any) {

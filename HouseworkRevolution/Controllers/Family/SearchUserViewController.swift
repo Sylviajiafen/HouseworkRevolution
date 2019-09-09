@@ -112,6 +112,8 @@ extension SearchUserViewController: UITableViewDataSource,
     
     func updateResult() {
         
+        // TODO: fetch dataBase userData
+        
         shouldShowSearchResult = true
         
         guard let searchingString = userIdSearchBar.text else { return }
