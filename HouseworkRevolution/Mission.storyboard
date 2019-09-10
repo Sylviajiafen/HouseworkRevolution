@@ -59,31 +59,33 @@
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="MissionListTableViewCell" id="OcY-1K-iwP" customClass="MissionListTableViewCell" customModule="HouseworkRevolution" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OcY-1K-iwP" id="ltY-uh-cFh">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OcY-1K-iwP" id="ltY-uh-cFh">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LWf-cM-61v">
-                                                    <rect key="frame" x="40" y="8" width="80" height="35"/>
-                                                    <color key="backgroundColor" name="titleLightBlue"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="35" id="e9h-oX-zMc"/>
-                                                        <constraint firstAttribute="width" constant="80" id="nIO-bl-CBu"/>
-                                                    </constraints>
+                                                    <rect key="frame" x="10" y="7.5" width="320" height="28.5"/>
                                                     <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="18"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="textColor" name="titleBlue"/>
                                                     <nil key="highlightedColor"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                            <integer key="value" value="8"/>
+                                                            <integer key="value" value="4"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
-                                                <button opaque="NO" alpha="0.75" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E77-TQ-wI3">
-                                                    <rect key="frame" x="150" y="13.5" width="25" height="25"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kBs-gA-QHs">
+                                                    <rect key="frame" x="10" y="42.5" width="330" height="1"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="25" id="2gR-M1-alo"/>
-                                                        <constraint firstAttribute="width" constant="25" id="Dkk-1M-sc2"/>
+                                                        <constraint firstAttribute="height" constant="1" id="nkj-SN-nH2"/>
+                                                    </constraints>
+                                                </view>
+                                                <button opaque="NO" alpha="0.75" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E77-TQ-wI3">
+                                                    <rect key="frame" x="340" y="12" width="20" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="20" id="Dkk-1M-sc2"/>
+                                                        <constraint firstAttribute="width" secondItem="E77-TQ-wI3" secondAttribute="height" multiplier="1:1" id="iDf-cH-eun"/>
                                                     </constraints>
                                                     <state key="normal" title="移除" image="deleteMission"/>
                                                     <connections>
@@ -94,10 +96,13 @@
                                             <color key="backgroundColor" name="projectBackground"/>
                                             <constraints>
                                                 <constraint firstItem="E77-TQ-wI3" firstAttribute="centerY" secondItem="ltY-uh-cFh" secondAttribute="centerY" id="5bq-t9-iGO"/>
-                                                <constraint firstItem="LWf-cM-61v" firstAttribute="leading" secondItem="ltY-uh-cFh" secondAttribute="leading" constant="40" id="7UE-nZ-cnV"/>
-                                                <constraint firstItem="E77-TQ-wI3" firstAttribute="leading" secondItem="LWf-cM-61v" secondAttribute="trailing" constant="30" id="HYe-ro-V00"/>
+                                                <constraint firstItem="LWf-cM-61v" firstAttribute="width" secondItem="ltY-uh-cFh" secondAttribute="width" multiplier="4/5" constant="20" id="8rm-gD-qrd"/>
+                                                <constraint firstItem="E77-TQ-wI3" firstAttribute="leading" secondItem="LWf-cM-61v" secondAttribute="trailing" constant="10" id="HYe-ro-V00"/>
+                                                <constraint firstItem="E77-TQ-wI3" firstAttribute="leading" secondItem="kBs-gA-QHs" secondAttribute="trailing" id="Oum-h7-KnR"/>
+                                                <constraint firstItem="kBs-gA-QHs" firstAttribute="leading" secondItem="ltY-uh-cFh" secondAttribute="leading" constant="10" id="Q77-Pl-SKg"/>
+                                                <constraint firstAttribute="bottom" secondItem="kBs-gA-QHs" secondAttribute="bottom" id="Tdu-uw-rkG"/>
                                                 <constraint firstItem="LWf-cM-61v" firstAttribute="centerY" secondItem="ltY-uh-cFh" secondAttribute="centerY" id="csI-6L-1Id"/>
-                                                <constraint firstItem="E77-TQ-wI3" firstAttribute="top" secondItem="ltY-uh-cFh" secondAttribute="top" constant="13" id="geI-gk-ihd"/>
+                                                <constraint firstItem="LWf-cM-61v" firstAttribute="leading" secondItem="ltY-uh-cFh" secondAttribute="leading" constant="10" id="orL-ZR-aCY"/>
                                                 <constraint firstItem="LWf-cM-61v" firstAttribute="top" secondItem="ltY-uh-cFh" secondAttribute="top" constant="7.5" id="qFN-f1-gx5"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -569,7 +574,7 @@
         <image name="editCell_unselected" width="64" height="64"/>
         <image name="information" width="16" height="16"/>
         <image name="lightGreenCircle" width="64" height="64"/>
-        <image name="missionBackground" width="2349" height="3733"/>
+        <image name="missionBackground" width="640" height="1018"/>
         <image name="remove" width="16" height="16"/>
         <namedColor name="lightLake">
             <color red="0.64313725490196083" green="0.84313725490196079" blue="0.88235294117647056" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -579,6 +584,9 @@
         </namedColor>
         <namedColor name="projectBackground">
             <color red="0.9882352941176471" green="0.97647058823529409" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="titleBlue">
+            <color red="0.25098039215686274" green="0.4392156862745098" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="titleLightBlue">
             <color red="0.46274509803921571" green="0.69019607843137254" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

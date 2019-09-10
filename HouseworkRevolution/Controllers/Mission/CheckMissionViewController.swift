@@ -96,7 +96,7 @@ MissionListTableViewCellDelegate {
             mission.delegate = self
             
             return mission
-            
+                
         } else {
             
             let cell = missionListTableView.dequeueReusableCell(
