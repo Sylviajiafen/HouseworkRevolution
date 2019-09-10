@@ -57,7 +57,6 @@
 		03FEAC1E23226FFA00722A34 /* SearchUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FEAC1D23226FFA00722A34 /* SearchUserTableViewCell.swift */; };
 		03FEAC212324CC9400722A34 /* ShowDefaultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FEAC202324CC9400722A34 /* ShowDefaultTableViewCell.swift */; };
 		03FEAC232326599A00722A34 /* List.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03FEAC222326599A00722A34 /* List.storyboard */; };
-		03FEAC242326599A00722A34 /* List.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03FEAC222326599A00722A34 /* List.storyboard */; };
 		03FEAC2623273A4D00722A34 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03FEAC2523273A4C00722A34 /* GoogleService-Info.plist */; };
 		13C2546C9B3D4DD77EDFFF43 /* Pods_HouseworkRevolution.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1493339683728FA72397E709 /* Pods_HouseworkRevolution.framework */; };
 		A426424894EE163385C27B85 /* Pods_HouseworkRevolutionTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 768DABA652B8C169712D5223 /* Pods_HouseworkRevolutionTests.framework */; };
@@ -577,7 +576,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03FEAC242326599A00722A34 /* List.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
