@@ -142,7 +142,7 @@ extension SearchUserViewController: UITableViewDataSource,
         
         let index = showResultTableView.indexPath(for: cell)
         
-        // TODO: 判斷對象是否已被邀請，如無再更新 dataBase
+        // TODO: 要更新 (1) 被邀請的成員的 requestingFamily、(2) 此家庭之邀請中的成員
         // show 不同 alert
         showAlertOfAddingMember(message: "邀請成功！")
     }

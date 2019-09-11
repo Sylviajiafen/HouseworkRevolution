@@ -57,15 +57,20 @@ class AddMissionViewController: UIViewController {
         
         guard let newHousework = customHousework.text else { return }
         
-        guard newHousework != "" else { showAlertOfNilText(); return }
+        guard newHousework != "" else { showAlertOf(message: "欄位留白囉"); return }
         
         houseworks.append(newHousework)
     
         customHousework.text = ""
+        
     }
     
     @IBAction func createHousework(_ sender: UIButton) {
         
+        if selectedIndex == nil {
+            
+            showAlertOf(message: "請選擇家事標籤")
+        }
         // TODO: 將任務存到雲端
         
         self.dismiss(animated: true, completion: nil)
@@ -103,9 +108,9 @@ class AddMissionViewController: UIViewController {
     var houseworks: [String] = ["掃地", "拖地", "倒垃圾", "洗衣服", "煮飯", "買菜", "掃廁所"] {
         
         didSet {
-            print("======== 家事標籤 didSet")
             
             houseworksCollection.reloadData()
+            selectedIndex = nil
             
             // TODO: 更新雲端（新增(使用者有更改這個 array 時才讓 dataBase 存一個家事標籤 array，並把這些預設的一起存進去) 或 洗掉原本的array）
         }
@@ -116,12 +121,16 @@ class AddMissionViewController: UIViewController {
         didSet {
             
             houseworksCollection.reloadData()
+            selectedIndex = nil
+
         }
     }
     
-    func showAlertOfNilText() {
+    var selectedIndex: Int?
+    
+    func showAlertOf(message: String) {
         
-        let alert = UIAlertController(title: nil, message: "欄位留白囉", preferredStyle: .alert)
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
         
         let action = UIAlertAction(title: "OK", style: .cancel)
         
@@ -251,6 +260,8 @@ extension AddMissionViewController: UICollectionViewDelegate,
                 as? HouseworkCollectionViewCell else { return }
             
             houseworkCell.setUpLabelfor(background: UIColor.buttonSelected, textColor: UIColor.noticeGray)
+            
+            selectedIndex = indexPath.item
             
         case familyMemberCollection:
             
