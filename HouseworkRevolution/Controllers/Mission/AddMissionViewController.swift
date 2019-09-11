@@ -17,10 +17,6 @@ class AddMissionViewController: UIViewController {
         
         houseworksCollection.dataSource = self
         
-        familyMemberCollection.delegate = self
-        
-        familyMemberCollection.dataSource = self
-        
         weekdayPicker.delegate = self
         
         weekdayPicker.dataSource = self
@@ -32,8 +28,6 @@ class AddMissionViewController: UIViewController {
     }
     
     @IBOutlet weak var houseworksCollection: UICollectionView!
-    
-    @IBOutlet weak var familyMemberCollection: UICollectionView!
     
     @IBOutlet weak var addHouseworkBtn: UIButton!
 
@@ -73,9 +67,9 @@ class AddMissionViewController: UIViewController {
             
         } else {
             
+            // TODO: 將任務存到雲端
             self.dismiss(animated: true, completion: nil)
         }
-        // TODO: 將任務存到雲端
         
     }
     
@@ -187,19 +181,7 @@ extension AddMissionViewController: UICollectionViewDelegate,
                         numberOfItemsInSection section: Int
     ) -> Int {
         
-        switch collectionView {
-            
-        case houseworksCollection:
-            
-            return houseworks.count
-        
-        case familyMemberCollection:
-            
-            return familyMember.count
-            
-        default: return 1
-            
-        }
+        return houseworks.count
     }
     
     func collectionView(_ collectionView: UICollectionView,
@@ -207,105 +189,45 @@ extension AddMissionViewController: UICollectionViewDelegate,
         
     ) -> UICollectionViewCell {
         
-        switch collectionView {
-        
-        case houseworksCollection:
-            
-            let cell = houseworksCollection.dequeueReusableCell(
+        let cell = houseworksCollection.dequeueReusableCell(
                 withReuseIdentifier: String(describing: HouseworkCollectionViewCell.self), for: indexPath)
             
-            guard let houseworkCell = cell as? HouseworkCollectionViewCell else { return UICollectionViewCell() }
+        guard let houseworkCell = cell as? HouseworkCollectionViewCell else { return UICollectionViewCell() }
             
-            houseworkCell.setUpLabelfor(background: UIColor.buttonUnSelected, textColor: .white)
+        houseworkCell.setUpLabelfor(background: UIColor.buttonUnSelected, textColor: .white)
             
-            houseworkCell.houseworkLabel.text = houseworks[indexPath.row]
+        houseworkCell.houseworkLabel.text = houseworks[indexPath.row]
             
-            houseworkCell.delegate = self
+        houseworkCell.delegate = self
             
-            if shouldEditCell == true {
+        if shouldEditCell == true {
                     
-                houseworkCell.deleteCellBtn.isHidden = false
+            houseworkCell.deleteCellBtn.isHidden = false
                 
-            } else {
+        } else {
                 
-                houseworkCell.deleteCellBtn.isHidden = true
-            }
-            
-            return houseworkCell
-            
-        case familyMemberCollection:
-            
-            let cell = familyMemberCollection.dequeueReusableCell(
-                withReuseIdentifier: String(describing: FamilyMemberCollectionViewCell.self), for: indexPath)
-            
-            guard let familyCell = cell as? FamilyMemberCollectionViewCell else { return UICollectionViewCell() }
-            
-            familyCell.setUpLabelfor(background: UIColor.buttonUnSelected, textColor: UIColor.white)
-            
-            familyCell.memberLabel.text = familyMember[indexPath.row]
-            
-            return familyCell
-            
-        default:
-            
-            return UICollectionViewCell()
+            houseworkCell.deleteCellBtn.isHidden = true
         }
+            
+        return houseworkCell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        switch collectionView {
             
-        case houseworksCollection:
+        guard let houseworkCell = houseworksCollection.cellForItem(at: indexPath)
+                                    as? HouseworkCollectionViewCell else { return }
             
-            guard let houseworkCell = houseworksCollection.cellForItem(at: indexPath)
-                
-                as? HouseworkCollectionViewCell else { return }
+        houseworkCell.setUpLabelfor(background: UIColor.buttonSelected, textColor: UIColor.noticeGray)
             
-            houseworkCell.setUpLabelfor(background: UIColor.buttonSelected, textColor: UIColor.noticeGray)
-            
-            selectedIndex = indexPath.item
-            
-        case familyMemberCollection:
-            
-            guard let familyCell = familyMemberCollection.cellForItem(at: indexPath)
-                
-                as? FamilyMemberCollectionViewCell else { return }
-            
-            familyCell.setUpLabelfor(background: UIColor.buttonSelected, textColor: UIColor.noticeGray)
-            
-        default:
-            
-            return
-        }
-        
-        // TODO: 把使用者選的值存進一變數中，還是要 switch collectionView
+        selectedIndex = indexPath.item
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        
-        switch collectionView {
             
-        case houseworksCollection:
+        guard let houseworkCell = houseworksCollection.cellForItem(at: indexPath)
+                                    as? HouseworkCollectionViewCell else { return }
             
-            guard let houseworkCell = houseworksCollection.cellForItem(at: indexPath)
-                
-                as? HouseworkCollectionViewCell else { return }
-            
-            houseworkCell.setUpLabelfor(background: UIColor.buttonUnSelected, textColor: .white)
-        
-        case familyMemberCollection:
-            
-            guard let familyCell = familyMemberCollection.cellForItem(at: indexPath)
-                
-                as? FamilyMemberCollectionViewCell else { return }
-            
-            familyCell.setUpLabelfor(background: UIColor.buttonUnSelected, textColor: UIColor.white)
-            
-        default:
-            
-            return
-        }
+        houseworkCell.setUpLabelfor(background: UIColor.buttonUnSelected, textColor: .white)
         
     }
     
