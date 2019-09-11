@@ -70,10 +70,13 @@ class AddMissionViewController: UIViewController {
         if selectedIndex == nil {
             
             showAlertOf(message: "請選擇家事標籤")
+            
+        } else {
+            
+            self.dismiss(animated: true, completion: nil)
         }
         // TODO: 將任務存到雲端
         
-        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func editCell(_ sender: UIButton) {
