@@ -10,13 +10,13 @@ import UIKit
 
 final class MissionItem: NSObject, Codable {
     
-    let charger: String
+    let tiredValue: Int
     let content: String
     
     static let shareIdentifier: String = "missionDone"
     
-    init(charger: String, content: String) {
-        self.charger = charger
+    init(value: Int, content: String) {
+        self.tiredValue = value
         self.content = content
         super.init()
     }

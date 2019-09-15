@@ -156,11 +156,18 @@ enum LoginError: String {
 }
 
 // Local Storage
-enum UserInfos: String {
+struct UserInfos {
     
-    case userID
+    let userID: String
     
-    case familyID
+    let familyID: String
+    
+    init(info: UserInfo) {
+        
+        userID = info.userID ?? ""
+        
+        familyID = info.familyID ?? ""
+    }
 }
 
 enum Result<T> {

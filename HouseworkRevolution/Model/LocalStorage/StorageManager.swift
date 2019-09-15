@@ -15,7 +15,9 @@ class StorageManager {
     
     static let shared = StorageManager()
     
-    static var userInfo = [UserInfo]()
+    static var getUser = [UserInfo]()
+    
+    static var userInfo: UserInfos?
     
     private init() {}
     
@@ -69,7 +71,9 @@ class StorageManager {
     
                 let userInfo = try viewContext.fetch(request)
     
-                StorageManager.userInfo = userInfo
+                StorageManager.getUser = userInfo
+                
+                StorageManager.userInfo = UserInfos(info: userInfo[0])
     
                 completion?(Result.success(userInfo))
                 

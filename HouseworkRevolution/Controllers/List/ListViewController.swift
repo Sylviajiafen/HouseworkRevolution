@@ -33,20 +33,21 @@ class ListViewController: UIViewController {
         
         setUpCollectionView()
         
-        dailyMission = [
-            ["charger": "1老媽", "mission": "1掃地"],
-            ["charger": "2老爸", "mission": "2倒垃圾"],
-            ["charger": "3兒子", "mission": "3洗碗"],
-            ["charger": "4老媽", "mission": "4洗衣服"],
-            ["charger": "5女兒", "mission": "5煮飯"],
-            ["charger": "6老媽", "mission": "6晾衣服"]
-        ]
+        FirebaseManager.shared.delegate = self
+        
+        StorageManager.shared.fetchUserInfo()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         
         print("appear list")
         animateTheNoticeLabel()
+        
+        FirebaseManager.shared.checkToday(family: StorageManager.userInfo?.familyID ?? "") {
+            
+            FirebaseManager.shared.getMissionListToday(family: StorageManager.userInfo?.familyID ?? "")
+        }
     }
     
     @IBOutlet weak var dailyMissionCollectionView: UICollectionView! {
@@ -74,11 +75,11 @@ class ListViewController: UIViewController {
     
     private let spacing: CGFloat = 16.0
     
-    var dailyMission = [[String: String]]() // String or dictionary (key: Mission, value: Charger 或顛倒)
+    var missionUndoToday = [Mission]()
     
-    var missionDone: [MissionItem] = []
+    var missionDoneToday = [Mission]()
     
-    var missionBeDropped = MissionItem(charger: "", content: "")
+    var missionBeDropped = MissionItem(value: 0, content: "")
     
     let showAnimate = UIViewPropertyAnimator(duration: 0.8, curve: .linear)
     
@@ -208,10 +209,10 @@ extension ListViewController: UICollectionViewDelegate,
         switch section {
             
         case 0:
-            return dailyMission.count
+            return missionUndoToday.count
             
         case 1:
-            return missionDone.count
+            return missionDoneToday.count
             
         default:
             return 1
@@ -233,15 +234,13 @@ extension ListViewController: UICollectionViewDelegate,
         case 0:
             
             missionItem.backgroundColor = UIColor.cellGreen
-            missionItem.dailyMissionLabel.text = dailyMission[indexPath.row]["mission"]
-//            missionItem.missionChargerLabel.text = dailyMission[indexPath.row]["charger"]
+            missionItem.dailyMissionLabel.text = missionUndoToday[indexPath.row].title
             missionItem.missionChargerLabel.text = ""
             
         case 1:
             
             missionItem.backgroundColor = UIColor.lightCellGreen
-            missionItem.dailyMissionLabel.text = missionDone[indexPath.row].content
-//            missionItem.missionChargerLabel.text = missionDone[indexPath.row].charger
+            missionItem.dailyMissionLabel.text = missionDoneToday[indexPath.row].title
             missionItem.missionChargerLabel.text = ""
             
         default:
@@ -293,10 +292,10 @@ extension ListViewController: UICollectionViewDragDelegate {
         
         case 0:
             
-            let sourceItem = dailyMission[indexPath.row]
+            let sourceItem = missionUndoToday[indexPath.row]
             
-            let provider = NSItemProvider(object: MissionItem(charger: sourceItem["charger"] ?? "",
-                                                          content: sourceItem["mission"] ?? ""))
+            let provider = NSItemProvider(object: MissionItem(value: sourceItem.tiredValue,
+                                                              content: sourceItem.title))
             
             let dragItem = UIDragItem(itemProvider: provider)
             
@@ -343,13 +342,15 @@ extension ListViewController: UICollectionViewDropDelegate {
                 DispatchQueue.main.async {
 
                     guard let missionDropped = mission as? MissionItem else { return }
+                    
+                    let missionDone = Mission(title: missionDropped.content, tiredValue: missionDropped.tiredValue)
                 
                     collectionView.performBatchUpdates({
                         
-                        self?.dailyMission.remove(at: sourceIndexPath.item)
+                        self?.missionUndoToday.remove(at: sourceIndexPath.item)
                         collectionView.deleteItems(at: [sourceIndexPath])
                         
-                        self?.missionDone.insert(missionDropped, at: destinationIndexPath.item)
+                        self?.missionDoneToday.insert(missionDone, at: destinationIndexPath.item)
                         collectionView.insertItems(at: [destinationIndexPath])
                         
                         }, completion: nil)
@@ -358,8 +359,8 @@ extension ListViewController: UICollectionViewDropDelegate {
                     
                     // TODO: 更新 firebase
                     
-                    // TODO: 改用疲勞值去判斷
-                        if missionDropped.charger == "1老媽" {
+                    
+                        if missionDropped.tiredValue > 5 {
                         
                             self?.magicLampViewShow()
                         }
@@ -401,8 +402,35 @@ extension ListViewController: UICollectionViewDropDelegate {
             }
 
     }
+
+}
+
+extension ListViewController: FirebaseManagerDelegate {
     
-    // TODO: 判斷任務內容疲勞度，是否秀神燈
-    // func collectionView(UICollectionView, dropSessionDidEnd: UIDropSession)
+    func getUndoListToday(_ manager: FirebaseManager, didGetUndo: [Mission]) {
+        
+        missionUndoToday = didGetUndo
+        
+        DispatchQueue.main.async { [weak self] in
+            
+           self?.dailyMissionCollectionView.reloadData()
+            
+            print(self?.missionUndoToday)
+        }
+        
+    }
+    
+    func getDoneListToday(_ manager: FirebaseManager, didGetDone: [Mission]) {
+        
+        missionDoneToday = didGetDone
+        
+        DispatchQueue.main.async { [weak self] in
+            
+            self?.dailyMissionCollectionView.reloadData()
+            
+            print(self?.missionDoneToday)
+        }
+        
+    }
 
 }
