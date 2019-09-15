@@ -164,16 +164,16 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="輸入大門密碼" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gWs-K4-hPl" customClass="UserInputTextField" customModule="HouseworkRevolution" customModuleProvider="target">
-                                        <rect key="frame" x="93" y="94" width="114" height="22"/>
+                                        <rect key="frame" x="19.666666666666686" y="94" width="261" height="22"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits" textContentType="password"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="輸入您的 id" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mVe-aM-Zrd" customClass="UserInputTextField" customModule="HouseworkRevolution" customModuleProvider="target">
-                                        <rect key="frame" x="101.66666666666666" y="57" width="97" height="22"/>
+                                        <rect key="frame" x="19.666666666666686" y="57" width="261" height="22"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits" textContentType="username"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" textContentType="username"/>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" red="0.9882352941176471" green="0.97647058823529409" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -184,6 +184,7 @@
                                     <constraint firstAttribute="trailing" secondItem="jyY-mx-Jz6" secondAttribute="trailing" constant="10" id="E8i-da-bbO"/>
                                     <constraint firstItem="mVe-aM-Zrd" firstAttribute="top" secondItem="rlZ-Rs-NUa" secondAttribute="bottom" constant="15" id="Iqm-ob-DB8"/>
                                     <constraint firstItem="gWs-K4-hPl" firstAttribute="top" secondItem="mVe-aM-Zrd" secondAttribute="bottom" constant="15" id="NgJ-0Y-OUt"/>
+                                    <constraint firstItem="gWs-K4-hPl" firstAttribute="width" secondItem="mVe-aM-Zrd" secondAttribute="width" id="TG7-bt-IaY"/>
                                     <constraint firstItem="5A3-E7-NNX" firstAttribute="top" secondItem="gWs-K4-hPl" secondAttribute="bottom" constant="15" id="Utw-q1-uVf"/>
                                     <constraint firstItem="rlZ-Rs-NUa" firstAttribute="leading" secondItem="h29-Y5-es4" secondAttribute="leading" constant="18" id="kCg-Dt-ZF1"/>
                                     <constraint firstItem="gWs-K4-hPl" firstAttribute="centerX" secondItem="h29-Y5-es4" secondAttribute="centerX" id="kLq-Kf-ZaV"/>
@@ -363,6 +364,7 @@
                             <constraint firstAttribute="bottom" secondItem="B0o-wa-aRw" secondAttribute="bottom" id="CbU-FM-oRr"/>
                             <constraint firstItem="obm-Za-jWW" firstAttribute="centerX" secondItem="DwH-Nd-TJJ" secondAttribute="centerX" id="FbX-yr-htS"/>
                             <constraint firstItem="h29-Y5-es4" firstAttribute="centerX" secondItem="DwH-Nd-TJJ" secondAttribute="centerX" id="H09-x0-LF4"/>
+                            <constraint firstItem="mVe-aM-Zrd" firstAttribute="width" secondItem="A6w-Mn-8iU" secondAttribute="width" id="LYZ-2P-Ci3"/>
                             <constraint firstItem="obm-Za-jWW" firstAttribute="centerY" secondItem="DwH-Nd-TJJ" secondAttribute="centerY" constant="-30" id="OB1-Wg-mgQ"/>
                             <constraint firstItem="B0o-wa-aRw" firstAttribute="trailing" secondItem="DwH-Nd-TJJ" secondAttribute="trailing" id="UTU-Xw-uQj"/>
                             <constraint firstItem="h29-Y5-es4" firstAttribute="centerY" secondItem="DwH-Nd-TJJ" secondAttribute="centerY" constant="-30" id="uGY-Zv-UrK"/>
