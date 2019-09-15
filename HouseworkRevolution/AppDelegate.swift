@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import IQKeyboardManagerSwift
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -26,15 +27,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else {
             
             window?.rootViewController = UIStoryboard.main.instantiateInitialViewController()!
+            
+            print("finishLaunching")
         }
         
         IQKeyboardManager.shared.enable = true
+        
+        FirebaseApp.configure()
         
         return true
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
         
+        print("resign active") // 按 home 鍵退出觸發
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
@@ -46,7 +52,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
-   
+        
+        print("become active") // 從 background 叫回
     }
 
     func applicationWillTerminate(_ application: UIApplication) {

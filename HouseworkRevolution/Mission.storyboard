@@ -174,7 +174,7 @@
                                 <color key="backgroundColor" name="lightLake"/>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.34999999999999998" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="missionBackground" translatesAutoresizingMaskIntoConstraints="NO" id="iaI-1a-6bf">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="687.00000000000023"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="687"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rty-rF-L6x">
                                 <rect key="frame" x="207" y="60" width="207" height="627"/>
@@ -391,7 +391,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="addNewHousework:" destination="qPN-MY-sez" eventType="touchUpInside" id="YGO-si-kTh"/>
+                                    <action selector="addNewLabel:" destination="qPN-MY-sez" eventType="touchUpInside" id="bOc-23-lie"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="自訂家事" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dbt-qY-wdd">
@@ -510,7 +510,6 @@
                     </view>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="addHouseworkBtn" destination="6PY-Jq-tiF" id="aMa-55-bjH"/>
                         <outlet property="customHousework" destination="Dbt-qY-wdd" id="utr-cO-8Ms"/>
                         <outlet property="editHouseworkBtn" destination="seL-Ym-mAd" id="IpN-RB-Crg"/>
                         <outlet property="houseworksCollection" destination="HSx-Qg-0cF" id="zhu-PG-eWg"/>

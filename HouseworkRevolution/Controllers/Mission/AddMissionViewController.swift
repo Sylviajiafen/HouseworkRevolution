@@ -28,8 +28,6 @@ class AddMissionViewController: UIViewController {
     }
     
     @IBOutlet weak var houseworksCollection: UICollectionView!
-    
-    @IBOutlet weak var addHouseworkBtn: UIButton!
 
     @IBOutlet weak var editHouseworkBtn: UIButton!
     
@@ -47,7 +45,7 @@ class AddMissionViewController: UIViewController {
         
     }
     
-    @IBAction func addNewHousework(_ sender: UIButton) {
+    @IBAction func addNewLabel(_ sender: UIButton) {
         
         guard let newHousework = customHousework.text else { return }
         

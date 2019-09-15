@@ -9,6 +9,9 @@ target 'HouseworkRevolution' do
 pod 'SwiftLint'
 pod 'KeychainAccess'
 pod 'IQKeyboardManagerSwift'
+pod 'Firebase/Auth'
+pod 'Firebase/Firestore'
+
 
   target 'HouseworkRevolutionTests' do
     inherit! :search_paths

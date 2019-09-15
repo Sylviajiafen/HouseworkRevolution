@@ -84,6 +84,10 @@ MissionListTableViewCellDelegate {
                    cellForRowAt indexPath: IndexPath
     ) -> UITableViewCell {
         
+        // TODO: switch index.section 去抓當天的 mission
+        // TODO: 在 handler 裡面讓 missionOfDay = FirebaseManager.allMissions
+        // TODO: if let 改成判斷 missionOfDay.count，如果是 0 的話，return emptyMission
+        
         if let missionOfDay = missionOfWeek[changeSectionIntoWeekday(indexPath.section)] {
             
             let cell = missionListTableView.dequeueReusableCell(
@@ -149,6 +153,22 @@ MissionListTableViewCellDelegate {
         
         //TODO: 更新dataBase
     }
+    
+//    func whatever() { // TODO: 變更 function 名
+//
+//        let week: [String] = [WeekdayInEng.Monday.rawValue,
+//                              WeekdayInEng.Tuesday.rawValue,
+//                              WeekdayInEng.Wednesday.rawValue,
+//                              WeekdayInEng.Thursday.rawValue,
+//                              WeekdayInEng.Friday.rawValue,
+//                              WeekdayInEng.Saturday.rawValue,
+//                              WeekdayInEng.Sunday.rawValue]
+//
+//        for weekday in week {
+//
+//            // TODO放進來： 把拿各 weekday 的 function 放進來
+//        }
+//    }
 }
 
 //TODO: 若建立 Firebase 時存入的家事時間直接是 0 - 6，則不需轉換，dictionary 變數變為 「[Int: [String]]」

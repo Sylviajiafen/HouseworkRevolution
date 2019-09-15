@@ -38,14 +38,13 @@ class FamilyViewController: UIViewController {
         // TODO: 判斷 invitingFamily.count == 0 時， tableView 隱藏 (寫在function 裡, parameter 一個為 tableView)
         // TODO: 放 pull refresh ：把 showInvitingOrNot(), tableView.reloadData 放在 completion 裡
         
-        invitingFamilyList = [InvitingFamily(family: "好狗窩", from: "媽咪"),
-                                    InvitingFamily(family: "壞狗窩", from: "爸比")]
+       
         
 //        invitingFamilyList = []
 
 //        invitedMemberList = [Member(name: "老爸", memberId: "XQ8gMqFhCON6V97jP6Fl")]
         
-        familyMember = [Member(name: "媽咪", memberId: "F8rMwuu24tFqpqW1LIKA")]
+        
     }
     
     @IBAction func editUserCall(_ sender: Any) {
@@ -84,9 +83,9 @@ class FamilyViewController: UIViewController {
         }
     }
     
-    var familyMember: [Member] = []
+    var familyMember: [MemberData] = []
     
-    var invitedMemberList: [Member] = []
+    var invitedMemberList: [MemberData] = []
     
     var invitingFamilyList: [InvitingFamily] = [] {
         
@@ -107,7 +106,10 @@ class FamilyViewController: UIViewController {
         }
     }
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        //TODO: 把 family Name, user Name 傳去 SearchVC
+    }
 }
 
 extension FamilyViewController: UITableViewDelegate, UITableViewDataSource {
@@ -273,7 +275,7 @@ extension FamilyViewController: UITableViewDelegate, UITableViewDataSource {
                                          alpha: 1.0)
                 
                 memberCell.memberCall.text = familyMember[indexPath.row].name
-                memberCell.memberId.text = familyMember[indexPath.row].memberId
+                memberCell.memberId.text = familyMember[indexPath.row].id
                 
                 return memberCell
                 
@@ -285,7 +287,7 @@ extension FamilyViewController: UITableViewDelegate, UITableViewDataSource {
                                          alpha: 0.6)
                 
                 memberCell.memberCall.text = invitedMemberList[indexPath.row].name
-                memberCell.memberId.text = invitedMemberList[indexPath.row].memberId
+                memberCell.memberId.text = invitedMemberList[indexPath.row].id
                 
                 return memberCell
                 
@@ -304,7 +306,7 @@ extension FamilyViewController: UITableViewDelegate, UITableViewDataSource {
             
             invitingListCell.invitingPersonLabel.text = "的「\(invitingPerson)」邀請您加入家庭"
             
-            invitingListCell.invitingFamilyName.text = invitingFamilyList[indexPath.row].family
+            invitingListCell.invitingFamilyName.text = invitingFamilyList[indexPath.row].familyName
             
             return invitingListCell
             

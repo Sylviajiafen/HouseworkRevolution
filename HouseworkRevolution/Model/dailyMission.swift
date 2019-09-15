@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class Mission: NSObject, Codable {
+final class MissionItem: NSObject, Codable {
     
     let charger: String
     let content: String
@@ -22,11 +22,11 @@ final class Mission: NSObject, Codable {
     }
 }
 
-extension Mission: NSItemProviderWriting {
+extension MissionItem: NSItemProviderWriting {
     
     static var writableTypeIdentifiersForItemProvider: [String] {
         
-        return [Mission.shareIdentifier]
+        return [MissionItem.shareIdentifier]
     }
     
     // Prepare data for providing to destinationAPP
@@ -35,7 +35,7 @@ extension Mission: NSItemProviderWriting {
         
         switch typeIdentifier {
             
-        case Mission.shareIdentifier:
+        case MissionItem.shareIdentifier:
             
             let data = try? JSONEncoder().encode(self)
             
@@ -49,22 +49,22 @@ extension Mission: NSItemProviderWriting {
     }
 }
 
-extension Mission: NSItemProviderReading {
+extension MissionItem: NSItemProviderReading {
     
     static var readableTypeIdentifiersForItemProvider: [String] {
         
-        return [Mission.shareIdentifier]
+        return [MissionItem.shareIdentifier]
     }
     
-    static func object(withItemProviderData data: Data, typeIdentifier: String) throws -> Mission {
+    static func object(withItemProviderData data: Data, typeIdentifier: String) throws -> MissionItem {
         
         switch typeIdentifier {
             
-        case Mission.shareIdentifier:
+        case MissionItem.shareIdentifier:
             
             do {
                 
-                let mission = try JSONDecoder().decode(Mission.self, from: data)
+                let mission = try JSONDecoder().decode(MissionItem.self, from: data)
                 
                 return mission
                 

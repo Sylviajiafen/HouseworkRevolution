@@ -20,7 +20,7 @@ class SearchUserViewController: UIViewController {
         showResultTableView.dataSource = self
         
         // TODO: 抓所有 user (要加監聽)
-        userData = [Member(name: "兒子", memberId: "qFwZkG9baiRmKQSTtTEv")]
+        userData = [MemberData(id: "qFwZkG9baiRmKQSTtTEv", name: "兒子")]
     }
     
     @IBAction func closeView(_ sender: Any) {
@@ -38,9 +38,9 @@ class SearchUserViewController: UIViewController {
         }
     }
     
-    var userData = [Member]()
+    var userData = [MemberData]()
     
-    var filteredData = [Member]() {
+    var filteredData = [MemberData]() {
         
         didSet {
             
@@ -81,7 +81,7 @@ extension SearchUserViewController: UITableViewDataSource,
             searchingCell.delegate = self
             
             searchingCell.searchingMemberName.text = filteredData[indexPath.row].name
-            searchingCell.searchingMemberId.text = filteredData[indexPath.row].memberId
+            searchingCell.searchingMemberId.text = filteredData[indexPath.row].id
             
             return searchingCell
             
@@ -113,9 +113,7 @@ extension SearchUserViewController: UITableViewDataSource,
     func updateResult() {
         
         // TODO: fetch dataBase userData
-        
-        shouldShowSearchResult = true
-        
+    
         guard let searchingString = userIdSearchBar.text else { return }
         
         if searchingString == "" {
@@ -125,10 +123,14 @@ extension SearchUserViewController: UITableViewDataSource,
             return
             
         } else {
+            
+            shouldShowSearchResult = true
         
+            // TODO: 改成直接在 dataBase filter
+            
             filteredData = userData.filter({ (data) -> Bool in
             
-            return data.memberId.contains(searchingString)
+            return data.id.contains(searchingString)
             })
         }
     }

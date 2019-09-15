@@ -24,6 +24,8 @@ class ListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print("load list")
+        
         fullScreenSize = UIScreen.main.bounds.size
         
         magicLampView.alpha = 0.0
@@ -39,11 +41,11 @@ class ListViewController: UIViewController {
             ["charger": "5女兒", "mission": "5煮飯"],
             ["charger": "6老媽", "mission": "6晾衣服"]
         ]
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         
+        print("appear list")
         animateTheNoticeLabel()
     }
     
@@ -74,9 +76,9 @@ class ListViewController: UIViewController {
     
     var dailyMission = [[String: String]]() // String or dictionary (key: Mission, value: Charger 或顛倒)
     
-    var missionDone: [Mission] = []
+    var missionDone: [MissionItem] = []
     
-    var missionBeDropped = Mission(charger: "", content: "")
+    var missionBeDropped = MissionItem(charger: "", content: "")
     
     let showAnimate = UIViewPropertyAnimator(duration: 0.8, curve: .linear)
     
@@ -293,7 +295,7 @@ extension ListViewController: UICollectionViewDragDelegate {
             
             let sourceItem = dailyMission[indexPath.row]
             
-            let provider = NSItemProvider(object: Mission(charger: sourceItem["charger"] ?? "",
+            let provider = NSItemProvider(object: MissionItem(charger: sourceItem["charger"] ?? "",
                                                           content: sourceItem["mission"] ?? ""))
             
             let dragItem = UIDragItem(itemProvider: provider)
@@ -336,11 +338,11 @@ extension ListViewController: UICollectionViewDropDelegate {
         if let item = coordinator.items.first,
             let sourceIndexPath = item.sourceIndexPath {
     
-            item.dragItem.itemProvider.loadObject(ofClass: Mission.self) { [weak self] (mission, error) in
+            item.dragItem.itemProvider.loadObject(ofClass: MissionItem.self) { [weak self] (mission, error) in
                 
                 DispatchQueue.main.async {
 
-                    guard let missionDropped = mission as? Mission else { return }
+                    guard let missionDropped = mission as? MissionItem else { return }
                 
                     collectionView.performBatchUpdates({
                         
@@ -354,8 +356,10 @@ extension ListViewController: UICollectionViewDropDelegate {
                     
                         coordinator.drop(item.dragItem, toItemAt: destinationIndexPath)
                     
-                    // TODO: indexPath 會變，所以要存一個疲勞值的 parameter，用此疲勞值去判斷
-                        if sourceIndexPath == IndexPath(item: 2, section: 0) {
+                    // TODO: 更新 firebase
+                    
+                    // TODO: 改用疲勞值去判斷
+                        if missionDropped.charger == "1老媽" {
                         
                             self?.magicLampViewShow()
                         }
