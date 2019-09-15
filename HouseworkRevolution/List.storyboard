@@ -45,8 +45,8 @@
                                                     <color key="textColor" name="projectBackground"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hgg-xN-Xt6">
-                                                    <rect key="frame" x="51.5" y="54.5" width="47" height="25"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="7" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hgg-xN-Xt6">
+                                                    <rect key="frame" x="4" y="54.5" width="142" height="25.5"/>
                                                     <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="18"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -56,6 +56,7 @@
                                         <constraints>
                                             <constraint firstItem="Na0-mg-ApF" firstAttribute="top" secondItem="omV-TC-a25" secondAttribute="top" constant="5" id="6Uk-ms-2k9"/>
                                             <constraint firstItem="Na0-mg-ApF" firstAttribute="leading" secondItem="omV-TC-a25" secondAttribute="leading" constant="5" id="E4G-DP-5im"/>
+                                            <constraint firstItem="hgg-xN-Xt6" firstAttribute="width" secondItem="omV-TC-a25" secondAttribute="width" constant="-8" id="IyN-0d-UXw"/>
                                             <constraint firstItem="hgg-xN-Xt6" firstAttribute="centerX" secondItem="omV-TC-a25" secondAttribute="centerX" id="jKu-mT-zki"/>
                                             <constraint firstItem="hgg-xN-Xt6" firstAttribute="centerY" secondItem="omV-TC-a25" secondAttribute="centerY" id="lyV-Yr-osa"/>
                                             <constraint firstAttribute="trailing" secondItem="Na0-mg-ApF" secondAttribute="trailing" constant="15" id="oht-Do-YPV"/>
@@ -212,8 +213,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="listBackground" width="2349" height="3733"/>
-        <image name="magicLamp" width="250" height="250"/>
+        <image name="listBackground" width="2349" height="3734"/>
+        <image name="magicLamp" width="97" height="82"/>
         <namedColor name="lightCellGreen">
             <color red="0.76470588235294112" green="0.84705882352941175" blue="0.51372549019607838" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

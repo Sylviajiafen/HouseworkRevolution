@@ -9,13 +9,6 @@
 import UIKit
 
 class ListViewController: UIViewController {
-
-    // TODO: 同步 dataBase
-    // viewDidLoad?? 先判斷今天日期有沒有 dailyMission 了，沒有的話再今天星期幾，把今天這個星期的 mission 抓下來放進 dailyMission 中
-    // dailyMission. missionDone + 當天日期 上傳至 dataBase ＝>  dailyMission 和 MissionDone 要連同當天日期一起存進 dataBase 裡(dailyMission 不是存在星期幾的那個資料庫中，而是另外再開)
-    // 從 dataBase 抓取今天的 dailyMission
-    
-    // 找 LUKE 討論
     
     @IBOutlet weak var magicLampView: UIView!
     @IBOutlet weak var lampViewWishLabel: UILabel!
