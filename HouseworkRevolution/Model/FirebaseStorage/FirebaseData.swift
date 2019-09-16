@@ -168,6 +168,13 @@ struct UserInfos {
         
         familyID = info.familyID ?? ""
     }
+    
+    init() {
+        
+        userID = ""
+        
+        familyID = ""
+    }
 }
 
 enum Result<T> {

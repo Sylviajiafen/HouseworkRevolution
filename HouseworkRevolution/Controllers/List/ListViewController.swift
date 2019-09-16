@@ -37,9 +37,9 @@ class ListViewController: UIViewController {
         print("appear list")
         animateTheNoticeLabel()
         
-        FirebaseManager.shared.checkToday(family: StorageManager.userInfo?.familyID ?? "") {
+        FirebaseManager.shared.checkToday(family: StorageManager.userInfo.familyID) {
             
-            FirebaseManager.shared.getMissionListToday(family: StorageManager.userInfo?.familyID ?? "")
+            FirebaseManager.shared.getMissionListToday(family: StorageManager.userInfo.familyID)
         }
     }
     
@@ -111,6 +111,22 @@ class ListViewController: UIViewController {
     
     // TODO: 判斷疲勞值並秀 view
     func magicLampViewShow() {
+        
+        var wishes = [String]()
+        
+        FirebaseUserHelper.shared.readWishesOf(user: StorageManager.userInfo.userID) {
+            
+            [weak self] (wishArr) in
+            
+            wishes = wishArr
+            
+            guard let completeWish: String = wishes.randomElement() else { return }
+            
+            self?.lampViewWishLabel.text = completeWish
+            
+            FirebaseUserHelper.shared.removeWishOf(content: completeWish, user: StorageManager.userInfo.userID)
+            
+        }
         
         print("============magic!!")
         
@@ -350,8 +366,11 @@ extension ListViewController: UICollectionViewDropDelegate {
                     
                         coordinator.drop(item.dragItem, toItemAt: destinationIndexPath)
                     
-                    // TODO: 更新 firebase
+                    FirebaseManager.shared.updateMissionStatus(title: missionDone.title, tiredValue: missionDone.tiredValue, family: StorageManager.userInfo.familyID)
                     
+                    print("==== mission complete ====")
+                    
+                    print(missionDone)
                     
                         if missionDropped.tiredValue > 5 {
                         
@@ -408,7 +427,7 @@ extension ListViewController: FirebaseManagerDelegate {
             
            self?.dailyMissionCollectionView.reloadData()
             
-            print(self?.missionUndoToday)
+            print("UndoToday: \(self?.missionUndoToday)")
         }
         
     }
@@ -421,7 +440,7 @@ extension ListViewController: FirebaseManagerDelegate {
             
             self?.dailyMissionCollectionView.reloadData()
             
-            print(self?.missionDoneToday)
+            print("DoneToday: \(self?.missionDoneToday)")
         }
         
     }

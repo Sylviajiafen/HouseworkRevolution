@@ -17,7 +17,13 @@ class StorageManager {
     
     static var getUser = [UserInfo]()
     
-    static var userInfo: UserInfos?
+    static var userInfo = UserInfos() {
+        
+        didSet {
+            
+            print("StorageManager did get userInfo: \(userInfo)")
+        }
+    }
     
     private init() {}
     

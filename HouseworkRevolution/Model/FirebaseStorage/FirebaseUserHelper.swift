@@ -199,7 +199,7 @@ class FirebaseUserHelper {
         query.updateData([
             UserData.wishes.rawValue: FieldValue.arrayRemove([content])])
         
-        print("successfully remove wish!")
+        print("successfully remove wish: \(content)!")
     }
     
     // MARK: 顯示id、成員、家庭名稱
