@@ -62,6 +62,8 @@ class StorageManager {
         do {
             
             try viewContext.save()
+            
+            fetchUserInfo()
 
         } catch {
             
@@ -82,8 +84,6 @@ class StorageManager {
                 StorageManager.userInfo = UserInfos(info: userInfo[0])
     
                 completion?(Result.success(userInfo))
-                
-                print("\(userInfo) fetched")
     
             } catch {
     
@@ -121,4 +121,3 @@ class StorageManager {
         
     }
 }
-

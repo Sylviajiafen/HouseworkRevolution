@@ -24,7 +24,19 @@ class AddMissionViewController: UIViewController {
         tiredSlider.setThumbImage(UIImage(named: "valueHeart"), for: .normal)
         
         editHouseworkBtn.isSelected = false
-  
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        FirebaseUserHelper.shared.readLabelsOf(
+        
+        family: StorageManager.userInfo.familyID) { [weak self] (labels) in
+            
+            for label in labels {
+                
+                self?.houseworks.append(label)
+            }
+        }
     }
     
     @IBOutlet weak var houseworksCollection: UICollectionView!
@@ -39,10 +51,39 @@ class AddMissionViewController: UIViewController {
     
     @IBOutlet weak var tiredValue: UILabel!
     
+    var weekday: [Weekdays] = [.Monday, .Tuesday, .Wednesday, .Thursday, .Friday, .Saturday, .Sunday]
+    
+    var weekdayInEng: [WeekdayInEng] = [.Monday, .Tuesday, .Wednesday, .Thursday, .Friday, .Saturday, .Sunday]
+    
+    var houseworks: [String] = ["掃地", "拖地", "吸塵", "倒垃圾", "洗衣服", "煮飯", "買菜", "掃廁所"] {
+        
+        didSet {
+            
+            houseworksCollection.reloadData()
+            selectedIndex = nil
+        }
+    }
+    
+    var shouldEditCell: Bool = false {
+        
+        didSet {
+            
+            houseworksCollection.reloadData()
+            selectedIndex = nil
+        }
+    }
+    
+    var selectedIndex: Int?
+    
+    var tiredValueInNum: Int?
+    
+    var selectedDay: String = DayManager.shared.weekday
+    
     @IBAction func userChangeTiredValue(_ sender: UISlider) {
         
         tiredValue.text = "\(Int(sender.value))"
         
+        tiredValueInNum = Int(sender.value)
     }
     
     @IBAction func addNewLabel(_ sender: UIButton) {
@@ -52,9 +93,11 @@ class AddMissionViewController: UIViewController {
         guard newHousework != "" else { showAlertOf(message: "欄位留白囉"); return }
         
         houseworks.append(newHousework)
+        
+        FirebaseUserHelper.shared.addLabelOf(content: newHousework,
+                                             family: StorageManager.userInfo.familyID)
     
         customHousework.text = ""
-        
     }
     
     @IBAction func createHousework(_ sender: UIButton) {
@@ -65,7 +108,15 @@ class AddMissionViewController: UIViewController {
             
         } else {
             
-            // TODO: 將任務存到雲端
+            guard let selectedIndex = selectedIndex,
+                let tiredValue = tiredValueInNum else { showAlertOf(message: "資訊不完整呢 ><"); return }
+            
+            FirebaseManager.shared.addMissionToHouseworks(
+                title: houseworks[selectedIndex],
+                tiredValue: tiredValue,
+                weekday: selectedDay,
+                family: StorageManager.userInfo.familyID)
+            
             self.dismiss(animated: true, completion: nil)
         }
         
@@ -76,7 +127,7 @@ class AddMissionViewController: UIViewController {
         sender.isSelected.toggle()
         
         if sender.isSelected == true {
-            
+        
             shouldEditCell = true
             
         } else {
@@ -89,39 +140,6 @@ class AddMissionViewController: UIViewController {
         
         self.dismiss(animated: true, completion: nil)
     }
-    
-    // TODO: 從雲端抓取
-    var familyMember: [String] = ["(自己)"]
-    
-    var weekday: [Weekdays] = [.Monday, .Tuesday, .Wednesday, .Thursday, .Friday, .Saturday, .Sunday]
-    
-    // TODO: 從雲端抓取，存入變數
-    // 預設家事標籤的array存在專案裡，並搭配圖
-    // 在一開始 viewWillAppear fetch database 使用者的家事標籤，（如果有家事標籤array的話才）把 houseworks 洗掉(會進didSet)，沒有的話就不抓 dataBase
-    // 預設家事標籤用 enum 存，並去判斷搭配的圖
-    
-    var houseworks: [String] = ["掃地", "拖地", "倒垃圾", "洗衣服", "煮飯", "買菜", "掃廁所"] {
-        
-        didSet {
-            
-            houseworksCollection.reloadData()
-            selectedIndex = nil
-            
-            // TODO: 更新雲端（新增(使用者有更改這個 array 時才讓 dataBase 存一個家事標籤 array，並把這些預設的一起存進去) 或 洗掉原本的array）
-        }
-    }
-    
-    var shouldEditCell: Bool = false {
-        
-        didSet {
-            
-            houseworksCollection.reloadData()
-            selectedIndex = nil
-
-        }
-    }
-    
-    var selectedIndex: Int?
     
     func showAlertOf(message: String) {
         
@@ -136,7 +154,6 @@ class AddMissionViewController: UIViewController {
         present(alert, animated: true, completion: nil)
         
     }
-    
 }
 
 extension AddMissionViewController: UIPickerViewDelegate, UIPickerViewDataSource {
@@ -166,9 +183,14 @@ extension AddMissionViewController: UIPickerViewDelegate, UIPickerViewDataSource
         pickerLabel.backgroundColor = .white
         
         return pickerLabel
-        
     }
-
+    
+    func pickerView(_ pickerView: UIPickerView,
+                    didSelectRow row: Int,
+                    inComponent component: Int) {
+        
+        selectedDay = weekdayInEng[row].rawValue
+    }
 }
 
 extension AddMissionViewController: UICollectionViewDelegate,
@@ -199,8 +221,15 @@ extension AddMissionViewController: UICollectionViewDelegate,
         houseworkCell.delegate = self
             
         if shouldEditCell == true {
-                    
-            houseworkCell.deleteCellBtn.isHidden = false
+            
+            if indexPath.row > 7 {
+                
+                houseworkCell.deleteCellBtn.isHidden = false
+                
+            } else {
+                
+                houseworkCell.deleteCellBtn.isHidden = true
+            }
                 
         } else {
                 
@@ -233,6 +262,8 @@ extension AddMissionViewController: UICollectionViewDelegate,
         
         guard let index = houseworksCollection.indexPath(for: cell) else { return }
         
+        FirebaseUserHelper.shared.removeLabelOf(content: houseworks[index.item],
+                                                family: StorageManager.userInfo.familyID)
         houseworks.remove(at: index.item)
         
         shouldEditCell = false

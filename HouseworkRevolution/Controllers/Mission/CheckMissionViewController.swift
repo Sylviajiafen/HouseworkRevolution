@@ -9,6 +9,9 @@
 import UIKit
 
 class CheckMissionViewController: UIViewController {
+    
+    // TODO: 預設家事標籤的array存在專案裡，並搭配圖
+    // TODO: 預設家事標籤用 enum 存，並去判斷搭配的圖
 
     override func viewDidLoad() {
         super.viewDidLoad()

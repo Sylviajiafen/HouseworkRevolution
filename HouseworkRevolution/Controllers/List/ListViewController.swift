@@ -27,9 +27,6 @@ class ListViewController: UIViewController {
         setUpCollectionView()
         
         FirebaseManager.shared.delegate = self
-        
-        StorageManager.shared.fetchUserInfo()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
