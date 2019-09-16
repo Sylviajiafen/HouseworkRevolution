@@ -96,14 +96,14 @@
                                 <color key="textColor" name="titleOrange"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(FamilyName)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fx7-tx-vl4">
-                                <rect key="frame" x="40" y="167" width="295" height="28"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fx7-tx-vl4">
+                                <rect key="frame" x="40" y="167" width="295" height="0.0"/>
                                 <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="20"/>
                                 <color key="textColor" name="contentBlue"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" contentInsetAdjustmentBehavior="never" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="enA-Gb-zpx">
-                                <rect key="frame" x="40" y="222" width="295" height="325"/>
+                                <rect key="frame" x="40" y="194" width="295" height="353"/>
                                 <color key="backgroundColor" name="projectBackground"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="pw4-3u-UFb">
                                     <rect key="frame" x="0.0" y="117.5" width="295" height="25"/>
@@ -265,7 +265,7 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hC6-eN-Frp">
-                                <rect key="frame" x="305" y="182" width="30" height="30"/>
+                                <rect key="frame" x="305" y="154" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Wk5-lQ-NC1"/>
                                     <constraint firstAttribute="width" constant="30" id="fof-4t-plI"/>
@@ -276,7 +276,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xx9-Qv-bzm">
-                                <rect key="frame" x="180" y="197" width="15" height="15"/>
+                                <rect key="frame" x="180" y="169" width="15" height="15"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="15" id="c5f-9q-Tw5"/>
                                     <constraint firstAttribute="width" constant="15" id="uHW-Kq-vbg"/>

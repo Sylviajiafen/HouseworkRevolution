@@ -21,12 +21,6 @@ class SearchUserViewController: UIViewController {
         
         print("Inviter: User => \(inviterUserName), Family => \(inviterFamilyName)")
         
-        // TODO: 抓所有 user (要加監聽)
-        userData = [MemberData(id: "qFwZkG9baiRmKQSTtTEv", name: "兒子")]
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        
     }
     
     @IBAction func closeView(_ sender: Any) {
@@ -120,8 +114,6 @@ extension SearchUserViewController: UITableViewDataSource,
     }
     
     func updateResult() {
-        
-        // TODO: fetch dataBase userData
     
         guard let searchingString = userIdSearchBar.text else { return }
         
@@ -133,19 +125,26 @@ extension SearchUserViewController: UITableViewDataSource,
             
         } else {
             
+            FirebaseUserHelper.shared.getAllUser { [weak self] (allUsers) in
+                
+                self?.userData = allUsers
+            }
+            
             shouldShowSearchResult = true
-        
-            // TODO: 改成直接在 dataBase filter
             
             filteredData = userData.filter({ (data) -> Bool in
             
-            return data.id.contains(searchingString)
+                return data.id.contains(searchingString)
+                
             })
+            
         }
     }
     
     // MARK: Add Member
     func addMember(_ cell: SearchUserTableViewCell) {
+        
+        // TODO: Important!! 判斷如果是自己， show alert 不能加，如果不是才加
         
         userIdSearchBar.text = ""
         
@@ -155,21 +154,21 @@ extension SearchUserViewController: UITableViewDataSource,
         
         // TODO: 要更新 (1) 被邀請的成員的 requestingFamily、(2) 此家庭之邀請中的成員
         // show 不同 alert
-        showAlertOfAddingMember(message: "邀請成功！")
+        showAlertOf(message: "邀請成功！")
     }
     
     // TODO: 看要不要改掉用套件
-    func showAlertOfAddingMember(message: String) {
-        
-        let alert = UIAlertController(title: message, message: nil, preferredStyle: .alert)
-        
-        let action = UIAlertAction(title: "OK", style: .cancel)
-        
-        action.setValue(UIColor.lightGreen, forKey: "titleTextColor")
-        
-        alert.addAction(action)
-        
-        present(alert, animated: true, completion: nil)
-    }
-        
+//    func showAlertOfAddingMember(message: String) {
+//
+//        let alert = UIAlertController(title: message, message: nil, preferredStyle: .alert)
+//
+//        let action = UIAlertAction(title: "OK", style: .cancel)
+//
+//        action.setValue(UIColor.lightGreen, forKey: "titleTextColor")
+//
+//        alert.addAction(action)
+//
+//        present(alert, animated: true, completion: nil)
+//    }
+    
 }

@@ -138,6 +138,7 @@ class FamilyViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
+    // TODO: 待測試
     @IBAction func dropOutFamily(_ sender: Any) {
         
         let alert = UIAlertController(title: "退出家庭",
@@ -156,7 +157,7 @@ class FamilyViewController: UIViewController {
                     
                     print("Change family to: \(StorageManager.userInfo.familyID)")
                     
-                    self?.isOriginOrNot()
+                    self?.dropOutView.isHidden = true
             })
         }
         
