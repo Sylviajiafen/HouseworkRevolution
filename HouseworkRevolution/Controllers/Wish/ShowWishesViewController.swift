@@ -25,7 +25,12 @@ class ShowWishesViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         
-        wishes = wishArr.shuffled()
+        FirebaseUserHelper.shared.readWishesOf(user: StorageManager.userInfo.userID) { [weak self] (wishesInLamp) in
+            
+            self?.wishArr = wishesInLamp
+            
+            self?.wishes = self?.wishArr.shuffled() ?? []
+        }
     }
     
     @IBAction func backToRoot(_ sender: UIButton) {
@@ -35,16 +40,19 @@ class ShowWishesViewController: UIViewController {
     
     @IBOutlet weak var wishesCollectionView: UICollectionView!
     
-    // TODO: 抓 dataBase 資料
-    var wishArr: [String] = ["看電影", "寫小說", "睡到自然醒", "通宵追劇", "回娘家", "和老公離婚", "買下那個包！", "很長很長很長很長很長很長很長很長的願望"]
+    var wishArr = [String]()
+//       ["看電影", "寫小說", "睡到自然醒", "通宵追劇", "回娘家", "和老公離婚", "買下那個包！", "很長很長很長很長很長很長很長很長的願望"]
     
     var wishes = [String]() {
         
         didSet {
             
-            wishesCollectionView.reloadData()
-            
-            wishesCollectionView.collectionViewLayout.invalidateLayout()
+            DispatchQueue.main.async { [weak self] in
+                
+                self?.wishesCollectionView.reloadData()
+                
+                self?.wishesCollectionView.collectionViewLayout.invalidateLayout()
+            }
         }
     }
     
@@ -112,11 +120,10 @@ extension ShowWishesViewController: UICollectionViewDataSource,
         
         guard let toBeRemovedIndex = wishesCollectionView.indexPath(for: cell) else { return }
         
-        wishes.remove(at: toBeRemovedIndex.row)
+        FirebaseUserHelper.shared.removeWishOf(content: wishes[toBeRemovedIndex.row],
+                                               user: StorageManager.userInfo.userID)
         
-        wishesCollectionView.reloadData()
-
-        // TODO: 刪除願望是刪除 shuffled arr ，所以刪除後要把整個 shuffled 過的願望傳到雲端洗掉之前的 wish arr
+        wishes.remove(at: toBeRemovedIndex.row)
         
     }
 }
