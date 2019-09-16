@@ -145,19 +145,6 @@ class AddMissionViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-    func showAlertOf(message: String) {
-        
-        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-        
-        let action = UIAlertAction(title: "OK", style: .cancel)
-        
-        action.setValue(UIColor.lightGreen, forKey: "titleTextColor")
-        
-        alert.addAction(action)
-        
-        present(alert, animated: true, completion: nil)
-        
-    }
 }
 
 extension AddMissionViewController: UIPickerViewDelegate, UIPickerViewDataSource {

@@ -19,8 +19,14 @@ class SearchUserViewController: UIViewController {
         userIdSearchBar.delegate = self
         showResultTableView.dataSource = self
         
+        print("Inviter: User => \(inviterUserName), Family => \(inviterFamilyName)")
+        
         // TODO: 抓所有 user (要加監聽)
         userData = [MemberData(id: "qFwZkG9baiRmKQSTtTEv", name: "兒子")]
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
     }
     
     @IBAction func closeView(_ sender: Any) {
@@ -38,6 +44,10 @@ class SearchUserViewController: UIViewController {
         }
     }
     
+    var inviterUserName: String = ""
+    
+    var inviterFamilyName: String = ""
+    
     var userData = [MemberData]()
     
     var filteredData = [MemberData]() {
@@ -52,7 +62,6 @@ class SearchUserViewController: UIViewController {
 extension SearchUserViewController: UITableViewDataSource,
                                     SearchUserTableViewCellDelegate,
                                     UISearchBarDelegate {
-    
     
     // MARK: Set TableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int

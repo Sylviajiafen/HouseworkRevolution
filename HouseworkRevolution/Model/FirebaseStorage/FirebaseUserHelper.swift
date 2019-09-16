@@ -543,7 +543,7 @@ class FirebaseUserHelper {
             
             if let doc = document {
                 
-                guard let originFamily = doc[UserData.family.rawValue] as? String else { return }
+                guard let originFamily = doc[UserData.originFamily.rawValue] as? String else { return }
                 
                 getOriginFamily(originFamily)
                 
@@ -568,7 +568,7 @@ class FirebaseUserHelper {
         }
     }
     
-    // MARK: 變更名稱
+// MARK: 變更名稱
     
     func changeName(user: String, to newName: String) {
         
@@ -584,6 +584,25 @@ class FirebaseUserHelper {
         query.setData([FamilyGroupData.name.rawValue: new], merge: true)
     }
     
+// MARK: 判斷是否為 originFamily
+    
+    func comparingFamily(user: String, originFamilyHandler: @escaping (String) -> ()) {
+        
+        let query = db.collection(DataCollection.houseUser.rawValue).document(user)
+        
+        query.getDocument { (doc, err) in
+            
+            if let doc = doc {
+                
+                guard let origin = doc[UserData.originFamily.rawValue] as? String else { return }
+                
+                originFamilyHandler(origin)
+                
+            } else if let err = err {
+                
+                print("comparingFamily Err: \(err)")
+            }
+        }
+    }
+    
 }
-
-

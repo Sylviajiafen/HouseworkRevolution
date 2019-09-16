@@ -31,6 +31,7 @@
 		03A45F21232E16E2005D92D5 /* FirebaseUserHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A45F20232E16E2005D92D5 /* FirebaseUserHelper.swift */; };
 		03A45F24232E1A86005D92D5 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A45F23232E1A86005D92D5 /* StorageManager.swift */; };
 		03A45F26232E1DBF005D92D5 /* KeyChainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A45F25232E1DBF005D92D5 /* KeyChainManager.swift */; };
+		03A45F28232FDA64005D92D5 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A45F27232FDA64005D92D5 /* UIViewController+Extension.swift */; };
 		03C1A540231662D9008EAB76 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1A53F231662D9008EAB76 /* AppDelegate.swift */; };
 		03C1A545231662D9008EAB76 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03C1A543231662D9008EAB76 /* Main.storyboard */; };
 		03C1A548231662D9008EAB76 /* HouseworkRevolution.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 03C1A546231662D9008EAB76 /* HouseworkRevolution.xcdatamodeld */; };
@@ -102,6 +103,7 @@
 		03A45F20232E16E2005D92D5 /* FirebaseUserHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseUserHelper.swift; sourceTree = "<group>"; };
 		03A45F23232E1A86005D92D5 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		03A45F25232E1DBF005D92D5 /* KeyChainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainManager.swift; sourceTree = "<group>"; };
+		03A45F27232FDA64005D92D5 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		03C1A53C231662D9008EAB76 /* HouseworkRevolution.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HouseworkRevolution.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03C1A53F231662D9008EAB76 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		03C1A544231662D9008EAB76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -381,6 +383,7 @@
 				03C1A57F23167F82008EAB76 /* UIView+Extension.swift */,
 				03C1A59B2318F059008EAB76 /* UIImage+Extension.swift */,
 				03C1A59D2318F147008EAB76 /* UIColor+Extension.swift */,
+				03A45F27232FDA64005D92D5 /* UIViewController+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -714,6 +717,7 @@
 				0302D9EA231E7A0800DE7921 /* DailyMissionHeaderView.swift in Sources */,
 				0302D9D7231CC1D600DE7921 /* WishViewController.swift in Sources */,
 				03C1A548231662D9008EAB76 /* HouseworkRevolution.xcdatamodeld in Sources */,
+				03A45F28232FDA64005D92D5 /* UIViewController+Extension.swift in Sources */,
 				0302D9C5231912E800DE7921 /* ShowAddSegue.swift in Sources */,
 				0302D9E3231E5B8400DE7921 /* ListViewController.swift in Sources */,
 				0302D9DC231CFD0000DE7921 /* ShowWishesViewController.swift in Sources */,

@@ -94,20 +94,6 @@ class AuthViewController: UIViewController {
         pwdConfirmField.text = ""
     }
     
-    func showAlertOf(message: String) {
-        
-        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-        
-        let action = UIAlertAction(title: "OK", style: .cancel)
-        
-        action.setValue(UIColor.lightGreen, forKey: "titleTextColor")
-        
-        alert.addAction(action)
-        
-        present(alert, animated: true, completion: nil)
-        
-    }
-    
     func showLogin(message: String) {
         
         let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)

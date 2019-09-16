@@ -20,13 +20,17 @@ class FamilyViewController: UIViewController {
     
     @IBOutlet weak var familyNameLabel: UILabel!
     
+    @IBOutlet weak var dropOutView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         invitingFamilyTableView.delegate = self
         invitingFamilyTableView.dataSource = self
         
         userIDLabel.text = StorageManager.userInfo.userID
+        
+        isOriginOrNot()
         
         // MARK: regist header
         let headerXibOfMember = UINib(nibName: String(describing: FamilyMemberSectionHeader.self),
@@ -104,6 +108,71 @@ class FamilyViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
+    @IBAction func editFamilyName(_ sender: Any) {
+        
+        let alert = UIAlertController(title: "編輯家庭名稱", message: "幫自己的家取個響亮的名字吧", preferredStyle: .alert)
+        
+        alert.addTextField(configurationHandler: nil)
+        
+        let okAction = UIAlertAction(title: "更改", style: .default) { [weak self] _ in
+            
+            guard alert.textFields?[0].text != "",
+                let newName = alert.textFields?[0].text else { return }
+            
+            self?.familyNameLabel.text = alert.textFields?[0].text
+            
+            FirebaseUserHelper.shared.changFamilyName(family: StorageManager.userInfo.familyID,
+                                                      to: newName)
+        }
+        
+        okAction.setValue(UIColor.lightGreen, forKey: "titleTextColor")
+        
+        alert.addAction(okAction)
+        
+        let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+        
+        cancelAction.setValue(UIColor.lightGreen, forKey: "titleTextColor")
+        
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
+    @IBAction func dropOutFamily(_ sender: Any) {
+        
+        let alert = UIAlertController(title: "退出家庭",
+                                      message: "如果選擇退出，將會回到註冊時的家庭，確定嗎？",
+                                      preferredStyle: .alert)
+        
+        alert.addTextField(configurationHandler: nil)
+        
+        let okAction = UIAlertAction(title: "確定", style: .default) { [weak self] _ in
+            
+            FirebaseUserHelper.shared.dropOutFamily(familyID: StorageManager.userInfo.familyID,
+                                                    user: StorageManager.userInfo.userID,
+                getOriginFamily: { [weak self] (origin) in
+                    
+                    StorageManager.shared.updateFamily(familyID: origin)
+                    
+                    print("Change family to: \(StorageManager.userInfo.familyID)")
+                    
+                    self?.isOriginOrNot()
+            })
+        }
+        
+        okAction.setValue(UIColor.lightGreen, forKey: "titleTextColor")
+        
+        alert.addAction(okAction)
+        
+        let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+        
+        cancelAction.setValue(UIColor.lightGreen, forKey: "titleTextColor")
+        
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
     var familyMember: [MemberData] = [] {
         
         didSet {
@@ -141,10 +210,33 @@ class FamilyViewController: UIViewController {
         }
     }
     
+    func isOriginOrNot() {
+        
+        FirebaseUserHelper.shared.comparingFamily(
+            user: StorageManager.userInfo.userID) { [weak self] (originFamily) in
+            
+            if originFamily == StorageManager.userInfo.familyID {
+                
+                self?.dropOutView.isHidden = true
+                
+            } else {
+                
+                self?.dropOutView.isHidden = false
+            }
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        //TODO: 把 family Name, user Name 傳去 SearchVC
+        guard let destination = segue.destination as? SearchUserViewController,
+            let familyName = familyNameLabel.text,
+            let userName = userCallLabel.text else { return }
+        
+        destination.inviterUserName = userName
+        
+        destination.inviterFamilyName = familyName
     }
+    
 }
 
 extension FamilyViewController: UITableViewDelegate, UITableViewDataSource {

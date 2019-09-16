@@ -105,6 +105,37 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" contentInsetAdjustmentBehavior="never" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="enA-Gb-zpx">
                                 <rect key="frame" x="40" y="222" width="295" height="325"/>
                                 <color key="backgroundColor" name="projectBackground"/>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="pw4-3u-UFb">
+                                    <rect key="frame" x="0.0" y="117.5" width="295" height="25"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <button opaque="NO" clipsSubviews="YES" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VeY-w5-nq9">
+                                            <rect key="frame" x="117.5" y="2.5" width="60" height="20"/>
+                                            <color key="backgroundColor" red="0.76264447769999999" green="0.25569947370000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="60" id="S4p-sV-RlG"/>
+                                                <constraint firstAttribute="height" constant="20" id="ex3-cL-HrK"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <state key="normal" title="退出家庭">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <integer key="value" value="5"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="dropOutFamily:" destination="GUe-sm-w7G" eventType="touchUpInside" id="WMF-Y1-v8B"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" name="projectBackground"/>
+                                    <constraints>
+                                        <constraint firstItem="VeY-w5-nq9" firstAttribute="centerY" secondItem="pw4-3u-UFb" secondAttribute="centerY" id="JPR-6z-JbC"/>
+                                        <constraint firstItem="VeY-w5-nq9" firstAttribute="centerX" secondItem="pw4-3u-UFb" secondAttribute="centerX" id="nSN-MI-fK4"/>
+                                    </constraints>
+                                </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="FamilyMemberTableViewCell" id="kra-ym-SOB" customClass="FamilyMemberTableViewCell" customModule="HouseworkRevolution" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="55.5" width="295" height="44"/>
@@ -251,6 +282,9 @@
                                     <constraint firstAttribute="width" constant="15" id="uHW-Kq-vbg"/>
                                 </constraints>
                                 <state key="normal" title="edit" image="editTitle"/>
+                                <connections>
+                                    <action selector="editFamilyName:" destination="GUe-sm-w7G" eventType="touchUpInside" id="GAc-OJ-lYA"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" name="projectBackground"/>
@@ -291,6 +325,7 @@
                         <viewLayoutGuide key="safeArea" id="ltO-1B-Up1"/>
                     </view>
                     <connections>
+                        <outlet property="dropOutView" destination="pw4-3u-UFb" id="K9a-wr-mBe"/>
                         <outlet property="familyMemberTableView" destination="enA-Gb-zpx" id="DQ8-5F-eo2"/>
                         <outlet property="familyNameLabel" destination="fx7-tx-vl4" id="2vw-jd-Buy"/>
                         <outlet property="invitingFamilyTableView" destination="5sy-HF-Iy3" id="Lp0-8j-hee"/>
