@@ -173,8 +173,7 @@ class AuthViewController: UIViewController {
                             
                             StorageManager.shared.saveUserInfo(uid: FirebaseUserHelper.userID,
                                                                familyRecognizer: FirebaseUserHelper.familyID)
-                            
-                            StorageManager.shared.fetchUserInfo()
+                    
                         }
                         
                     } else {
@@ -187,7 +186,6 @@ class AuthViewController: UIViewController {
                             StorageManager.shared.saveUserInfo(uid: FirebaseUserHelper.userID,
                                                                familyRecognizer: FirebaseUserHelper.familyID)
                             
-                            StorageManager.shared.fetchUserInfo()
                         }
                     }
         
@@ -220,8 +218,6 @@ class AuthViewController: UIViewController {
                     
                     StorageManager.shared.saveUserInfo(uid: FirebaseUserHelper.userID,
                                                        familyRecognizer: FirebaseUserHelper.familyID)
-                    
-                    StorageManager.shared.fetchUserInfo()
                     
                     UserDefaults.standard.set("isLoggedIn", forKey: "userKey")
                     

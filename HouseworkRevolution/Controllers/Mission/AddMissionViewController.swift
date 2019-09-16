@@ -55,7 +55,16 @@ class AddMissionViewController: UIViewController {
     
     var weekdayInEng: [WeekdayInEng] = [.Monday, .Tuesday, .Wednesday, .Thursday, .Friday, .Saturday, .Sunday]
     
-    var houseworks: [String] = ["掃地", "拖地", "吸塵", "倒垃圾", "洗衣服", "煮飯", "買菜", "掃廁所"] {
+    var houseworks: [String] =
+        
+        [DefaultHouseworks.sweep.rawValue,
+         DefaultHouseworks.mop.rawValue,
+         DefaultHouseworks.vacuum.rawValue,
+         DefaultHouseworks.garbadge.rawValue,
+         DefaultHouseworks.laundry.rawValue,
+         DefaultHouseworks.cook.rawValue,
+         DefaultHouseworks.grocery.rawValue,
+         DefaultHouseworks.toilet.rawValue] {
         
         didSet {
             

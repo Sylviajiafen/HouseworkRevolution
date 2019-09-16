@@ -22,7 +22,7 @@
 		0302D9E6231E650600DE7921 /* DailyMissionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0302D9E5231E650600DE7921 /* DailyMissionCollectionViewCell.swift */; };
 		0302D9EA231E7A0800DE7921 /* DailyMissionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0302D9E8231E7A0800DE7921 /* DailyMissionHeaderView.swift */; };
 		0302D9EB231E7A0800DE7921 /* DailyMissionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0302D9E9231E7A0800DE7921 /* DailyMissionHeaderView.xib */; };
-		0302D9ED231FB6DC00DE7921 /* dailyMission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0302D9EC231FB6DC00DE7921 /* dailyMission.swift */; };
+		0302D9ED231FB6DC00DE7921 /* MissionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0302D9EC231FB6DC00DE7921 /* MissionItem.swift */; };
 		0302D9F02321E34D00DE7921 /* InvitingFamilyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0302D9EF2321E34D00DE7921 /* InvitingFamilyTableViewCell.swift */; };
 		0302D9F32321E49200DE7921 /* FamilyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0302D9F22321E49200DE7921 /* FamilyViewController.swift */; };
 		0302D9F52321E74F00DE7921 /* FirebaseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0302D9F42321E74F00DE7921 /* FirebaseData.swift */; };
@@ -49,7 +49,7 @@
 		03C1A58D2317A2EB008EAB76 /* MissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1A58C2317A2EB008EAB76 /* MissionViewController.swift */; };
 		03C1A58F2317C6D2008EAB76 /* AddMissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1A58E2317C6D2008EAB76 /* AddMissionViewController.swift */; };
 		03C1A5912317C6E7008EAB76 /* CheckMissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1A5902317C6E7008EAB76 /* CheckMissionViewController.swift */; };
-		03C1A5942318C7A3008EAB76 /* Weekday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1A5932318C7A3008EAB76 /* Weekday.swift */; };
+		03C1A5942318C7A3008EAB76 /* DataEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1A5932318C7A3008EAB76 /* DataEnums.swift */; };
 		03C1A5962318D287008EAB76 /* UserInputTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1A5952318D287008EAB76 /* UserInputTextField.swift */; };
 		03C1A59C2318F059008EAB76 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1A59B2318F059008EAB76 /* UIImage+Extension.swift */; };
 		03C1A59E2318F147008EAB76 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1A59D2318F147008EAB76 /* UIColor+Extension.swift */; };
@@ -93,7 +93,7 @@
 		0302D9E5231E650600DE7921 /* DailyMissionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyMissionCollectionViewCell.swift; sourceTree = "<group>"; };
 		0302D9E8231E7A0800DE7921 /* DailyMissionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyMissionHeaderView.swift; sourceTree = "<group>"; };
 		0302D9E9231E7A0800DE7921 /* DailyMissionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DailyMissionHeaderView.xib; sourceTree = "<group>"; };
-		0302D9EC231FB6DC00DE7921 /* dailyMission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dailyMission.swift; sourceTree = "<group>"; };
+		0302D9EC231FB6DC00DE7921 /* MissionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionItem.swift; sourceTree = "<group>"; };
 		0302D9EF2321E34D00DE7921 /* InvitingFamilyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitingFamilyTableViewCell.swift; sourceTree = "<group>"; };
 		0302D9F22321E49200DE7921 /* FamilyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyViewController.swift; sourceTree = "<group>"; };
 		0302D9F42321E74F00DE7921 /* FirebaseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseData.swift; sourceTree = "<group>"; };
@@ -124,7 +124,7 @@
 		03C1A58C2317A2EB008EAB76 /* MissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionViewController.swift; sourceTree = "<group>"; };
 		03C1A58E2317C6D2008EAB76 /* AddMissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMissionViewController.swift; sourceTree = "<group>"; };
 		03C1A5902317C6E7008EAB76 /* CheckMissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckMissionViewController.swift; sourceTree = "<group>"; };
-		03C1A5932318C7A3008EAB76 /* Weekday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weekday.swift; sourceTree = "<group>"; };
+		03C1A5932318C7A3008EAB76 /* DataEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataEnums.swift; sourceTree = "<group>"; };
 		03C1A5952318D287008EAB76 /* UserInputTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInputTextField.swift; sourceTree = "<group>"; };
 		03C1A59B2318F059008EAB76 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		03C1A59D2318F147008EAB76 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
@@ -419,9 +419,9 @@
 			children = (
 				03A45F22232E175F005D92D5 /* LocalStorage */,
 				03A45F1B232E1469005D92D5 /* FirebaseStorage */,
-				03C1A5932318C7A3008EAB76 /* Weekday.swift */,
+				03C1A5932318C7A3008EAB76 /* DataEnums.swift */,
 				03A45F1E232E162E005D92D5 /* DayManager.swift */,
-				0302D9EC231FB6DC00DE7921 /* dailyMission.swift */,
+				0302D9EC231FB6DC00DE7921 /* MissionItem.swift */,
 				03A45F25232E1DBF005D92D5 /* KeyChainManager.swift */,
 			);
 			path = Model;
@@ -726,13 +726,13 @@
 				0302D9C32318FBE900DE7921 /* FamilyMemberCollectionViewCell.swift in Sources */,
 				0302D9CD231AB0DA00DE7921 /* WeekdaySectionHeaderView.swift in Sources */,
 				03C1A5912317C6E7008EAB76 /* CheckMissionViewController.swift in Sources */,
-				0302D9ED231FB6DC00DE7921 /* dailyMission.swift in Sources */,
+				0302D9ED231FB6DC00DE7921 /* MissionItem.swift in Sources */,
 				03C1A58F2317C6D2008EAB76 /* AddMissionViewController.swift in Sources */,
 				03A45F1D232E1482005D92D5 /* FirebaseManager.swift in Sources */,
 				0302D9C92319259F00DE7921 /* MissionListTableViewCell.swift in Sources */,
 				03A45F1F232E162E005D92D5 /* DayManager.swift in Sources */,
 				0302D9DE231D002800DE7921 /* WishCollectionViewCell.swift in Sources */,
-				03C1A5942318C7A3008EAB76 /* Weekday.swift in Sources */,
+				03C1A5942318C7A3008EAB76 /* DataEnums.swift in Sources */,
 				0302D9F32321E49200DE7921 /* FamilyViewController.swift in Sources */,
 				03C1A5962318D287008EAB76 /* UserInputTextField.swift in Sources */,
 				03A45F26232E1DBF005D92D5 /* KeyChainManager.swift in Sources */,

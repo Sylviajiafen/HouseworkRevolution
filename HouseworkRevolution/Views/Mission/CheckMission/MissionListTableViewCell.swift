@@ -14,7 +14,10 @@ class MissionListTableViewCell: UITableViewCell {
 
     @IBOutlet weak var missionLabel: UILabel!
     
-     // TODO: 寫移除家事的 func，更新 dataBase
+    @IBOutlet weak var houseworkIcon: UIImageView!
+    
+    @IBOutlet weak var tiredValueLabel: UILabel!
+    
     @IBAction func removeDidPressed(_ sender: Any) {
         
         delegate?.removeMission(self)

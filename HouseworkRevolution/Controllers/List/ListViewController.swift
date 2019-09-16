@@ -27,6 +27,7 @@ class ListViewController: UIViewController {
         setUpCollectionView()
         
         FirebaseManager.shared.delegate = self
+
     }
     
     override func viewWillAppear(_ animated: Bool) {

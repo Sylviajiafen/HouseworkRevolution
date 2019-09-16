@@ -17,7 +17,7 @@ class StorageManager {
     
     static var getUser = [UserInfo]()
     
-    static var userInfo = UserInfos() {
+    static var userInfo = UserLoggedIn() {
         
         didSet {
             
@@ -81,7 +81,7 @@ class StorageManager {
     
                 StorageManager.getUser = userInfo
                 
-                StorageManager.userInfo = UserInfos(info: userInfo[0])
+                StorageManager.userInfo = UserLoggedIn(info: userInfo[0])
     
                 completion?(Result.success(userInfo))
     

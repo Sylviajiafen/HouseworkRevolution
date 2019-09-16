@@ -26,11 +26,21 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IJN-4s-ApP">
+                            <rect key="frame" x="0.0" y="637" width="375" height="10"/>
+                            <color key="backgroundColor" name="projectBackground"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="10" id="4cp-rU-EMB"/>
+                            </constraints>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" name="lightLake"/>
                     <constraints>
                         <constraint firstItem="xDf-mf-X7K" firstAttribute="leading" secondItem="75s-Iv-8gB" secondAttribute="leading" constant="30" id="5Tr-KQ-NDb"/>
                         <constraint firstItem="xDf-mf-X7K" firstAttribute="top" secondItem="75s-Iv-8gB" secondAttribute="top" constant="8.5" id="6k8-Pw-mU2"/>
+                        <constraint firstAttribute="trailing" secondItem="IJN-4s-ApP" secondAttribute="trailing" id="IgA-eR-oNe"/>
+                        <constraint firstAttribute="bottom" secondItem="IJN-4s-ApP" secondAttribute="bottom" id="jsC-Wl-rMO"/>
+                        <constraint firstItem="IJN-4s-ApP" firstAttribute="leading" secondItem="75s-Iv-8gB" secondAttribute="leading" id="zDi-A9-BIv"/>
                     </constraints>
                 </view>
             </subviews>
@@ -49,6 +59,9 @@
     <resources>
         <namedColor name="lightLake">
             <color red="0.64313725490196083" green="0.84313725490196079" blue="0.88235294117647056" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="projectBackground">
+            <color red="0.9882352941176471" green="0.97647058823529409" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

@@ -28,7 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             window?.rootViewController = UIStoryboard.main.instantiateInitialViewController()!
             
-            print("finishLaunching")
+            StorageManager.shared.fetchUserInfo()
+            
         }
         
         IQKeyboardManager.shared.enable = true

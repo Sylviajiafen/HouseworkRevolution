@@ -57,7 +57,14 @@ MissionListTableViewCellDelegate {
                    heightForHeaderInSection section: Int
     ) -> CGFloat {
         
-        return 50.0
+        return 60.0
+    }
+    
+    func tableView(_ tableView: UITableView,
+                   heightForFooterInSection section: Int
+    ) -> CGFloat {
+        
+        return 10.0
     }
     
     func tableView(_ tableView: UITableView,
@@ -99,6 +106,9 @@ MissionListTableViewCellDelegate {
             guard let mission = cell as? MissionListTableViewCell else { return UITableViewCell() }
             
             mission.missionLabel.text = missionOfDay[indexPath.row]
+            
+            // TODO: 判斷哪個家事配哪個 image
+            mission.houseworkIcon.image = UIImage.asset(.cleanFloorICON)
             
             mission.delegate = self
             

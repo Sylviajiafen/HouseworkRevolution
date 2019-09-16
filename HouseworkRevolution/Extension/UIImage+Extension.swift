@@ -25,6 +25,16 @@ enum ImageAsset: String {
     case familySelected
     
     case deleteWish
+    
+    case cleanFloorICON
+    case cleanToiletICON
+    case cookICON
+    case garbageICON
+    case groceryICON
+    case laundryICON
+    case mopICON
+    case vacumnICON
+    case customWorkICON
 }
 
 extension UIImage {

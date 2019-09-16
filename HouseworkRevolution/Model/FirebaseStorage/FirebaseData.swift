@@ -156,7 +156,7 @@ enum LoginError: String {
 }
 
 // Local Storage
-struct UserInfos {
+struct UserLoggedIn {
     
     let userID: String
     
