@@ -326,14 +326,21 @@ class FirebaseManager {
                 
                 if let querySnapshot = querySnapshot {
                     
-                    for index in 0..<querySnapshot.count {
+                    if querySnapshot.count == 0 {
                         
-                        guard let title = querySnapshot.documents[index][MissionData.title.rawValue] as? String,
-                            let tiredValue = querySnapshot.documents[index][MissionData.tiredValue.rawValue] as? Int else { return }
+                        FirebaseManager.allMission[day] = []
                         
-                        FirebaseManager.allMission[day]?.append(Mission(title: title, tiredValue: tiredValue))
+                    } else {
+                    
+                        for index in 0..<querySnapshot.count {
+                        
+                            guard let title = querySnapshot.documents[index][MissionData.title.rawValue] as? String,
+                                let tiredValue = querySnapshot.documents[index][MissionData.tiredValue.rawValue] as? Int else { return }
+                        
+                            FirebaseManager.allMission[day]?.append(Mission(title: title, tiredValue: tiredValue))
                         
                         //                    handler(FirebaseManager.allMission[day] ?? [])
+                        }
                     }
                     
                 } else if let err = err {
@@ -343,7 +350,6 @@ class FirebaseManager {
                 
                 handler(FirebaseManager.allMission[day] ?? [])
         }
-        
         
     }
     
@@ -448,7 +454,7 @@ class FirebaseManager {
                     
                     for document in querySnapshot.documents {
                         
-                        houseworksQuery.document(document.documentID).delete() { (err) in
+                        houseworksQuery.document(document.documentID).delete() { [weak self] (err) in
                             
                             if let err = err {
                                 

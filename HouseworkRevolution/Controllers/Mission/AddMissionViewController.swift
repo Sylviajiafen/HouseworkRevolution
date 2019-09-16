@@ -51,10 +51,6 @@ class AddMissionViewController: UIViewController {
     
     @IBOutlet weak var tiredValue: UILabel!
     
-    var weekday: [Weekdays] = [.Monday, .Tuesday, .Wednesday, .Thursday, .Friday, .Saturday, .Sunday]
-    
-    var weekdayInEng: [WeekdayInEng] = [.Monday, .Tuesday, .Wednesday, .Thursday, .Friday, .Saturday, .Sunday]
-    
     var houseworks: [String] =
         
         [DefaultHouseworks.sweep.rawValue,
@@ -84,7 +80,7 @@ class AddMissionViewController: UIViewController {
     
     var selectedIndex: Int?
     
-    var tiredValueInNum: Int?
+    var tiredValueInNum: Int = 0
     
     var selectedDay: String = DayManager.shared.weekday
     
@@ -117,12 +113,11 @@ class AddMissionViewController: UIViewController {
             
         } else {
             
-            guard let selectedIndex = selectedIndex,
-                let tiredValue = tiredValueInNum else { showAlertOf(message: "資訊不完整呢 ><"); return }
+            guard let selectedIndex = selectedIndex else { showAlertOf(message: "資訊不完整呢 ><"); return }
             
             FirebaseManager.shared.addMissionToHouseworks(
                 title: houseworks[selectedIndex],
-                tiredValue: tiredValue,
+                tiredValue: tiredValueInNum,
                 weekday: selectedDay,
                 family: StorageManager.userInfo.familyID)
             
@@ -172,7 +167,10 @@ extension AddMissionViewController: UIPickerViewDelegate, UIPickerViewDataSource
     func pickerView(_ pickerView: UIPickerView,
                     numberOfRowsInComponent component: Int
         
-    ) -> Int { return weekday.count }
+    ) -> Int {
+        
+        return DayManager.weekdayInCH.count
+    }
     
     func pickerView(_ pickerView: UIPickerView,
                     viewForRow row: Int,
@@ -185,7 +183,7 @@ extension AddMissionViewController: UIPickerViewDelegate, UIPickerViewDataSource
         
         pickerLabel.textColor = UIColor.noticeGray
         
-        pickerLabel.text = weekday[row].rawValue
+        pickerLabel.text = DayManager.weekdayInCH[row].rawValue
         
         pickerLabel.textAlignment = .center
         
@@ -198,7 +196,7 @@ extension AddMissionViewController: UIPickerViewDelegate, UIPickerViewDataSource
                     didSelectRow row: Int,
                     inComponent component: Int) {
         
-        selectedDay = weekdayInEng[row].rawValue
+        selectedDay = DayManager.weekdayInEng[row].rawValue
     }
 }
 

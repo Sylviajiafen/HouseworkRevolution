@@ -33,7 +33,7 @@ enum ImageAsset: String {
     case groceryICON
     case laundryICON
     case mopICON
-    case vacumnICON
+    case vacuumICON
     case customWorkICON
 }
 

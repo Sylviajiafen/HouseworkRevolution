@@ -33,6 +33,48 @@ class MissionListTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    func setIcon(by mission: Mission) {
+        
+        switch mission.title {
+            
+        case DefaultHouseworks.sweep.rawValue:
+            
+            houseworkIcon.image = UIImage.asset(.cleanFloorICON)
+            
+        case DefaultHouseworks.mop.rawValue:
+            
+            houseworkIcon.image = UIImage.asset(.mopICON)
+            
+        case DefaultHouseworks.vacuum.rawValue:
+            
+            houseworkIcon.image = UIImage.asset(.vacuumICON)
+            
+        case DefaultHouseworks.garbadge.rawValue:
+            
+            houseworkIcon.image = UIImage.asset(.garbageICON)
+        
+        case DefaultHouseworks.laundry.rawValue:
+            
+            houseworkIcon.image = UIImage.asset(.laundryICON)
+            
+        case DefaultHouseworks.cook.rawValue:
+            
+            houseworkIcon.image = UIImage.asset(.cookICON)
+            
+        case DefaultHouseworks.grocery.rawValue:
+            
+            houseworkIcon.image = UIImage.asset(.groceryICON)
+            
+        case DefaultHouseworks.toilet.rawValue:
+            
+            houseworkIcon.image = UIImage.asset(.cleanToiletICON)
+            
+        default:
+            
+            houseworkIcon.image = UIImage.asset(.customWorkICON)
+        }
+    }
 
 }
 
