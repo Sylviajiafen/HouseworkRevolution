@@ -75,7 +75,6 @@ class WishViewController: UIViewController {
         
     }
     
-    
     func showMakeWish(message: String, wishInput viewAlpha: CGFloat) {
         
         let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
@@ -89,6 +88,12 @@ class WishViewController: UIViewController {
         present(alert, animated: true, completion: nil)
         
         makeWishView.alpha = viewAlpha
+        
+        wishInput.text = defaultWish
+        
+        wishInput.textColor = UIColor.lightGray
+        
+        wishInput.font = UIFont(name: "Helvetica Neue", size: 14.0)
     }
 }
 
