@@ -11,15 +11,22 @@ import UIKit
 class FamilyViewController: UIViewController {
 
     @IBOutlet weak var familyMemberTableView: UITableView!
+    
     @IBOutlet weak var invitingFamilyTableView: UITableView!
     
     @IBOutlet weak var userCallLabel: UILabel!
+    
+    @IBOutlet weak var userIDLabel: UILabel!
+    
+    @IBOutlet weak var familyNameLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         invitingFamilyTableView.delegate = self
         invitingFamilyTableView.dataSource = self
+        
+        userIDLabel.text = StorageManager.userInfo.userID
         
         // MARK: regist header
         let headerXibOfMember = UINib(nibName: String(describing: FamilyMemberSectionHeader.self),
@@ -33,17 +40,37 @@ class FamilyViewController: UIViewController {
         
         invitingFamilyTableView.register(headerXibOfInviting,
                                          forHeaderFooterViewReuseIdentifier: String(describing: InvitingFamilySectionHeaderView.self))
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         
-        // TODO: 抓 invitingFamily 資料 (寫在 function)
-        // TODO: 判斷 invitingFamily.count == 0 時， tableView 隱藏 (寫在function 裡, parameter 一個為 tableView)
-        // TODO: 放 pull refresh ：把 showInvitingOrNot(), tableView.reloadData 放在 completion 裡
+        FirebaseUserHelper.shared.getHomeDatasOf(user: StorageManager.userInfo.userID,
+                                                 family: StorageManager.userInfo.familyID,
+            userNameHandler: { [weak self] (userName) in
+                                                    
+             self?.userCallLabel.text = userName
+                
+        }, familyNameHandler: { [weak self] (familyName) in
+            
+            self?.familyNameLabel.text = familyName
+        })
         
-       
+        FirebaseUserHelper.shared.getFamilyMembers(family: StorageManager.userInfo.familyID,
+            handler: { [weak self] (memberData) in
+                
+                self?.familyMember = memberData
+        })
         
-//        invitingFamilyList = []
-
-//        invitedMemberList = [Member(name: "老爸", memberId: "XQ8gMqFhCON6V97jP6Fl")]
+        FirebaseUserHelper.shared.showInvites(family: StorageManager.userInfo.familyID,
+                                              user: StorageManager.userInfo.userID,
+            invitedMember: { [weak self] (invitedMembers) in
         
+            self?.invitedMemberList = invitedMembers
+        
+        }, invitingFamily: { [weak self] (invitingFamilies) in
+            
+            self?.invitingFamilyList = invitingFamilies
+        })
         
     }
     
@@ -55,11 +82,13 @@ class FamilyViewController: UIViewController {
         
         let okAction = UIAlertAction(title: "更改", style: .default) { [weak self] _ in
             
-            guard alert.textFields?[0].text != "" else { return }
-            
-            self?.changedUserCall = alert.textFields?[0].text
+            guard alert.textFields?[0].text != "",
+                let newName = alert.textFields?[0].text else { return }
                 
-            self?.userCallLabel.text = self?.changedUserCall
+            self?.userCallLabel.text = alert.textFields?[0].text
+            
+            FirebaseUserHelper.shared.changeName(user: StorageManager.userInfo.userID,
+                                                 to: newName)
         }
         
         okAction.setValue(UIColor.lightGreen, forKey: "titleTextColor")
@@ -75,23 +104,29 @@ class FamilyViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    var changedUserCall: String? {
+    var familyMember: [MemberData] = [] {
         
         didSet {
             
-            // TODO: 更新 dataBase user 名稱
+            familyMemberTableView.reloadData()
         }
     }
     
-    var familyMember: [MemberData] = []
-    
-    var invitedMemberList: [MemberData] = []
+    var invitedMemberList: [MemberData] = [] {
+        
+        didSet {
+            
+            familyMemberTableView.reloadData()
+        }
+    }
     
     var invitingFamilyList: [InvitingFamily] = [] {
         
         didSet {
             
             showInvitingOrNot()
+            
+            invitingFamilyTableView.reloadData()
         }
     }
     
@@ -224,7 +259,6 @@ extension FamilyViewController: UITableViewDelegate, UITableViewDataSource {
             
             return nil
         }
-        
     }
     
     // MARK: TableView Cell
