@@ -106,56 +106,64 @@ class ListViewController: UIViewController {
             self?.noticeLabel.alpha = 0
         }
     }
-    
-    // TODO: 判斷疲勞值並秀 view
+
+    // MARK: - 實現願望
     func magicLampViewShow() {
         
         var wishes = [String]()
         
-        FirebaseUserHelper.shared.readWishesOf(user: StorageManager.userInfo.userID) {
+        FirebaseUserHelper.shared.readWishesOf(
+            user: StorageManager.userInfo.userID) { [weak self] (wishArr) in
             
-            [weak self] (wishArr) in
-            
-            wishes = wishArr
-            
-            guard let completeWish: String = wishes.randomElement() else { return }
-            
-            self?.lampViewWishLabel.text = completeWish
-            
-            FirebaseUserHelper.shared.removeWishOf(content: completeWish, user: StorageManager.userInfo.userID)
-            
+                wishes = wishArr
+                
+                if wishArr.count > 0 {
+                    
+                    guard let completeWish: String = wishes.randomElement() else { return }
+                    
+                    self?.lampViewWishLabel.text = completeWish
+                    
+                    FirebaseUserHelper.shared.removeWishOf(content: completeWish,
+                                                           user: StorageManager.userInfo.userID)
+                    
+                    print("============magic!!")
+                    
+                    self?.skipBtn.alpha = 1.0
+                    
+                    self?.showAnimate.addAnimations { [weak self] in
+                        
+                        self?.magicLampView.alpha = 1.0
+                    }
+                    
+                    self?.viewDisappearAnimate.addAnimations { [weak self] in
+                        
+                        self?.magicLampView.alpha = 0.0
+                    }
+                    
+                    self?.showAnimate.addCompletion { [weak self] _ in
+                        
+                        self?.viewDisappearAnimate.startAnimation(afterDelay: 3.0)
+                    }
+                    
+                    self?.viewDisappearAnimate.addCompletion({ [weak self] (_) in
+                        
+                        self?.skipBtn.alpha = 0.0
+                        
+                    })
+                    
+                    self?.viewDisappearAnimate.isInterruptible = true
+                    
+                    self?.showAnimate.isInterruptible = true
+                    
+                    self?.showAnimate.startAnimation()
+                    
+                } else {
+                    
+                    self?.directToWishPage(message: "神燈裡沒有願望了！")
+                }
+                
+            }
         }
-        
-        print("============magic!!")
-        
-        skipBtn.alpha = 1.0
-        
-        showAnimate.addAnimations { [weak self] in
-
-            self?.magicLampView.alpha = 1.0
-        }
-        
-        viewDisappearAnimate.addAnimations { [weak self] in
-            
-            self?.magicLampView.alpha = 0.0
-        }
-        
-        showAnimate.addCompletion { [weak self] _ in
-            
-            self?.viewDisappearAnimate.startAnimation(afterDelay: 3.0)
-        }
-        
-        viewDisappearAnimate.addCompletion({ [weak self] (_) in
-            
-            self?.skipBtn.alpha = 0.0
-        })
-        
-        viewDisappearAnimate.isInterruptible = true
-        
-        showAnimate.isInterruptible = true
-        
-        showAnimate.startAnimation()
-    }
     
     @IBAction func skipAnimateOfMagicView(_ sender: Any) {
         
@@ -171,6 +179,32 @@ class ListViewController: UIViewController {
     
     }
     
+    func directToWishPage(message: String) {
+        
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        
+        let action = UIAlertAction(title: "許願去", style: .default, handler: { _ in
+            
+            let appdelegate = UIApplication.shared.delegate as? AppDelegate
+            
+            let root = appdelegate?.window?.rootViewController as? TabBarController
+            
+            root?.selectedIndex = 2
+            
+        })
+        
+        action.setValue(UIColor.lightGreen, forKey: "titleTextColor")
+        
+        alert.addAction(action)
+        
+        let cancelAction = UIAlertAction(title: "下次再許", style: .cancel, handler: nil)
+        
+        cancelAction.setValue(UIColor.lightGreen, forKey: "titleTextColor")
+        
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true, completion: nil)
+    }
 }
 
 extension ListViewController: UICollectionViewDelegate,

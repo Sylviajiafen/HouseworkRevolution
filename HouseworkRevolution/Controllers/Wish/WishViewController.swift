@@ -57,9 +57,7 @@ class WishViewController: UIViewController {
                 
                 self?.makeWishView.alpha = 0
             }
-
         }
-    
     }
     // 以上為神燈點擊事件
     
@@ -67,13 +65,15 @@ class WishViewController: UIViewController {
     
     @IBAction func makeWish(_ sender: UIButton) {
         
-        // TODO: 將願望加到 database
-        
         guard wishInput.text != "" && wishInput.text != defaultWish
             else { showMakeWish(message: "忘記留下願望了啦", wishInput: 1.0); return }
         
+//        FirebaseManager
+        
         showMakeWish(message: "許願成功！", wishInput: 0.0)
         
+        
+        // TODO: 待決定去留
         wishContent = wishInput.text
     }
     
