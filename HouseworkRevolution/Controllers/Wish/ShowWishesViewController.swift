@@ -21,19 +21,32 @@ class ShowWishesViewController: UIViewController {
             
             layout.delegate = self
         }
+        
+        emptyView.isHidden = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
         
         FirebaseUserHelper.shared.readWishesOf(user: StorageManager.userInfo.userID) { [weak self] (wishesInLamp) in
             
-            self?.wishArr = wishesInLamp
+            if wishesInLamp.count == 0 {
+                
+                self?.emptyView.isHidden = false
+                
+            } else {
             
-            self?.wishes = self?.wishArr.shuffled() ?? []
+                self?.wishArr = wishesInLamp
+            
+                self?.wishes = self?.wishArr.shuffled() ?? []
+            }
         }
     }
     
+    @IBOutlet weak var emptyView: UIView!
+    
     @IBAction func backToRoot(_ sender: UIButton) {
+        
+        emptyView.isHidden = true
         
         self.dismiss(animated: true, completion: nil)
     }

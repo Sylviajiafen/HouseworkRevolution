@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NRv-e1-cGi">
-    <device id="retina5_5" orientation="portrait">
+    <device id="retina6_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -16,26 +16,26 @@
             <objects>
                 <viewController id="NRv-e1-cGi" customClass="WishViewController" customModule="HouseworkRevolution" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QHD-MI-E0A">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wishBackground" translatesAutoresizingMaskIntoConstraints="NO" id="ath-Yb-0dU">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="每天努力做家事的你，" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bi3-1v-daG">
-                                <rect key="frame" x="70" y="74" width="174" height="21"/>
+                                <rect key="frame" x="70" y="98" width="174" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="是否記得好好愛自己呢？" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fMf-LE-jSf">
-                                <rect key="frame" x="141.66666666666666" y="105" width="190.99999999999997" height="21"/>
+                                <rect key="frame" x="141.66666666666666" y="129" width="190.99999999999997" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sX7-sh-M65">
-                                <rect key="frame" x="71.666666666666686" y="140" width="271" height="25"/>
+                                <rect key="frame" x="71.666666666666686" y="164" width="271" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="Zja-Ai-QZQ"/>
                                 </constraints>
@@ -50,14 +50,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="magicLamp" translatesAutoresizingMaskIntoConstraints="NO" id="Pd4-G2-eju">
-                                <rect key="frame" x="199" y="205" width="16" height="16"/>
+                                <rect key="frame" x="199" y="229" width="16" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Pd4-G2-eju" secondAttribute="height" multiplier="1:1" id="OCF-3b-wb4"/>
-                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="200" id="mqN-5V-sJD"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="300" id="mqN-5V-sJD"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o0A-8m-XR2">
-                                <rect key="frame" x="87" y="231" width="240" height="120"/>
+                                <rect key="frame" x="87" y="255" width="240" height="120"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.90000000000000002" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="raJ-Jc-ssn">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="85"/>
@@ -107,7 +107,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3WP-Tb-qSy">
-                                <rect key="frame" x="248" y="700" width="146" height="20"/>
+                                <rect key="frame" x="248" y="826" width="146" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="C6w-Sv-4RE"/>
                                 </constraints>
@@ -156,14 +156,14 @@
             <objects>
                 <viewController id="7ou-j6-ho2" customClass="ShowWishesViewController" customModule="HouseworkRevolution" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9BP-yI-22f">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkWishBackground" translatesAutoresizingMaskIntoConstraints="NO" id="Das-GL-Rpi">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <button opaque="NO" alpha="0.75" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AxV-wN-WgP">
-                                <rect key="frame" x="20" y="30" width="40" height="40"/>
+                                <rect key="frame" x="20" y="54" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="402-if-Qcs"/>
                                     <constraint firstAttribute="height" constant="40" id="F3l-si-7hN"/>
@@ -174,7 +174,7 @@
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="white" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="QjD-mX-17I">
-                                <rect key="frame" x="0.0" y="80" width="414" height="656"/>
+                                <rect key="frame" x="0.0" y="104" width="414" height="758"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewLayout key="collectionViewLayout" id="e5r-nM-hWI" customClass="ShowWishesLayout" customModule="HouseworkRevolution" customModuleProvider="target"/>
                                 <cells>
@@ -214,22 +214,42 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.90000000000000002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="偷看中......" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iPU-83-3Qb">
-                                <rect key="frame" x="169" y="40" width="76" height="20"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.90000000000000002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="偷看中......" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iPU-83-3Qb">
+                                <rect key="frame" x="170" y="63.999999999999993" width="74" height="22.666666666666664"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5hY-9T-vo8">
+                                <rect key="frame" x="0.0" y="84" width="414" height="778"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="空空的...." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2AE-dq-xUe">
+                                        <rect key="frame" x="149.66666666666666" y="200" width="114.99999999999997" height="39.666666666666657"/>
+                                        <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="28"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="2AE-dq-xUe" firstAttribute="centerX" secondItem="5hY-9T-vo8" secondAttribute="centerX" id="DER-0l-bYe"/>
+                                    <constraint firstItem="2AE-dq-xUe" firstAttribute="top" secondItem="5hY-9T-vo8" secondAttribute="top" constant="200" id="Mpq-Wd-rp8"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="QjD-mX-17I" firstAttribute="leading" secondItem="9zL-Wg-do7" secondAttribute="leading" id="4Ll-6F-e7V"/>
                             <constraint firstItem="QjD-mX-17I" firstAttribute="top" secondItem="AxV-wN-WgP" secondAttribute="bottom" constant="10" id="4R4-Jm-2n8"/>
+                            <constraint firstItem="5hY-9T-vo8" firstAttribute="top" secondItem="9zL-Wg-do7" secondAttribute="top" constant="40" id="865-Ve-Z8p"/>
+                            <constraint firstItem="5hY-9T-vo8" firstAttribute="trailing" secondItem="9zL-Wg-do7" secondAttribute="trailing" id="8BO-P9-nks"/>
                             <constraint firstItem="iPU-83-3Qb" firstAttribute="centerX" secondItem="9BP-yI-22f" secondAttribute="centerX" id="B6I-YS-1XE"/>
+                            <constraint firstItem="9zL-Wg-do7" firstAttribute="bottom" secondItem="5hY-9T-vo8" secondAttribute="bottom" id="THv-OO-hWr"/>
                             <constraint firstItem="9zL-Wg-do7" firstAttribute="bottom" secondItem="QjD-mX-17I" secondAttribute="bottom" id="VCO-Ms-R02"/>
                             <constraint firstItem="Das-GL-Rpi" firstAttribute="top" secondItem="9BP-yI-22f" secondAttribute="top" id="WxY-vl-9og"/>
                             <constraint firstItem="9zL-Wg-do7" firstAttribute="trailing" secondItem="Das-GL-Rpi" secondAttribute="trailing" id="YdH-yo-lbN"/>
                             <constraint firstAttribute="bottom" secondItem="Das-GL-Rpi" secondAttribute="bottom" id="agE-J5-Ail"/>
+                            <constraint firstItem="5hY-9T-vo8" firstAttribute="leading" secondItem="9zL-Wg-do7" secondAttribute="leading" id="akw-5W-t2k"/>
                             <constraint firstItem="9zL-Wg-do7" firstAttribute="trailing" secondItem="QjD-mX-17I" secondAttribute="trailing" id="cJb-Sh-x73"/>
                             <constraint firstItem="9zL-Wg-do7" firstAttribute="top" secondItem="iPU-83-3Qb" secondAttribute="top" constant="-20" id="k48-gN-oig"/>
                             <constraint firstItem="9zL-Wg-do7" firstAttribute="leading" secondItem="AxV-wN-WgP" secondAttribute="leading" constant="-20" id="lla-xm-Rbw"/>
@@ -239,6 +259,7 @@
                         <viewLayoutGuide key="safeArea" id="9zL-Wg-do7"/>
                     </view>
                     <connections>
+                        <outlet property="emptyView" destination="5hY-9T-vo8" id="6i9-PC-oKd"/>
                         <outlet property="wishesCollectionView" destination="QjD-mX-17I" id="bMX-b9-CNl"/>
                     </connections>
                 </viewController>
