@@ -47,7 +47,7 @@ class FirebaseUserHelper {
         FirebaseUserHelper.userID = ref.documentID
     }
     
-    func registDoneWith(_ family: FamilyGroup, username: String) {
+    func registDoneWith(_ family: FamilyGroup, username: String, completion: @escaping () -> Void) {
         
         let familyRef = db.collection(DataCollection.houseGroup.rawValue)
             .addDocument(data:[FamilyGroupData.name.rawValue: family.name,
@@ -75,6 +75,8 @@ class FirebaseUserHelper {
             [UserData.name.rawValue: username,
              UserData.family.rawValue: familyRef.documentID,
              UserData.originFamily.rawValue: familyRef.documentID], merge: true)
+        
+        completion()
     }
     
 // MARK: 登入功能: 拿到 userID & familyID
@@ -481,11 +483,17 @@ class FirebaseUserHelper {
     // MARK: 接受、刪除邀請
     func acceptInvitation(from family: String, myID: String, myName: String) {
         
-        // 新增自己至 member
+        // 新增自己至新家的 member
         let query = db.collection(DataCollection.houseGroup.rawValue)
             .document(family).collection(CollectionOfFamily.member.rawValue)
         
         query.document(myID).setData([UserData.name.rawValue: myName])
+        
+        // 更改自己的 family Field Value
+        let userQuery = db.collection(DataCollection.houseUser.rawValue)
+            .document(myID)
+        
+        userQuery.setData([UserData.family.rawValue: family], merge: true)
         
         // 刪除邀請
         self.rejectInvitation(from: family, myID: myID)
@@ -532,7 +540,6 @@ class FirebaseUserHelper {
         }
     }
     
-    
     // MARK: 移除(退出)家庭
     func dropOutFamily(familyID: String, user: String, getOriginFamily: @escaping (String) -> Void) {
         
@@ -545,6 +552,9 @@ class FirebaseUserHelper {
                 
                 guard let originFamily = doc[UserData.originFamily.rawValue] as? String else { return }
                 
+                // 更新自己的 family Field
+                query.setData([UserData.family.rawValue: originFamily], merge: true)
+                
                 getOriginFamily(originFamily)
                 
             } else if let err = err {
@@ -553,6 +563,7 @@ class FirebaseUserHelper {
             }
         }
         
+        // 把自己從舊家 member 更改掉
         let beDroppedFamilyQuery = db.collection(DataCollection.houseGroup.rawValue)
             .document(familyID).collection(CollectionOfFamily.member.rawValue)
         
@@ -564,6 +575,26 @@ class FirebaseUserHelper {
             } else {
                 
                 print("Member deleted!")
+            }
+        }
+    }
+    
+    func getCurrentFamily(user: String, completion: @escaping (String) -> ()) {
+        
+        let query = db.collection(DataCollection.houseUser.rawValue)
+            .document(user)
+        
+        query.getDocument { (doc, err) in
+            
+            if let doc = doc {
+                
+                guard let familyID = doc[UserData.family.rawValue] as? String else { return }
+                
+                completion(familyID)
+                
+            } else if let err = err {
+                
+                print("get familyID err: \(err)")
             }
         }
     }

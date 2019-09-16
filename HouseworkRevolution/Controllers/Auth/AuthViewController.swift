@@ -155,10 +155,11 @@ class AuthViewController: UIViewController {
                         
                         FirebaseUserHelper.shared.registAnId(user) {
                             
-                            FirebaseUserHelper.shared.registDoneWith(family, username: userName)
+                            FirebaseUserHelper.shared.registDoneWith(family, username: userName) {
                             
-                            StorageManager.shared.saveUserInfo(uid: FirebaseUserHelper.userID,
-                                                               familyRecognizer: FirebaseUserHelper.familyID)
+                                StorageManager.shared.saveUserInfo(uid: FirebaseUserHelper.userID,
+                                                                   familyRecognizer: FirebaseUserHelper.familyID)
+                            }
                     
                         }
                         
@@ -167,10 +168,11 @@ class AuthViewController: UIViewController {
                         FirebaseUserHelper.shared.registAnId(user) { [weak self] in
                             
                             FirebaseUserHelper.shared.registDoneWith(family,
-                                                                     username: self?.nameCalls[selectedIndex] ?? "(名稱)")
+                                                                     username: self?.nameCalls[selectedIndex] ?? "(名稱)") {
                             
-                            StorageManager.shared.saveUserInfo(uid: FirebaseUserHelper.userID,
+                                StorageManager.shared.saveUserInfo(uid: FirebaseUserHelper.userID,
                                                                familyRecognizer: FirebaseUserHelper.familyID)
+                            }
                             
                         }
                     }
