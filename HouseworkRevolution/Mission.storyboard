@@ -306,8 +306,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="80" height="35"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fEP-TC-Rqd">
-                                                    <rect key="frame" x="18" y="5.6666666666666679" width="44" height="24"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fEP-TC-Rqd">
+                                                    <rect key="frame" x="5" y="5.6666666666666679" width="70" height="24"/>
                                                     <fontDescription key="fontDescription" name="STHeitiTC-Medium" family="Heiti TC" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -316,7 +316,7 @@
                                                     <rect key="frame" x="68" y="0.0" width="12" height="12"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="12" id="9Tu-KU-f8d"/>
-                                                        <constraint firstAttribute="width" constant="12" id="mQ5-mT-8GR"/>
+                                                        <constraint firstAttribute="width" secondItem="PGh-Jq-Iws" secondAttribute="height" multiplier="1:1" id="zCk-N9-nvl"/>
                                                     </constraints>
                                                     <state key="normal" image="deleteCell"/>
                                                     <connections>
@@ -327,9 +327,10 @@
                                         </view>
                                         <constraints>
                                             <constraint firstItem="PGh-Jq-Iws" firstAttribute="top" secondItem="ith-lK-mu6" secondAttribute="top" id="1On-Kk-Cd4"/>
-                                            <constraint firstItem="fEP-TC-Rqd" firstAttribute="centerX" secondItem="ith-lK-mu6" secondAttribute="centerX" id="BGg-ap-hXC"/>
+                                            <constraint firstItem="fEP-TC-Rqd" firstAttribute="leading" secondItem="ith-lK-mu6" secondAttribute="leading" constant="5" id="EkB-DR-zc9"/>
                                             <constraint firstAttribute="trailing" secondItem="PGh-Jq-Iws" secondAttribute="trailing" id="uXH-7u-arH"/>
                                             <constraint firstItem="fEP-TC-Rqd" firstAttribute="centerY" secondItem="ith-lK-mu6" secondAttribute="centerY" id="v7Y-ZH-uui"/>
+                                            <constraint firstAttribute="trailing" secondItem="fEP-TC-Rqd" secondAttribute="trailing" constant="5" id="wqx-8r-o9W"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">

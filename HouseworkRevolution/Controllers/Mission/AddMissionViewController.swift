@@ -21,7 +21,7 @@ class AddMissionViewController: UIViewController {
         
         weekdayPicker.dataSource = self
         
-        tiredSlider.setThumbImage(UIImage(named: "valueHeart"), for: .normal)
+        tiredSlider.setThumbImage(UIImage.asset(.valueHeart), for: .normal)
         
         editHouseworkBtn.isSelected = false
     }

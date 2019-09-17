@@ -35,6 +35,8 @@ enum ImageAsset: String {
     case mopICON
     case vacuumICON
     case customWorkICON
+    
+    case valueHeart
 }
 
 extension UIImage {

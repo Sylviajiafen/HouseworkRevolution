@@ -338,8 +338,9 @@ class FirebaseUserHelper {
         }
     }
     
+// MARK: 邀請成員
     func inviteMember(id: String, name: String, from familyID: String,
-                      familyName:String, inviter whoseName: String) {
+                      familyName: String, inviter whoseName: String) {
         
         print("inviting...")
         
@@ -347,7 +348,8 @@ class FirebaseUserHelper {
         
         let userQuery = db.collection(DataCollection.houseUser.rawValue).document(id)
         
-        familyQuery.collection(CollectionOfFamily.member.rawValue).document(id).getDocument(completion: { (document, err) in
+        familyQuery.collection(CollectionOfFamily.member.rawValue).document(id)
+            .getDocument(completion: { (document, err) in
             
             if let doc = document {
                 

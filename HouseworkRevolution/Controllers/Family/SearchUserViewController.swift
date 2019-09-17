@@ -20,7 +20,14 @@ class SearchUserViewController: UIViewController {
         showResultTableView.dataSource = self
         
         print("Inviter: User => \(inviterUserName), Family => \(inviterFamilyName)")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         
+        FirebaseUserHelper.shared.getAllUser { [weak self] (allUsers) in
+            
+            self?.userData = allUsers
+        }
     }
     
     @IBAction func closeView(_ sender: Any) {
@@ -101,7 +108,7 @@ extension SearchUserViewController: UITableViewDataSource,
         }
     }
     
-    // Mark: Search Bar
+    // MARK: Search Bar
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         updateResult()
@@ -125,11 +132,6 @@ extension SearchUserViewController: UITableViewDataSource,
             
         } else {
             
-            FirebaseUserHelper.shared.getAllUser { [weak self] (allUsers) in
-                
-                self?.userData = allUsers
-            }
-            
             shouldShowSearchResult = true
             
             filteredData = userData.filter({ (data) -> Bool in
@@ -137,24 +139,31 @@ extension SearchUserViewController: UITableViewDataSource,
                 return data.id.contains(searchingString)
                 
             })
-            
         }
     }
     
     // MARK: Add Member
     func addMember(_ cell: SearchUserTableViewCell) {
         
-        // TODO: Important!! 判斷如果是自己， show alert 不能加，如果不是才加
+        guard let index = showResultTableView.indexPath(for: cell) else { return }
+        
+        if filteredData[index.row].id == StorageManager.userInfo.userID {
+            
+            showAlertOf(message: "不小心邀請到自己了啦")
+            
+        } else {
+            
+            FirebaseUserHelper.shared.inviteMember(id: filteredData[index.row].id,
+                                                   name: filteredData[index.row].name,
+                                                   from: StorageManager.userInfo.familyID,
+                                                   familyName: inviterFamilyName,
+                                                   inviter: inviterUserName)
+            showAlertOf(message: "邀請成功！")
+        }
         
         userIdSearchBar.text = ""
         
         shouldShowSearchResult = false
-        
-        let index = showResultTableView.indexPath(for: cell)
-        
-        // TODO: 要更新 (1) 被邀請的成員的 requestingFamily、(2) 此家庭之邀請中的成員
-        // show 不同 alert
-        showAlertOf(message: "邀請成功！")
     }
     
     // TODO: 看要不要改掉用套件
