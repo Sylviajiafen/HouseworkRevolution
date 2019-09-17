@@ -82,7 +82,7 @@ class AddMissionViewController: UIViewController {
     
     var tiredValueInNum: Int = 0
     
-    var selectedDay: String = DayManager.shared.weekday
+    var selectedDay: String = WeekdayInEng.Monday.rawValue
     
     @IBAction func userChangeTiredValue(_ sender: UISlider) {
         
