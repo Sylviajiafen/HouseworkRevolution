@@ -18,9 +18,9 @@ class FirebaseUserHelper {
     
     private init() {}
     
-    static var userID: String = ""
+    static var userID: String = "notSetYet"
     
-    static var familyID: String = ""
+    static var familyID: String = "notSetYet"
     
     static var currentListenerRegistration: ListenerRegistration?
     
@@ -35,19 +35,21 @@ class FirebaseUserHelper {
                                 UserData.name.rawValue: user.name,
                                 UserData.family.rawValue: user.family,
                                 UserData.originFamily.rawValue: user.family,
-                                UserData.wishes.rawValue: user.wishes])
-            { (err) in
-                
-                if let err = err {
-                    
-                    print(err)
-                } else {
-                    
-                    completion()
-                }
-            }
+                                UserData.wishes.rawValue: user.wishes],
+                         completion: { (err) in
+                            
+                            if let err = err {
+                                                                                            
+                              print("Regist ID err: \(err)")
+                                                                                            
+                            } else {
+                                                                                            
+                             print("success create user")
+                            }
+                })
         
         FirebaseUserHelper.userID = ref.documentID
+        completion()
     }
     
     func registDoneWith(_ family: FamilyGroup, username: String, completion: @escaping () -> Void) {
@@ -264,6 +266,7 @@ class FirebaseUserHelper {
             .document(family)
             .collection(CollectionOfFamily.member.rawValue)
         
+        // addSnapshot
         query.addSnapshotListener { (querySnapshot, err) in
             
             if let members = querySnapshot?.documents {
@@ -292,6 +295,7 @@ class FirebaseUserHelper {
         
         let query = db.collection(DataCollection.houseUser.rawValue)
         
+        // addSnapshot
         query.addSnapshotListener { (querySnapshot, err) in
             
             if let houseUsers = querySnapshot?.documents {
@@ -407,8 +411,9 @@ class FirebaseUserHelper {
         let familyQuery = db.collection(DataCollection.houseGroup.rawValue).document(family)
             .collection(CollectionOfFamily.requestedMember.rawValue)
     
-        FirebaseUserHelper.currentListenerRegistration
-         = familyQuery.addSnapshotListener { (querySnapshot, err) in
+        // addSnapshot
+        FirebaseUserHelper.currentListenerRegistration =
+        familyQuery.addSnapshotListener { (querySnapshot, err) in
                         
             var invitedUser = [MemberData]()
                         
@@ -434,6 +439,7 @@ class FirebaseUserHelper {
         let userQuery = db.collection(DataCollection.houseUser.rawValue).document(user)
             .collection(UserData.subCollection.rawValue)
         
+        // addSnapshot
         userQuery.addSnapshotListener { (querySnapshot, err) in
             
             if let querySnapshot = querySnapshot {
