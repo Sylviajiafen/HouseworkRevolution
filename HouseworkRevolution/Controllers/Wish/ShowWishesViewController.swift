@@ -27,6 +27,8 @@ class ShowWishesViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         
+        ProgressHUD.show()
+        
         FirebaseUserHelper.shared.readWishesOf(user: StorageManager.userInfo.userID) { [weak self] (wishesInLamp) in
             
             if wishesInLamp.count == 0 {
