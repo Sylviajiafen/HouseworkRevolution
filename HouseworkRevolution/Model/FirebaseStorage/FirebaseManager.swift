@@ -23,6 +23,10 @@ class FirebaseManager {
     
     static var doneMission = [Mission]()
     
+//    static var currentListenerToUndo: ListenerRegistration?
+    
+//    static var currentListenerToDone: ListenerRegistration?
+    
     static var allMission = [WeekdayInEng.Monday.rawValue: [Mission](),
                              WeekdayInEng.Tuesday.rawValue: [Mission](),
                              WeekdayInEng.Wednesday.rawValue: [Mission](),
@@ -83,7 +87,6 @@ class FirebaseManager {
         }
     }
     
-    
     // 檢查 database 有沒有今天的資料，沒有的話新增
     func checkToday(family: String, completion: @escaping () -> ()){
         
@@ -138,7 +141,7 @@ class FirebaseManager {
         
         // 拿 undo 資料
         missionUndoQuery.whereField(MissionData.status.rawValue, isEqualTo: MissionStatus.undo.rawValue)
-            .getDocuments { [weak self] (querySnapshot, error) in
+            .getDocuments { (querySnapshot, error) in
                 
                 if let querySnapshot = querySnapshot {
                     
@@ -471,7 +474,7 @@ class FirebaseManager {
     }
     
     // 更新 missionBydate collection
-    // 新增
+    // 新增至今日列表
     private func addMissionToMissionByDate(title: String, tiredValue: Int, family: String) { // weekday 記得填入英文的星期
         
         let query =  db.collection(DataCollection.houseGroup.rawValue)
@@ -488,8 +491,8 @@ class FirebaseManager {
         print("同步新增至當日家事列表")
     }
     
-    // 刪除
-    private func deleteMissionFromMissionByDate(title: String, tiredValue: Int, family: String) { // weekday 記得填入英文的星期
+    // 從今日列表中刪除
+    private func deleteMissionFromMissionByDate(title: String, tiredValue: Int, family: String) {
         
         let query =  db.collection(DataCollection.houseGroup.rawValue)
             .document(family)
@@ -499,6 +502,7 @@ class FirebaseManager {
         
         query.whereField(MissionData.title.rawValue, isEqualTo: title)
             .whereField(MissionData.tiredValue.rawValue, isEqualTo: tiredValue)
+            .whereField(MissionData.status.rawValue, isEqualTo: MissionStatus.undo.rawValue) // TODO: 確認是否保留
             .getDocuments { (querySnapshot, error) in
                 
                 if let querySnapshot = querySnapshot {
@@ -506,6 +510,8 @@ class FirebaseManager {
                     if querySnapshot.count == 0 {
                         
                         print("找不到符合條件的家事")
+                        
+                        return
                     }
                     
                     for document in querySnapshot.documents {

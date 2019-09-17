@@ -66,9 +66,31 @@ class ListViewController: UIViewController {
     
     private let spacing: CGFloat = 16.0
     
-    var missionUndoToday = [Mission]()
+    var missionUndoToday = [Mission]() {
+        
+        didSet {
+            
+            DispatchQueue.main.async { [weak self] in
+                
+                self?.dailyMissionCollectionView.reloadData()
+                
+                print("DoneToday: \(self?.missionDoneToday)")
+            }
+        }
+    }
     
-    var missionDoneToday = [Mission]()
+    var missionDoneToday = [Mission]() {
+        
+        didSet {
+            
+            DispatchQueue.main.async { [weak self] in
+                
+                self?.dailyMissionCollectionView.reloadData()
+                
+                print("DoneToday: \(self?.missionDoneToday)")
+            }
+        }
+    }
     
     var missionBeDropped = MissionItem(value: 0, content: "")
     
@@ -455,25 +477,11 @@ extension ListViewController: FirebaseManagerDelegate {
         
         missionUndoToday = didGetUndo
         
-        DispatchQueue.main.async { [weak self] in
-            
-           self?.dailyMissionCollectionView.reloadData()
-            
-            print("UndoToday: \(self?.missionUndoToday)")
-        }
-        
     }
     
     func getDoneListToday(_ manager: FirebaseManager, didGetDone: [Mission]) {
         
         missionDoneToday = didGetDone
-        
-        DispatchQueue.main.async { [weak self] in
-            
-            self?.dailyMissionCollectionView.reloadData()
-            
-            print("DoneToday: \(self?.missionDoneToday)")
-        }
         
     }
 
