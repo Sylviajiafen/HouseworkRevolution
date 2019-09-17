@@ -50,11 +50,8 @@ class FamilyViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
-        print("view will appear")
-        
+
         getHomeData()
-        
     }
     
     @IBAction func editUserCall(_ sender: Any) {
@@ -223,12 +220,16 @@ class FamilyViewController: UIViewController {
             }, familyNameHandler: { [weak self] (familyName) in
                 
                 self?.familyNameLabel.text = familyName
+                
+                ProgressHUD.dismiss()
         })
         
         FirebaseUserHelper.shared.getFamilyMembers(family: StorageManager.userInfo.familyID,
             handler: { [weak self] (memberData) in
                                                     
                 self?.familyMember = memberData
+                
+                ProgressHUD.dismiss()
         })
         
         FirebaseUserHelper.shared.showInvites(family: StorageManager.userInfo.familyID,
@@ -240,6 +241,8 @@ class FamilyViewController: UIViewController {
             }, invitingFamily: { [weak self] (invitingFamilies) in
                 
                 self?.invitingFamilyList = invitingFamilies
+                
+                ProgressHUD.dismiss()
         })
     }
     
@@ -475,12 +478,12 @@ extension FamilyViewController: InvitingFamilyTableViewCellDelegate {
         
         let inviterFamilyID = invitingFamilyList[index.row].familyID
         
+        FirebaseUserHelper.currentListenerRegistration?.remove()
+        
         FirebaseUserHelper.shared.acceptInvitation(from: inviterFamilyID,
                                                    myID: StorageManager.userInfo.userID,
                                                    myName: myName)
         
-        FirebaseUserHelper.currentListenerRegistration?.remove()
-       
         StorageManager.shared.updateFamily(familyID: inviterFamilyID,
                 completion: { [weak self] in
                     

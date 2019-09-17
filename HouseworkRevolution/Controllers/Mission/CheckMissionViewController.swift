@@ -25,6 +25,8 @@ class CheckMissionViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         
+        ProgressHUD.show()
+        
         for weekdays in DayManager.weekdayInEng {
             
             FirebaseManager.shared.getAllMissions(family: StorageManager.userInfo.familyID,
@@ -34,10 +36,9 @@ class CheckMissionViewController: UIViewController {
                                                     
                 DispatchQueue.main.async {
                     
-                    print("reload")
-                    
                     self?.missionListTableView.reloadData()
                     
+                    ProgressHUD.dismiss()
                 }
             }
         }

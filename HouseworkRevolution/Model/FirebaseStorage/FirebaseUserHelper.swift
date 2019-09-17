@@ -213,6 +213,8 @@ class FirebaseUserHelper {
                         userNameHandler: @escaping (String) -> Void,
                         familyNameHandler: @escaping (String) -> Void) {
         
+        ProgressHUD.show()
+        
         let userIDQuery = db.collection(DataCollection.houseUser.rawValue).document(user)
         
         userIDQuery.getDocument { (document, err) in
@@ -229,6 +231,8 @@ class FirebaseUserHelper {
             } else if let err = err {
                 
                 print("get doc failure: \(err)")
+                
+                ProgressHUD.dismiss()
             }
         }
         
@@ -254,6 +258,8 @@ class FirebaseUserHelper {
     
     func getFamilyMembers(family: String, handler: @escaping ([MemberData]) -> Void) {
         
+        ProgressHUD.show()
+        
         let query = db.collection(DataCollection.houseGroup.rawValue)
             .document(family)
             .collection(CollectionOfFamily.member.rawValue)
@@ -276,6 +282,8 @@ class FirebaseUserHelper {
             } else if let err = err {
                 
                 print("get doc failure: \(err)")
+                
+                ProgressHUD.dismiss()
             }
         }
     }
@@ -394,6 +402,8 @@ class FirebaseUserHelper {
                      invitedMember: @escaping ([MemberData]) -> Void,
                      invitingFamily: @escaping ([InvitingFamily]) -> Void) {
         
+        ProgressHUD.show()
+        
         let familyQuery = db.collection(DataCollection.houseGroup.rawValue).document(family)
             .collection(CollectionOfFamily.requestedMember.rawValue)
     
@@ -416,6 +426,7 @@ class FirebaseUserHelper {
     
             } else if let err = err {
                 
+                ProgressHUD.dismiss()
                 print("check query err: \(err)")
             }
         }
@@ -444,6 +455,7 @@ class FirebaseUserHelper {
                 
             } else if let err = err {
                 
+                ProgressHUD.dismiss()
                 print("get inviting family err: \(err)")
             }
         }
