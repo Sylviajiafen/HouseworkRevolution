@@ -20,13 +20,12 @@ class SearchUserViewController: UIViewController {
         showResultTableView.dataSource = self
         
         print("Inviter: User => \(inviterUserName), Family => \(inviterFamilyName)")
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
         
         FirebaseUserHelper.shared.getAllUser { [weak self] (allUsers) in
             
             self?.userData = allUsers
+            
+            self?.updateResult()
         }
     }
     
@@ -182,19 +181,5 @@ extension SearchUserViewController: UITableViewDataSource,
         
         shouldShowSearchResult = false
     }
-    
-    // TODO: 看要不要改掉用套件
-//    func showAlertOfAddingMember(message: String) {
-//
-//        let alert = UIAlertController(title: message, message: nil, preferredStyle: .alert)
-//
-//        let action = UIAlertAction(title: "OK", style: .cancel)
-//
-//        action.setValue(UIColor.lightGreen, forKey: "titleTextColor")
-//
-//        alert.addAction(action)
-//
-//        present(alert, animated: true, completion: nil)
-//    }
     
 }

@@ -22,6 +22,8 @@ class FirebaseUserHelper {
     
     static var familyID: String = ""
     
+    static var currentListenerRegistration: ListenerRegistration?
+    
     private let db = Firestore.firestore()
     
     // MARK: 註冊功能
@@ -256,11 +258,11 @@ class FirebaseUserHelper {
             .document(family)
             .collection(CollectionOfFamily.member.rawValue)
         
-        var membersArr = [MemberData]()
-        
-        query.getDocuments { (querySnapshot, err) in
+        query.addSnapshotListener { (querySnapshot, err) in
             
             if let members = querySnapshot?.documents {
+                
+                var membersArr = [MemberData]()
                 
                 for member in members {
                     
@@ -280,13 +282,13 @@ class FirebaseUserHelper {
     
     func getAllUser(result: @escaping ([MemberData]) -> Void) {
         
-        var allUser = [MemberData]()
-        
         let query = db.collection(DataCollection.houseUser.rawValue)
         
-        query.getDocuments { (querySnapshot, err) in
+        query.addSnapshotListener { (querySnapshot, err) in
             
             if let houseUsers = querySnapshot?.documents {
+                
+                var allUser = [MemberData]()
                 
                 for user in houseUsers {
                     
@@ -394,38 +396,38 @@ class FirebaseUserHelper {
         
         let familyQuery = db.collection(DataCollection.houseGroup.rawValue).document(family)
             .collection(CollectionOfFamily.requestedMember.rawValue)
-        
-        familyQuery.getDocuments { (querySnapshot, err) in
-            
+    
+        FirebaseUserHelper.currentListenerRegistration
+         = familyQuery.addSnapshotListener { (querySnapshot, err) in
+                        
             var invitedUser = [MemberData]()
-            
+                        
             if let querySnapshot = querySnapshot {
-                
+                            
                 for invited in querySnapshot.documents {
-                    
+                                
                     guard let id = invited[RequestedMember.userID.rawValue] as? String,
-                        let name = invited[RequestedMember.username.rawValue] as? String else { return }
-                    
+                            let name = invited[RequestedMember.username.rawValue] as? String else { return }
+                                
                     invitedUser.append(MemberData(id: id, name: name))
                 }
-            
+                            
                 invitedMember(invitedUser)
-                
+    
             } else if let err = err {
                 
-                print("get invited member err: \(err)")
+                print("check query err: \(err)")
             }
-
         }
         
         let userQuery = db.collection(DataCollection.houseUser.rawValue).document(user)
             .collection(UserData.subCollection.rawValue)
         
-        userQuery.getDocuments { (querySnapshot, err) in
-            
-            var invitingGroup = [InvitingFamily]()
+        userQuery.addSnapshotListener { (querySnapshot, err) in
             
             if let querySnapshot = querySnapshot {
+                
+                var invitingGroup = [InvitingFamily]()
                 
                 for inviting in querySnapshot.documents {
                     
@@ -568,11 +570,16 @@ class FirebaseUserHelper {
     
 // MARK: 變更名稱
     
-    func changeName(user: String, to newName: String) {
+    func changeName(user: String, to newName: String, currentFamily: String) {
         
         let query = db.collection(DataCollection.houseUser.rawValue).document(user)
         
         query.setData([UserData.name.rawValue: newName], merge: true)
+        
+        let familyQuery = db.collection(DataCollection.houseGroup.rawValue).document(currentFamily)
+                                .collection(CollectionOfFamily.member.rawValue).document(user)
+        
+        familyQuery.setData([UserData.name.rawValue: newName], merge: true)
     }
     
     func changFamilyName(family: String, to new: String) {

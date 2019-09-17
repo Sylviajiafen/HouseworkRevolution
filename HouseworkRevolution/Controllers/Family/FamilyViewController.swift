@@ -46,37 +46,14 @@ class FamilyViewController: UIViewController {
         
         invitingFamilyTableView.register(headerXibOfInviting,
                                          forHeaderFooterViewReuseIdentifier: String(describing: InvitingFamilySectionHeaderView.self))
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         
-        FirebaseUserHelper.shared.getHomeDatasOf(user: StorageManager.userInfo.userID,
-                                                 family: StorageManager.userInfo.familyID,
-            userNameHandler: { [weak self] (userName) in
-                                                    
-             self?.userCallLabel.text = userName
-                
-        }, familyNameHandler: { [weak self] (familyName) in
-            
-            self?.familyNameLabel.text = familyName
-        })
+        print("view will appear")
         
-        FirebaseUserHelper.shared.getFamilyMembers(family: StorageManager.userInfo.familyID,
-            handler: { [weak self] (memberData) in
-                
-                self?.familyMember = memberData
-        })
-        
-        FirebaseUserHelper.shared.showInvites(family: StorageManager.userInfo.familyID,
-                                              user: StorageManager.userInfo.userID,
-            invitedMember: { [weak self] (invitedMembers) in
-        
-            self?.invitedMemberList = invitedMembers
-        
-        }, invitingFamily: { [weak self] (invitingFamilies) in
-            
-            self?.invitingFamilyList = invitingFamilies
-        })
+        getHomeData()
         
     }
     
@@ -94,7 +71,8 @@ class FamilyViewController: UIViewController {
             self?.userCallLabel.text = alert.textFields?[0].text
             
             FirebaseUserHelper.shared.changeName(user: StorageManager.userInfo.userID,
-                                                 to: newName)
+                                                 to: newName,
+                                                 currentFamily: StorageManager.userInfo.familyID)
         }
         
         okAction.setValue(UIColor.lightGreen, forKey: "titleTextColor")
@@ -148,24 +126,23 @@ class FamilyViewController: UIViewController {
         
         let okAction = UIAlertAction(title: "確定", style: .default) { [weak self] _ in
             
+            FirebaseUserHelper.currentListenerRegistration?.remove()
+            
             FirebaseUserHelper.shared.dropOutFamily(familyID: StorageManager.userInfo.familyID,
                                                     user: StorageManager.userInfo.userID,
                 getOriginFamily: { [weak self] (origin) in
                     
-                    StorageManager.shared.updateFamily(familyID: origin)
+                    StorageManager.shared.updateFamily(familyID: origin,
+                        completion: { [weak self] in
+                            
+                            self?.getHomeData()
+                            
+                            DispatchQueue.main.async {
+                                
+                                self?.isOriginOrNot()
+                            }
+                    })
                     
-                    print("Change family to: \(StorageManager.userInfo.familyID)")
-                    
-                    DispatchQueue.main.async {
-                        
-                        self?.dropOutView.isHidden = true
-                        
-                        self?.familyMemberTableView.reloadData()
-                        
-                        self?.invitingFamilyTableView.reloadData()
-                        
-                        self?.showInvitingOrNot()
-                    }
             })
         }
         
@@ -233,6 +210,37 @@ class FamilyViewController: UIViewController {
                 self?.dropOutView.isHidden = false
             }
         }
+    }
+    
+    func getHomeData() {
+        
+        FirebaseUserHelper.shared.getHomeDatasOf(user: StorageManager.userInfo.userID,
+                                                 family: StorageManager.userInfo.familyID,
+            userNameHandler: { [weak self] (userName) in
+                                                    
+                self?.userCallLabel.text = userName
+                                                    
+            }, familyNameHandler: { [weak self] (familyName) in
+                
+                self?.familyNameLabel.text = familyName
+        })
+        
+        FirebaseUserHelper.shared.getFamilyMembers(family: StorageManager.userInfo.familyID,
+            handler: { [weak self] (memberData) in
+                                                    
+                self?.familyMember = memberData
+        })
+        
+        FirebaseUserHelper.shared.showInvites(family: StorageManager.userInfo.familyID,
+                                              user: StorageManager.userInfo.userID,
+            invitedMember: { [weak self] (invitedMembers) in
+                                                
+                self?.invitedMemberList = invitedMembers
+                                                
+            }, invitingFamily: { [weak self] (invitingFamilies) in
+                
+                self?.invitingFamilyList = invitingFamilies
+        })
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -467,20 +475,16 @@ extension FamilyViewController: InvitingFamilyTableViewCellDelegate {
         FirebaseUserHelper.shared.acceptInvitation(from: inviterFamilyID,
                                                    myID: StorageManager.userInfo.userID,
                                                    myName: myName)
-
+        
+        FirebaseUserHelper.currentListenerRegistration?.remove()
+       
         StorageManager.shared.updateFamily(familyID: inviterFamilyID,
                 completion: { [weak self] in
                     
-                    self?.invitingFamilyList.remove(at: index.row)
-                    
+                    self?.getHomeData()
+
                     DispatchQueue.main.async {
-                        
-                        self?.familyMemberTableView.reloadData()
-                        
-                        self?.invitingFamilyTableView.reloadData()
-                        
-                        self?.showInvitingOrNot()
-                        
+    
                         self?.isOriginOrNot()
                     }
         })
@@ -494,10 +498,7 @@ extension FamilyViewController: InvitingFamilyTableViewCellDelegate {
         let inviterFamilyID = invitingFamilyList[index.row].familyID
         
         FirebaseUserHelper.shared.rejectInvitation(from: inviterFamilyID, myID: StorageManager.userInfo.userID)
-        
-        invitingFamilyList.remove(at: index.row)
-        
-        invitingFamilyTableView.reloadData()
+    
     }
     
 }
