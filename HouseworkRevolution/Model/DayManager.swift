@@ -45,4 +45,42 @@ class DayManager {
         weekday = weekdayFormatter.string(from: today)
     }
     
+    func changeWeekdayIntoCH(weekday: String) -> String {
+        
+        switch weekday {
+            
+        case WeekdayInEng.Monday.rawValue:
+            
+            return Weekdays.Monday.rawValue
+            
+        case WeekdayInEng.Tuesday.rawValue:
+            
+            return Weekdays.Tuesday.rawValue
+        
+        case WeekdayInEng.Wednesday.rawValue:
+            
+            return Weekdays.Wednesday.rawValue
+            
+        case WeekdayInEng.Thursday.rawValue:
+            
+            return Weekdays.Thursday.rawValue
+            
+        case WeekdayInEng.Friday.rawValue:
+            
+            return Weekdays.Friday.rawValue
+            
+        case WeekdayInEng.Saturday.rawValue:
+            
+            return Weekdays.Saturday.rawValue
+            
+        case WeekdayInEng.Sunday.rawValue:
+            
+            return Weekdays.Sunday.rawValue
+            
+        default:
+            
+            return ""
+        }
+    }
+    
 }

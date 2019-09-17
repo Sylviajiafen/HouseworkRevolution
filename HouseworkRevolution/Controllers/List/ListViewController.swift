@@ -13,6 +13,8 @@ class ListViewController: UIViewController {
     @IBOutlet weak var magicLampView: UIView!
     @IBOutlet weak var lampViewWishLabel: UILabel!
     @IBOutlet weak var skipBtn: UIButton!
+    @IBOutlet weak var emptyMissionView: UIView!
+    @IBOutlet weak var showNoMissionLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +27,12 @@ class ListViewController: UIViewController {
         skipBtn.alpha = 0.0
         
         setUpCollectionView()
+        
+        emptyMissionView.isHidden = true
+        
+        let today = DayManager.shared.changeWeekdayIntoCH(weekday: DayManager.shared.weekday)
+        
+        showNoMissionLabel.text = "尚未設定今天（\(today)）的家事"
         
         FirebaseManager.shared.delegate = self
 
@@ -74,8 +82,11 @@ class ListViewController: UIViewController {
                 
                 self?.dailyMissionCollectionView.reloadData()
                 
+                self?.isMissionEmpty()
+                
                 print("DoneToday: \(self?.missionDoneToday)")
             }
+            
         }
     }
     
@@ -86,6 +97,8 @@ class ListViewController: UIViewController {
             DispatchQueue.main.async { [weak self] in
                 
                 self?.dailyMissionCollectionView.reloadData()
+                
+                self?.isMissionEmpty()
                 
                 print("DoneToday: \(self?.missionDoneToday)")
             }
@@ -226,6 +239,26 @@ class ListViewController: UIViewController {
         alert.addAction(cancelAction)
         
         present(alert, animated: true, completion: nil)
+    }
+    
+    func isMissionEmpty() {
+        
+        if missionUndoToday.count == 0 && missionDoneToday.count == 0 {
+            
+            emptyMissionView.isHidden = false
+        } else {
+            
+            emptyMissionView.isHidden = true
+        }
+    }
+    
+    @IBAction func goToAddMission(_ sender: Any) {
+        
+        let appdelegate = UIApplication.shared.delegate as? AppDelegate
+        
+        let root = appdelegate?.window?.rootViewController as? TabBarController
+        
+        root?.selectedIndex = 1
     }
 }
 

@@ -168,7 +168,5 @@ extension CheckMissionViewController: UITableViewDelegate,
             
             self?.missionListTableView.reloadData()
         }
-        
     }
-    
 }
