@@ -169,6 +169,7 @@ class FamilyViewController: UIViewController {
         didSet {
             
             familyMemberTableView.reloadData()
+
         }
     }
     

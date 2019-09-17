@@ -179,9 +179,7 @@ class AuthViewController: UIViewController {
         
                     UserDefaults.standard.set("isLoggedIn", forKey: "userKey")
                     
-                    let rootVC = UIStoryboard.main.instantiateInitialViewController()!
-                    
-                    self.show(rootVC, sender: nil)
+                    self.showLogin(message: "註冊完成")
                 }
             }
         }

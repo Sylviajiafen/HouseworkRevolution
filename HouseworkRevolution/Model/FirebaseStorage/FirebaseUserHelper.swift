@@ -594,6 +594,24 @@ class FirebaseUserHelper {
         
         query.setData([UserData.name.rawValue: newName], merge: true)
         
+        query.getDocument { [weak self] (querySnapshot, err) in
+            
+            if let snapshot = querySnapshot {
+                
+                guard let originFamilyID = snapshot[UserData.originFamily.rawValue]
+                    as? String else { print("找不到原本的家"); return }
+                
+                // 更動原本家庭的 member name
+                self?.db.collection(DataCollection.houseGroup.rawValue).document(originFamilyID)
+                .collection(CollectionOfFamily.member.rawValue).document(user)
+                .setData([UserData.name.rawValue: newName], merge: true)
+                
+            } else if let err = err {
+               
+                print("set name err: \(err)")
+            }
+        }
+        
         let familyQuery = db.collection(DataCollection.houseGroup.rawValue).document(currentFamily)
                                 .collection(CollectionOfFamily.member.rawValue).document(user)
         
