@@ -140,14 +140,11 @@ class FamilyViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    // TODO: 待測試
     @IBAction func dropOutFamily(_ sender: Any) {
         
         let alert = UIAlertController(title: "退出家庭",
                                       message: "如果選擇退出，將會回到註冊時的家庭，確定嗎？",
                                       preferredStyle: .alert)
-        
-        alert.addTextField(configurationHandler: nil)
         
         let okAction = UIAlertAction(title: "確定", style: .default) { [weak self] _ in
             
@@ -159,7 +156,16 @@ class FamilyViewController: UIViewController {
                     
                     print("Change family to: \(StorageManager.userInfo.familyID)")
                     
-                    self?.dropOutView.isHidden = true
+                    DispatchQueue.main.async {
+                        
+                        self?.dropOutView.isHidden = true
+                        
+                        self?.familyMemberTableView.reloadData()
+                        
+                        self?.invitingFamilyTableView.reloadData()
+                        
+                        self?.showInvitingOrNot()
+                    }
             })
         }
         
@@ -307,7 +313,7 @@ extension FamilyViewController: UITableViewDelegate, UITableViewDataSource {
             case 1:
                 header.sectionTitleLabel.text = "邀請中的成員"
                 header.addCorner()
-                header.sectionContentView.alpha = 0.6
+                header.sectionContentView.alpha = 1.0
                 return header
                 
             default:
@@ -333,10 +339,11 @@ extension FamilyViewController: UITableViewDelegate, UITableViewDataSource {
         
         if tableView == familyMemberTableView {
             
-            return 10.0
+            return 20.0
+            
         } else {
             
-            return 0
+            return 0.000001
         }
     }
     
@@ -437,11 +444,60 @@ extension FamilyViewController: UITableViewDelegate, UITableViewDataSource {
             
             invitingListCell.invitingFamilyName.text = invitingFamilyList[indexPath.row].familyName
             
+            invitingListCell.delegate = self
+            
             return invitingListCell
             
         default:
             return UITableViewCell()
         }
+    }
+    
+}
+
+extension FamilyViewController: InvitingFamilyTableViewCellDelegate {
+    
+    func acceptInvitation(_ cell: InvitingFamilyTableViewCell) {
+        
+        guard let index = invitingFamilyTableView.indexPath(for: cell),
+         let myName = userCallLabel.text else { return }
+        
+        let inviterFamilyID = invitingFamilyList[index.row].familyID
+        
+        FirebaseUserHelper.shared.acceptInvitation(from: inviterFamilyID,
+                                                   myID: StorageManager.userInfo.userID,
+                                                   myName: myName)
+
+        StorageManager.shared.updateFamily(familyID: inviterFamilyID,
+                completion: { [weak self] in
+                    
+                    self?.invitingFamilyList.remove(at: index.row)
+                    
+                    DispatchQueue.main.async {
+                        
+                        self?.familyMemberTableView.reloadData()
+                        
+                        self?.invitingFamilyTableView.reloadData()
+                        
+                        self?.showInvitingOrNot()
+                        
+                        self?.isOriginOrNot()
+                    }
+        })
+        
+    }
+    
+    func rejectInvitation(_ cell: InvitingFamilyTableViewCell) {
+        
+        guard let index = invitingFamilyTableView.indexPath(for: cell) else { return }
+        
+        let inviterFamilyID = invitingFamilyList[index.row].familyID
+        
+        FirebaseUserHelper.shared.rejectInvitation(from: inviterFamilyID, myID: StorageManager.userInfo.userID)
+        
+        invitingFamilyList.remove(at: index.row)
+        
+        invitingFamilyTableView.reloadData()
     }
     
 }

@@ -10,6 +10,7 @@ import Foundation
 import Firebase
 
 typealias LoggedInResult = (LoginResult<String>) -> Void
+typealias AddMemberResult = (SendInvitationResult<String>) -> Void
 
 class FirebaseUserHelper {
     
@@ -106,12 +107,12 @@ class FirebaseUserHelper {
                     
                 } else {
     
-                    completion?(LoginResult.failed(LoginError.uncorrectPassword.rawValue))
+                    completion?(LoginResult.failed(LoginError.uncorrectPassword))
                 }
                 
             } else {
                 
-                completion?(LoginResult.failed(LoginError.userDidNotExist.rawValue))
+                completion?(LoginResult.failed(LoginError.userDidNotExist))
             }
         }
     }
@@ -277,41 +278,6 @@ class FirebaseUserHelper {
         }
     }
     
-    // 可能不要這個 function, 因為 user 每打一個字就打一次 api...
-    func searchForID(contains searchingString: String, result: @escaping ([MemberData]) -> Void) {
-        
-        var allUser = [MemberData]()
-        
-        var filtered = [MemberData]()
-        
-        let query = db.collection(DataCollection.houseUser.rawValue)
-        
-        query.getDocuments { (querySnapshot, err) in
-            
-            if let houseUsers = querySnapshot?.documents {
-                
-                for user in houseUsers {
-                    
-                    guard let userName = user[UserData.name.rawValue] as? String else { return }
-                    
-                    allUser.append(MemberData(id: user.documentID, name: userName))
-                    
-                    filtered = allUser.filter({ (data) -> Bool in
-                        
-                        return data.id.contains(searchingString)
-                    })
-                    
-                    result(filtered)
-                }
-                
-            } else if let err = err {
-                
-                print("get doc failure: \(err)")
-            }
-            
-        }
-    }
-    
     func getAllUser(result: @escaping ([MemberData]) -> Void) {
         
         var allUser = [MemberData]()
@@ -340,7 +306,8 @@ class FirebaseUserHelper {
     
 // MARK: 邀請成員
     func inviteMember(id: String, name: String, from familyID: String,
-                      familyName: String, inviter whoseName: String) {
+                      familyName: String, inviter whoseName: String,
+                      invitorCompletion: @escaping AddMemberResult) {
         
         print("inviting...")
         
@@ -356,7 +323,7 @@ class FirebaseUserHelper {
                 if doc.exists {
                     
                     print("已經是成員囉")
-                    return
+                    invitorCompletion(.failed(.memberAlreadyExist))
                     
                 } else {
                     
@@ -370,19 +337,22 @@ class FirebaseUserHelper {
                                 if querySnapshot.count > 0 {
                                     
                                     print("TODO: 告訴 user 重複邀請了")
+                                    invitorCompletion(.failed(.duplicatedInvitation))
                                     
                                 } else {
                                     
                                     familyQuery.collection(CollectionOfFamily.requestedMember.rawValue)
                                         .addDocument(data: [RequestedMember.username.rawValue : name,
                                                             RequestedMember.userID.rawValue: id])
+                                    
+                                    invitorCompletion(.success("邀請成功！"))
                                 }
                                 
                             } else if let err = err {
                                 
                                 print("familyQueryErr: \(err)")
                             }
-                    }
+                        }
                     
                     // 被邀請的成員加入邀請我的家庭
                     userQuery.collection(UserData.subCollection.rawValue)
@@ -525,7 +495,7 @@ class FirebaseUserHelper {
                 
                 if let querySnapshot = querySnapshot {
                     
-                    querySnapshot.documents.map({ (document) -> () in
+                    querySnapshot.documents.map({ (document) -> Void in
                         
                         memberQuery.document(document.documentID).delete()
                     })

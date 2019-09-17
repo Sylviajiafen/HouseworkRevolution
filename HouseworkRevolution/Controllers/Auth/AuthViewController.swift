@@ -213,7 +213,7 @@ class AuthViewController: UIViewController {
                         
                 case .failed(let err):
                     
-                    self?.showAlertOf(message: err)
+                    self?.showAlertOf(message: err.rawValue)
                     
                 }
             }

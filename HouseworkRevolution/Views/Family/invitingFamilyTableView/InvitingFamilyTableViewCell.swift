@@ -14,6 +14,8 @@ class InvitingFamilyTableViewCell: UITableViewCell {
     
     @IBOutlet weak var invitingFamilyName: UILabel!
     
+    weak var delegate: InvitingFamilyTableViewCellDelegate?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -21,8 +23,23 @@ class InvitingFamilyTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
+    
+    @IBAction func accept(_ sender: Any) {
+        
+        self.delegate?.acceptInvitation(self)
+    }
+    
+    @IBAction func reject(_ sender: Any) {
+        
+        self.delegate?.rejectInvitation(self)
+    }
+    
+}
 
+protocol InvitingFamilyTableViewCellDelegate: AnyObject {
+    
+    func acceptInvitation(_ cell: InvitingFamilyTableViewCell)
+    
+    func rejectInvitation(_ cell: InvitingFamilyTableViewCell)
 }

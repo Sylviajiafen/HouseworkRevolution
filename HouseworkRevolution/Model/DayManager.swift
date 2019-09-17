@@ -12,9 +12,21 @@ class DayManager {
     
     static let shared = DayManager()
     
-    static let weekdayInCH: [Weekdays] = [.Monday, .Tuesday, .Wednesday, .Thursday, .Friday, .Saturday, .Sunday]
+    static let weekdayInCH: [Weekdays] = [.Monday,
+                                          .Tuesday,
+                                          .Wednesday,
+                                          .Thursday,
+                                          .Friday,
+                                          .Saturday,
+                                          .Sunday]
     
-    static let weekdayInEng: [WeekdayInEng] = [.Monday, .Tuesday, .Wednesday, .Thursday, .Friday, .Saturday, .Sunday]
+    static let weekdayInEng: [WeekdayInEng] = [.Monday,
+                                               .Tuesday,
+                                               .Wednesday,
+                                               .Thursday,
+                                               .Friday,
+                                               .Saturday,
+                                               .Sunday]
     
     private let today = Date()
     private let dateFormatter = DateFormatter()

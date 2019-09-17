@@ -145,7 +145,14 @@ enum LoginResult<T> {
     
     case success(T)
     
-    case failed(T)
+    case failed(LoginError)
+}
+
+enum SendInvitationResult<T> {
+    
+    case success(T)
+    
+    case failed(InvitationErr)
 }
 
 enum LoginError: String {
@@ -153,6 +160,13 @@ enum LoginError: String {
     case userDidNotExist = "沒有註冊過唷"
     
     case uncorrectPassword = "密碼不正確"
+}
+
+enum InvitationErr: String {
+    
+    case duplicatedInvitation = "已邀請過囉"
+    
+    case memberAlreadyExist = "已是家人囉"
 }
 
 // Local Storage
@@ -183,4 +197,3 @@ enum Result<T> {
     
     case failure(Error)
 }
-

@@ -10,6 +10,7 @@ import Foundation
 import CoreData
 
 typealias UserInfoResult = (Result<[UserInfo]>) -> Void
+typealias ChangeFamily = () -> Void
 
 class StorageManager {
     
@@ -91,7 +92,7 @@ class StorageManager {
             }
     }
     
-    func updateFamily(familyID: String) {
+    func updateFamily(familyID: String, completion: ChangeFamily? = nil) {
         
          let request = NSFetchRequest<UserInfo>(entityName: "UserInfo")
         
@@ -108,6 +109,8 @@ class StorageManager {
                 try viewContext.save()
                 
                 fetchUserInfo()
+                
+                completion?()
                 
             } catch {
                 

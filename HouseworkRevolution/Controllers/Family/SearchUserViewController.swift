@@ -34,6 +34,10 @@ class SearchUserViewController: UIViewController {
         
         shouldShowSearchResult = false
         self.dismiss(animated: true, completion: nil)
+        
+        // TODO: rootView reload
+        
+//        let root =segu
     }
     
     var shouldShowSearchResult: Bool = false {
@@ -157,8 +161,21 @@ extension SearchUserViewController: UITableViewDataSource,
                                                    name: filteredData[index.row].name,
                                                    from: StorageManager.userInfo.familyID,
                                                    familyName: inviterFamilyName,
-                                                   inviter: inviterUserName)
-            showAlertOf(message: "邀請成功！")
+                                                   inviter: inviterUserName,
+                invitorCompletion: { [weak self] (result) in
+                    
+                    switch result {
+                        
+                    case .success(let message):
+                        
+                        self?.showAlertOf(message: message)
+                        
+                    case .failed(let err):
+                        
+                        self?.showAlertOf(message: err.rawValue)
+                    }
+                                                    
+            })
         }
         
         userIdSearchBar.text = ""
