@@ -508,7 +508,6 @@ class FirebaseManager {
         
         query.whereField(MissionData.title.rawValue, isEqualTo: title)
             .whereField(MissionData.tiredValue.rawValue, isEqualTo: tiredValue)
-            .whereField(MissionData.status.rawValue, isEqualTo: MissionStatus.undo.rawValue) // TODO: 確認是否保留
             .getDocuments { (querySnapshot, error) in
                 
                 if let querySnapshot = querySnapshot {
