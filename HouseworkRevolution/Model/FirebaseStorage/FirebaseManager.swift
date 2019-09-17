@@ -111,13 +111,13 @@ class FirebaseManager {
                         print("有資料ㄌ")
                     }
                     
+                    completion()
+                    print("建完了")
+                    
                 } else if let error = error {
                     
                     print(error)
                 }
-                
-                completion()
-                print("建完了")
         }
     }
     
@@ -157,17 +157,14 @@ class FirebaseManager {
                         undoMissions.append(Mission(title: title, tiredValue: tiredValue))
                         
                         FirebaseManager.undoMission = undoMissions
-                        
-                        //                            undoHandler (FirebaseManager.undoMission)
-                        
                     }
+                    
+                    undoHandler (FirebaseManager.undoMission)
                     
                 } else if let err = error {
                     
                     print("Error getting docs: \(err)")
                 }
-                
-                undoHandler (FirebaseManager.undoMission)
         }
         
         // 拿 done 資料
@@ -191,17 +188,14 @@ class FirebaseManager {
                         doneMissions.append(Mission(title: title, tiredValue: tiredValue))
                         
                         FirebaseManager.doneMission = doneMissions
-                        
-                        //                        doneHandler (FirebaseManager.doneMission)
-                        
                     }
+                    
+                    doneHandler (FirebaseManager.doneMission)
                     
                 } else if let err = error {
                     
                     print("Error getting docs: \(err)")
                 }
-                
-                doneHandler (FirebaseManager.doneMission)
         }
     }
     
@@ -234,12 +228,12 @@ class FirebaseManager {
                         FirebaseManager.undoMission.append(Mission(title: title, tiredValue: tiredValue))
                     }
                     
+                    self.delegate?.getUndoListToday(self, didGetUndo: FirebaseManager.undoMission)
+                    
                 } else if let err = error {
                     
                     print("Error getting docs: \(err)")
                 }
-                
-                self.delegate?.getUndoListToday(self, didGetUndo: FirebaseManager.undoMission)
         }
         
         // 拿 done 資料
@@ -258,12 +252,12 @@ class FirebaseManager {
                         FirebaseManager.doneMission.append(Mission(title: title, tiredValue: tiredValue))
                     }
                     
+                    self.delegate?.getDoneListToday(self, didGetDone: FirebaseManager.doneMission)
+                    
                 } else if let err = error {
                     
                     print("Error getting docs: \(err)")
                 }
-                
-                self.delegate?.getDoneListToday(self, didGetDone: FirebaseManager.doneMission)
         }
     }
     
@@ -338,17 +332,15 @@ class FirebaseManager {
                                 let tiredValue = querySnapshot.documents[index][MissionData.tiredValue.rawValue] as? Int else { return }
                         
                             FirebaseManager.allMission[day]?.append(Mission(title: title, tiredValue: tiredValue))
-                        
-                        //                    handler(FirebaseManager.allMission[day] ?? [])
                         }
                     }
+                    
+                    handler(FirebaseManager.allMission[day] ?? [])
                     
                 } else if let err = err {
                     
                     print("Error getting documents: \(err)")
                 }
-                
-                handler(FirebaseManager.allMission[day] ?? [])
         }
         
     }

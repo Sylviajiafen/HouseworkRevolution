@@ -266,16 +266,14 @@ class FirebaseUserHelper {
                     guard let name = member["name"] as? String else { return }
                     
                     membersArr.append(MemberData(id: member.documentID, name: name))
-                    
-                    //                    handler(membersArr)
                 }
+                
+                handler(membersArr)
                 
             } else if let err = err {
                 
                 print("get doc failure: \(err)")
             }
-            
-            handler(membersArr)
         }
     }
     
@@ -329,16 +327,14 @@ class FirebaseUserHelper {
                     guard let userName = user[UserData.name.rawValue] as? String else { return }
                     
                     allUser.append(MemberData(id: user.documentID, name: userName))
-                    
-                    //                    result(allUser)
                 }
+                
+                result(allUser)
                 
             } else if let err = err {
                 
                 print("get doc failure: \(err)")
             }
-            
-            result(allUser)
         }
     }
     
@@ -439,15 +435,15 @@ class FirebaseUserHelper {
                         let name = invited[RequestedMember.username.rawValue] as? String else { return }
                     
                     invitedUser.append(MemberData(id: id, name: name))
-                    
                 }
+            
+                invitedMember(invitedUser)
                 
             } else if let err = err {
                 
                 print("get invited member err: \(err)")
             }
-            
-            invitedMember(invitedUser)
+
         }
         
         let userQuery = db.collection(DataCollection.houseUser.rawValue).document(user)
@@ -468,15 +464,14 @@ class FirebaseUserHelper {
                     invitingGroup.append(InvitingFamily(familyID: familyId,
                                                         familyName: familyName,
                                                         from: inviter))
-                    
                 }
+                
+                invitingFamily(invitingGroup)
                 
             } else if let err = err {
                 
                 print("get inviting family err: \(err)")
             }
-            
-            invitingFamily(invitingGroup)
         }
     }
     
