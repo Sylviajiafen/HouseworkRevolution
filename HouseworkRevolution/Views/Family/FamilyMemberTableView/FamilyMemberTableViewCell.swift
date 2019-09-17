@@ -12,6 +12,9 @@ class FamilyMemberTableViewCell: UITableViewCell {
 
     @IBOutlet weak var memberCall: UILabel!
     @IBOutlet weak var memberId: UILabel!
+    @IBOutlet weak var cancelInvitationBtn: UIButton!
+    
+    weak var delegate: FamilyMemberTableViewCellDelegate?
     
     func setLabelColor(background: UIColor?, textColor: UIColor?, idTextColor: UIColor?, alpha: CGFloat) {
         
@@ -37,4 +40,15 @@ class FamilyMemberTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    @IBAction func cancelInvitation(_ sender: Any) {
+        
+        self.delegate?.cancelInvitation(self)
+        print("刪除邀請 ＠cell")
+    }
+    
+}
+
+protocol FamilyMemberTableViewCellDelegate: AnyObject {
+    
+    func cancelInvitation(_ cell: FamilyMemberTableViewCell)
 }

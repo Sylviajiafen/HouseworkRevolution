@@ -420,6 +420,7 @@ extension FamilyViewController: UITableViewDelegate, UITableViewDataSource {
                 
                 memberCell.memberCall.text = familyMember[indexPath.row].name
                 memberCell.memberId.text = familyMember[indexPath.row].id
+                memberCell.cancelInvitationBtn.isHidden = true
                 
                 return memberCell
                 
@@ -432,6 +433,8 @@ extension FamilyViewController: UITableViewDelegate, UITableViewDataSource {
                 
                 memberCell.memberCall.text = invitedMemberList[indexPath.row].name
                 memberCell.memberId.text = invitedMemberList[indexPath.row].id
+                memberCell.cancelInvitationBtn.isHidden = false
+                memberCell.delegate = self
                 
                 return memberCell
                 
@@ -460,7 +463,7 @@ extension FamilyViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
     }
-    
+
 }
 
 extension FamilyViewController: InvitingFamilyTableViewCellDelegate {
@@ -501,4 +504,17 @@ extension FamilyViewController: InvitingFamilyTableViewCellDelegate {
     
     }
     
+}
+
+extension FamilyViewController: FamilyMemberTableViewCellDelegate {
+    
+    func cancelInvitation(_ cell: FamilyMemberTableViewCell) {
+        
+        guard let index = familyMemberTableView.indexPath(for: cell) else { return }
+        
+        let invitedMemberID = invitedMemberList[index.row].id
+        
+        FirebaseUserHelper.shared.rejectInvitation(from: StorageManager.userInfo.familyID, myID: invitedMemberID)
+        
+    }
 }

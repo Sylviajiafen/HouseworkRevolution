@@ -159,13 +159,35 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="XQ8gMqFhCON6V97jP6Fl" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="awh-AW-7ru">
-                                                    <rect key="frame" x="75" y="12" width="134" height="20"/>
+                                                    <rect key="frame" x="75" y="12" width="149" height="20"/>
                                                     <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GkI-dv-UrF">
+                                                    <rect key="frame" x="250" y="12" width="30" height="20"/>
+                                                    <color key="backgroundColor" name="contentBlue"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="30" id="sja-J0-TWf"/>
+                                                        <constraint firstAttribute="height" constant="20" id="y8v-M4-ybM"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                    <state key="normal" title="取消">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <integer key="value" value="5"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="cancelInvitation:" destination="kra-ym-SOB" eventType="touchUpInside" id="gFd-r0-lzP"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="GkI-dv-UrF" firstAttribute="centerY" secondItem="BkK-T8-fMc" secondAttribute="centerY" id="8P6-JH-g5o"/>
+                                                <constraint firstAttribute="trailing" secondItem="GkI-dv-UrF" secondAttribute="trailing" constant="15" id="GOT-8A-YIL"/>
                                                 <constraint firstAttribute="bottom" secondItem="awh-AW-7ru" secondAttribute="bottom" constant="12" id="HYt-SS-SPs"/>
                                                 <constraint firstItem="xMo-QX-kdC" firstAttribute="top" secondItem="BkK-T8-fMc" secondAttribute="top" constant="12" id="JuH-ys-b1n"/>
                                                 <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="awh-AW-7ru" secondAttribute="trailing" constant="16" id="Nbw-im-K6e"/>
@@ -177,6 +199,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" name="projectBackground"/>
                                         <connections>
+                                            <outlet property="cancelInvitationBtn" destination="GkI-dv-UrF" id="mgj-Hc-jRs"/>
                                             <outlet property="memberCall" destination="xMo-QX-kdC" id="QTi-6n-Ju5"/>
                                             <outlet property="memberId" destination="awh-AW-7ru" id="U1R-VD-gfu"/>
                                         </connections>
