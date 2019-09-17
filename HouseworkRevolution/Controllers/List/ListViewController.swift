@@ -43,9 +43,13 @@ class ListViewController: UIViewController {
         print("appear list")
         animateTheNoticeLabel()
         
+        ProgressHUD.show()
+        
         FirebaseManager.shared.checkToday(family: StorageManager.userInfo.familyID) {
             
             FirebaseManager.shared.getMissionListToday(family: StorageManager.userInfo.familyID)
+            
+            ProgressHUD.dismiss()
         }
     }
     
@@ -86,7 +90,6 @@ class ListViewController: UIViewController {
                 
                 print("DoneToday: \(self?.missionDoneToday)")
             }
-            
         }
     }
     

@@ -198,6 +198,8 @@ class FirebaseManager {
                 } else if let err = error {
                     
                     print("Error getting docs: \(err)")
+                    
+                    ProgressHUD.dismiss()
                 }
         }
     }
@@ -233,9 +235,13 @@ class FirebaseManager {
                     
                     self.delegate?.getUndoListToday(self, didGetUndo: FirebaseManager.undoMission)
                     
+                    ProgressHUD.dismiss()
+                    
                 } else if let err = error {
                     
                     print("Error getting docs: \(err)")
+                    
+                    ProgressHUD.dismiss()
                 }
         }
         

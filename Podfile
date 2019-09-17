@@ -9,6 +9,7 @@ target 'HouseworkRevolution' do
 pod 'SwiftLint'
 pod 'KeychainAccess'
 pod 'IQKeyboardManagerSwift'
+pod 'JGProgressHUD'
 pod 'Firebase/Auth'
 pod 'Firebase/Firestore'
 
