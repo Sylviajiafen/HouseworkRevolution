@@ -54,6 +54,12 @@ class FamilyViewController: UIViewController {
         getHomeData()
     }
     
+    @IBAction func copyUserID(_ sender: Any) {
+        
+        let board  = UIPasteboard.general
+        board.string = StorageManager.userInfo.userID
+    }
+    
     @IBAction func editUserCall(_ sender: Any) {
         
         let alert = UIAlertController(title: "編輯稱呼", message: "換個自己喜歡的稱呼吧", preferredStyle: .alert)

@@ -82,19 +82,19 @@
                                 <rect key="frame" x="0.0" y="90" width="375" height="528"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="尚未設定\(weekay)的家事" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A4a-RU-pSA">
-                                        <rect key="frame" x="72.5" y="212" width="230" height="24"/>
+                                        <rect key="frame" x="72.5" y="202" width="230" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <color key="textColor" name="noticeGray"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qwc-iv-SZC">
-                                        <rect key="frame" x="157.5" y="251" width="60" height="30"/>
+                                        <rect key="frame" x="145" y="241" width="85" height="30"/>
                                         <color key="backgroundColor" name="projectTitle"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="60" id="NXW-Px-PWj"/>
+                                            <constraint firstAttribute="width" constant="85" id="NXW-Px-PWj"/>
                                             <constraint firstAttribute="height" constant="30" id="VId-wt-era"/>
                                         </constraints>
-                                        <state key="normal" title="設定去">
+                                        <state key="normal" title="帶我新增去">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
@@ -109,7 +109,7 @@
                                 </subviews>
                                 <color key="backgroundColor" name="projectBackground"/>
                                 <constraints>
-                                    <constraint firstItem="A4a-RU-pSA" firstAttribute="centerY" secondItem="eu1-Pp-a0R" secondAttribute="centerY" constant="-40" id="0UY-Oq-Vde"/>
+                                    <constraint firstItem="A4a-RU-pSA" firstAttribute="centerY" secondItem="eu1-Pp-a0R" secondAttribute="centerY" constant="-50" id="0UY-Oq-Vde"/>
                                     <constraint firstItem="Qwc-iv-SZC" firstAttribute="centerX" secondItem="eu1-Pp-a0R" secondAttribute="centerX" id="ABA-H2-YX8"/>
                                     <constraint firstItem="Qwc-iv-SZC" firstAttribute="top" secondItem="A4a-RU-pSA" secondAttribute="bottom" constant="15" id="MDw-9K-6r3"/>
                                     <constraint firstItem="A4a-RU-pSA" firstAttribute="centerX" secondItem="eu1-Pp-a0R" secondAttribute="centerX" id="nLl-mo-6Yz"/>

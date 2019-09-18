@@ -76,6 +76,9 @@
                                         <integer key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="copyUserID:" destination="GUe-sm-w7G" eventType="touchUpInside" id="dfF-yE-OXl"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="請妥善保存，換手機、重載app、邀請家人時會用到唷！" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KDv-2m-Dgj">
                                 <rect key="frame" x="126" y="77" width="239" height="13"/>

@@ -19,8 +19,10 @@ class ProgressHUD {
     var view: UIView {
         
         let appdelegate = UIApplication.shared.delegate as? AppDelegate
-        
+
         return appdelegate!.window!.rootViewController!.view
+
+//        return UIStoryboard.main.instantiateInitialViewController()!.view
     }
     
     static func show() {
