@@ -155,6 +155,15 @@ enum SendInvitationResult<T> {
     case failed(InvitationErr)
 }
 
+enum AddMissionResult<T> {
+    
+    case duplicatedAdd(T)
+    
+    case success(T)
+    
+    case failed(T)
+}
+
 enum LoginError: String {
     
     case userDidNotExist = "沒有註冊過唷"

@@ -119,11 +119,29 @@ class AddMissionViewController: UIViewController {
                 title: houseworks[selectedIndex],
                 tiredValue: tiredValueInNum,
                 weekday: selectedDay,
-                family: StorageManager.userInfo.familyID)
-            
-            self.dismiss(animated: true, completion: nil)
+                family: StorageManager.userInfo.familyID,
+                message: { [weak self] message in
+                    
+                    switch message {
+                        
+                    case .duplicatedAdd(let message):
+                        
+                        self?.showAlertOf(message: message, dismiss: true, handler: { [weak self] in
+                            
+                            self?.dismiss(animated: true, completion: nil)
+                        })
+                        
+                    case .success(let message):
+                        
+                        ProgressHUD.showＷith(text: message)
+                        self?.dismiss(animated: true, completion: nil)
+                        
+                    case .failed(let failed):
+                        
+                        print(failed)
+                    }
+                })
         }
-        
     }
     
     @IBAction func editCell(_ sender: UIButton) {
@@ -241,8 +259,7 @@ extension AddMissionViewController: UICollectionViewDelegate,
         houseworkCell.setUpLabelfor(background: UIColor.buttonSelected, textColor: UIColor.noticeGray)
             
         selectedIndex = indexPath.item
-        
-        shouldEditCell = false
+    
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {

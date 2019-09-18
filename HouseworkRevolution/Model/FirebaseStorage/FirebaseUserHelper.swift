@@ -212,12 +212,20 @@ class FirebaseUserHelper {
     
     func addWishOf(content: String, user: String) {
         
+        ProgressHUD.show()
+        
         let query = db.collection(DataCollection.houseUser.rawValue).document(user)
         
-        query.updateData([
-            UserData.wishes.rawValue: FieldValue.arrayUnion([content])])
-        
-        print("successfully add wish!")
+        query.updateData([UserData.wishes.rawValue: FieldValue.arrayUnion([content])]) { (err) in
+            
+            if let err = err {
+                
+                print("updateWish err: \(err)")
+            } else {
+                
+                ProgressHUD.showＷith(text: "許願成功！")
+            }
+        }
     }
     
     func removeWishOf(content: String, user: String) {
@@ -358,7 +366,6 @@ class FirebaseUserHelper {
                 
                 if doc.exists {
                     
-                    print("已經是成員囉")
                     invitorCompletion(.failed(.memberAlreadyExist))
                     
                 } else {
@@ -372,7 +379,6 @@ class FirebaseUserHelper {
                                 
                                 if querySnapshot.count > 0 {
                                     
-                                    print("TODO: 告訴 user 重複邀請了")
                                     invitorCompletion(.failed(.duplicatedInvitation))
                                     
                                 } else {
@@ -414,7 +420,6 @@ class FirebaseUserHelper {
                                 print("userQueryErr: \(err)")
                             }
                     }
-                    
                 }
                 
             } else if let err = err {

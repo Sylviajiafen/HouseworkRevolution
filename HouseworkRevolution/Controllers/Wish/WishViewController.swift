@@ -71,8 +71,13 @@ class WishViewController: UIViewController {
         FirebaseUserHelper.shared.addWishOf(content: newWish,
                                             user: StorageManager.userInfo.userID)
         
-        showMakeWish(message: "許願成功！", wishInput: 0.0)
+        makeWishView.alpha = 0.0
         
+        wishInput.text = defaultWish
+        
+        wishInput.textColor = UIColor.lightGray
+        
+        wishInput.font = UIFont(name: "Helvetica Neue", size: 14.0)
     }
     
     func showMakeWish(message: String, wishInput viewAlpha: CGFloat) {
