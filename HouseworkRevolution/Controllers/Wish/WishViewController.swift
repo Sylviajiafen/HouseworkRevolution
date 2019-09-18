@@ -25,11 +25,9 @@ class WishViewController: UIViewController {
     
     @IBOutlet weak var makeWishView: UIView!
     
-    var wishContent: String?  // 待決定是否保留
+    @IBOutlet weak var lamp: UIImageView!
     
     let defaultWish = "有什麼願望是被家事耽擱的呢？"
-    
-    @IBOutlet weak var lamp: UIImageView!
     
     func setUpLamp() {
         
@@ -57,9 +55,7 @@ class WishViewController: UIViewController {
                 
                 self?.makeWishView.alpha = 0
             }
-
         }
-    
     }
     // 以上為神燈點擊事件
     
@@ -67,23 +63,16 @@ class WishViewController: UIViewController {
     
     @IBAction func makeWish(_ sender: UIButton) {
         
-        // TODO: 將願望加到 database
-        
         guard wishInput.text != "" && wishInput.text != defaultWish
             else { showMakeWish(message: "忘記留下願望了啦", wishInput: 1.0); return }
         
+        guard let newWish = wishInput.text else { return }
+    
+        FirebaseUserHelper.shared.addWishOf(content: newWish,
+                                            user: StorageManager.userInfo.userID)
+        
         showMakeWish(message: "許願成功！", wishInput: 0.0)
         
-        wishContent = wishInput.text
-    }
-    
-    // 待決定去留
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        guard let destination = segue.destination as? ShowWishesViewController,
-              let wish = wishContent else { return }
-        
-        destination.wishArr.append(wish)
     }
     
     func showMakeWish(message: String, wishInput viewAlpha: CGFloat) {
@@ -99,6 +88,12 @@ class WishViewController: UIViewController {
         present(alert, animated: true, completion: nil)
         
         makeWishView.alpha = viewAlpha
+        
+        wishInput.text = defaultWish
+        
+        wishInput.textColor = UIColor.lightGray
+        
+        wishInput.font = UIFont(name: "Helvetica Neue", size: 14.0)
     }
 }
 
@@ -121,6 +116,5 @@ extension WishViewController: UITextViewDelegate {
         
         return changedText.count <= 100
     }
-    
     
 }

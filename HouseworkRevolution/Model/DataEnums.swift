@@ -39,3 +39,23 @@ enum WeekdayInEng: String {
     
     case Sunday
 }
+
+enum DefaultHouseworks: String {
+    
+    case sweep = "掃地"
+    
+    case mop = "拖地"
+    
+    case vacuum = "吸塵"
+    
+    case garbadge = "倒垃圾"
+    
+    case laundry = "洗衣服"
+    
+    case cook = "煮飯"
+    
+    case grocery = "買菜"
+    
+    case toilet = "掃廁所"
+    
+}

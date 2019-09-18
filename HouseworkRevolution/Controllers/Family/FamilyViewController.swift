@@ -9,17 +9,30 @@
 import UIKit
 
 class FamilyViewController: UIViewController {
+    
+    // TODO: 接受家庭邀請時，腰要先請 fireBase 拿 familyID，再用此id update coreData
 
     @IBOutlet weak var familyMemberTableView: UITableView!
+    
     @IBOutlet weak var invitingFamilyTableView: UITableView!
     
     @IBOutlet weak var userCallLabel: UILabel!
     
+    @IBOutlet weak var userIDLabel: UILabel!
+    
+    @IBOutlet weak var familyNameLabel: UILabel!
+    
+    @IBOutlet weak var dropOutView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         invitingFamilyTableView.delegate = self
         invitingFamilyTableView.dataSource = self
+        
+        userIDLabel.text = StorageManager.userInfo.userID
+        
+        isOriginOrNot()
         
         // MARK: regist header
         let headerXibOfMember = UINib(nibName: String(describing: FamilyMemberSectionHeader.self),
@@ -34,18 +47,17 @@ class FamilyViewController: UIViewController {
         invitingFamilyTableView.register(headerXibOfInviting,
                                          forHeaderFooterViewReuseIdentifier: String(describing: InvitingFamilySectionHeaderView.self))
         
-        // TODO: 抓 invitingFamily 資料 (寫在 function)
-        // TODO: 判斷 invitingFamily.count == 0 時， tableView 隱藏 (寫在function 裡, parameter 一個為 tableView)
-        // TODO: 放 pull refresh ：把 showInvitingOrNot(), tableView.reloadData 放在 completion 裡
-        
-        invitingFamilyList = [InvitingFamily(family: "好狗窩", from: "媽咪"),
-                                    InvitingFamily(family: "壞狗窩", from: "爸比")]
-        
-//        invitingFamilyList = []
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
 
-//        invitedMemberList = [Member(name: "老爸", memberId: "XQ8gMqFhCON6V97jP6Fl")]
+        getHomeData()
+    }
+    
+    @IBAction func copyUserID(_ sender: Any) {
         
-        familyMember = [Member(name: "媽咪", memberId: "F8rMwuu24tFqpqW1LIKA")]
+        let board  = UIPasteboard.general
+        board.string = StorageManager.userInfo.userID
     }
     
     @IBAction func editUserCall(_ sender: Any) {
@@ -56,11 +68,14 @@ class FamilyViewController: UIViewController {
         
         let okAction = UIAlertAction(title: "更改", style: .default) { [weak self] _ in
             
-            guard alert.textFields?[0].text != "" else { return }
-            
-            self?.changedUserCall = alert.textFields?[0].text
+            guard alert.textFields?[0].text != "",
+                let newName = alert.textFields?[0].text else { return }
                 
-            self?.userCallLabel.text = self?.changedUserCall
+            self?.userCallLabel.text = alert.textFields?[0].text
+            
+            FirebaseUserHelper.shared.changeName(user: StorageManager.userInfo.userID,
+                                                 to: newName,
+                                                 currentFamily: StorageManager.userInfo.familyID)
         }
         
         okAction.setValue(UIColor.lightGreen, forKey: "titleTextColor")
@@ -76,23 +91,101 @@ class FamilyViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    var changedUserCall: String? {
+    @IBAction func editFamilyName(_ sender: Any) {
+        
+        let alert = UIAlertController(title: "編輯家庭名稱", message: "幫自己的家取個響亮的名字吧", preferredStyle: .alert)
+        
+        alert.addTextField(configurationHandler: nil)
+        
+        let okAction = UIAlertAction(title: "更改", style: .default) { [weak self] _ in
+            
+            guard alert.textFields?[0].text != "",
+                let newName = alert.textFields?[0].text else { return }
+            
+            self?.familyNameLabel.text = alert.textFields?[0].text
+            
+            FirebaseUserHelper.shared.changFamilyName(family: StorageManager.userInfo.familyID,
+                                                      to: newName)
+        }
+        
+        okAction.setValue(UIColor.lightGreen, forKey: "titleTextColor")
+        
+        alert.addAction(okAction)
+        
+        let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+        
+        cancelAction.setValue(UIColor.lightGreen, forKey: "titleTextColor")
+        
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
+    @IBAction func dropOutFamily(_ sender: Any) {
+        
+        let alert = UIAlertController(title: "退出家庭",
+                                      message: "如果選擇退出，將會回到註冊時的家庭，確定嗎？",
+                                      preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "確定", style: .default) { [weak self] _ in
+            
+            FirebaseUserHelper.currentListenerRegistration?.remove()
+            
+            FirebaseUserHelper.shared.dropOutFamily(familyID: StorageManager.userInfo.familyID,
+                                                    user: StorageManager.userInfo.userID,
+                getOriginFamily: { [weak self] (origin) in
+                    
+                    StorageManager.shared.updateFamily(familyID: origin,
+                        completion: { [weak self] in
+                            
+                            self?.getHomeData()
+                            
+                            DispatchQueue.main.async {
+                                
+                                self?.isOriginOrNot()
+                            }
+                    })
+                    
+            })
+        }
+        
+        okAction.setValue(UIColor.lightGreen, forKey: "titleTextColor")
+        
+        alert.addAction(okAction)
+        
+        let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+        
+        cancelAction.setValue(UIColor.lightGreen, forKey: "titleTextColor")
+        
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
+    var familyMember: [MemberData] = [] {
         
         didSet {
             
-            // TODO: 更新 dataBase user 名稱
+            familyMemberTableView.reloadData()
         }
     }
     
-    var familyMember: [Member] = []
-    
-    var invitedMemberList: [Member] = []
+    var invitedMemberList: [MemberData] = [] {
+        
+        didSet {
+            
+            familyMemberTableView.reloadData()
+
+        }
+    }
     
     var invitingFamilyList: [InvitingFamily] = [] {
         
         didSet {
             
             showInvitingOrNot()
+            
+            invitingFamilyTableView.reloadData()
         }
     }
     
@@ -107,6 +200,69 @@ class FamilyViewController: UIViewController {
         }
     }
     
+    func isOriginOrNot() {
+        
+        FirebaseUserHelper.shared.comparingFamily(
+            user: StorageManager.userInfo.userID) { [weak self] (originFamily) in
+            
+            if originFamily == StorageManager.userInfo.familyID {
+                
+                self?.dropOutView.isHidden = true
+                
+            } else {
+                
+                self?.dropOutView.isHidden = false
+            }
+        }
+    }
+    
+    func getHomeData() {
+        
+        FirebaseUserHelper.shared.getHomeDatasOf(user: StorageManager.userInfo.userID,
+                                                 family: StorageManager.userInfo.familyID,
+            userNameHandler: { [weak self] (userName) in
+                                                    
+                self?.userCallLabel.text = userName
+                                                    
+            }, familyNameHandler: { [weak self] (familyName) in
+                
+                self?.familyNameLabel.text = familyName
+                
+                ProgressHUD.dismiss()
+        })
+        
+        FirebaseUserHelper.shared.getFamilyMembers(family: StorageManager.userInfo.familyID,
+            handler: { [weak self] (memberData) in
+                                                    
+                self?.familyMember = memberData
+                
+                ProgressHUD.dismiss()
+        })
+        
+        FirebaseUserHelper.shared.showInvites(family: StorageManager.userInfo.familyID,
+                                              user: StorageManager.userInfo.userID,
+            invitedMember: { [weak self] (invitedMembers) in
+                                                
+                self?.invitedMemberList = invitedMembers
+                                                
+            }, invitingFamily: { [weak self] (invitingFamilies) in
+                
+                self?.invitingFamilyList = invitingFamilies
+                
+                ProgressHUD.dismiss()
+        })
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        guard let destination = segue.destination as? SearchUserViewController,
+            let familyName = familyNameLabel.text,
+            let userName = userCallLabel.text else { return }
+        
+        destination.inviterUserName = userName
+        
+        destination.inviterFamilyName = familyName
+    }
     
 }
 
@@ -175,7 +331,7 @@ extension FamilyViewController: UITableViewDelegate, UITableViewDataSource {
             case 1:
                 header.sectionTitleLabel.text = "邀請中的成員"
                 header.addCorner()
-                header.sectionContentView.alpha = 0.6
+                header.sectionContentView.alpha = 1.0
                 return header
                 
             default:
@@ -201,10 +357,11 @@ extension FamilyViewController: UITableViewDelegate, UITableViewDataSource {
         
         if tableView == familyMemberTableView {
             
-            return 10.0
+            return 20.0
+            
         } else {
             
-            return 0
+            return 0.000001
         }
     }
     
@@ -222,7 +379,6 @@ extension FamilyViewController: UITableViewDelegate, UITableViewDataSource {
             
             return nil
         }
-        
     }
     
     // MARK: TableView Cell
@@ -273,7 +429,8 @@ extension FamilyViewController: UITableViewDelegate, UITableViewDataSource {
                                          alpha: 1.0)
                 
                 memberCell.memberCall.text = familyMember[indexPath.row].name
-                memberCell.memberId.text = familyMember[indexPath.row].memberId
+                memberCell.memberId.text = familyMember[indexPath.row].id
+                memberCell.cancelInvitationBtn.isHidden = true
                 
                 return memberCell
                 
@@ -285,7 +442,9 @@ extension FamilyViewController: UITableViewDelegate, UITableViewDataSource {
                                          alpha: 0.6)
                 
                 memberCell.memberCall.text = invitedMemberList[indexPath.row].name
-                memberCell.memberId.text = invitedMemberList[indexPath.row].memberId
+                memberCell.memberId.text = invitedMemberList[indexPath.row].id
+                memberCell.cancelInvitationBtn.isHidden = false
+                memberCell.delegate = self
                 
                 return memberCell
                 
@@ -304,7 +463,9 @@ extension FamilyViewController: UITableViewDelegate, UITableViewDataSource {
             
             invitingListCell.invitingPersonLabel.text = "的「\(invitingPerson)」邀請您加入家庭"
             
-            invitingListCell.invitingFamilyName.text = invitingFamilyList[indexPath.row].family
+            invitingListCell.invitingFamilyName.text = invitingFamilyList[indexPath.row].familyName
+            
+            invitingListCell.delegate = self
             
             return invitingListCell
             
@@ -312,5 +473,58 @@ extension FamilyViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
     }
+
+}
+
+extension FamilyViewController: InvitingFamilyTableViewCellDelegate {
     
+    func acceptInvitation(_ cell: InvitingFamilyTableViewCell) {
+        
+        guard let index = invitingFamilyTableView.indexPath(for: cell),
+         let myName = userCallLabel.text else { return }
+        
+        let inviterFamilyID = invitingFamilyList[index.row].familyID
+        
+        FirebaseUserHelper.currentListenerRegistration?.remove()
+        
+        FirebaseUserHelper.shared.acceptInvitation(from: inviterFamilyID,
+                                                   myID: StorageManager.userInfo.userID,
+                                                   myName: myName)
+        
+        StorageManager.shared.updateFamily(familyID: inviterFamilyID,
+                completion: { [weak self] in
+                    
+                    self?.getHomeData()
+
+                    DispatchQueue.main.async {
+    
+                        self?.isOriginOrNot()
+                    }
+        })
+        
+    }
+    
+    func rejectInvitation(_ cell: InvitingFamilyTableViewCell) {
+        
+        guard let index = invitingFamilyTableView.indexPath(for: cell) else { return }
+        
+        let inviterFamilyID = invitingFamilyList[index.row].familyID
+        
+        FirebaseUserHelper.shared.rejectInvitation(from: inviterFamilyID, myID: StorageManager.userInfo.userID)
+    
+    }
+    
+}
+
+extension FamilyViewController: FamilyMemberTableViewCellDelegate {
+    
+    func cancelInvitation(_ cell: FamilyMemberTableViewCell) {
+        
+        guard let index = familyMemberTableView.indexPath(for: cell) else { return }
+        
+        let invitedMemberID = invitedMemberList[index.row].id
+        
+        FirebaseUserHelper.shared.rejectInvitation(from: StorageManager.userInfo.familyID, myID: invitedMemberID)
+        
+    }
 }

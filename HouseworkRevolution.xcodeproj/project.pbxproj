@@ -22,10 +22,18 @@
 		0302D9E6231E650600DE7921 /* DailyMissionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0302D9E5231E650600DE7921 /* DailyMissionCollectionViewCell.swift */; };
 		0302D9EA231E7A0800DE7921 /* DailyMissionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0302D9E8231E7A0800DE7921 /* DailyMissionHeaderView.swift */; };
 		0302D9EB231E7A0800DE7921 /* DailyMissionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0302D9E9231E7A0800DE7921 /* DailyMissionHeaderView.xib */; };
-		0302D9ED231FB6DC00DE7921 /* dailyMission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0302D9EC231FB6DC00DE7921 /* dailyMission.swift */; };
+		0302D9ED231FB6DC00DE7921 /* MissionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0302D9EC231FB6DC00DE7921 /* MissionItem.swift */; };
 		0302D9F02321E34D00DE7921 /* InvitingFamilyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0302D9EF2321E34D00DE7921 /* InvitingFamilyTableViewCell.swift */; };
 		0302D9F32321E49200DE7921 /* FamilyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0302D9F22321E49200DE7921 /* FamilyViewController.swift */; };
-		0302D9F52321E74F00DE7921 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0302D9F42321E74F00DE7921 /* Data.swift */; };
+		0302D9F52321E74F00DE7921 /* FirebaseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0302D9F42321E74F00DE7921 /* FirebaseData.swift */; };
+		03375E332331F77400C71330 /* String+ Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03375E322331F77400C71330 /* String+ Extension.swift */; };
+		03A45F1D232E1482005D92D5 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A45F1C232E1482005D92D5 /* FirebaseManager.swift */; };
+		03A45F1F232E162E005D92D5 /* DayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A45F1E232E162E005D92D5 /* DayManager.swift */; };
+		03A45F21232E16E2005D92D5 /* FirebaseUserHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A45F20232E16E2005D92D5 /* FirebaseUserHelper.swift */; };
+		03A45F24232E1A86005D92D5 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A45F23232E1A86005D92D5 /* StorageManager.swift */; };
+		03A45F26232E1DBF005D92D5 /* KeyChainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A45F25232E1DBF005D92D5 /* KeyChainManager.swift */; };
+		03A45F28232FDA64005D92D5 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A45F27232FDA64005D92D5 /* UIViewController+Extension.swift */; };
+		03A45F2B2330E4E0005D92D5 /* JGProgressHUDWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A45F2A2330E4E0005D92D5 /* JGProgressHUDWrapper.swift */; };
 		03C1A540231662D9008EAB76 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1A53F231662D9008EAB76 /* AppDelegate.swift */; };
 		03C1A545231662D9008EAB76 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03C1A543231662D9008EAB76 /* Main.storyboard */; };
 		03C1A548231662D9008EAB76 /* HouseworkRevolution.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 03C1A546231662D9008EAB76 /* HouseworkRevolution.xcdatamodeld */; };
@@ -44,7 +52,7 @@
 		03C1A58D2317A2EB008EAB76 /* MissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1A58C2317A2EB008EAB76 /* MissionViewController.swift */; };
 		03C1A58F2317C6D2008EAB76 /* AddMissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1A58E2317C6D2008EAB76 /* AddMissionViewController.swift */; };
 		03C1A5912317C6E7008EAB76 /* CheckMissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1A5902317C6E7008EAB76 /* CheckMissionViewController.swift */; };
-		03C1A5942318C7A3008EAB76 /* Weekday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1A5932318C7A3008EAB76 /* Weekday.swift */; };
+		03C1A5942318C7A3008EAB76 /* DataEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1A5932318C7A3008EAB76 /* DataEnums.swift */; };
 		03C1A5962318D287008EAB76 /* UserInputTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1A5952318D287008EAB76 /* UserInputTextField.swift */; };
 		03C1A59C2318F059008EAB76 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1A59B2318F059008EAB76 /* UIImage+Extension.swift */; };
 		03C1A59E2318F147008EAB76 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1A59D2318F147008EAB76 /* UIColor+Extension.swift */; };
@@ -57,7 +65,7 @@
 		03FEAC1E23226FFA00722A34 /* SearchUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FEAC1D23226FFA00722A34 /* SearchUserTableViewCell.swift */; };
 		03FEAC212324CC9400722A34 /* ShowDefaultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FEAC202324CC9400722A34 /* ShowDefaultTableViewCell.swift */; };
 		03FEAC232326599A00722A34 /* List.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03FEAC222326599A00722A34 /* List.storyboard */; };
-		03FEAC242326599A00722A34 /* List.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03FEAC222326599A00722A34 /* List.storyboard */; };
+		03FEAC2623273A4D00722A34 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03FEAC2523273A4C00722A34 /* GoogleService-Info.plist */; };
 		13C2546C9B3D4DD77EDFFF43 /* Pods_HouseworkRevolution.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1493339683728FA72397E709 /* Pods_HouseworkRevolution.framework */; };
 		A426424894EE163385C27B85 /* Pods_HouseworkRevolutionTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 768DABA652B8C169712D5223 /* Pods_HouseworkRevolutionTests.framework */; };
 /* End PBXBuildFile section */
@@ -88,10 +96,18 @@
 		0302D9E5231E650600DE7921 /* DailyMissionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyMissionCollectionViewCell.swift; sourceTree = "<group>"; };
 		0302D9E8231E7A0800DE7921 /* DailyMissionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyMissionHeaderView.swift; sourceTree = "<group>"; };
 		0302D9E9231E7A0800DE7921 /* DailyMissionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DailyMissionHeaderView.xib; sourceTree = "<group>"; };
-		0302D9EC231FB6DC00DE7921 /* dailyMission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dailyMission.swift; sourceTree = "<group>"; };
+		0302D9EC231FB6DC00DE7921 /* MissionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionItem.swift; sourceTree = "<group>"; };
 		0302D9EF2321E34D00DE7921 /* InvitingFamilyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitingFamilyTableViewCell.swift; sourceTree = "<group>"; };
 		0302D9F22321E49200DE7921 /* FamilyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyViewController.swift; sourceTree = "<group>"; };
-		0302D9F42321E74F00DE7921 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		0302D9F42321E74F00DE7921 /* FirebaseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseData.swift; sourceTree = "<group>"; };
+		03375E322331F77400C71330 /* String+ Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+ Extension.swift"; sourceTree = "<group>"; };
+		03A45F1C232E1482005D92D5 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
+		03A45F1E232E162E005D92D5 /* DayManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayManager.swift; sourceTree = "<group>"; };
+		03A45F20232E16E2005D92D5 /* FirebaseUserHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseUserHelper.swift; sourceTree = "<group>"; };
+		03A45F23232E1A86005D92D5 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		03A45F25232E1DBF005D92D5 /* KeyChainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainManager.swift; sourceTree = "<group>"; };
+		03A45F27232FDA64005D92D5 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		03A45F2A2330E4E0005D92D5 /* JGProgressHUDWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JGProgressHUDWrapper.swift; sourceTree = "<group>"; };
 		03C1A53C231662D9008EAB76 /* HouseworkRevolution.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HouseworkRevolution.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03C1A53F231662D9008EAB76 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		03C1A544231662D9008EAB76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -114,7 +130,7 @@
 		03C1A58C2317A2EB008EAB76 /* MissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionViewController.swift; sourceTree = "<group>"; };
 		03C1A58E2317C6D2008EAB76 /* AddMissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMissionViewController.swift; sourceTree = "<group>"; };
 		03C1A5902317C6E7008EAB76 /* CheckMissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckMissionViewController.swift; sourceTree = "<group>"; };
-		03C1A5932318C7A3008EAB76 /* Weekday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weekday.swift; sourceTree = "<group>"; };
+		03C1A5932318C7A3008EAB76 /* DataEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataEnums.swift; sourceTree = "<group>"; };
 		03C1A5952318D287008EAB76 /* UserInputTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInputTextField.swift; sourceTree = "<group>"; };
 		03C1A59B2318F059008EAB76 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		03C1A59D2318F147008EAB76 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
@@ -127,6 +143,7 @@
 		03FEAC1D23226FFA00722A34 /* SearchUserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserTableViewCell.swift; sourceTree = "<group>"; };
 		03FEAC202324CC9400722A34 /* ShowDefaultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDefaultTableViewCell.swift; sourceTree = "<group>"; };
 		03FEAC222326599A00722A34 /* List.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = List.storyboard; sourceTree = "<group>"; };
+		03FEAC2523273A4C00722A34 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1493339683728FA72397E709 /* Pods_HouseworkRevolution.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HouseworkRevolution.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		282E80C58DF6B1DB0CB6F4EB /* Pods-HouseworkRevolutionTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HouseworkRevolutionTests.debug.xcconfig"; path = "Target Support Files/Pods-HouseworkRevolutionTests/Pods-HouseworkRevolutionTests.debug.xcconfig"; sourceTree = "<group>"; };
 		768DABA652B8C169712D5223 /* Pods_HouseworkRevolutionTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HouseworkRevolutionTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -271,9 +288,37 @@
 			path = Family;
 			sourceTree = "<group>";
 		};
+		03A45F1B232E1469005D92D5 /* FirebaseStorage */ = {
+			isa = PBXGroup;
+			children = (
+				0302D9F42321E74F00DE7921 /* FirebaseData.swift */,
+				03A45F1C232E1482005D92D5 /* FirebaseManager.swift */,
+				03A45F20232E16E2005D92D5 /* FirebaseUserHelper.swift */,
+			);
+			path = FirebaseStorage;
+			sourceTree = "<group>";
+		};
+		03A45F22232E175F005D92D5 /* LocalStorage */ = {
+			isa = PBXGroup;
+			children = (
+				03A45F23232E1A86005D92D5 /* StorageManager.swift */,
+			);
+			path = LocalStorage;
+			sourceTree = "<group>";
+		};
+		03A45F292330E4A2005D92D5 /* Third Party Wrapper */ = {
+			isa = PBXGroup;
+			children = (
+				03A45F25232E1DBF005D92D5 /* KeyChainManager.swift */,
+				03A45F2A2330E4E0005D92D5 /* JGProgressHUDWrapper.swift */,
+			);
+			path = "Third Party Wrapper";
+			sourceTree = "<group>";
+		};
 		03C1A533231662D9008EAB76 = {
 			isa = PBXGroup;
 			children = (
+				03FEAC2523273A4C00722A34 /* GoogleService-Info.plist */,
 				03C1A53E231662D9008EAB76 /* HouseworkRevolution */,
 				03C1A556231662DA008EAB76 /* HouseworkRevolutionTests */,
 				03C1A53D231662D9008EAB76 /* Products */,
@@ -351,6 +396,8 @@
 				03C1A57F23167F82008EAB76 /* UIView+Extension.swift */,
 				03C1A59B2318F059008EAB76 /* UIImage+Extension.swift */,
 				03C1A59D2318F147008EAB76 /* UIColor+Extension.swift */,
+				03A45F27232FDA64005D92D5 /* UIViewController+Extension.swift */,
+				03375E322331F77400C71330 /* String+ Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -387,9 +434,12 @@
 		03C1A58423177103008EAB76 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				03C1A5932318C7A3008EAB76 /* Weekday.swift */,
-				0302D9EC231FB6DC00DE7921 /* dailyMission.swift */,
-				0302D9F42321E74F00DE7921 /* Data.swift */,
+				03A45F292330E4A2005D92D5 /* Third Party Wrapper */,
+				03A45F22232E175F005D92D5 /* LocalStorage */,
+				03A45F1B232E1469005D92D5 /* FirebaseStorage */,
+				03C1A5932318C7A3008EAB76 /* DataEnums.swift */,
+				03A45F1E232E162E005D92D5 /* DayManager.swift */,
+				0302D9EC231FB6DC00DE7921 /* MissionItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -554,6 +604,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03FEAC2623273A4D00722A34 /* GoogleService-Info.plist in Resources */,
 				03C1A56E23166557008EAB76 /* Auth.storyboard in Resources */,
 				03C1A54D231662DA008EAB76 /* LaunchScreen.storyboard in Resources */,
 				03C1A56A2316652F008EAB76 /* Wish.storyboard in Resources */,
@@ -573,7 +624,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03FEAC242326599A00722A34 /* List.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -676,28 +726,36 @@
 				0302D9F02321E34D00DE7921 /* InvitingFamilyTableViewCell.swift in Sources */,
 				03C1A540231662D9008EAB76 /* AppDelegate.swift in Sources */,
 				0302D9DA231CEEDF00DE7921 /* ShowWishesLayout.swift in Sources */,
+				03A45F21232E16E2005D92D5 /* FirebaseUserHelper.swift in Sources */,
 				03C1A58023167F82008EAB76 /* UIView+Extension.swift in Sources */,
+				03A45F2B2330E4E0005D92D5 /* JGProgressHUDWrapper.swift in Sources */,
 				0302D9EA231E7A0800DE7921 /* DailyMissionHeaderView.swift in Sources */,
 				0302D9D7231CC1D600DE7921 /* WishViewController.swift in Sources */,
 				03C1A548231662D9008EAB76 /* HouseworkRevolution.xcdatamodeld in Sources */,
+				03A45F28232FDA64005D92D5 /* UIViewController+Extension.swift in Sources */,
 				0302D9C5231912E800DE7921 /* ShowAddSegue.swift in Sources */,
 				0302D9E3231E5B8400DE7921 /* ListViewController.swift in Sources */,
 				0302D9DC231CFD0000DE7921 /* ShowWishesViewController.swift in Sources */,
-				0302D9F52321E74F00DE7921 /* Data.swift in Sources */,
+				0302D9F52321E74F00DE7921 /* FirebaseData.swift in Sources */,
 				03FEAC1B2322610500722A34 /* SearchUserViewController.swift in Sources */,
+				03A45F24232E1A86005D92D5 /* StorageManager.swift in Sources */,
+				03375E332331F77400C71330 /* String+ Extension.swift in Sources */,
 				03C1A577231668B7008EAB76 /* AuthViewController.swift in Sources */,
 				03C1A5832316908D008EAB76 /* NameCallCollectionViewCell.swift in Sources */,
 				03C1A59E2318F147008EAB76 /* UIColor+Extension.swift in Sources */,
 				0302D9C32318FBE900DE7921 /* FamilyMemberCollectionViewCell.swift in Sources */,
 				0302D9CD231AB0DA00DE7921 /* WeekdaySectionHeaderView.swift in Sources */,
 				03C1A5912317C6E7008EAB76 /* CheckMissionViewController.swift in Sources */,
-				0302D9ED231FB6DC00DE7921 /* dailyMission.swift in Sources */,
+				0302D9ED231FB6DC00DE7921 /* MissionItem.swift in Sources */,
 				03C1A58F2317C6D2008EAB76 /* AddMissionViewController.swift in Sources */,
+				03A45F1D232E1482005D92D5 /* FirebaseManager.swift in Sources */,
 				0302D9C92319259F00DE7921 /* MissionListTableViewCell.swift in Sources */,
+				03A45F1F232E162E005D92D5 /* DayManager.swift in Sources */,
 				0302D9DE231D002800DE7921 /* WishCollectionViewCell.swift in Sources */,
-				03C1A5942318C7A3008EAB76 /* Weekday.swift in Sources */,
+				03C1A5942318C7A3008EAB76 /* DataEnums.swift in Sources */,
 				0302D9F32321E49200DE7921 /* FamilyViewController.swift in Sources */,
 				03C1A5962318D287008EAB76 /* UserInputTextField.swift in Sources */,
+				03A45F26232E1DBF005D92D5 /* KeyChainManager.swift in Sources */,
 				03C1A59C2318F059008EAB76 /* UIImage+Extension.swift in Sources */,
 				03C1A5732316660D008EAB76 /* UIStoryboard+Extension.swift in Sources */,
 				0302D9D4231B63E600DE7921 /* MissionEmptyTableViewCell.swift in Sources */,

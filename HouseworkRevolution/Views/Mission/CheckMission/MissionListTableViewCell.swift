@@ -14,7 +14,10 @@ class MissionListTableViewCell: UITableViewCell {
 
     @IBOutlet weak var missionLabel: UILabel!
     
-     // TODO: 寫移除家事的 func，更新 dataBase
+    @IBOutlet weak var houseworkIcon: UIImageView!
+    
+    @IBOutlet weak var tiredValueLabel: UILabel!
+    
     @IBAction func removeDidPressed(_ sender: Any) {
         
         delegate?.removeMission(self)
@@ -29,6 +32,48 @@ class MissionListTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func setIcon(by mission: Mission) {
+        
+        switch mission.title {
+            
+        case DefaultHouseworks.sweep.rawValue:
+            
+            houseworkIcon.image = UIImage.asset(.cleanFloorICON)
+            
+        case DefaultHouseworks.mop.rawValue:
+            
+            houseworkIcon.image = UIImage.asset(.mopICON)
+            
+        case DefaultHouseworks.vacuum.rawValue:
+            
+            houseworkIcon.image = UIImage.asset(.vacuumICON)
+            
+        case DefaultHouseworks.garbadge.rawValue:
+            
+            houseworkIcon.image = UIImage.asset(.garbageICON)
+        
+        case DefaultHouseworks.laundry.rawValue:
+            
+            houseworkIcon.image = UIImage.asset(.laundryICON)
+            
+        case DefaultHouseworks.cook.rawValue:
+            
+            houseworkIcon.image = UIImage.asset(.cookICON)
+            
+        case DefaultHouseworks.grocery.rawValue:
+            
+            houseworkIcon.image = UIImage.asset(.groceryICON)
+            
+        case DefaultHouseworks.toilet.rawValue:
+            
+            houseworkIcon.image = UIImage.asset(.cleanToiletICON)
+            
+        default:
+            
+            houseworkIcon.image = UIImage.asset(.customWorkICON)
+        }
     }
 
 }

@@ -16,6 +16,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         super.viewDidLoad()
         
         viewControllers = tabs.map({ $0.controller() })
+        
     }
 
 }
@@ -97,4 +98,3 @@ private enum Tab {
         }
     }
 }
-

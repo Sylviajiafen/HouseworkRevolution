@@ -9,20 +9,17 @@
 import UIKit
 
 class ListViewController: UIViewController {
-
-    // TODO: 同步 dataBase
-    // viewDidLoad?? 先判斷今天日期有沒有 dailyMission 了，沒有的話再今天星期幾，把今天這個星期的 mission 抓下來放進 dailyMission 中
-    // dailyMission. missionDone + 當天日期 上傳至 dataBase ＝>  dailyMission 和 MissionDone 要連同當天日期一起存進 dataBase 裡(dailyMission 不是存在星期幾的那個資料庫中，而是另外再開)
-    // 從 dataBase 抓取今天的 dailyMission
-    
-    // 找 LUKE 討論
     
     @IBOutlet weak var magicLampView: UIView!
     @IBOutlet weak var lampViewWishLabel: UILabel!
     @IBOutlet weak var skipBtn: UIButton!
+    @IBOutlet weak var emptyMissionView: UIView!
+    @IBOutlet weak var showNoMissionLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print("load list")
         
         fullScreenSize = UIScreen.main.bounds.size
         
@@ -31,20 +28,29 @@ class ListViewController: UIViewController {
         
         setUpCollectionView()
         
-        dailyMission = [
-            ["charger": "1老媽", "mission": "1掃地"],
-            ["charger": "2老爸", "mission": "2倒垃圾"],
-            ["charger": "3兒子", "mission": "3洗碗"],
-            ["charger": "4老媽", "mission": "4洗衣服"],
-            ["charger": "5女兒", "mission": "5煮飯"],
-            ["charger": "6老媽", "mission": "6晾衣服"]
-        ]
+        emptyMissionView.isHidden = true
         
+        let today = DayManager.shared.changeWeekdayIntoCH(weekday: DayManager.shared.weekday)
+        
+        showNoMissionLabel.text = "尚未設定今天（\(today)）的家事"
+        
+        FirebaseManager.shared.delegate = self
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
         
+        print("appear list")
         animateTheNoticeLabel()
+        
+        ProgressHUD.show()
+        
+        FirebaseManager.shared.checkToday(family: StorageManager.userInfo.familyID) {
+            
+            FirebaseManager.shared.getMissionListToday(family: StorageManager.userInfo.familyID)
+            
+            ProgressHUD.dismiss()
+        }
     }
     
     @IBOutlet weak var dailyMissionCollectionView: UICollectionView! {
@@ -72,11 +78,37 @@ class ListViewController: UIViewController {
     
     private let spacing: CGFloat = 16.0
     
-    var dailyMission = [[String: String]]() // String or dictionary (key: Mission, value: Charger 或顛倒)
+    var missionUndoToday = [Mission]() {
+        
+        didSet {
+            
+            DispatchQueue.main.async { [weak self] in
+                
+                self?.dailyMissionCollectionView.reloadData()
+                
+                self?.isMissionEmpty()
+                
+                print("DoneToday: \(self?.missionDoneToday)")
+            }
+        }
+    }
     
-    var missionDone: [Mission] = []
+    var missionDoneToday = [Mission]() {
+        
+        didSet {
+            
+            DispatchQueue.main.async { [weak self] in
+                
+                self?.dailyMissionCollectionView.reloadData()
+                
+                self?.isMissionEmpty()
+                
+                print("DoneToday: \(self?.missionDoneToday)")
+            }
+        }
+    }
     
-    var missionBeDropped = Mission(charger: "", content: "")
+    var missionBeDropped = MissionItem(value: 0, content: "")
     
     let showAnimate = UIViewPropertyAnimator(duration: 0.8, curve: .linear)
     
@@ -112,40 +144,64 @@ class ListViewController: UIViewController {
             self?.noticeLabel.alpha = 0
         }
     }
-    
-    // TODO: 判斷疲勞值並秀 view
+
+    // MARK: - 實現願望
     func magicLampViewShow() {
         
-        print("============magic!!")
+        var wishes = [String]()
         
-        skipBtn.alpha = 1.0
-        
-        showAnimate.addAnimations { [weak self] in
-
-            self?.magicLampView.alpha = 1.0
-        }
-        
-        viewDisappearAnimate.addAnimations { [weak self] in
+        FirebaseUserHelper.shared.readWishesOf(
+            user: StorageManager.userInfo.userID) { [weak self] (wishArr) in
             
-            self?.magicLampView.alpha = 0.0
+                wishes = wishArr
+                
+                if wishArr.count > 0 {
+                    
+                    guard let completeWish: String = wishes.randomElement() else { return }
+                    
+                    self?.lampViewWishLabel.text = completeWish
+                    
+                    FirebaseUserHelper.shared.removeWishOf(content: completeWish,
+                                                           user: StorageManager.userInfo.userID)
+                    
+                    print("============magic!!")
+                    
+                    self?.skipBtn.alpha = 1.0
+                    
+                    self?.showAnimate.addAnimations { [weak self] in
+                        
+                        self?.magicLampView.alpha = 1.0
+                    }
+                    
+                    self?.viewDisappearAnimate.addAnimations { [weak self] in
+                        
+                        self?.magicLampView.alpha = 0.0
+                    }
+                    
+                    self?.showAnimate.addCompletion { [weak self] _ in
+                        
+                        self?.viewDisappearAnimate.startAnimation(afterDelay: 3.0)
+                    }
+                    
+                    self?.viewDisappearAnimate.addCompletion({ [weak self] (_) in
+                        
+                        self?.skipBtn.alpha = 0.0
+                        
+                    })
+                    
+                    self?.viewDisappearAnimate.isInterruptible = true
+                    
+                    self?.showAnimate.isInterruptible = true
+                    
+                    self?.showAnimate.startAnimation()
+                    
+                } else {
+                    
+                    self?.directToWishPage(message: "神燈裡沒有願望了！")
+                }
+                
+            }
         }
-        
-        showAnimate.addCompletion { [weak self] _ in
-            
-            self?.viewDisappearAnimate.startAnimation(afterDelay: 3.0)
-        }
-        
-        viewDisappearAnimate.addCompletion({ [weak self] (_) in
-            
-            self?.skipBtn.alpha = 0.0
-        })
-        
-        viewDisappearAnimate.isInterruptible = true
-        
-        showAnimate.isInterruptible = true
-        
-        showAnimate.startAnimation()
-    }
     
     @IBAction func skipAnimateOfMagicView(_ sender: Any) {
         
@@ -160,6 +216,54 @@ class ListViewController: UIViewController {
         skipBtn.alpha = 0.0
     
     }
+    
+    func directToWishPage(message: String) {
+        
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        
+        let action = UIAlertAction(title: "許願去", style: .default, handler: { _ in
+            
+            let appdelegate = UIApplication.shared.delegate as? AppDelegate
+            
+            let root = appdelegate?.window?.rootViewController as? TabBarController
+            
+            root?.selectedIndex = 2
+            
+        })
+        
+        action.setValue(UIColor.lightGreen, forKey: "titleTextColor")
+        
+        alert.addAction(action)
+        
+        let cancelAction = UIAlertAction(title: "下次再許", style: .cancel, handler: nil)
+        
+        cancelAction.setValue(UIColor.lightGreen, forKey: "titleTextColor")
+        
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func isMissionEmpty() {
+        
+        if missionUndoToday.count == 0 && missionDoneToday.count == 0 {
+            
+            emptyMissionView.isHidden = false
+        } else {
+            
+            emptyMissionView.isHidden = true
+        }
+    }
+    
+    @IBAction func goToAddMission(_ sender: Any) {
+        
+        let appdelegate = UIApplication.shared.delegate as? AppDelegate
+        
+        let root = appdelegate?.window?.rootViewController as? TabBarController
+        
+        root?.selectedIndex = 1
+    }
+    
     
 }
 
@@ -206,10 +310,10 @@ extension ListViewController: UICollectionViewDelegate,
         switch section {
             
         case 0:
-            return dailyMission.count
+            return missionUndoToday.count
             
         case 1:
-            return missionDone.count
+            return missionDoneToday.count
             
         default:
             return 1
@@ -231,15 +335,13 @@ extension ListViewController: UICollectionViewDelegate,
         case 0:
             
             missionItem.backgroundColor = UIColor.cellGreen
-            missionItem.dailyMissionLabel.text = dailyMission[indexPath.row]["mission"]
-//            missionItem.missionChargerLabel.text = dailyMission[indexPath.row]["charger"]
+            missionItem.dailyMissionLabel.text = missionUndoToday[indexPath.row].title
             missionItem.missionChargerLabel.text = ""
             
         case 1:
             
             missionItem.backgroundColor = UIColor.lightCellGreen
-            missionItem.dailyMissionLabel.text = missionDone[indexPath.row].content
-//            missionItem.missionChargerLabel.text = missionDone[indexPath.row].charger
+            missionItem.dailyMissionLabel.text = missionDoneToday[indexPath.row].title
             missionItem.missionChargerLabel.text = ""
             
         default:
@@ -291,10 +393,10 @@ extension ListViewController: UICollectionViewDragDelegate {
         
         case 0:
             
-            let sourceItem = dailyMission[indexPath.row]
+            let sourceItem = missionUndoToday[indexPath.row]
             
-            let provider = NSItemProvider(object: Mission(charger: sourceItem["charger"] ?? "",
-                                                          content: sourceItem["mission"] ?? ""))
+            let provider = NSItemProvider(object: MissionItem(value: sourceItem.tiredValue,
+                                                              content: sourceItem.title))
             
             let dragItem = UIDragItem(itemProvider: provider)
             
@@ -336,26 +438,33 @@ extension ListViewController: UICollectionViewDropDelegate {
         if let item = coordinator.items.first,
             let sourceIndexPath = item.sourceIndexPath {
     
-            item.dragItem.itemProvider.loadObject(ofClass: Mission.self) { [weak self] (mission, error) in
+            item.dragItem.itemProvider.loadObject(ofClass: MissionItem.self) { [weak self] (mission, error) in
                 
                 DispatchQueue.main.async {
 
-                    guard let missionDropped = mission as? Mission else { return }
+                    guard let missionDropped = mission as? MissionItem else { return }
+                    
+                    let missionDone = Mission(title: missionDropped.content, tiredValue: missionDropped.tiredValue)
                 
                     collectionView.performBatchUpdates({
                         
-                        self?.dailyMission.remove(at: sourceIndexPath.item)
+                        self?.missionUndoToday.remove(at: sourceIndexPath.item)
                         collectionView.deleteItems(at: [sourceIndexPath])
                         
-                        self?.missionDone.insert(missionDropped, at: destinationIndexPath.item)
+                        self?.missionDoneToday.insert(missionDone, at: destinationIndexPath.item)
                         collectionView.insertItems(at: [destinationIndexPath])
                         
                         }, completion: nil)
                     
                         coordinator.drop(item.dragItem, toItemAt: destinationIndexPath)
                     
-                    // TODO: indexPath 會變，所以要存一個疲勞值的 parameter，用此疲勞值去判斷
-                        if sourceIndexPath == IndexPath(item: 2, section: 0) {
+                    FirebaseManager.shared.updateMissionStatus(title: missionDone.title, tiredValue: missionDone.tiredValue, family: StorageManager.userInfo.familyID)
+                    
+                    print("==== mission complete ====")
+                    
+                    print(missionDone)
+                    
+                        if missionDropped.tiredValue > 5 {
                         
                             self?.magicLampViewShow()
                         }
@@ -397,8 +506,21 @@ extension ListViewController: UICollectionViewDropDelegate {
             }
 
     }
+
+}
+
+extension ListViewController: FirebaseManagerDelegate {
     
-    // TODO: 判斷任務內容疲勞度，是否秀神燈
-    // func collectionView(UICollectionView, dropSessionDidEnd: UIDropSession)
+    func getUndoListToday(_ manager: FirebaseManager, didGetUndo: [Mission]) {
+        
+        missionUndoToday = didGetUndo
+        
+    }
+    
+    func getDoneListToday(_ manager: FirebaseManager, didGetDone: [Mission]) {
+        
+        missionDoneToday = didGetDone
+        
+    }
 
 }

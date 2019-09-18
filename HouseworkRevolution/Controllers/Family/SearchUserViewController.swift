@@ -19,14 +19,24 @@ class SearchUserViewController: UIViewController {
         userIdSearchBar.delegate = self
         showResultTableView.dataSource = self
         
-        // TODO: 抓所有 user (要加監聽)
-        userData = [Member(name: "兒子", memberId: "qFwZkG9baiRmKQSTtTEv")]
+        print("Inviter: User => \(inviterUserName), Family => \(inviterFamilyName)")
+        
+        FirebaseUserHelper.shared.getAllUser { [weak self] (allUsers) in
+            
+            self?.userData = allUsers
+            
+            self?.updateResult()
+        }
     }
     
     @IBAction func closeView(_ sender: Any) {
         
         shouldShowSearchResult = false
         self.dismiss(animated: true, completion: nil)
+        
+        // TODO: rootView reload
+        
+//        let root =segu
     }
     
     var shouldShowSearchResult: Bool = false {
@@ -38,9 +48,13 @@ class SearchUserViewController: UIViewController {
         }
     }
     
-    var userData = [Member]()
+    var inviterUserName: String = ""
     
-    var filteredData = [Member]() {
+    var inviterFamilyName: String = ""
+    
+    var userData = [MemberData]()
+    
+    var filteredData = [MemberData]() {
         
         didSet {
             
@@ -52,7 +66,6 @@ class SearchUserViewController: UIViewController {
 extension SearchUserViewController: UITableViewDataSource,
                                     SearchUserTableViewCellDelegate,
                                     UISearchBarDelegate {
-    
     
     // MARK: Set TableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int
@@ -81,7 +94,7 @@ extension SearchUserViewController: UITableViewDataSource,
             searchingCell.delegate = self
             
             searchingCell.searchingMemberName.text = filteredData[indexPath.row].name
-            searchingCell.searchingMemberId.text = filteredData[indexPath.row].memberId
+            searchingCell.searchingMemberId.text = filteredData[indexPath.row].id
             
             return searchingCell
             
@@ -98,7 +111,7 @@ extension SearchUserViewController: UITableViewDataSource,
         }
     }
     
-    // Mark: Search Bar
+    // MARK: Search Bar
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         updateResult()
@@ -111,11 +124,7 @@ extension SearchUserViewController: UITableViewDataSource,
     }
     
     func updateResult() {
-        
-        // TODO: fetch dataBase userData
-        
-        shouldShowSearchResult = true
-        
+    
         guard let searchingString = userIdSearchBar.text else { return }
         
         if searchingString == "" {
@@ -125,10 +134,13 @@ extension SearchUserViewController: UITableViewDataSource,
             return
             
         } else {
-        
+            
+            shouldShowSearchResult = true
+            
             filteredData = userData.filter({ (data) -> Bool in
             
-            return data.memberId.contains(searchingString)
+                return data.id.contains(searchingString)
+                
             })
         }
     }
@@ -136,29 +148,38 @@ extension SearchUserViewController: UITableViewDataSource,
     // MARK: Add Member
     func addMember(_ cell: SearchUserTableViewCell) {
         
+        guard let index = showResultTableView.indexPath(for: cell) else { return }
+        
+        if filteredData[index.row].id == StorageManager.userInfo.userID {
+            
+            showAlertOf(message: "不小心邀請到自己了啦")
+            
+        } else {
+            
+            FirebaseUserHelper.shared.inviteMember(id: filteredData[index.row].id,
+                                                   name: filteredData[index.row].name,
+                                                   from: StorageManager.userInfo.familyID,
+                                                   familyName: inviterFamilyName,
+                                                   inviter: inviterUserName,
+                invitorCompletion: { [weak self] (result) in
+                    
+                    switch result {
+                        
+                    case .success(let message):
+                        
+                        self?.showAlertOf(message: message)
+                        
+                    case .failed(let err):
+                        
+                        self?.showAlertOf(message: err.rawValue)
+                    }
+                                                    
+            })
+        }
+        
         userIdSearchBar.text = ""
         
         shouldShowSearchResult = false
-        
-        let index = showResultTableView.indexPath(for: cell)
-        
-        // TODO: 判斷對象是否已被邀請，如無再更新 dataBase
-        // show 不同 alert
-        showAlertOfAddingMember(message: "邀請成功！")
     }
     
-    // TODO: 看要不要改掉用套件
-    func showAlertOfAddingMember(message: String) {
-        
-        let alert = UIAlertController(title: message, message: nil, preferredStyle: .alert)
-        
-        let action = UIAlertAction(title: "OK", style: .cancel)
-        
-        action.setValue(UIColor.lightGreen, forKey: "titleTextColor")
-        
-        alert.addAction(action)
-        
-        present(alert, animated: true, completion: nil)
-    }
-        
 }

@@ -22,6 +22,8 @@ class AuthViewController: UIViewController {
     
     @IBOutlet weak var createPassword: UITextField!
     
+    @IBOutlet weak var pwdConfirmField: UITextField!
+    
     @IBOutlet weak var createHomeName: UITextField!
     
     @IBOutlet weak var userID: UITextField!
@@ -45,15 +47,18 @@ class AuthViewController: UIViewController {
     
     @IBAction func showUserSetting(_ sender: Any) {
         
-        if createPassword.text == "" {
+        if createPassword.text == "" || pwdConfirmField.text == "" {
             
             showAlertOf(message: "欄位留白囉")
+        
+        } else if createPassword.text != pwdConfirmField.text {
+            
+            showAlertOf(message: "密碼不一致唷")
         
         } else {
         
             userSettingView.isHidden = false
-         
-            // TODO: 建一筆新資料存到 dataBase
+            
         }
     }
     
@@ -63,16 +68,18 @@ class AuthViewController: UIViewController {
         
         signUpView.isHidden = true
         
-        createPassword.text = nil
+        createPassword.text = ""
+        
+        pwdConfirmField.text = ""
     }
     
     @IBAction func showSignUp(_ sender: Any) {
         
         signInView.isHidden = true
         
-        userID.text = nil
+        userID.text = ""
         
-        userPassword.text = nil
+        userPassword.text = ""
         
         signUpView.isHidden = false
         
@@ -81,20 +88,29 @@ class AuthViewController: UIViewController {
     @IBAction func dissmissUserSetting(_ sender: Any) {
         
         userSettingView.isHidden = true
+        
+        createPassword.text = ""
+        
+        pwdConfirmField.text = ""
     }
     
-    func showAlertOf(message: String) {
+    func showLogin(message: String) {
         
         let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
         
-        let action = UIAlertAction(title: "OK", style: .cancel)
+        let action = UIAlertAction(title: "翻轉家事 Go!", style: .default, handler: { [weak self] _ in
+            
+            let rootVC = UIStoryboard.main.instantiateInitialViewController()!
+            
+            self?.show(rootVC, sender: nil)
+            
+        })
         
         action.setValue(UIColor.lightGreen, forKey: "titleTextColor")
         
         alert.addAction(action)
         
         present(alert, animated: true, completion: nil)
-        
     }
     
     var selectedNameIndex: Int?
@@ -125,15 +141,45 @@ class AuthViewController: UIViewController {
                     
                 } else {
                     
-                    guard let key = createPassword.text else { return }
+                    guard let pwd = createPassword.text,
+                        let selectedIndex = selectedNameIndex,
+                        let familyName = createHomeName.text else { return }
                     
-                    UserDefaults.standard.set(key, forKey: "userKey")
+                    let user = FamilyMember(password: pwd)
+                    
+                    let family = FamilyGroup(name: familyName)
+                    
+                    if selectedIndex == nameCalls.count - 1 {
+                        
+                        guard let userName = customUserName.text else { return }
+                        
+                        FirebaseUserHelper.shared.registAnId(user) {
+                            
+                            FirebaseUserHelper.shared.registDoneWith(family, username: userName) {
+                            
+                                StorageManager.shared.saveUserInfo(uid: FirebaseUserHelper.userID,
+                                                                   familyRecognizer: FirebaseUserHelper.familyID)
+                            }
+                    
+                        }
+                        
+                    } else {
+                        
+                        FirebaseUserHelper.shared.registAnId(user) { [weak self] in
+                            
+                            FirebaseUserHelper.shared.registDoneWith(family,
+                                                                     username: self?.nameCalls[selectedIndex] ?? "(名稱)") {
+                            
+                                StorageManager.shared.saveUserInfo(uid: FirebaseUserHelper.userID,
+                                                               familyRecognizer: FirebaseUserHelper.familyID)
+                            }
+                            
+                        }
+                    }
         
-                    // TODO: 將資料存到 dataBase
-                    // 要把 textField、cell 中的文字一起存
-                    let rootVC = UIStoryboard.main.instantiateInitialViewController()!
+                    UserDefaults.standard.set("isLoggedIn", forKey: "userKey")
                     
-                    self.show(rootVC, sender: nil)
+                    self.showLogin(message: "註冊完成")
                 }
             }
         }
@@ -148,17 +194,28 @@ class AuthViewController: UIViewController {
             
         } else {
             
-            // TODO: 找 dataBase 的資料
-            // 有這個使用者才存 userDefault !!
+            guard let loginId = userID.text, let loginPWD = userPassword.text else { return }
             
-            guard let key = userPassword.text else { return }
-            
-            UserDefaults.standard.set(key, forKey: "userKey")
-            
-            let rootVC = UIStoryboard.main.instantiateInitialViewController()!
-            
-            self.show(rootVC, sender: nil)
-            
+            FirebaseUserHelper.shared.loginWith(id: loginId, password: loginPWD) { [weak self] (result) in
+                
+                switch result {
+                    
+                case .success(let messege):
+                    
+                    StorageManager.shared.saveUserInfo(uid: FirebaseUserHelper.userID,
+                                                       familyRecognizer: FirebaseUserHelper.familyID)
+                    
+                    UserDefaults.standard.set("isLoggedIn", forKey: "userKey")
+                    
+                    self?.showLogin(message: messege)
+                        
+                case .failed(let err):
+                    
+                    self?.showAlertOf(message: err.rawValue)
+                    
+                }
+            }
+        
         }
 
     }
@@ -196,18 +253,12 @@ extension AuthViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
         nameCallItem.nameCall.textColor = UIColor.noticeGray
         
+        selectedNameIndex = indexPath.row
+        
         if indexPath.row == nameCalls.count - 1 {
             
             customUserName.isHidden = false
-            
-            // TODO: 變數存 textField 的文字
-            
         }
-        
-        // TODO: 將 cell 中 label 的文字存到一個變數中
-        //
-        selectedNameIndex = indexPath.row
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {

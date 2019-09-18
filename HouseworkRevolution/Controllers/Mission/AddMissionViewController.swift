@@ -17,25 +17,29 @@ class AddMissionViewController: UIViewController {
         
         houseworksCollection.dataSource = self
         
-        familyMemberCollection.delegate = self
-        
-        familyMemberCollection.dataSource = self
-        
         weekdayPicker.delegate = self
         
         weekdayPicker.dataSource = self
         
-        tiredSlider.setThumbImage(UIImage(named: "valueHeart"), for: .normal)
+        tiredSlider.setThumbImage(UIImage.asset(.valueHeart), for: .normal)
         
         editHouseworkBtn.isSelected = false
-  
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        FirebaseUserHelper.shared.readLabelsOf(
+        
+        family: StorageManager.userInfo.familyID) { [weak self] (labels) in
+            
+            for label in labels {
+                
+                self?.houseworks.append(label)
+            }
+        }
     }
     
     @IBOutlet weak var houseworksCollection: UICollectionView!
-    
-    @IBOutlet weak var familyMemberCollection: UICollectionView!
-    
-    @IBOutlet weak var addHouseworkBtn: UIButton!
 
     @IBOutlet weak var editHouseworkBtn: UIButton!
     
@@ -47,28 +51,79 @@ class AddMissionViewController: UIViewController {
     
     @IBOutlet weak var tiredValue: UILabel!
     
+    var houseworks: [String] =
+        
+        [DefaultHouseworks.sweep.rawValue,
+         DefaultHouseworks.mop.rawValue,
+         DefaultHouseworks.vacuum.rawValue,
+         DefaultHouseworks.garbadge.rawValue,
+         DefaultHouseworks.laundry.rawValue,
+         DefaultHouseworks.cook.rawValue,
+         DefaultHouseworks.grocery.rawValue,
+         DefaultHouseworks.toilet.rawValue] {
+        
+        didSet {
+            
+            houseworksCollection.reloadData()
+            selectedIndex = nil
+        }
+    }
+    
+    var shouldEditCell: Bool = false {
+        
+        didSet {
+            
+            houseworksCollection.reloadData()
+            selectedIndex = nil
+        }
+    }
+    
+    var selectedIndex: Int?
+    
+    var tiredValueInNum: Int = 0
+    
+    var selectedDay: String = WeekdayInEng.Monday.rawValue
+    
     @IBAction func userChangeTiredValue(_ sender: UISlider) {
         
         tiredValue.text = "\(Int(sender.value))"
         
+        tiredValueInNum = Int(sender.value)
     }
     
-    @IBAction func addNewHousework(_ sender: UIButton) {
+    @IBAction func addNewLabel(_ sender: UIButton) {
         
         guard let newHousework = customHousework.text else { return }
         
-        guard newHousework != "" else { showAlertOfNilText(); return }
+        guard newHousework != "" else { showAlertOf(message: "欄位留白囉"); return }
         
         houseworks.append(newHousework)
+        
+        FirebaseUserHelper.shared.addLabelOf(content: newHousework,
+                                             family: StorageManager.userInfo.familyID)
     
         customHousework.text = ""
     }
     
     @IBAction func createHousework(_ sender: UIButton) {
         
-        // TODO: 將任務存到雲端
+        if selectedIndex == nil {
+            
+            showAlertOf(message: "請選擇家事標籤")
+            
+        } else {
+            
+            guard let selectedIndex = selectedIndex else { showAlertOf(message: "資訊不完整呢 ><"); return }
+            
+            FirebaseManager.shared.addMissionToHouseworks(
+                title: houseworks[selectedIndex],
+                tiredValue: tiredValueInNum,
+                weekday: selectedDay,
+                family: StorageManager.userInfo.familyID)
+            
+            self.dismiss(animated: true, completion: nil)
+        }
         
-        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func editCell(_ sender: UIButton) {
@@ -76,7 +131,7 @@ class AddMissionViewController: UIViewController {
         sender.isSelected.toggle()
         
         if sender.isSelected == true {
-            
+        
             shouldEditCell = true
             
         } else {
@@ -90,49 +145,6 @@ class AddMissionViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-    // TODO: 從雲端抓取
-    var familyMember: [String] = ["(自己)"]
-    
-    var weekday: [Weekdays] = [.Monday, .Tuesday, .Wednesday, .Thursday, .Friday, .Saturday, .Sunday]
-    
-    // TODO: 從雲端抓取，存入變數
-    // 預設家事標籤的array存在專案裡，並搭配圖
-    // 在一開始 viewWillAppear fetch database 使用者的家事標籤，（如果有家事標籤array的話才）把 houseworks 洗掉(會進didSet)，沒有的話就不抓 dataBase
-    // 預設家事標籤用 enum 存，並去判斷搭配的圖
-    
-    var houseworks: [String] = ["掃地", "拖地", "倒垃圾", "洗衣服", "煮飯", "買菜", "掃廁所"] {
-        
-        didSet {
-            print("======== 家事標籤 didSet")
-            
-            houseworksCollection.reloadData()
-            
-            // TODO: 更新雲端（新增(使用者有更改這個 array 時才讓 dataBase 存一個家事標籤 array，並把這些預設的一起存進去) 或 洗掉原本的array）
-        }
-    }
-    
-    var shouldEditCell: Bool = false {
-        
-        didSet {
-            
-            houseworksCollection.reloadData()
-        }
-    }
-    
-    func showAlertOfNilText() {
-        
-        let alert = UIAlertController(title: nil, message: "欄位留白囉", preferredStyle: .alert)
-        
-        let action = UIAlertAction(title: "OK", style: .cancel)
-        
-        action.setValue(UIColor.lightGreen, forKey: "titleTextColor")
-        
-        alert.addAction(action)
-        
-        present(alert, animated: true, completion: nil)
-        
-    }
-    
 }
 
 extension AddMissionViewController: UIPickerViewDelegate, UIPickerViewDataSource {
@@ -142,7 +154,10 @@ extension AddMissionViewController: UIPickerViewDelegate, UIPickerViewDataSource
     func pickerView(_ pickerView: UIPickerView,
                     numberOfRowsInComponent component: Int
         
-    ) -> Int { return weekday.count }
+    ) -> Int {
+        
+        return DayManager.weekdayInCH.count
+    }
     
     func pickerView(_ pickerView: UIPickerView,
                     viewForRow row: Int,
@@ -155,16 +170,21 @@ extension AddMissionViewController: UIPickerViewDelegate, UIPickerViewDataSource
         
         pickerLabel.textColor = UIColor.noticeGray
         
-        pickerLabel.text = weekday[row].rawValue
+        pickerLabel.text = DayManager.weekdayInCH[row].rawValue
         
         pickerLabel.textAlignment = .center
         
         pickerLabel.backgroundColor = .white
         
         return pickerLabel
-        
     }
-
+    
+    func pickerView(_ pickerView: UIPickerView,
+                    didSelectRow row: Int,
+                    inComponent component: Int) {
+        
+        selectedDay = DayManager.weekdayInEng[row].rawValue
+    }
 }
 
 extension AddMissionViewController: UICollectionViewDelegate,
@@ -175,19 +195,7 @@ extension AddMissionViewController: UICollectionViewDelegate,
                         numberOfItemsInSection section: Int
     ) -> Int {
         
-        switch collectionView {
-            
-        case houseworksCollection:
-            
-            return houseworks.count
-        
-        case familyMemberCollection:
-            
-            return familyMember.count
-            
-        default: return 1
-            
-        }
+        return houseworks.count
     }
     
     func collectionView(_ collectionView: UICollectionView,
@@ -195,103 +203,52 @@ extension AddMissionViewController: UICollectionViewDelegate,
         
     ) -> UICollectionViewCell {
         
-        switch collectionView {
-        
-        case houseworksCollection:
-            
-            let cell = houseworksCollection.dequeueReusableCell(
+        let cell = houseworksCollection.dequeueReusableCell(
                 withReuseIdentifier: String(describing: HouseworkCollectionViewCell.self), for: indexPath)
             
-            guard let houseworkCell = cell as? HouseworkCollectionViewCell else { return UICollectionViewCell() }
+        guard let houseworkCell = cell as? HouseworkCollectionViewCell else { return UICollectionViewCell() }
             
-            houseworkCell.setUpLabelfor(background: UIColor.buttonUnSelected, textColor: .white)
+        houseworkCell.setUpLabelfor(background: UIColor.buttonUnSelected, textColor: .white)
             
-            houseworkCell.houseworkLabel.text = houseworks[indexPath.row]
+        houseworkCell.houseworkLabel.text = houseworks[indexPath.row]
             
-            houseworkCell.delegate = self
+        houseworkCell.delegate = self
             
-            if shouldEditCell == true {
-                    
+        if shouldEditCell == true {
+            
+            if indexPath.row > 7 {
+                
                 houseworkCell.deleteCellBtn.isHidden = false
                 
             } else {
                 
                 houseworkCell.deleteCellBtn.isHidden = true
             }
-            
-            return houseworkCell
-            
-        case familyMemberCollection:
-            
-            let cell = familyMemberCollection.dequeueReusableCell(
-                withReuseIdentifier: String(describing: FamilyMemberCollectionViewCell.self), for: indexPath)
-            
-            guard let familyCell = cell as? FamilyMemberCollectionViewCell else { return UICollectionViewCell() }
-            
-            familyCell.setUpLabelfor(background: UIColor.buttonUnSelected, textColor: UIColor.white)
-            
-            familyCell.memberLabel.text = familyMember[indexPath.row]
-            
-            return familyCell
-            
-        default:
-            
-            return UICollectionViewCell()
+                
+        } else {
+                
+            houseworkCell.deleteCellBtn.isHidden = true
         }
+            
+        return houseworkCell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        switch collectionView {
             
-        case houseworksCollection:
+        guard let houseworkCell = houseworksCollection.cellForItem(at: indexPath)
+                                    as? HouseworkCollectionViewCell else { return }
             
-            guard let houseworkCell = houseworksCollection.cellForItem(at: indexPath)
-                
-                as? HouseworkCollectionViewCell else { return }
+        houseworkCell.setUpLabelfor(background: UIColor.buttonSelected, textColor: UIColor.noticeGray)
             
-            houseworkCell.setUpLabelfor(background: UIColor.buttonSelected, textColor: UIColor.noticeGray)
-            
-        case familyMemberCollection:
-            
-            guard let familyCell = familyMemberCollection.cellForItem(at: indexPath)
-                
-                as? FamilyMemberCollectionViewCell else { return }
-            
-            familyCell.setUpLabelfor(background: UIColor.buttonSelected, textColor: UIColor.noticeGray)
-            
-        default:
-            
-            return
-        }
-        
-        // TODO: 把使用者選的值存進一變數中，還是要 switch collectionView
+        selectedIndex = indexPath.item
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        
-        switch collectionView {
             
-        case houseworksCollection:
+        guard let houseworkCell = houseworksCollection.cellForItem(at: indexPath)
+                                    as? HouseworkCollectionViewCell else { return }
             
-            guard let houseworkCell = houseworksCollection.cellForItem(at: indexPath)
-                
-                as? HouseworkCollectionViewCell else { return }
-            
-            houseworkCell.setUpLabelfor(background: UIColor.buttonUnSelected, textColor: .white)
-        
-        case familyMemberCollection:
-            
-            guard let familyCell = familyMemberCollection.cellForItem(at: indexPath)
-                
-                as? FamilyMemberCollectionViewCell else { return }
-            
-            familyCell.setUpLabelfor(background: UIColor.buttonUnSelected, textColor: UIColor.white)
-            
-        default:
-            
-            return
-        }
+        houseworkCell.setUpLabelfor(background: UIColor.buttonUnSelected, textColor: .white)
         
     }
     
@@ -299,6 +256,8 @@ extension AddMissionViewController: UICollectionViewDelegate,
         
         guard let index = houseworksCollection.indexPath(for: cell) else { return }
         
+        FirebaseUserHelper.shared.removeLabelOf(content: houseworks[index.item],
+                                                family: StorageManager.userInfo.familyID)
         houseworks.remove(at: index.item)
         
         shouldEditCell = false
