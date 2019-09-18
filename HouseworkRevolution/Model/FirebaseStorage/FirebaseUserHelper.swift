@@ -18,9 +18,9 @@ class FirebaseUserHelper {
     
     private init() {}
     
-    static var userID: String = "notSetYet"
+    static var userID: String = "NOTSETYET"
     
-    static var familyID: String = "notSetYet"
+    static var familyID: String = "NOTSETYET"
     
     static var currentListenerRegistration: ListenerRegistration?
     
@@ -45,18 +45,19 @@ class FirebaseUserHelper {
                             } else {
                                                                                             
                              print("success create user")
+                                
+                             completion()
                             }
                 })
         
         FirebaseUserHelper.userID = ref.documentID
-        completion()
     }
     
     func registDoneWith(_ family: FamilyGroup, username: String, completion: @escaping () -> Void) {
         
         let familyRef = db.collection(DataCollection.houseGroup.rawValue)
-            .addDocument(data:[FamilyGroupData.name.rawValue: family.name,
-                               FamilyGroupData.houseworkLabels.rawValue: family.houseworkLabel])
+            .addDocument(data: [FamilyGroupData.name.rawValue: family.name,
+                                FamilyGroupData.houseworkLabels.rawValue: family.houseworkLabel])
         
         FirebaseUserHelper.familyID = familyRef.documentID
         
@@ -91,7 +92,7 @@ class FirebaseUserHelper {
         // 判斷有無此人
         let userRef = db.collection(DataCollection.houseUser.rawValue).document(id)
         
-        userRef.getDocument { [weak self] (document, error) in
+        userRef.getDocument { (document, error) in
             
             if let document = document, document.exists {
                 
@@ -358,7 +359,7 @@ class FirebaseUserHelper {
                                 } else {
                                     
                                     familyQuery.collection(CollectionOfFamily.requestedMember.rawValue)
-                                        .addDocument(data: [RequestedMember.username.rawValue : name,
+                                        .addDocument(data: [RequestedMember.username.rawValue: name,
                                                             RequestedMember.userID.rawValue: id])
                                     
                                     invitorCompletion(.success("邀請成功！"))
@@ -488,7 +489,7 @@ class FirebaseUserHelper {
         self.rejectInvitation(from: family, myID: myID)
     }
     
-    func rejectInvitation(from family: String, myID: String)  {
+    func rejectInvitation(from family: String, myID: String) {
         
         let query = db.collection(DataCollection.houseGroup.rawValue)
             .document(family).collection(CollectionOfFamily.requestedMember.rawValue)
@@ -568,7 +569,7 @@ class FirebaseUserHelper {
         }
     }
     
-    func getCurrentFamily(user: String, completion: @escaping (String) -> ()) {
+    func getCurrentFamily(user: String, completion: @escaping (String) -> Void) {
         
         let query = db.collection(DataCollection.houseUser.rawValue)
             .document(user)
@@ -629,7 +630,7 @@ class FirebaseUserHelper {
     
 // MARK: 判斷是否為 originFamily
     
-    func comparingFamily(user: String, originFamilyHandler: @escaping (String) -> ()) {
+    func comparingFamily(user: String, originFamilyHandler: @escaping (String) -> Void) {
         
         let query = db.collection(DataCollection.houseUser.rawValue).document(user)
         

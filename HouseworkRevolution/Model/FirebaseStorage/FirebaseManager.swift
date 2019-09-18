@@ -49,7 +49,7 @@ class FirebaseManager {
             .collection(CollectionOfFamily.missionByDate.rawValue)
         
         houseworksQuery.whereField(MissionData.weekday.rawValue, isEqualTo: DayManager.shared.weekday)
-            .getDocuments { [weak self] (querySnapshot, error) in
+            .getDocuments { (querySnapshot, error) in
                 
                 if let querySnapshot = querySnapshot {
                     
@@ -88,7 +88,7 @@ class FirebaseManager {
     }
     
     // 檢查 database 有沒有今天的資料，沒有的話新增
-    func checkToday(family: String, completion: @escaping () -> ()){
+    func checkToday(family: String, completion: @escaping () -> Void) {
         
         let today = DayManager.shared.stringOfToday
         
@@ -455,7 +455,7 @@ class FirebaseManager {
                     
                     for document in querySnapshot.documents {
                         
-                        houseworksQuery.document(document.documentID).delete() { [weak self] (err) in
+                        houseworksQuery.document(document.documentID).delete() { (err) in
                             
                             if let err = err {
                                 

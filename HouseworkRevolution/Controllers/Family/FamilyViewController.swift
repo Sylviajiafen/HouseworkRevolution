@@ -130,6 +130,7 @@ class FamilyViewController: UIViewController {
         let okAction = UIAlertAction(title: "確定", style: .default) { [weak self] _ in
             
             FirebaseUserHelper.currentListenerRegistration?.remove()
+            FirebaseUserHelper.currentListenerRegistration = nil
             
             FirebaseUserHelper.shared.dropOutFamily(familyID: StorageManager.userInfo.familyID,
                                                     user: StorageManager.userInfo.userID,
@@ -486,6 +487,7 @@ extension FamilyViewController: InvitingFamilyTableViewCellDelegate {
         let inviterFamilyID = invitingFamilyList[index.row].familyID
         
         FirebaseUserHelper.currentListenerRegistration?.remove()
+        FirebaseUserHelper.currentListenerRegistration = nil
         
         FirebaseUserHelper.shared.acceptInvitation(from: inviterFamilyID,
                                                    myID: StorageManager.userInfo.userID,

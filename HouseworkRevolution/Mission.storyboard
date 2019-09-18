@@ -313,9 +313,9 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PGh-Jq-Iws">
-                                                    <rect key="frame" x="68" y="0.0" width="12" height="12"/>
+                                                    <rect key="frame" x="65" y="0.0" width="15" height="15"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="12" id="9Tu-KU-f8d"/>
+                                                        <constraint firstAttribute="height" constant="15" id="9Tu-KU-f8d"/>
                                                         <constraint firstAttribute="width" secondItem="PGh-Jq-Iws" secondAttribute="height" multiplier="1:1" id="zCk-N9-nvl"/>
                                                     </constraints>
                                                     <state key="normal" image="deleteCell"/>

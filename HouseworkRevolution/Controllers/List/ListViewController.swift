@@ -35,7 +35,7 @@ class ListViewController: UIViewController {
         showNoMissionLabel.text = "尚未設定今天（\(today)）的家事"
         
         FirebaseManager.shared.delegate = self
-
+    
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,6 +51,7 @@ class ListViewController: UIViewController {
             
             ProgressHUD.dismiss()
         }
+    
     }
     
     @IBOutlet weak var dailyMissionCollectionView: UICollectionView! {

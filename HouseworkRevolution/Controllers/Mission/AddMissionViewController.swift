@@ -241,6 +241,8 @@ extension AddMissionViewController: UICollectionViewDelegate,
         houseworkCell.setUpLabelfor(background: UIColor.buttonSelected, textColor: UIColor.noticeGray)
             
         selectedIndex = indexPath.item
+        
+        shouldEditCell = false
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
