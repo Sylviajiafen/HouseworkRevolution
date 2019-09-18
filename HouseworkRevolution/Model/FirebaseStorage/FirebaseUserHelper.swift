@@ -23,6 +23,7 @@ class FirebaseUserHelper {
     static var familyID: String = "NOTSETYET"
     
     static var currentListenerRegistration: ListenerRegistration?
+    static var currentMemberListener: ListenerRegistration?
     
     private let db = Firestore.firestore()
     
@@ -40,7 +41,7 @@ class FirebaseUserHelper {
                             
                             if let err = err {
                                                                                             
-                              print("Regist ID err: \(err)")
+                              print("Regist user ID err: \(err)")
                                                                                             
                             } else {
                                                                                             
@@ -55,34 +56,51 @@ class FirebaseUserHelper {
     
     func registDoneWith(_ family: FamilyGroup, username: String, completion: @escaping () -> Void) {
         
-        let familyRef = db.collection(DataCollection.houseGroup.rawValue)
+       var familyRef: DocumentReference?
+        
+       familyRef = db.collection(DataCollection.houseGroup.rawValue)
             .addDocument(data: [FamilyGroupData.name.rawValue: family.name,
-                                FamilyGroupData.houseworkLabels.rawValue: family.houseworkLabel])
-        
-        FirebaseUserHelper.familyID = familyRef.documentID
-        
-        db.collection(DataCollection.houseGroup.rawValue).document(familyRef.documentID)
-            .collection(CollectionOfFamily.member.rawValue)
-            .document(FirebaseUserHelper.userID).setData(["name": username])
-        
-        db.collection(DataCollection.houseGroup.rawValue).document(familyRef.documentID)
-            .collection(CollectionOfFamily.houseworks.rawValue)
-            .addDocument(data:
-                [MissionData.title.rawValue: "加入翻轉家事(預設)",
-                 MissionData.tiredValue.rawValue: 0,
-                 MissionData.weekday.rawValue: DayManager.shared.weekday])
-        
+                                FamilyGroupData.houseworkLabels.rawValue: family.houseworkLabel],
+                         completion: { [weak self] (err) in
+                            
+                            if let err = err {
+                                
+                                print("Regist ID err: \(err)")
+                                
+                            } else {
+                                
+                                print("success create user")
+                                
+                                guard let familyID = familyRef?.documentID else { return }
+                                
+                                FirebaseUserHelper.familyID = familyID
+                                
+                                self?.db.collection(DataCollection.houseGroup.rawValue).document(familyID)
+                                    .collection(CollectionOfFamily.member.rawValue)
+                                    .document(FirebaseUserHelper.userID).setData(["name": username])
+                                
+                                self?.db.collection(DataCollection.houseGroup.rawValue).document(familyID)
+                                    .collection(CollectionOfFamily.houseworks.rawValue)
+                                    .addDocument(data:
+                                        [MissionData.title.rawValue: "加入翻轉家事(預設)",
+                                         MissionData.tiredValue.rawValue: 0,
+                                         MissionData.weekday.rawValue: DayManager.shared.weekday])
+                                
+                                self?.db.collection(DataCollection.houseUser.rawValue)
+                                    .document(FirebaseUserHelper.userID).setData(
+                                        [UserData.name.rawValue: username,
+                                         UserData.family.rawValue: familyID,
+                                         UserData.originFamily.rawValue: familyID], merge: true)
+                                
+                                completion()
+                            }
+            })
+       
         //        db.collection(DataCollection.houseGroup.rawValue).document(ref.documentID)
         //            .collection(CollectionOfFamily.missionByDate.rawValue)
         //            .addDocument(data:
         //                ["day": "(date)"])
         
-        db.collection(DataCollection.houseUser.rawValue).document(FirebaseUserHelper.userID).setData(
-            [UserData.name.rawValue: username,
-             UserData.family.rawValue: familyRef.documentID,
-             UserData.originFamily.rawValue: familyRef.documentID], merge: true)
-        
-        completion()
     }
     
 // MARK: 登入功能: 拿到 userID & familyID
@@ -270,6 +288,7 @@ class FirebaseUserHelper {
             .collection(CollectionOfFamily.member.rawValue)
         
         // addSnapshot
+        FirebaseUserHelper.currentMemberListener = 
         query.addSnapshotListener { (querySnapshot, err) in
             
             if let members = querySnapshot?.documents {

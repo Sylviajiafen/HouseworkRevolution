@@ -153,33 +153,43 @@ class AuthViewController: UIViewController {
                         
                         guard let userName = customUserName.text else { return }
                         
-                        FirebaseUserHelper.shared.registAnId(user) {
+                        ProgressHUD.show()
+                        
+                        FirebaseUserHelper.shared.registAnId(user) { [weak self] in
                             
                             FirebaseUserHelper.shared.registDoneWith(family, username: userName) {
                             
                                 StorageManager.shared.saveUserInfo(uid: FirebaseUserHelper.userID,
                                                                    familyRecognizer: FirebaseUserHelper.familyID)
+                                
+                                UserDefaults.standard.set("isLoggedIn", forKey: "userKey")
+                                
+                                ProgressHUD.dismiss()
+                                
+                                self?.showLogin(message: "註冊完成")
                             }
-                    
                         }
                         
                     } else {
+                        
+                        ProgressHUD.show()
                         
                         FirebaseUserHelper.shared.registAnId(user) { [weak self] in
                             
                             FirebaseUserHelper.shared.registDoneWith(family,
                                                                      username: self?.nameCalls[selectedIndex] ?? "(名稱)") {
-                            
+                                                                        
                                 StorageManager.shared.saveUserInfo(uid: FirebaseUserHelper.userID,
                                                                familyRecognizer: FirebaseUserHelper.familyID)
+                                                                        
+                                UserDefaults.standard.set("isLoggedIn", forKey: "userKey")
+                                                                        
+                                ProgressHUD.dismiss()
+                                                                        
+                                self?.showLogin(message: "註冊完成")
                             }
-                            
                         }
                     }
-        
-                    UserDefaults.standard.set("isLoggedIn", forKey: "userKey")
-                    
-                    self.showLogin(message: "註冊完成")
                 }
             }
         }
