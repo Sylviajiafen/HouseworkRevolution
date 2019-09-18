@@ -59,7 +59,7 @@ class FamilyViewController: UIViewController {
         let board  = UIPasteboard.general
         board.string = StorageManager.userInfo.userID
         
-        ProgressHUD.showＷith(text: "複製完成")
+        ProgressHUD.showＷith(text: "複製！")
     }
     
     @IBAction func editUserCall(_ sender: Any) {

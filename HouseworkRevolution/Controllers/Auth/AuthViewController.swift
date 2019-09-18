@@ -206,6 +206,8 @@ class AuthViewController: UIViewController {
             
             guard let loginId = userID.text, let loginPWD = userPassword.text else { return }
             
+            ProgressHUD.show()
+            
             FirebaseUserHelper.shared.loginWith(id: loginId, password: loginPWD) { [weak self] (result) in
                 
                 switch result {
@@ -218,10 +220,14 @@ class AuthViewController: UIViewController {
                     UserDefaults.standard.set("isLoggedIn", forKey: "userKey")
                     
                     self?.showLogin(message: messege)
-                        
+                    
+                    ProgressHUD.dismiss()
+                    
                 case .failed(let err):
                     
                     self?.showAlertOf(message: err.rawValue)
+                    
+                    ProgressHUD.dismiss()
                     
                 }
             }
