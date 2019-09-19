@@ -57,7 +57,6 @@ class ShowWishesViewController: UIViewController {
     @IBOutlet weak var wishesCollectionView: UICollectionView!
     
     var wishArr = [String]()
-//       ["看電影", "寫小說", "睡到自然醒", "通宵追劇", "回娘家", "和老公離婚", "買下那個包！", "很長很長很長很長很長很長很長很長的願望"]
     
     var wishes = [String]() {
         

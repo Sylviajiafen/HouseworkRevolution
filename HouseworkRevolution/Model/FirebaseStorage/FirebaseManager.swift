@@ -12,6 +12,7 @@ import Firebase
 typealias AddMissionMessege = (AddMissionResult<String>) -> Void
 
 // swiftlint:disable type_body_length
+// swiftlint:disable empty_parentheses_with_trailing_closure
 
 class FirebaseManager {
     

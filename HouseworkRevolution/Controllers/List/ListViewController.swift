@@ -85,7 +85,7 @@ class ListViewController: UIViewController {
                 
                 self?.isMissionEmpty()
                 
-                print("UndoToday: \(String(describing: self?.missionDoneToday))")
+                print("UndoToday: \(String(describing: self?.missionUndoToday))")
             }
         }
     }
@@ -128,6 +128,10 @@ class ListViewController: UIViewController {
         
         dailyMissionFlowLayout.headerReferenceSize = CGSize(width: screenWidth, height: 40.0)
         
+        dailyMissionCollectionView.addPullToRefresh(dailyMissionCollectionView) {
+            
+            FirebaseManager.shared.getMissionListToday(family: StorageManager.userInfo.familyID)
+        }
     }
     
     var itemHeight: CGFloat = 0.0
@@ -243,6 +247,8 @@ class ListViewController: UIViewController {
     
     func isMissionEmpty() {
         
+        dailyMissionCollectionView.endPullToRefresh(dailyMissionCollectionView)
+        
         if missionUndoToday.count == 0 && missionDoneToday.count == 0 {
             
             emptyMissionView.isHidden = false
@@ -254,6 +260,7 @@ class ListViewController: UIViewController {
             emptyMissionView.isHidden = true
             
             ProgressHUD.dismiss()
+    
         }
     }
     
@@ -265,7 +272,6 @@ class ListViewController: UIViewController {
         
         root?.selectedIndex = 1
     }
-    
     
 }
 

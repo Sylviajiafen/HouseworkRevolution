@@ -8,6 +8,8 @@
 
 import UIKit
 
+// swiftlint:disable multiple_closures_with_trailing_closure
+
 class ShowAddSegue: UIStoryboardSegue {
     
     override func perform() {
