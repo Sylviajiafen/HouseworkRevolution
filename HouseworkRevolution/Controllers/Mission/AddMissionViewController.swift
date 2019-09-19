@@ -115,6 +115,8 @@ class AddMissionViewController: UIViewController {
             
             guard let selectedIndex = selectedIndex else { showAlertOf(message: "資訊不完整呢 ><"); return }
             
+            ProgressHUD.show()
+            
             FirebaseManager.shared.addMissionToHouseworks(
                 title: houseworks[selectedIndex],
                 tiredValue: tiredValueInNum,

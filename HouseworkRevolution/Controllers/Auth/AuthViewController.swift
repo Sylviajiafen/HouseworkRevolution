@@ -100,9 +100,13 @@ class AuthViewController: UIViewController {
         
         let action = UIAlertAction(title: "翻轉家事 Go!", style: .default, handler: { [weak self] _ in
             
-            let rootVC = UIStoryboard.main.instantiateInitialViewController()!
+            let appdelegate = UIApplication.shared.delegate as? AppDelegate
             
-            self?.show(rootVC, sender: nil)
+            appdelegate?.window?.rootViewController = UIStoryboard.main.instantiateInitialViewController()!
+            
+//            let rootVC = UIStoryboard.main.instantiateInitialViewController()!
+
+//            self?.show(rootVC, sender: nil)
             
         })
         
@@ -228,7 +232,6 @@ class AuthViewController: UIViewController {
                     self?.showAlertOf(message: err.rawValue)
                     
                     ProgressHUD.dismiss()
-                    
                 }
             }
         

@@ -40,7 +40,7 @@ class FirebaseManager {
 // MARK: 讀取今日家事
     
     // 新增當日 missions collection
-    private func addDailyMissionToMissionByDate(of family: String) {
+    private func addDailyMissionToMissionByDate(of family: String, completion: @escaping () -> Void ) {
         
         let houseworksQuery = db.collection(DataCollection.houseGroup.rawValue)
             .document(family)
@@ -58,6 +58,7 @@ class FirebaseManager {
                     if querySnapshot.count == 0 { // 沒有設定那個星期日期的家事
                         
                         print("沒有當天星期的家事")
+                        completion()
 
                     } else { // 有家事
                         
@@ -75,9 +76,12 @@ class FirebaseManager {
                                 .addDocument(data:
                                     [MissionData.title.rawValue: title,
                                      MissionData.tiredValue.rawValue: tiredValue,
-                                     MissionData.status.rawValue: MissionStatus.undo.rawValue])
-                            
-                            print("新增了今天的 missionByDate")
+                                     MissionData.status.rawValue: MissionStatus.undo.rawValue],
+                                completion: { (err) in
+                                    
+                                    print("新增了今天的 missionByDate")
+                                    completion()
+                                })
                         }
                     }
                     
@@ -108,15 +112,18 @@ class FirebaseManager {
                         
                         missionByDateQuery.document(today).setData(["day": today])
                         
-                        self?.addDailyMissionToMissionByDate(of: family) // 創造每天的 “mission" collection，只能寫一次，不然會重複加
+                        // 創造每天的 “mission" collection，只能寫一次，不然會重複加
+                        self?.addDailyMissionToMissionByDate(of: family, completion: {
+                            
+                            completion()
+                            print("建完了")
+                        })
                         
                     } else { // 表示今天已有人建一筆，不新增
                         
                         print("有資料ㄌ")
+                        completion()
                     }
-                    
-                    completion()
-                    print("建完了")
                     
                 } else if let error = error {
                     

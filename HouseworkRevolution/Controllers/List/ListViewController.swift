@@ -67,7 +67,6 @@ class ListViewController: UIViewController {
             dailyMissionCollectionView.dragInteractionEnabled = true
 
             dailyMissionCollectionView.dropDelegate = self
-            
         }
     }
     
@@ -89,7 +88,7 @@ class ListViewController: UIViewController {
                 
                 self?.isMissionEmpty()
                 
-                print("DoneToday: \(self?.missionDoneToday)")
+                print("UndoToday: \(self?.missionDoneToday)")
             }
         }
     }
