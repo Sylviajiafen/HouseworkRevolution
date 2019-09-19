@@ -60,6 +60,7 @@ class ProgressHUD {
         if !Thread.isMainThread {
             
             DispatchQueue.main.async {
+                
                 showＷith(text: text)
             }
             

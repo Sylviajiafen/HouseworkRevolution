@@ -10,7 +10,7 @@ import UIKit
 
 extension UIViewController {
     
-    func showAlertOf(message: String, dismiss: Bool = false, handler: (() ->Void)? = nil) {
+    func showAlertOf(message: String, dismiss: Bool = false, handler: (() -> Void)? = nil) {
         
         let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
         
@@ -36,5 +36,4 @@ extension UIViewController {
     
     }
 
-   
 }

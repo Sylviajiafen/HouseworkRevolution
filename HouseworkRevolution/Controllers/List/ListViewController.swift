@@ -48,10 +48,7 @@ class ListViewController: UIViewController {
         FirebaseManager.shared.checkToday(family: StorageManager.userInfo.familyID) {
             
             FirebaseManager.shared.getMissionListToday(family: StorageManager.userInfo.familyID)
-            
-            ProgressHUD.dismiss()
         }
-    
     }
     
     @IBOutlet weak var dailyMissionCollectionView: UICollectionView! {
@@ -88,7 +85,7 @@ class ListViewController: UIViewController {
                 
                 self?.isMissionEmpty()
                 
-                print("UndoToday: \(self?.missionDoneToday)")
+                print("UndoToday: \(String(describing: self?.missionDoneToday))")
             }
         }
     }
@@ -103,7 +100,7 @@ class ListViewController: UIViewController {
                 
                 self?.isMissionEmpty()
                 
-                print("DoneToday: \(self?.missionDoneToday)")
+                print("DoneToday: \(String(describing: self?.missionDoneToday))")
             }
         }
     }
@@ -249,9 +246,14 @@ class ListViewController: UIViewController {
         if missionUndoToday.count == 0 && missionDoneToday.count == 0 {
             
             emptyMissionView.isHidden = false
+            
+            ProgressHUD.dismiss()
+            
         } else {
             
             emptyMissionView.isHidden = true
+            
+            ProgressHUD.dismiss()
         }
     }
     

@@ -12,6 +12,8 @@ import Firebase
 typealias LoggedInResult = (LoginResult<String>) -> Void
 typealias AddMemberResult = (SendInvitationResult<String>) -> Void
 
+// swiftlint:disable type_body_length
+
 class FirebaseUserHelper {
     
     static let shared = FirebaseUserHelper()
@@ -522,7 +524,7 @@ class FirebaseUserHelper {
                 
                 if let querySnapshot = querySnapshot {
                     
-                    querySnapshot.documents.map({ (document) -> () in
+                    querySnapshot.documents.map({ (document) -> Void in
                         
                         query.document(document.documentID).delete()
                     })

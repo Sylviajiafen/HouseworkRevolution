@@ -30,9 +30,9 @@ class ShowAddSegue: UIStoryboardSegue {
         
         UIView.animate(withDuration: 0.4, animations: {
             
-            source.frame = CGRect(x: -screenWidth, y: 0, width: screenWidth , height: screenHeight)
+            source.frame = CGRect(x: -screenWidth, y: 0, width: screenWidth, height: screenHeight)
             
-            destination.frame = CGRect(x: 0, y: 0, width: screenWidth , height: screenHeight)
+            destination.frame = CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight)
             
         }) { (finished) in
             

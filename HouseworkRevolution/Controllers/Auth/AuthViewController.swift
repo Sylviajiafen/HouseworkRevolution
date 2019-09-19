@@ -98,7 +98,7 @@ class AuthViewController: UIViewController {
         
         let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
         
-        let action = UIAlertAction(title: "翻轉家事 Go!", style: .default, handler: { [weak self] _ in
+        let action = UIAlertAction(title: "翻轉家事 Go!", style: .default, handler: { _ in
             
             let appdelegate = UIApplication.shared.delegate as? AppDelegate
             

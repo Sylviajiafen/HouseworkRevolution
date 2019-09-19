@@ -84,7 +84,6 @@ enum DataCollection: String {
     case houseUser
 }
 
-
 enum MissionData: String {
     
     case title

@@ -11,6 +11,8 @@ import Firebase
 
 typealias AddMissionMessege = (AddMissionResult<String>) -> Void
 
+// swiftlint:disable type_body_length
+
 class FirebaseManager {
     
     static let shared = FirebaseManager()
