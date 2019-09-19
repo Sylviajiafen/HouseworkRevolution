@@ -70,28 +70,28 @@ private enum Tab {
             return UITabBarItem(
                 title: nil,
                 image: UIImage.asset(.listUnselected),
-                selectedImage: UIImage.asset(.listSelected)
+                selectedImage: UIImage.asset(.listSelectedDarkGray)
             )
             
         case .mission:
             return UITabBarItem(
                 title: nil,
                 image: UIImage.asset(.missionUnselected),
-                selectedImage: UIImage.asset(.missionSelected)
+                selectedImage: UIImage.asset(.missionSelectedDarkGray)
             )
             
         case .wish:
             return UITabBarItem(
                 title: nil,
                 image: UIImage.asset(.wishUnselected),
-                selectedImage: UIImage.asset(.wishSelected)
+                selectedImage: UIImage.asset(.wishSelectedDarkGray)
             )
             
         case .family:
             return UITabBarItem(
                 title: nil,
                 image: UIImage.asset(.familyUnselected),
-                selectedImage: UIImage.asset(.familySelected)
+                selectedImage: UIImage.asset(.familySelectedDarkGray)
             )
 
         }
