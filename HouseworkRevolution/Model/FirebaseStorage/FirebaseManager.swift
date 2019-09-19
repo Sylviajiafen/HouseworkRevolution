@@ -313,7 +313,9 @@ class FirebaseManager {
                             
                             if let err = err {
                                 print("Error updating document: \(err)")
+                                
                             } else {
+                                
                                 print("\(missionUndoQuery.document(document.documentID)) successfully updated to \(MissionStatus.done.rawValue)")
                             }
                         }

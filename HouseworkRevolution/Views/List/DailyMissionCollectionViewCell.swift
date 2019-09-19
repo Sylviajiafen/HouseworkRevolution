@@ -11,5 +11,4 @@ import UIKit
 class DailyMissionCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var dailyMissionLabel: UILabel!
-    @IBOutlet weak var missionChargerLabel: UILabel!
 }

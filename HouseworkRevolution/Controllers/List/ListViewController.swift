@@ -344,13 +344,11 @@ extension ListViewController: UICollectionViewDelegate,
             
             missionItem.backgroundColor = UIColor.cellGreen
             missionItem.dailyMissionLabel.text = missionUndoToday[indexPath.row].title
-            missionItem.missionChargerLabel.text = ""
             
         case 1:
             
             missionItem.backgroundColor = UIColor.lightCellGreen
             missionItem.dailyMissionLabel.text = missionDoneToday[indexPath.row].title
-            missionItem.missionChargerLabel.text = ""
             
         default:
             break

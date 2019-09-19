@@ -1,7 +1,12 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,15 +16,54 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="houseworkRevolution" translatesAutoresizingMaskIntoConstraints="NO" id="C9P-su-UXF">
+                                <rect key="frame" x="107" y="280" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="1gQ-Y7-GZl"/>
+                                    <constraint firstAttribute="width" constant="200" id="Cng-m0-w3A"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logotext02" translatesAutoresizingMaskIntoConstraints="NO" id="9cF-B2-QQu">
+                                <rect key="frame" x="175" y="505" width="100" height="37.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="37.670000000000002" id="MRx-f8-qge"/>
+                                    <constraint firstAttribute="width" constant="100" id="QXe-6A-tEi"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logotext01" translatesAutoresizingMaskIntoConstraints="NO" id="Fuj-OG-4lH">
+                                <rect key="frame" x="124" y="500" width="51" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="51" id="cYG-Mo-45R"/>
+                                    <constraint firstAttribute="height" constant="44" id="zKd-7Z-C5S"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" name="iconBackground"/>
+                        <constraints>
+                            <constraint firstItem="Fuj-OG-4lH" firstAttribute="top" secondItem="C9P-su-UXF" secondAttribute="bottom" constant="20" id="7Xb-Hh-5mR"/>
+                            <constraint firstItem="C9P-su-UXF" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="EmB-Z4-AQl"/>
+                            <constraint firstItem="9cF-B2-QQu" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" constant="18" id="FKa-Fl-D4v"/>
+                            <constraint firstItem="9cF-B2-QQu" firstAttribute="leading" secondItem="Fuj-OG-4lH" secondAttribute="trailing" id="TZs-Ru-f6Y"/>
+                            <constraint firstItem="9cF-B2-QQu" firstAttribute="top" secondItem="C9P-su-UXF" secondAttribute="bottom" constant="25" id="lyo-uT-MiV"/>
+                            <constraint firstItem="C9P-su-UXF" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-68" id="vvJ-jH-tfZ"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52.173913043478265" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="houseworkRevolution" width="1024" height="1024"/>
+        <image name="logotext01" width="242" height="244"/>
+        <image name="logotext02" width="584" height="187"/>
+        <namedColor name="iconBackground">
+            <color red="1" green="0.8901960784313725" blue="0.77254901960784317" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>
