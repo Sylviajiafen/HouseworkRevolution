@@ -12,13 +12,13 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
 
     private let tabs: [Tab] = [.list, .mission, .wish, .family]
     
+    let layerGradient = CAGradientLayer()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         viewControllers = tabs.map({ $0.controller() })
-        
     }
-
 }
 
 private enum Tab {
@@ -70,28 +70,28 @@ private enum Tab {
             return UITabBarItem(
                 title: nil,
                 image: UIImage.asset(.listUnselected),
-                selectedImage: UIImage.asset(.listSelectedDarkGray)
+                selectedImage: UIImage.asset(.listSelected)
             )
             
         case .mission:
             return UITabBarItem(
                 title: nil,
                 image: UIImage.asset(.missionUnselected),
-                selectedImage: UIImage.asset(.missionSelectedDarkGray)
+                selectedImage: UIImage.asset(.missionSelected)
             )
             
         case .wish:
             return UITabBarItem(
                 title: nil,
                 image: UIImage.asset(.wishUnselected),
-                selectedImage: UIImage.asset(.wishSelectedDarkGray)
+                selectedImage: UIImage.asset(.wishSelected)
             )
             
         case .family:
             return UITabBarItem(
                 title: nil,
                 image: UIImage.asset(.familyUnselected),
-                selectedImage: UIImage.asset(.familySelectedDarkGray)
+                selectedImage: UIImage.asset(.familySelected)
             )
 
         }

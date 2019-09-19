@@ -17,16 +17,15 @@ enum ImageAsset: String {
     
     case listUnselected
     case listSelected
-    case listSelectedDarkGray
+    
     case missionUnselected
     case missionSelected
-    case missionSelectedDarkGray
+    
     case wishUnselected
     case wishSelected
-    case wishSelectedDarkGray
+    
     case familyUnselected
     case familySelected
-    case familySelectedDarkGray
     
     case deleteWish
     
