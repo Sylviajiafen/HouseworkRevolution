@@ -197,7 +197,6 @@ class AuthViewController: UIViewController {
                 }
             }
         }
-        
     }
     
     @IBAction func findHome(_ sender: Any) {
@@ -234,11 +233,8 @@ class AuthViewController: UIViewController {
                     ProgressHUD.dismiss()
                 }
             }
-        
         }
-
     }
-    
 }
 
 extension AuthViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -293,7 +289,6 @@ extension AuthViewController: UICollectionViewDelegate, UICollectionViewDataSour
         if indexPath.row == nameCalls.count - 1 {
             
             customUserName.isHidden = true
-            
         }
     }
     

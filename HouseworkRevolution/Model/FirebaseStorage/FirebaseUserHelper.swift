@@ -200,7 +200,6 @@ class FirebaseUserHelper {
                 completion(wishes)
                 
                 print("Wishes: \(wishes) read!!")
-                ProgressHUD.dismiss()
                 
             } else if let err = err {
                 

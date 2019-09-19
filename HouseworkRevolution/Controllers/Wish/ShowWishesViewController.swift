@@ -27,13 +27,14 @@ class ShowWishesViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         
-        ProgressHUD.show()
+        ProgressHUD.show(self.view)
         
         FirebaseUserHelper.shared.readWishesOf(user: StorageManager.userInfo.userID) { [weak self] (wishesInLamp) in
             
             if wishesInLamp.count == 0 {
                 
                 self?.emptyView.isHidden = false
+                ProgressHUD.dismiss()
                 
             } else {
             
@@ -67,6 +68,8 @@ class ShowWishesViewController: UIViewController {
                 self?.wishesCollectionView.reloadData()
                 
                 self?.wishesCollectionView.collectionViewLayout.invalidateLayout()
+                
+                ProgressHUD.dismiss()
             }
         }
     }
@@ -139,6 +142,5 @@ extension ShowWishesViewController: UICollectionViewDataSource,
                                                user: StorageManager.userInfo.userID)
         
         wishes.remove(at: toBeRemovedIndex.row)
-        
     }
 }

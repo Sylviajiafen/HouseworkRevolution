@@ -23,7 +23,7 @@ class ProgressHUD {
         return appdelegate!.window!.rootViewController!.view
     }
     
-    static func show() {
+    static func show(_ view: UIView = shared.view) {
         
         if !Thread.isMainThread {
             
@@ -38,7 +38,7 @@ class ProgressHUD {
         
         shared.hud.textLabel.text = "Loading"
         
-        shared.hud.show(in: shared.view)
+        shared.hud.show(in: view)
     }
     
     static func dismiss() {
