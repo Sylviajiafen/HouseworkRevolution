@@ -119,7 +119,7 @@ extension WishViewController: UITextViewDelegate {
         
         let changedText = currentText.replacingCharacters(in: stringRange, with: text)
         
-        return changedText.count <= 100
+        return changedText.count <= 39
     }
     
 }
