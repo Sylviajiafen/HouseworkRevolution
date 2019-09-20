@@ -33,10 +33,6 @@ class SearchUserViewController: UIViewController {
         
         shouldShowSearchResult = false
         self.dismiss(animated: true, completion: nil)
-        
-        // TODO: rootView reload
-        
-//        let root =segu
     }
     
     var shouldShowSearchResult: Bool = false {

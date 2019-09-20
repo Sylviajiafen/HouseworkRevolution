@@ -10,17 +10,30 @@ import UIKit
 
 extension UIViewController {
     
-    func showAlertOf(message: String) {
+    func showAlertOf(message: String, dismiss: Bool = false, handler: (() -> Void)? = nil) {
         
         let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
         
-        let action = UIAlertAction(title: "OK", style: .cancel)
+        var action = UIAlertAction()
+        
+        if dismiss {
+            
+            action = UIAlertAction(title: "OK", style: .default, handler: { _ in
+                
+                handler?()
+            })
+            
+        } else {
+            
+           action = UIAlertAction(title: "OK", style: .cancel)
+        }
         
         action.setValue(UIColor.lightGreen, forKey: "titleTextColor")
         
         alert.addAction(action)
         
         present(alert, animated: true, completion: nil)
-        
+    
     }
+
 }

@@ -9,6 +9,11 @@
 import Foundation
 import Firebase
 
+typealias AddMissionMessege = (AddMissionResult<String>) -> Void
+
+// swiftlint:disable type_body_length
+// swiftlint:disable empty_parentheses_with_trailing_closure
+
 class FirebaseManager {
     
     static let shared = FirebaseManager()
@@ -38,7 +43,7 @@ class FirebaseManager {
 // MARK: 讀取今日家事
     
     // 新增當日 missions collection
-    private func addDailyMissionToMissionByDate(of family: String) {
+    private func addDailyMissionToMissionByDate(of family: String, completion: @escaping () -> Void ) {
         
         let houseworksQuery = db.collection(DataCollection.houseGroup.rawValue)
             .document(family)
@@ -49,15 +54,15 @@ class FirebaseManager {
             .collection(CollectionOfFamily.missionByDate.rawValue)
         
         houseworksQuery.whereField(MissionData.weekday.rawValue, isEqualTo: DayManager.shared.weekday)
-            .getDocuments { [weak self] (querySnapshot, error) in
+            .getDocuments { (querySnapshot, error) in
                 
                 if let querySnapshot = querySnapshot {
                     
                     if querySnapshot.count == 0 { // 沒有設定那個星期日期的家事
                         
                         print("沒有當天星期的家事")
-                        // TODO: 顯示給使用者說請他快點去新增
-                        
+                        completion()
+
                     } else { // 有家事
                         
                         for index in 0..<querySnapshot.count {
@@ -74,9 +79,12 @@ class FirebaseManager {
                                 .addDocument(data:
                                     [MissionData.title.rawValue: title,
                                      MissionData.tiredValue.rawValue: tiredValue,
-                                     MissionData.status.rawValue: MissionStatus.undo.rawValue])
-                            
-                            print("新增了今天的 missionByDate")
+                                     MissionData.status.rawValue: MissionStatus.undo.rawValue],
+                                completion: { (err) in
+                                    
+                                    print("新增了今天的 missionByDate")
+                                    completion()
+                                })
                         }
                     }
                     
@@ -88,7 +96,7 @@ class FirebaseManager {
     }
     
     // 檢查 database 有沒有今天的資料，沒有的話新增
-    func checkToday(family: String, completion: @escaping () -> ()){
+    func checkToday(family: String, completion: @escaping () -> Void) {
         
         let today = DayManager.shared.stringOfToday
         
@@ -107,15 +115,18 @@ class FirebaseManager {
                         
                         missionByDateQuery.document(today).setData(["day": today])
                         
-                        self?.addDailyMissionToMissionByDate(of: family) // 創造每天的 “mission" collection，只能寫一次，不然會重複加
+                        // 創造每天的 “mission" collection，只能寫一次，不然會重複加
+                        self?.addDailyMissionToMissionByDate(of: family, completion: {
+                            
+                            completion()
+                            print("建完了")
+                        })
                         
                     } else { // 表示今天已有人建一筆，不新增
                         
                         print("有資料ㄌ")
+                        completion()
                     }
-                    
-                    completion()
-                    print("建完了")
                     
                 } else if let error = error {
                     
@@ -235,8 +246,6 @@ class FirebaseManager {
                     
                     self.delegate?.getUndoListToday(self, didGetUndo: FirebaseManager.undoMission)
                     
-                    ProgressHUD.dismiss()
-                    
                 } else if let err = error {
                     
                     print("Error getting docs: \(err)")
@@ -263,9 +272,13 @@ class FirebaseManager {
                     
                     self.delegate?.getDoneListToday(self, didGetDone: FirebaseManager.doneMission)
                     
+                    ProgressHUD.dismiss()
+                    
                 } else if let err = error {
                     
                     print("Error getting docs: \(err)")
+                    
+                    ProgressHUD.dismiss()
                 }
         }
     }
@@ -300,7 +313,9 @@ class FirebaseManager {
                             
                             if let err = err {
                                 print("Error updating document: \(err)")
+                                
                             } else {
+                                
                                 print("\(missionUndoQuery.document(document.documentID)) successfully updated to \(MissionStatus.done.rawValue)")
                             }
                         }
@@ -358,7 +373,9 @@ class FirebaseManager {
     
     // 更新 houseworks collection
     // 新增
-    func addMissionToHouseworks(title: String, tiredValue: Int, weekday: String, family: String) { // weekday 記得填入英文的星期
+    func addMissionToHouseworks(title: String, tiredValue: Int, weekday: String,
+                                family: String, message: AddMissionMessege? = nil) {
+        // weekday 記得填入英文的星期
         
         let query = db.collection(DataCollection.houseGroup.rawValue)
             .document(family)
@@ -382,7 +399,6 @@ class FirebaseManager {
                         for document in querySnapshot.documents {
                             
                             print("有在同一天設定過相同家事")
-                            print("TODO: 通知使用者設定過了，會直接更新成這次設定的內容")
                             
                             query.document(document.documentID)
                                 .setData([MissionData.tiredValue.rawValue: tiredValue], merge: true) { (err) in
@@ -392,6 +408,8 @@ class FirebaseManager {
                                         print("Error updating document: \(err)")
                                     } else {
                                         
+                                        message?(AddMissionResult
+                                            .duplicatedAdd("同日設定過一樣的家事，更新疲勞值為此次設定值"))
                                         print("\(query.document(document.documentID))) successfully update)")
                                     }
                             }
@@ -420,7 +438,19 @@ class FirebaseManager {
                         query.addDocument(data:
                             [MissionData.title.rawValue: title,
                              MissionData.tiredValue.rawValue: tiredValue,
-                             MissionData.weekday.rawValue: weekday])
+                             MissionData.weekday.rawValue: weekday],
+                            completion: { (err) in
+                                
+                                if let err = err {
+                                    
+                                    print("err add mission: \(err)")
+                                
+                                } else {
+                                    
+                                    message?(AddMissionResult
+                                        .success("新增成功"))
+                                }
+                        })
                         
                         if weekday == DayManager.shared.weekday {
                             
@@ -455,7 +485,7 @@ class FirebaseManager {
                     
                     for document in querySnapshot.documents {
                         
-                        houseworksQuery.document(document.documentID).delete() { [weak self] (err) in
+                        houseworksQuery.document(document.documentID).delete() { (err) in
                             
                             if let err = err {
                                 

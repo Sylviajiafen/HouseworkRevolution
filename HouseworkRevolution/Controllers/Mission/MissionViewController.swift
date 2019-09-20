@@ -25,7 +25,9 @@ class MissionViewController: UIViewController {
         
         guard let targetView = addMissionViewController as? AddMissionViewController else { return }
         
-        show(targetView, sender: nil)
+        targetView.modalPresentationStyle = .fullScreen
+        
+        present(targetView, animated: true, completion: nil)
     }
     
     @IBAction func showCheckMission(_ sender: Any) {
@@ -34,7 +36,9 @@ class MissionViewController: UIViewController {
         
         guard let targetView = checkMissionViewController as? CheckMissionViewController else { return }
         
-        show(targetView, sender: nil)
+        targetView.modalPresentationStyle = .fullScreen
+        
+        present(targetView, animated: true, completion: nil)
     }
     
 }

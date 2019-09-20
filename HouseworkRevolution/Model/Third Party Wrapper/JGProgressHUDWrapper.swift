@@ -21,11 +21,9 @@ class ProgressHUD {
         let appdelegate = UIApplication.shared.delegate as? AppDelegate
 
         return appdelegate!.window!.rootViewController!.view
-
-//        return UIStoryboard.main.instantiateInitialViewController()!.view
     }
     
-    static func show() {
+    static func show(_ view: UIView = shared.view) {
         
         if !Thread.isMainThread {
             
@@ -40,7 +38,7 @@ class ProgressHUD {
         
         shared.hud.textLabel.text = "Loading"
         
-        shared.hud.show(in: shared.view)
+        shared.hud.show(in: view)
     }
     
     static func dismiss() {
@@ -57,4 +55,25 @@ class ProgressHUD {
         shared.hud.dismiss()
     }
     
+    static func showＷith(text: String, _ view: UIView = shared.view, delay: Double = 0.7) {
+        
+        if !Thread.isMainThread {
+            
+            DispatchQueue.main.async {
+                
+                showＷith(text: text)
+            }
+            
+            return
+        }
+        
+        shared.hud.textLabel.text = text
+        
+        shared.hud.indicatorView = JGProgressHUDSuccessIndicatorView()
+        
+        shared.hud.show(in: view)
+        
+        shared.hud.dismiss(afterDelay: delay)
+    }
+
 }

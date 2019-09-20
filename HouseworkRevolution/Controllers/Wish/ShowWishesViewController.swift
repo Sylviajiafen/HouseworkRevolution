@@ -27,13 +27,14 @@ class ShowWishesViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         
-        ProgressHUD.show()
+        ProgressHUD.show(self.view)
         
         FirebaseUserHelper.shared.readWishesOf(user: StorageManager.userInfo.userID) { [weak self] (wishesInLamp) in
             
             if wishesInLamp.count == 0 {
                 
                 self?.emptyView.isHidden = false
+                ProgressHUD.dismiss()
                 
             } else {
             
@@ -56,7 +57,6 @@ class ShowWishesViewController: UIViewController {
     @IBOutlet weak var wishesCollectionView: UICollectionView!
     
     var wishArr = [String]()
-//       ["看電影", "寫小說", "睡到自然醒", "通宵追劇", "回娘家", "和老公離婚", "買下那個包！", "很長很長很長很長很長很長很長很長的願望"]
     
     var wishes = [String]() {
         
@@ -67,6 +67,8 @@ class ShowWishesViewController: UIViewController {
                 self?.wishesCollectionView.reloadData()
                 
                 self?.wishesCollectionView.collectionViewLayout.invalidateLayout()
+                
+                ProgressHUD.dismiss()
             }
         }
     }
@@ -139,6 +141,5 @@ extension ShowWishesViewController: UICollectionViewDataSource,
                                                user: StorageManager.userInfo.userID)
         
         wishes.remove(at: toBeRemovedIndex.row)
-        
     }
 }

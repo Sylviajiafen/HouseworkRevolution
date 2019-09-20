@@ -98,11 +98,15 @@ class AuthViewController: UIViewController {
         
         let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
         
-        let action = UIAlertAction(title: "翻轉家事 Go!", style: .default, handler: { [weak self] _ in
+        let action = UIAlertAction(title: "翻轉家事 Go!", style: .default, handler: { _ in
             
-            let rootVC = UIStoryboard.main.instantiateInitialViewController()!
+            let appdelegate = UIApplication.shared.delegate as? AppDelegate
             
-            self?.show(rootVC, sender: nil)
+            appdelegate?.window?.rootViewController = UIStoryboard.main.instantiateInitialViewController()!
+            
+//            let rootVC = UIStoryboard.main.instantiateInitialViewController()!
+
+//            self?.show(rootVC, sender: nil)
             
         })
         
@@ -153,37 +157,46 @@ class AuthViewController: UIViewController {
                         
                         guard let userName = customUserName.text else { return }
                         
-                        FirebaseUserHelper.shared.registAnId(user) {
+                        ProgressHUD.show()
+                        
+                        FirebaseUserHelper.shared.registAnId(user) { [weak self] in
                             
                             FirebaseUserHelper.shared.registDoneWith(family, username: userName) {
                             
                                 StorageManager.shared.saveUserInfo(uid: FirebaseUserHelper.userID,
                                                                    familyRecognizer: FirebaseUserHelper.familyID)
+                                
+                                UserDefaults.standard.set("isLoggedIn", forKey: "userKey")
+                                
+                                ProgressHUD.dismiss()
+                                
+                                self?.showLogin(message: "註冊完成")
                             }
-                    
                         }
                         
                     } else {
+                        
+                        ProgressHUD.show()
                         
                         FirebaseUserHelper.shared.registAnId(user) { [weak self] in
                             
                             FirebaseUserHelper.shared.registDoneWith(family,
                                                                      username: self?.nameCalls[selectedIndex] ?? "(名稱)") {
-                            
+                                                                        
                                 StorageManager.shared.saveUserInfo(uid: FirebaseUserHelper.userID,
                                                                familyRecognizer: FirebaseUserHelper.familyID)
+                                                                        
+                                UserDefaults.standard.set("isLoggedIn", forKey: "userKey")
+                                                                        
+                                ProgressHUD.dismiss()
+                                                                        
+                                self?.showLogin(message: "註冊完成")
                             }
-                            
                         }
                     }
-        
-                    UserDefaults.standard.set("isLoggedIn", forKey: "userKey")
-                    
-                    self.showLogin(message: "註冊完成")
                 }
             }
         }
-        
     }
     
     @IBAction func findHome(_ sender: Any) {
@@ -195,6 +208,8 @@ class AuthViewController: UIViewController {
         } else {
             
             guard let loginId = userID.text, let loginPWD = userPassword.text else { return }
+            
+            ProgressHUD.show()
             
             FirebaseUserHelper.shared.loginWith(id: loginId, password: loginPWD) { [weak self] (result) in
                 
@@ -208,18 +223,18 @@ class AuthViewController: UIViewController {
                     UserDefaults.standard.set("isLoggedIn", forKey: "userKey")
                     
                     self?.showLogin(message: messege)
-                        
+                    
+                    ProgressHUD.dismiss()
+                    
                 case .failed(let err):
                     
                     self?.showAlertOf(message: err.rawValue)
                     
+                    ProgressHUD.dismiss()
                 }
             }
-        
         }
-
     }
-    
 }
 
 extension AuthViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -274,7 +289,6 @@ extension AuthViewController: UICollectionViewDelegate, UICollectionViewDataSour
         if indexPath.row == nameCalls.count - 1 {
             
             customUserName.isHidden = true
-            
         }
     }
     

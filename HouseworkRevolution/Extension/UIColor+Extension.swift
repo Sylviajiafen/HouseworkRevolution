@@ -45,6 +45,8 @@ private enum ProjectColor: String {
     case darkCellGreen
     
     case darkRed
+    
+    case darkerprojectBackground
 }
 
 extension UIColor {
@@ -73,4 +75,6 @@ extension UIColor {
     static let lightCellGreen = ProjectColor(.lightCellGreen)
     
     static let lightGreen = ProjectColor(.lightGreen)
+    
+    static let darkerprojectBackground = ProjectColor(.darkerprojectBackground)
 }

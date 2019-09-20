@@ -115,15 +115,39 @@ class AddMissionViewController: UIViewController {
             
             guard let selectedIndex = selectedIndex else { showAlertOf(message: "資訊不完整呢 ><"); return }
             
+            ProgressHUD.show(self.view)
+            
             FirebaseManager.shared.addMissionToHouseworks(
                 title: houseworks[selectedIndex],
                 tiredValue: tiredValueInNum,
                 weekday: selectedDay,
-                family: StorageManager.userInfo.familyID)
-            
-            self.dismiss(animated: true, completion: nil)
+                family: StorageManager.userInfo.familyID,
+                message: { [weak self] message in
+                    
+                    switch message {
+                        
+                    case .duplicatedAdd(let message):
+                        
+                        self?.showAlertOf(message: message, dismiss: true, handler: { [weak self] in
+                            
+                            self?.dismiss(animated: true, completion: nil)
+                        })
+                        
+                    case .success(let message):
+                        
+                        ProgressHUD.dismiss()
+                        
+                        self?.dismiss(animated: true, completion: {
+                            
+                            ProgressHUD.showＷith(text: message)
+                        })
+                        
+                    case .failed(let failed):
+                        
+                        print(failed)
+                    }
+                })
         }
-        
     }
     
     @IBAction func editCell(_ sender: UIButton) {
@@ -241,6 +265,7 @@ extension AddMissionViewController: UICollectionViewDelegate,
         houseworkCell.setUpLabelfor(background: UIColor.buttonSelected, textColor: UIColor.noticeGray)
             
         selectedIndex = indexPath.item
+    
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {

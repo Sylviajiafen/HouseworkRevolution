@@ -12,17 +12,20 @@ import Firebase
 typealias LoggedInResult = (LoginResult<String>) -> Void
 typealias AddMemberResult = (SendInvitationResult<String>) -> Void
 
+// swiftlint:disable type_body_length
+
 class FirebaseUserHelper {
     
     static let shared = FirebaseUserHelper()
     
     private init() {}
     
-    static var userID: String = "notSetYet"
+    static var userID: String = "NOTSETYET"
     
-    static var familyID: String = "notSetYet"
+    static var familyID: String = "NOTSETYET"
     
     static var currentListenerRegistration: ListenerRegistration?
+    static var currentMemberListener: ListenerRegistration?
     
     private let db = Firestore.firestore()
     
@@ -40,48 +43,66 @@ class FirebaseUserHelper {
                             
                             if let err = err {
                                                                                             
-                              print("Regist ID err: \(err)")
+                              print("Regist user ID err: \(err)")
                                                                                             
                             } else {
                                                                                             
                              print("success create user")
+                                
+                             completion()
                             }
                 })
         
         FirebaseUserHelper.userID = ref.documentID
-        completion()
     }
     
     func registDoneWith(_ family: FamilyGroup, username: String, completion: @escaping () -> Void) {
         
-        let familyRef = db.collection(DataCollection.houseGroup.rawValue)
-            .addDocument(data:[FamilyGroupData.name.rawValue: family.name,
-                               FamilyGroupData.houseworkLabels.rawValue: family.houseworkLabel])
+       var familyRef: DocumentReference?
         
-        FirebaseUserHelper.familyID = familyRef.documentID
-        
-        db.collection(DataCollection.houseGroup.rawValue).document(familyRef.documentID)
-            .collection(CollectionOfFamily.member.rawValue)
-            .document(FirebaseUserHelper.userID).setData(["name": username])
-        
-        db.collection(DataCollection.houseGroup.rawValue).document(familyRef.documentID)
-            .collection(CollectionOfFamily.houseworks.rawValue)
-            .addDocument(data:
-                [MissionData.title.rawValue: "加入翻轉家事(預設)",
-                 MissionData.tiredValue.rawValue: 0,
-                 MissionData.weekday.rawValue: DayManager.shared.weekday])
-        
+       familyRef = db.collection(DataCollection.houseGroup.rawValue)
+            .addDocument(data: [FamilyGroupData.name.rawValue: family.name,
+                                FamilyGroupData.houseworkLabels.rawValue: family.houseworkLabel],
+                         completion: { [weak self] (err) in
+                            
+                            if let err = err {
+                                
+                                print("Regist ID err: \(err)")
+                                
+                            } else {
+                                
+                                print("success create user")
+                                
+                                guard let familyID = familyRef?.documentID else { return }
+                                
+                                FirebaseUserHelper.familyID = familyID
+                                
+                                self?.db.collection(DataCollection.houseGroup.rawValue).document(familyID)
+                                    .collection(CollectionOfFamily.member.rawValue)
+                                    .document(FirebaseUserHelper.userID).setData(["name": username])
+                                
+                                self?.db.collection(DataCollection.houseGroup.rawValue).document(familyID)
+                                    .collection(CollectionOfFamily.houseworks.rawValue)
+                                    .addDocument(data:
+                                        [MissionData.title.rawValue: "加入翻轉家事(預設)",
+                                         MissionData.tiredValue.rawValue: 0,
+                                         MissionData.weekday.rawValue: DayManager.shared.weekday])
+                                
+                                self?.db.collection(DataCollection.houseUser.rawValue)
+                                    .document(FirebaseUserHelper.userID).setData(
+                                        [UserData.name.rawValue: username,
+                                         UserData.family.rawValue: familyID,
+                                         UserData.originFamily.rawValue: familyID], merge: true)
+                                
+                                completion()
+                            }
+            })
+       
         //        db.collection(DataCollection.houseGroup.rawValue).document(ref.documentID)
         //            .collection(CollectionOfFamily.missionByDate.rawValue)
         //            .addDocument(data:
         //                ["day": "(date)"])
         
-        db.collection(DataCollection.houseUser.rawValue).document(FirebaseUserHelper.userID).setData(
-            [UserData.name.rawValue: username,
-             UserData.family.rawValue: familyRef.documentID,
-             UserData.originFamily.rawValue: familyRef.documentID], merge: true)
-        
-        completion()
     }
     
 // MARK: 登入功能: 拿到 userID & familyID
@@ -91,7 +112,7 @@ class FirebaseUserHelper {
         // 判斷有無此人
         let userRef = db.collection(DataCollection.houseUser.rawValue).document(id)
         
-        userRef.getDocument { [weak self] (document, error) in
+        userRef.getDocument { (document, error) in
             
             if let document = document, document.exists {
                 
@@ -181,7 +202,6 @@ class FirebaseUserHelper {
                 completion(wishes)
                 
                 print("Wishes: \(wishes) read!!")
-                ProgressHUD.dismiss()
                 
             } else if let err = err {
                 
@@ -193,12 +213,20 @@ class FirebaseUserHelper {
     
     func addWishOf(content: String, user: String) {
         
+        ProgressHUD.show()
+        
         let query = db.collection(DataCollection.houseUser.rawValue).document(user)
         
-        query.updateData([
-            UserData.wishes.rawValue: FieldValue.arrayUnion([content])])
-        
-        print("successfully add wish!")
+        query.updateData([UserData.wishes.rawValue: FieldValue.arrayUnion([content])]) { (err) in
+            
+            if let err = err {
+                
+                print("updateWish err: \(err)")
+            } else {
+                
+                ProgressHUD.showＷith(text: "許願成功！")
+            }
+        }
     }
     
     func removeWishOf(content: String, user: String) {
@@ -269,6 +297,7 @@ class FirebaseUserHelper {
             .collection(CollectionOfFamily.member.rawValue)
         
         // addSnapshot
+        FirebaseUserHelper.currentMemberListener = 
         query.addSnapshotListener { (querySnapshot, err) in
             
             if let members = querySnapshot?.documents {
@@ -338,7 +367,6 @@ class FirebaseUserHelper {
                 
                 if doc.exists {
                     
-                    print("已經是成員囉")
                     invitorCompletion(.failed(.memberAlreadyExist))
                     
                 } else {
@@ -352,13 +380,12 @@ class FirebaseUserHelper {
                                 
                                 if querySnapshot.count > 0 {
                                     
-                                    print("TODO: 告訴 user 重複邀請了")
                                     invitorCompletion(.failed(.duplicatedInvitation))
                                     
                                 } else {
                                     
                                     familyQuery.collection(CollectionOfFamily.requestedMember.rawValue)
-                                        .addDocument(data: [RequestedMember.username.rawValue : name,
+                                        .addDocument(data: [RequestedMember.username.rawValue: name,
                                                             RequestedMember.userID.rawValue: id])
                                     
                                     invitorCompletion(.success("邀請成功！"))
@@ -394,7 +421,6 @@ class FirebaseUserHelper {
                                 print("userQueryErr: \(err)")
                             }
                     }
-                    
                 }
                 
             } else if let err = err {
@@ -488,7 +514,7 @@ class FirebaseUserHelper {
         self.rejectInvitation(from: family, myID: myID)
     }
     
-    func rejectInvitation(from family: String, myID: String)  {
+    func rejectInvitation(from family: String, myID: String) {
         
         let query = db.collection(DataCollection.houseGroup.rawValue)
             .document(family).collection(CollectionOfFamily.requestedMember.rawValue)
@@ -498,7 +524,7 @@ class FirebaseUserHelper {
                 
                 if let querySnapshot = querySnapshot {
                     
-                    querySnapshot.documents.map({ (document) -> () in
+                    querySnapshot.documents.map({ (document) -> Void in
                         
                         query.document(document.documentID).delete()
                     })
@@ -568,7 +594,7 @@ class FirebaseUserHelper {
         }
     }
     
-    func getCurrentFamily(user: String, completion: @escaping (String) -> ()) {
+    func getCurrentFamily(user: String, completion: @escaping (String) -> Void) {
         
         let query = db.collection(DataCollection.houseUser.rawValue)
             .document(user)
@@ -629,7 +655,7 @@ class FirebaseUserHelper {
     
 // MARK: 判斷是否為 originFamily
     
-    func comparingFamily(user: String, originFamilyHandler: @escaping (String) -> ()) {
+    func comparingFamily(user: String, originFamilyHandler: @escaping (String) -> Void) {
         
         let query = db.collection(DataCollection.houseUser.rawValue).document(user)
         

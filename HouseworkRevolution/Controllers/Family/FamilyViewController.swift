@@ -58,6 +58,8 @@ class FamilyViewController: UIViewController {
         
         let board  = UIPasteboard.general
         board.string = StorageManager.userInfo.userID
+        
+        ProgressHUD.showＷith(text: "複製！")
     }
     
     @IBAction func editUserCall(_ sender: Any) {
@@ -130,6 +132,9 @@ class FamilyViewController: UIViewController {
         let okAction = UIAlertAction(title: "確定", style: .default) { [weak self] _ in
             
             FirebaseUserHelper.currentListenerRegistration?.remove()
+            FirebaseUserHelper.currentListenerRegistration = nil
+            FirebaseUserHelper.currentMemberListener?.remove()
+            FirebaseUserHelper.currentMemberListener = nil
             
             FirebaseUserHelper.shared.dropOutFamily(familyID: StorageManager.userInfo.familyID,
                                                     user: StorageManager.userInfo.userID,
@@ -486,6 +491,9 @@ extension FamilyViewController: InvitingFamilyTableViewCellDelegate {
         let inviterFamilyID = invitingFamilyList[index.row].familyID
         
         FirebaseUserHelper.currentListenerRegistration?.remove()
+        FirebaseUserHelper.currentListenerRegistration = nil
+        FirebaseUserHelper.currentMemberListener?.remove()
+        FirebaseUserHelper.currentMemberListener = nil
         
         FirebaseUserHelper.shared.acceptInvitation(from: inviterFamilyID,
                                                    myID: StorageManager.userInfo.userID,

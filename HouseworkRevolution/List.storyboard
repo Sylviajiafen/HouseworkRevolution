@@ -22,31 +22,25 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="listBackground" translatesAutoresizingMaskIntoConstraints="NO" id="8zw-tm-UZ1">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="593"/>
                             </imageView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="vAc-W7-L9m">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="vAc-W7-L9m">
                                 <rect key="frame" x="0.0" y="90" width="375" height="503"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Wnl-3l-bKo">
-                                    <size key="itemSize" width="150" height="134"/>
+                                    <size key="itemSize" width="150" height="150"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DailyMissionCollectionViewCell" id="omV-TC-a25" customClass="DailyMissionCollectionViewCell" customModule="HouseworkRevolution" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="150" height="134"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="150" height="134"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Na0-mg-ApF">
-                                                    <rect key="frame" x="5" y="5" width="130" height="44.5"/>
-                                                    <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="13"/>
-                                                    <color key="textColor" name="projectBackground"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="7" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hgg-xN-Xt6">
-                                                    <rect key="frame" x="4" y="54.5" width="142" height="25.5"/>
+                                                    <rect key="frame" x="4" y="62.5" width="142" height="25.5"/>
                                                     <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="18"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -54,17 +48,12 @@
                                             </subviews>
                                         </view>
                                         <constraints>
-                                            <constraint firstItem="Na0-mg-ApF" firstAttribute="top" secondItem="omV-TC-a25" secondAttribute="top" constant="5" id="6Uk-ms-2k9"/>
-                                            <constraint firstItem="Na0-mg-ApF" firstAttribute="leading" secondItem="omV-TC-a25" secondAttribute="leading" constant="5" id="E4G-DP-5im"/>
                                             <constraint firstItem="hgg-xN-Xt6" firstAttribute="width" secondItem="omV-TC-a25" secondAttribute="width" constant="-8" id="IyN-0d-UXw"/>
                                             <constraint firstItem="hgg-xN-Xt6" firstAttribute="centerX" secondItem="omV-TC-a25" secondAttribute="centerX" id="jKu-mT-zki"/>
                                             <constraint firstItem="hgg-xN-Xt6" firstAttribute="centerY" secondItem="omV-TC-a25" secondAttribute="centerY" id="lyV-Yr-osa"/>
-                                            <constraint firstAttribute="trailing" secondItem="Na0-mg-ApF" secondAttribute="trailing" constant="15" id="oht-Do-YPV"/>
-                                            <constraint firstItem="hgg-xN-Xt6" firstAttribute="top" secondItem="Na0-mg-ApF" secondAttribute="bottom" constant="5" id="sCx-E4-Y6Q"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="dailyMissionLabel" destination="hgg-xN-Xt6" id="Een-M3-RtB"/>
-                                            <outlet property="missionChargerLabel" destination="Na0-mg-ApF" id="8Oa-7A-f2h"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>

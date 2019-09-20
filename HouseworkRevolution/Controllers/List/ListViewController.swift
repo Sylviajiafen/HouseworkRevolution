@@ -35,7 +35,7 @@ class ListViewController: UIViewController {
         showNoMissionLabel.text = "尚未設定今天（\(today)）的家事"
         
         FirebaseManager.shared.delegate = self
-
+    
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -48,8 +48,6 @@ class ListViewController: UIViewController {
         FirebaseManager.shared.checkToday(family: StorageManager.userInfo.familyID) {
             
             FirebaseManager.shared.getMissionListToday(family: StorageManager.userInfo.familyID)
-            
-            ProgressHUD.dismiss()
         }
     }
     
@@ -66,7 +64,6 @@ class ListViewController: UIViewController {
             dailyMissionCollectionView.dragInteractionEnabled = true
 
             dailyMissionCollectionView.dropDelegate = self
-            
         }
     }
     
@@ -88,7 +85,7 @@ class ListViewController: UIViewController {
                 
                 self?.isMissionEmpty()
                 
-                print("DoneToday: \(self?.missionDoneToday)")
+                print("UndoToday: \(String(describing: self?.missionUndoToday))")
             }
         }
     }
@@ -103,7 +100,7 @@ class ListViewController: UIViewController {
                 
                 self?.isMissionEmpty()
                 
-                print("DoneToday: \(self?.missionDoneToday)")
+                print("DoneToday: \(String(describing: self?.missionDoneToday))")
             }
         }
     }
@@ -131,6 +128,10 @@ class ListViewController: UIViewController {
         
         dailyMissionFlowLayout.headerReferenceSize = CGSize(width: screenWidth, height: 40.0)
         
+        dailyMissionCollectionView.addPullToRefresh(dailyMissionCollectionView) {
+            
+            FirebaseManager.shared.getMissionListToday(family: StorageManager.userInfo.familyID)
+        }
     }
     
     var itemHeight: CGFloat = 0.0
@@ -246,12 +247,20 @@ class ListViewController: UIViewController {
     
     func isMissionEmpty() {
         
+        dailyMissionCollectionView.endPullToRefresh(dailyMissionCollectionView)
+        
         if missionUndoToday.count == 0 && missionDoneToday.count == 0 {
             
             emptyMissionView.isHidden = false
+            
+            ProgressHUD.dismiss()
+            
         } else {
             
             emptyMissionView.isHidden = true
+            
+            ProgressHUD.dismiss()
+    
         }
     }
     
@@ -263,7 +272,6 @@ class ListViewController: UIViewController {
         
         root?.selectedIndex = 1
     }
-    
     
 }
 
@@ -336,13 +344,11 @@ extension ListViewController: UICollectionViewDelegate,
             
             missionItem.backgroundColor = UIColor.cellGreen
             missionItem.dailyMissionLabel.text = missionUndoToday[indexPath.row].title
-            missionItem.missionChargerLabel.text = ""
             
         case 1:
             
             missionItem.backgroundColor = UIColor.lightCellGreen
             missionItem.dailyMissionLabel.text = missionDoneToday[indexPath.row].title
-            missionItem.missionChargerLabel.text = ""
             
         default:
             break

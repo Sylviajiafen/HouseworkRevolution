@@ -84,7 +84,6 @@ enum DataCollection: String {
     case houseUser
 }
 
-
 enum MissionData: String {
     
     case title
@@ -153,6 +152,15 @@ enum SendInvitationResult<T> {
     case success(T)
     
     case failed(InvitationErr)
+}
+
+enum AddMissionResult<T> {
+    
+    case duplicatedAdd(T)
+    
+    case success(T)
+    
+    case failed(T)
 }
 
 enum LoginError: String {

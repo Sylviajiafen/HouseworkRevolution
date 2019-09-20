@@ -21,27 +21,45 @@ class CheckMissionViewController: UIViewController {
         let headerXib = UINib(nibName: String(describing: WeekdaySectionHeaderView.self), bundle: nil)
         
         missionListTableView.register(headerXib, forHeaderFooterViewReuseIdentifier: String(describing: WeekdaySectionHeaderView.self))
+        
+        missionListTableView.addPullToRefresh(missionListTableView) {  [weak self] in
+            
+            for weekdays in DayManager.weekdayInEng {
+                
+                FirebaseManager.shared.getAllMissions(family: StorageManager.userInfo.familyID,
+                            day: weekdays.rawValue) { [weak self] (dailyMission) in
+                                                        
+                        DispatchQueue.main.async {
+                                                            
+                            self?.missionListTableView.reloadData()
+                            
+                        }
+                }
+            }
+            
+            guard let strongSelf = self else { return }
+                
+            strongSelf.missionListTableView.endPullToRefresh(strongSelf.missionListTableView)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         
-        ProgressHUD.show()
+        ProgressHUD.show(self.view)
         
         for weekdays in DayManager.weekdayInEng {
-            
+        
             FirebaseManager.shared.getAllMissions(family: StorageManager.userInfo.familyID,
                                                   day: weekdays.rawValue) { [weak self] (dailyMission) in
-                
-                self?.allMission = FirebaseManager.allMission
                                                     
                 DispatchQueue.main.async {
                     
                     self?.missionListTableView.reloadData()
-                    
-                    ProgressHUD.dismiss()
                 }
             }
         }
+        
+        ProgressHUD.dismiss()
     }
     
     @IBOutlet weak var missionListTableView: UITableView!
@@ -50,8 +68,7 @@ class CheckMissionViewController: UIViewController {
         
         self.dismiss(animated: true, completion: nil)
     }
-    
-    var allMission = [String : [Mission]]()
+
 }
 
 extension CheckMissionViewController: UITableViewDelegate,

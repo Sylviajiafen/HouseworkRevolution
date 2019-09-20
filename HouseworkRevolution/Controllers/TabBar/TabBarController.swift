@@ -12,13 +12,13 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
 
     private let tabs: [Tab] = [.list, .mission, .wish, .family]
     
+    let layerGradient = CAGradientLayer()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         viewControllers = tabs.map({ $0.controller() })
-        
     }
-
 }
 
 private enum Tab {
@@ -55,7 +55,6 @@ private enum Tab {
             
         }
         
-        //TODO
         controller.tabBarItem = tabBarItem()
         
         controller.tabBarItem.imageInsets = UIEdgeInsets(top: 6.0, left: 6.0, bottom: -6.0, right: -6.0)
