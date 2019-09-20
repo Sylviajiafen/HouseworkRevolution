@@ -68,6 +68,8 @@ class FamilyViewController: UIViewController {
         
         alert.addTextField(configurationHandler: nil)
         
+        alert.textFields?[0].delegate = self
+        
         let okAction = UIAlertAction(title: "更改", style: .default) { [weak self] _ in
             
             guard alert.textFields?[0].text != "",
@@ -98,6 +100,8 @@ class FamilyViewController: UIViewController {
         let alert = UIAlertController(title: "編輯家庭名稱", message: "幫自己的家取個響亮的名字吧", preferredStyle: .alert)
         
         alert.addTextField(configurationHandler: nil)
+        
+        alert.textFields?[0].delegate = self
         
         let okAction = UIAlertAction(title: "更改", style: .default) { [weak self] _ in
             
@@ -534,5 +538,21 @@ extension FamilyViewController: FamilyMemberTableViewCellDelegate {
         
         FirebaseUserHelper.shared.rejectInvitation(from: StorageManager.userInfo.familyID, myID: invitedMemberID)
         
+    }
+}
+
+extension FamilyViewController: UITextFieldDelegate {
+    
+    func textField(_ textField: UITextField,
+                   shouldChangeCharactersIn range: NSRange,
+                   replacementString string: String) -> Bool {
+        
+        let currentText = textField.text ?? ""
+
+        guard let stringRange = Range(range, in: currentText) else { return false}
+
+        let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
+        
+        return updatedText.count <= 6
     }
 }
