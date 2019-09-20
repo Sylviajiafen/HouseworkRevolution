@@ -97,12 +97,6 @@ class FirebaseUserHelper {
                                 completion()
                             }
             })
-       
-        //        db.collection(DataCollection.houseGroup.rawValue).document(ref.documentID)
-        //            .collection(CollectionOfFamily.missionByDate.rawValue)
-        //            .addDocument(data:
-        //                ["day": "(date)"])
-        
     }
     
 // MARK: 登入功能: 拿到 userID & familyID
@@ -673,5 +667,4 @@ class FirebaseUserHelper {
             }
         }
     }
-    
 }

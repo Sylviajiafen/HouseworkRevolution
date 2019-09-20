@@ -24,6 +24,8 @@ class AddMissionViewController: UIViewController {
         tiredSlider.setThumbImage(UIImage.asset(.valueHeart), for: .normal)
         
         editHouseworkBtn.isSelected = false
+        
+        customHousework.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -289,6 +291,24 @@ extension AddMissionViewController: UICollectionViewDelegate,
         
         editHouseworkBtn.isSelected = false
         
+    }
+    
+}
+
+extension AddMissionViewController: UITextFieldDelegate {
+    
+    func textField(_ textField: UITextField,
+                   shouldChangeCharactersIn range: NSRange,
+                   replacementString string: String) -> Bool {
+        
+        let currentText = textField.text ?? ""
+
+        guard let stringRange = Range(range, in: currentText) else { return false}
+
+        let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
+        
+        return updatedText.count <= 8
+    
     }
     
 }
