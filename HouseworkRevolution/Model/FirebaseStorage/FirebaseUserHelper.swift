@@ -105,33 +105,56 @@ class FirebaseUserHelper {
         
         // 判斷有無此人
         let userRef = db.collection(DataCollection.houseUser.rawValue).document(id)
-        
-        userRef.getDocument { (document, error) in
-            
-            if let document = document, document.exists {
-                
-                guard let correctPwd = document.data()?[UserData.password.rawValue] as? String,
-                    let family = document.data()?[UserData.family.rawValue] as? String else { return }
-                
-                // TODO: correctPWD 拿下來是轉換過的 pwd , 所以要把他轉回來才能比對使用者輸入的 ; 或是先轉使用者輸入的再和 correctPWD 比對
-                
-                if password == correctPwd {
-                    
-                    FirebaseUserHelper.familyID = family
-                    FirebaseUserHelper.userID = id
-                    
-                    print("登入成功, userID:\(String(describing: FirebaseUserHelper.userID)), familyID: \(String(describing: FirebaseUserHelper.familyID))")
-                 
-                    completion?(LoginResult.success("登入成功"))
-                    
-                } else {
     
-                    completion?(LoginResult.failed(LoginError.uncorrectPassword))
+        let userParentRef = db.collection(DataCollection.houseUser.rawValue)
+        
+        var currentExistingIDs = [String]()
+        
+        userParentRef.getDocuments { (querySnapshot, err) in
+            
+            if let querySnapshot = querySnapshot {
+                
+                for doc in querySnapshot.documents {
+                    
+                    currentExistingIDs.append(doc.documentID)
                 }
                 
+                if currentExistingIDs.contains(id) {
+                    
+                    userRef.getDocument { (document, error) in
+                            
+                        if let document = document {
+                                
+                            guard let correctPwd = document.data()?[UserData.password.rawValue] as? String,
+                                let family = document.data()?[UserData.family.rawValue] as? String else { return }
+                                
+                            // TODO: correctPWD 拿下來是轉換過的 pwd , 所以要把他轉回來才能比對使用者輸入的 ; 或是先轉使用者輸入的再和 correctPWD 比對
+                                
+                            if password == correctPwd {
+                                    
+                                FirebaseUserHelper.familyID = family
+                                FirebaseUserHelper.userID = id
+                                    
+                                print("登入成功, userID:\(String(describing: FirebaseUserHelper.userID)), familyID: \(String(describing: FirebaseUserHelper.familyID))")
+                                 
+                                completion?(LoginResult.success("登入成功"))
+                                    
+                            } else {
+                    
+                                completion?(LoginResult.failed(.uncorrectPassword))
+                            }
+                        } else if let err = error {
+                            
+                            print("login get userInfo err: \(err)")
+                        }
+                }
             } else {
+                    
+                completion?(LoginResult.failed(.userDidNotExist))
+            }
+            } else if let err = err {
                 
-                completion?(LoginResult.failed(LoginError.userDidNotExist))
+                print("login get user err: \(err)")
             }
         }
     }
