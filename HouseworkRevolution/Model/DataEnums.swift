@@ -59,3 +59,4 @@ enum DefaultHouseworks: String {
     case toilet = "掃廁所"
     
 }
+

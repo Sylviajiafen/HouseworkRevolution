@@ -162,7 +162,7 @@ class AuthViewController: UIViewController {
                         
                         ProgressHUD.show()
                         
-                        FirebaseUserHelper.shared.registAnId(user) { [weak self] in
+                        FirebaseUserHelper.shared.registAnIdWithEncrypt(user) { [weak self] in
                             
                             FirebaseUserHelper.shared.registDoneWith(family, username: userName) {
                             
@@ -181,7 +181,7 @@ class AuthViewController: UIViewController {
                         
                         ProgressHUD.show()
                         
-                        FirebaseUserHelper.shared.registAnId(user) { [weak self] in
+                        FirebaseUserHelper.shared.registAnIdWithEncrypt(user) { [weak self] in
                             
                             FirebaseUserHelper.shared.registDoneWith(family,
                                                                      username: self?.nameCalls[selectedIndex] ?? "(名稱)") {
@@ -214,7 +214,7 @@ class AuthViewController: UIViewController {
             
             ProgressHUD.show()
             
-            FirebaseUserHelper.shared.loginWith(id: loginId, password: loginPWD) { [weak self] (result) in
+            FirebaseUserHelper.shared.loginWithDecrypt(id: loginId, password: loginPWD) { [weak self] (result) in
                 
                 switch result {
                     

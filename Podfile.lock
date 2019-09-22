@@ -80,6 +80,7 @@ PODS:
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
   - Protobuf (3.9.0)
+  - RNCryptor (5.1.0)
   - SwiftLint (0.34.0)
 
 DEPENDENCIES:
@@ -89,6 +90,7 @@ DEPENDENCIES:
   - IQKeyboardManagerSwift
   - JGProgressHUD
   - KeychainAccess
+  - RNCryptor (~> 5.0)
   - SwiftLint
 
 SPEC REPOS:
@@ -110,6 +112,7 @@ SPEC REPOS:
     - leveldb-library
     - nanopb
     - Protobuf
+    - RNCryptor
     - SwiftLint
 
 SPEC CHECKSUMS:
@@ -130,8 +133,9 @@ SPEC CHECKSUMS:
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   Protobuf: 1097ca58584c8d9be81bfbf2c5ff5975648dd87a
+  RNCryptor: a369134686cd2ad391323cc856b62e591193ba79
   SwiftLint: 79d48a17c6565dc286c37efb8322c7b450f95c67
 
-PODFILE CHECKSUM: 4451d5ec05a7b859d2f7bd00f6cd266641919f2d
+PODFILE CHECKSUM: 4d82ebee100170f626427f7f9894c50aa9706d7e
 
 COCOAPODS: 1.7.5
