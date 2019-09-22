@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NRv-e1-cGi">
-    <device id="retina6_5" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NRv-e1-cGi">
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -20,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wishBackground" translatesAutoresizingMaskIntoConstraints="NO" id="ath-Yb-0dU">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="897.00000000000023"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="每天努力做家事的你，" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bi3-1v-daG">
                                 <rect key="frame" x="70" y="98" width="174" height="21"/>
@@ -50,14 +48,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="magicLamp" translatesAutoresizingMaskIntoConstraints="NO" id="Pd4-G2-eju">
-                                <rect key="frame" x="199" y="229" width="16" height="16"/>
+                                <rect key="frame" x="158.66666666666666" y="229" width="97" height="97"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Pd4-G2-eju" secondAttribute="height" multiplier="1:1" id="OCF-3b-wb4"/>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="300" id="mqN-5V-sJD"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o0A-8m-XR2">
-                                <rect key="frame" x="87" y="255" width="240" height="120"/>
+                                <rect key="frame" x="87" y="336" width="240" height="120"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.90000000000000002" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="raJ-Jc-ssn">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="85"/>
@@ -124,7 +122,7 @@
                             <constraint firstItem="sX7-sh-M65" firstAttribute="centerX" secondItem="QHD-MI-E0A" secondAttribute="centerX" id="0FF-kO-b7w"/>
                             <constraint firstItem="3WP-Tb-qSy" firstAttribute="top" relation="greaterThanOrEqual" secondItem="o0A-8m-XR2" secondAttribute="bottom" constant="10" id="DEt-ww-4Dj"/>
                             <constraint firstItem="o0A-8m-XR2" firstAttribute="top" secondItem="Pd4-G2-eju" secondAttribute="bottom" constant="10" id="JlV-nC-sKU"/>
-                            <constraint firstItem="ath-Yb-0dU" firstAttribute="bottom" secondItem="QHD-MI-E0A" secondAttribute="bottom" id="LKb-IN-0hT"/>
+                            <constraint firstItem="ath-Yb-0dU" firstAttribute="bottom" secondItem="QHD-MI-E0A" secondAttribute="bottom" constant="1" id="LKb-IN-0hT"/>
                             <constraint firstItem="Pd4-G2-eju" firstAttribute="top" secondItem="sX7-sh-M65" secondAttribute="bottom" constant="40" id="LYt-4g-Dcb"/>
                             <constraint firstItem="n3N-f5-pHs" firstAttribute="trailing" secondItem="3WP-Tb-qSy" secondAttribute="trailing" constant="20" id="RGV-f1-a1m"/>
                             <constraint firstItem="fMf-LE-jSf" firstAttribute="centerX" secondItem="QHD-MI-E0A" secondAttribute="centerX" constant="30" id="RgI-f2-W8A"/>
@@ -160,7 +158,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkWishBackground" translatesAutoresizingMaskIntoConstraints="NO" id="Das-GL-Rpi">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896.00000000000023"/>
                             </imageView>
                             <button opaque="NO" alpha="0.75" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AxV-wN-WgP">
                                 <rect key="frame" x="20" y="54" width="40" height="40"/>

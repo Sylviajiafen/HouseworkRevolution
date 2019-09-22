@@ -13,6 +13,7 @@ pod 'JGProgressHUD'
 pod 'ESPullToRefresh'
 pod 'Firebase/Auth'
 pod 'Firebase/Firestore'
+pod 'RNCryptor', '~> 5.0'
 
 
   target 'HouseworkRevolutionTests' do
