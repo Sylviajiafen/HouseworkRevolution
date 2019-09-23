@@ -532,6 +532,7 @@
 				03C1A53A231662D9008EAB76 /* Resources */,
 				03C1A56223166357008EAB76 /* ShellScript */,
 				AF660D0D3595FABBBB399887 /* [CP] Embed Pods Frameworks */,
+				031A59D22338C020006C32DA /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -630,6 +631,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		031A59D22338C020006C32DA /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/Fabric/run\"\n";
+		};
 		03C1A56223166357008EAB76 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -923,6 +942,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 2MN93DQ7G3;
 				INFOPLIST_FILE = HouseworkRevolution/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
