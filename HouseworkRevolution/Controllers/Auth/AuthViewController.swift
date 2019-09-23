@@ -48,6 +48,14 @@ class AuthViewController: UIViewController {
         customUserName.delegate = self
     }
     
+    @IBAction func privacyTerms(_ sender: Any) {
+        
+        guard let privacyURL = URL(string:
+            "https://www.privacypolicies.com/privacy/view/533f8554cfcd919486ea95049080ae03") else { return }
+        
+        UIApplication.shared.open(privacyURL, options: [:], completionHandler: nil)
+    }
+    
     @IBAction func showUserSetting(_ sender: Any) {
         
         if createPassword.text == "" || pwdConfirmField.text == "" {
