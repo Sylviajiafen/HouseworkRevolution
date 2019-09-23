@@ -51,7 +51,7 @@ class AuthViewController: UIViewController {
     @IBAction func privacyTerms(_ sender: Any) {
         
         guard let privacyURL = URL(string:
-            "https://www.privacypolicies.com/privacy/view/533f8554cfcd919486ea95049080ae03") else { return }
+            "https://www.privacypolicies.com/privacy/view/0776e10a3962811581f3623d374a64b9") else { return }
         
         UIApplication.shared.open(privacyURL, options: [:], completionHandler: nil)
     }
