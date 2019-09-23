@@ -1,0 +1,20 @@
+excluded:  # 執行 linting 時忽略的路徑。 優先順序比 `included` 更高。
+  - Pods
+
+disabled_rules: # 執行時排除掉的規則
+  - identifier_name    # 命名規則必須按照駝峰原則，與後臺傳的Json欄位命名衝突，建議排除掉
+  - trailing_whitespace   # 每一個空行不能有空格，會與Xcode換行後自動對齊生成的空格衝突，建議排除掉
+  - unused_closure_parameter
+  - switch_case_alignment
+
+line_length:  # 單行程式碼長度,預設error 120
+  warning: 250
+  error: 300
+
+file_length:  # 檔案長度
+  warning: 1000
+  error: 2000
+
+function_body_length: # 函式體長度
+  warning: 450
+  error: 600

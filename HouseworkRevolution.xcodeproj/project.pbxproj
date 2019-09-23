@@ -3,17 +3,72 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0302D9C12318FBC800DE7921 /* HouseworkCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0302D9C02318FBC800DE7921 /* HouseworkCollectionViewCell.swift */; };
+		0302D9C32318FBE900DE7921 /* FamilyMemberCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0302D9C22318FBE900DE7921 /* FamilyMemberCollectionViewCell.swift */; };
+		0302D9C5231912E800DE7921 /* ShowAddSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0302D9C4231912E800DE7921 /* ShowAddSegue.swift */; };
+		0302D9C92319259F00DE7921 /* MissionListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0302D9C82319259F00DE7921 /* MissionListTableViewCell.swift */; };
+		0302D9CB231AB0AF00DE7921 /* WeekdaySectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0302D9CA231AB0AF00DE7921 /* WeekdaySectionHeaderView.xib */; };
+		0302D9CD231AB0DA00DE7921 /* WeekdaySectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0302D9CC231AB0DA00DE7921 /* WeekdaySectionHeaderView.swift */; };
+		0302D9D4231B63E600DE7921 /* MissionEmptyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0302D9D3231B63E600DE7921 /* MissionEmptyTableViewCell.swift */; };
+		0302D9D7231CC1D600DE7921 /* WishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0302D9D6231CC1D600DE7921 /* WishViewController.swift */; };
+		0302D9DA231CEEDF00DE7921 /* ShowWishesLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0302D9D9231CEEDF00DE7921 /* ShowWishesLayout.swift */; };
+		0302D9DC231CFD0000DE7921 /* ShowWishesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0302D9DB231CFD0000DE7921 /* ShowWishesViewController.swift */; };
+		0302D9DE231D002800DE7921 /* WishCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0302D9DD231D002800DE7921 /* WishCollectionViewCell.swift */; };
+		0302D9E3231E5B8400DE7921 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0302D9E2231E5B8400DE7921 /* ListViewController.swift */; };
+		0302D9E6231E650600DE7921 /* DailyMissionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0302D9E5231E650600DE7921 /* DailyMissionCollectionViewCell.swift */; };
+		0302D9EA231E7A0800DE7921 /* DailyMissionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0302D9E8231E7A0800DE7921 /* DailyMissionHeaderView.swift */; };
+		0302D9EB231E7A0800DE7921 /* DailyMissionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0302D9E9231E7A0800DE7921 /* DailyMissionHeaderView.xib */; };
+		0302D9ED231FB6DC00DE7921 /* MissionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0302D9EC231FB6DC00DE7921 /* MissionItem.swift */; };
+		0302D9F02321E34D00DE7921 /* InvitingFamilyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0302D9EF2321E34D00DE7921 /* InvitingFamilyTableViewCell.swift */; };
+		0302D9F32321E49200DE7921 /* FamilyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0302D9F22321E49200DE7921 /* FamilyViewController.swift */; };
+		0302D9F52321E74F00DE7921 /* FirebaseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0302D9F42321E74F00DE7921 /* FirebaseData.swift */; };
+		03375E372332173800C71330 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03375E362332173800C71330 /* GoogleService-Info.plist */; };
+		03A45F1D232E1482005D92D5 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A45F1C232E1482005D92D5 /* FirebaseManager.swift */; };
+		03A45F1F232E162E005D92D5 /* DayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A45F1E232E162E005D92D5 /* DayManager.swift */; };
+		03A45F21232E16E2005D92D5 /* FirebaseUserHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A45F20232E16E2005D92D5 /* FirebaseUserHelper.swift */; };
+		03A45F24232E1A86005D92D5 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A45F23232E1A86005D92D5 /* StorageManager.swift */; };
+		03A45F26232E1DBF005D92D5 /* KeyChainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A45F25232E1DBF005D92D5 /* KeyChainManager.swift */; };
+		03A45F28232FDA64005D92D5 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A45F27232FDA64005D92D5 /* UIViewController+Extension.swift */; };
+		03A45F2B2330E4E0005D92D5 /* JGProgressHUDWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A45F2A2330E4E0005D92D5 /* JGProgressHUDWrapper.swift */; };
 		03C1A540231662D9008EAB76 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1A53F231662D9008EAB76 /* AppDelegate.swift */; };
-		03C1A542231662D9008EAB76 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1A541231662D9008EAB76 /* ViewController.swift */; };
 		03C1A545231662D9008EAB76 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03C1A543231662D9008EAB76 /* Main.storyboard */; };
 		03C1A548231662D9008EAB76 /* HouseworkRevolution.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 03C1A546231662D9008EAB76 /* HouseworkRevolution.xcdatamodeld */; };
 		03C1A54A231662DA008EAB76 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03C1A549231662DA008EAB76 /* Assets.xcassets */; };
 		03C1A54D231662DA008EAB76 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03C1A54B231662DA008EAB76 /* LaunchScreen.storyboard */; };
 		03C1A558231662DA008EAB76 /* HouseworkRevolutionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1A557231662DA008EAB76 /* HouseworkRevolutionTests.swift */; };
+		03C1A56823166518008EAB76 /* Mission.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03C1A56723166518008EAB76 /* Mission.storyboard */; };
+		03C1A56A2316652F008EAB76 /* Wish.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03C1A5692316652F008EAB76 /* Wish.storyboard */; };
+		03C1A56C23166544008EAB76 /* Family.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03C1A56B23166544008EAB76 /* Family.storyboard */; };
+		03C1A56E23166557008EAB76 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03C1A56D23166557008EAB76 /* Auth.storyboard */; };
+		03C1A5702316658D008EAB76 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1A56F2316658D008EAB76 /* TabBarController.swift */; };
+		03C1A5732316660D008EAB76 /* UIStoryboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1A5722316660D008EAB76 /* UIStoryboard+Extension.swift */; };
+		03C1A577231668B7008EAB76 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1A576231668B7008EAB76 /* AuthViewController.swift */; };
+		03C1A58023167F82008EAB76 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1A57F23167F82008EAB76 /* UIView+Extension.swift */; };
+		03C1A5832316908D008EAB76 /* NameCallCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1A5822316908D008EAB76 /* NameCallCollectionViewCell.swift */; };
+		03C1A58D2317A2EB008EAB76 /* MissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1A58C2317A2EB008EAB76 /* MissionViewController.swift */; };
+		03C1A58F2317C6D2008EAB76 /* AddMissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1A58E2317C6D2008EAB76 /* AddMissionViewController.swift */; };
+		03C1A5912317C6E7008EAB76 /* CheckMissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1A5902317C6E7008EAB76 /* CheckMissionViewController.swift */; };
+		03C1A5942318C7A3008EAB76 /* DataEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1A5932318C7A3008EAB76 /* DataEnums.swift */; };
+		03C1A5962318D287008EAB76 /* UserInputTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1A5952318D287008EAB76 /* UserInputTextField.swift */; };
+		03C1A59C2318F059008EAB76 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1A59B2318F059008EAB76 /* UIImage+Extension.swift */; };
+		03C1A59E2318F147008EAB76 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1A59D2318F147008EAB76 /* UIColor+Extension.swift */; };
+		03E941DC2337FB7000A52B82 /* RNCryptorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E941DB2337FB7000A52B82 /* RNCryptorManager.swift */; };
+		03FC4FA62333557A00A1DD29 /* ESPullToRefreshWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FC4FA52333557A00A1DD29 /* ESPullToRefreshWrapper.swift */; };
+		03FEAC0B2321F5B200722A34 /* InvitingFamilySectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FEAC0A2321F5B200722A34 /* InvitingFamilySectionHeaderView.swift */; };
+		03FEAC0D2321F5C900722A34 /* InvitingFamilySectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03FEAC0C2321F5C900722A34 /* InvitingFamilySectionHeaderView.xib */; };
+		03FEAC102322054600722A34 /* FamilyMemberSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FEAC0F2322054600722A34 /* FamilyMemberSectionHeader.swift */; };
+		03FEAC122322057E00722A34 /* FamilyMemberSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03FEAC112322057E00722A34 /* FamilyMemberSectionHeader.xib */; };
+		03FEAC152322069100722A34 /* FamilyMemberTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FEAC142322069100722A34 /* FamilyMemberTableViewCell.swift */; };
+		03FEAC1B2322610500722A34 /* SearchUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FEAC1A2322610500722A34 /* SearchUserViewController.swift */; };
+		03FEAC1E23226FFA00722A34 /* SearchUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FEAC1D23226FFA00722A34 /* SearchUserTableViewCell.swift */; };
+		03FEAC212324CC9400722A34 /* ShowDefaultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FEAC202324CC9400722A34 /* ShowDefaultTableViewCell.swift */; };
+		03FEAC232326599A00722A34 /* List.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03FEAC222326599A00722A34 /* List.storyboard */; };
+		13C2546C9B3D4DD77EDFFF43 /* Pods_HouseworkRevolution.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1493339683728FA72397E709 /* Pods_HouseworkRevolution.framework */; };
+		A426424894EE163385C27B85 /* Pods_HouseworkRevolutionTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 768DABA652B8C169712D5223 /* Pods_HouseworkRevolutionTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,9 +82,35 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0302D9C02318FBC800DE7921 /* HouseworkCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseworkCollectionViewCell.swift; sourceTree = "<group>"; };
+		0302D9C22318FBE900DE7921 /* FamilyMemberCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyMemberCollectionViewCell.swift; sourceTree = "<group>"; };
+		0302D9C4231912E800DE7921 /* ShowAddSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowAddSegue.swift; sourceTree = "<group>"; };
+		0302D9C82319259F00DE7921 /* MissionListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionListTableViewCell.swift; sourceTree = "<group>"; };
+		0302D9CA231AB0AF00DE7921 /* WeekdaySectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeekdaySectionHeaderView.xib; sourceTree = "<group>"; };
+		0302D9CC231AB0DA00DE7921 /* WeekdaySectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekdaySectionHeaderView.swift; sourceTree = "<group>"; };
+		0302D9D3231B63E600DE7921 /* MissionEmptyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionEmptyTableViewCell.swift; sourceTree = "<group>"; };
+		0302D9D6231CC1D600DE7921 /* WishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishViewController.swift; sourceTree = "<group>"; };
+		0302D9D9231CEEDF00DE7921 /* ShowWishesLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowWishesLayout.swift; sourceTree = "<group>"; };
+		0302D9DB231CFD0000DE7921 /* ShowWishesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowWishesViewController.swift; sourceTree = "<group>"; };
+		0302D9DD231D002800DE7921 /* WishCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishCollectionViewCell.swift; sourceTree = "<group>"; };
+		0302D9E2231E5B8400DE7921 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		0302D9E5231E650600DE7921 /* DailyMissionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyMissionCollectionViewCell.swift; sourceTree = "<group>"; };
+		0302D9E8231E7A0800DE7921 /* DailyMissionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyMissionHeaderView.swift; sourceTree = "<group>"; };
+		0302D9E9231E7A0800DE7921 /* DailyMissionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DailyMissionHeaderView.xib; sourceTree = "<group>"; };
+		0302D9EC231FB6DC00DE7921 /* MissionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionItem.swift; sourceTree = "<group>"; };
+		0302D9EF2321E34D00DE7921 /* InvitingFamilyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitingFamilyTableViewCell.swift; sourceTree = "<group>"; };
+		0302D9F22321E49200DE7921 /* FamilyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyViewController.swift; sourceTree = "<group>"; };
+		0302D9F42321E74F00DE7921 /* FirebaseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseData.swift; sourceTree = "<group>"; };
+		03375E362332173800C71330 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		03A45F1C232E1482005D92D5 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
+		03A45F1E232E162E005D92D5 /* DayManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayManager.swift; sourceTree = "<group>"; };
+		03A45F20232E16E2005D92D5 /* FirebaseUserHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseUserHelper.swift; sourceTree = "<group>"; };
+		03A45F23232E1A86005D92D5 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		03A45F25232E1DBF005D92D5 /* KeyChainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainManager.swift; sourceTree = "<group>"; };
+		03A45F27232FDA64005D92D5 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		03A45F2A2330E4E0005D92D5 /* JGProgressHUDWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JGProgressHUDWrapper.swift; sourceTree = "<group>"; };
 		03C1A53C231662D9008EAB76 /* HouseworkRevolution.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HouseworkRevolution.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03C1A53F231662D9008EAB76 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		03C1A541231662D9008EAB76 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		03C1A544231662D9008EAB76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		03C1A547231662D9008EAB76 /* HouseworkRevolution.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HouseworkRevolution.xcdatamodel; sourceTree = "<group>"; };
 		03C1A549231662DA008EAB76 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -38,6 +119,39 @@
 		03C1A553231662DA008EAB76 /* HouseworkRevolutionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HouseworkRevolutionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		03C1A557231662DA008EAB76 /* HouseworkRevolutionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseworkRevolutionTests.swift; sourceTree = "<group>"; };
 		03C1A559231662DA008EAB76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		03C1A56723166518008EAB76 /* Mission.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Mission.storyboard; sourceTree = "<group>"; };
+		03C1A5692316652F008EAB76 /* Wish.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Wish.storyboard; sourceTree = "<group>"; };
+		03C1A56B23166544008EAB76 /* Family.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Family.storyboard; sourceTree = "<group>"; };
+		03C1A56D23166557008EAB76 /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
+		03C1A56F2316658D008EAB76 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		03C1A5722316660D008EAB76 /* UIStoryboard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extension.swift"; sourceTree = "<group>"; };
+		03C1A576231668B7008EAB76 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		03C1A57F23167F82008EAB76 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		03C1A5822316908D008EAB76 /* NameCallCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameCallCollectionViewCell.swift; sourceTree = "<group>"; };
+		03C1A58C2317A2EB008EAB76 /* MissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionViewController.swift; sourceTree = "<group>"; };
+		03C1A58E2317C6D2008EAB76 /* AddMissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMissionViewController.swift; sourceTree = "<group>"; };
+		03C1A5902317C6E7008EAB76 /* CheckMissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckMissionViewController.swift; sourceTree = "<group>"; };
+		03C1A5932318C7A3008EAB76 /* DataEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataEnums.swift; sourceTree = "<group>"; };
+		03C1A5952318D287008EAB76 /* UserInputTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInputTextField.swift; sourceTree = "<group>"; };
+		03C1A59B2318F059008EAB76 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		03C1A59D2318F147008EAB76 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		03E941DB2337FB7000A52B82 /* RNCryptorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNCryptorManager.swift; sourceTree = "<group>"; };
+		03FC4FA52333557A00A1DD29 /* ESPullToRefreshWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ESPullToRefreshWrapper.swift; sourceTree = "<group>"; };
+		03FEAC0A2321F5B200722A34 /* InvitingFamilySectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitingFamilySectionHeaderView.swift; sourceTree = "<group>"; };
+		03FEAC0C2321F5C900722A34 /* InvitingFamilySectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InvitingFamilySectionHeaderView.xib; sourceTree = "<group>"; };
+		03FEAC0F2322054600722A34 /* FamilyMemberSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyMemberSectionHeader.swift; sourceTree = "<group>"; };
+		03FEAC112322057E00722A34 /* FamilyMemberSectionHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FamilyMemberSectionHeader.xib; sourceTree = "<group>"; };
+		03FEAC142322069100722A34 /* FamilyMemberTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyMemberTableViewCell.swift; sourceTree = "<group>"; };
+		03FEAC1A2322610500722A34 /* SearchUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserViewController.swift; sourceTree = "<group>"; };
+		03FEAC1D23226FFA00722A34 /* SearchUserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserTableViewCell.swift; sourceTree = "<group>"; };
+		03FEAC202324CC9400722A34 /* ShowDefaultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDefaultTableViewCell.swift; sourceTree = "<group>"; };
+		03FEAC222326599A00722A34 /* List.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = List.storyboard; sourceTree = "<group>"; };
+		1493339683728FA72397E709 /* Pods_HouseworkRevolution.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HouseworkRevolution.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		282E80C58DF6B1DB0CB6F4EB /* Pods-HouseworkRevolutionTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HouseworkRevolutionTests.debug.xcconfig"; path = "Target Support Files/Pods-HouseworkRevolutionTests/Pods-HouseworkRevolutionTests.debug.xcconfig"; sourceTree = "<group>"; };
+		768DABA652B8C169712D5223 /* Pods_HouseworkRevolutionTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HouseworkRevolutionTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7AF5797D81AC8C443CE30B21 /* Pods-HouseworkRevolutionTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HouseworkRevolutionTests.release.xcconfig"; path = "Target Support Files/Pods-HouseworkRevolutionTests/Pods-HouseworkRevolutionTests.release.xcconfig"; sourceTree = "<group>"; };
+		BFC62AE0B2CBB8382B293A4E /* Pods-HouseworkRevolution.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HouseworkRevolution.debug.xcconfig"; path = "Target Support Files/Pods-HouseworkRevolution/Pods-HouseworkRevolution.debug.xcconfig"; sourceTree = "<group>"; };
+		C3B112AE115369AD6E6092D6 /* Pods-HouseworkRevolution.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HouseworkRevolution.release.xcconfig"; path = "Target Support Files/Pods-HouseworkRevolution/Pods-HouseworkRevolution.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +159,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13C2546C9B3D4DD77EDFFF43 /* Pods_HouseworkRevolution.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,18 +167,166 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A426424894EE163385C27B85 /* Pods_HouseworkRevolutionTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0302D9C6231912EF00DE7921 /* CustomSegue */ = {
+			isa = PBXGroup;
+			children = (
+				0302D9C4231912E800DE7921 /* ShowAddSegue.swift */,
+			);
+			path = CustomSegue;
+			sourceTree = "<group>";
+		};
+		0302D9CE231AB31300DE7921 /* WeekdaySectionHeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				0302D9CA231AB0AF00DE7921 /* WeekdaySectionHeaderView.xib */,
+				0302D9CC231AB0DA00DE7921 /* WeekdaySectionHeaderView.swift */,
+			);
+			path = WeekdaySectionHeaderView;
+			sourceTree = "<group>";
+		};
+		0302D9CF231B632F00DE7921 /* Mission */ = {
+			isa = PBXGroup;
+			children = (
+				0302D9D2231B638800DE7921 /* CheckMission */,
+				0302D9D1231B638000DE7921 /* AddMission */,
+			);
+			path = Mission;
+			sourceTree = "<group>";
+		};
+		0302D9D0231B633700DE7921 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				03C1A58123168D72008EAB76 /* NameCall */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		0302D9D1231B638000DE7921 /* AddMission */ = {
+			isa = PBXGroup;
+			children = (
+				0302D9C22318FBE900DE7921 /* FamilyMemberCollectionViewCell.swift */,
+				0302D9C02318FBC800DE7921 /* HouseworkCollectionViewCell.swift */,
+			);
+			path = AddMission;
+			sourceTree = "<group>";
+		};
+		0302D9D2231B638800DE7921 /* CheckMission */ = {
+			isa = PBXGroup;
+			children = (
+				0302D9C82319259F00DE7921 /* MissionListTableViewCell.swift */,
+				0302D9D3231B63E600DE7921 /* MissionEmptyTableViewCell.swift */,
+				0302D9CE231AB31300DE7921 /* WeekdaySectionHeaderView */,
+			);
+			path = CheckMission;
+			sourceTree = "<group>";
+		};
+		0302D9D5231CC1A400DE7921 /* Wish */ = {
+			isa = PBXGroup;
+			children = (
+				0302D9D6231CC1D600DE7921 /* WishViewController.swift */,
+				0302D9DB231CFD0000DE7921 /* ShowWishesViewController.swift */,
+			);
+			path = Wish;
+			sourceTree = "<group>";
+		};
+		0302D9D8231CEE7A00DE7921 /* Wish */ = {
+			isa = PBXGroup;
+			children = (
+				0302D9D9231CEEDF00DE7921 /* ShowWishesLayout.swift */,
+				0302D9DD231D002800DE7921 /* WishCollectionViewCell.swift */,
+			);
+			path = Wish;
+			sourceTree = "<group>";
+		};
+		0302D9E1231E5B5E00DE7921 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				0302D9E2231E5B8400DE7921 /* ListViewController.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		0302D9E4231E64DD00DE7921 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				0302D9E7231E719500DE7921 /* DailyMissionHeaderView */,
+				0302D9E5231E650600DE7921 /* DailyMissionCollectionViewCell.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		0302D9E7231E719500DE7921 /* DailyMissionHeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				0302D9E8231E7A0800DE7921 /* DailyMissionHeaderView.swift */,
+				0302D9E9231E7A0800DE7921 /* DailyMissionHeaderView.xib */,
+			);
+			path = DailyMissionHeaderView;
+			sourceTree = "<group>";
+		};
+		0302D9EE2321E32800DE7921 /* Family */ = {
+			isa = PBXGroup;
+			children = (
+				03FEAC1C23226FD500722A34 /* SearchUserTableView */,
+				03FEAC0E2322050000722A34 /* FamilyMemberTableView */,
+				03FEAC082321F3C000722A34 /* invitingFamilyTableView */,
+			);
+			path = Family;
+			sourceTree = "<group>";
+		};
+		0302D9F12321E3C800DE7921 /* Family */ = {
+			isa = PBXGroup;
+			children = (
+				0302D9F22321E49200DE7921 /* FamilyViewController.swift */,
+				03FEAC1A2322610500722A34 /* SearchUserViewController.swift */,
+			);
+			path = Family;
+			sourceTree = "<group>";
+		};
+		03A45F1B232E1469005D92D5 /* FirebaseStorage */ = {
+			isa = PBXGroup;
+			children = (
+				0302D9F42321E74F00DE7921 /* FirebaseData.swift */,
+				03A45F1C232E1482005D92D5 /* FirebaseManager.swift */,
+				03A45F20232E16E2005D92D5 /* FirebaseUserHelper.swift */,
+			);
+			path = FirebaseStorage;
+			sourceTree = "<group>";
+		};
+		03A45F22232E175F005D92D5 /* LocalStorage */ = {
+			isa = PBXGroup;
+			children = (
+				03A45F23232E1A86005D92D5 /* StorageManager.swift */,
+			);
+			path = LocalStorage;
+			sourceTree = "<group>";
+		};
+		03A45F292330E4A2005D92D5 /* Third Party Wrapper */ = {
+			isa = PBXGroup;
+			children = (
+				03A45F25232E1DBF005D92D5 /* KeyChainManager.swift */,
+				03A45F2A2330E4E0005D92D5 /* JGProgressHUDWrapper.swift */,
+				03FC4FA52333557A00A1DD29 /* ESPullToRefreshWrapper.swift */,
+				03E941DB2337FB7000A52B82 /* RNCryptorManager.swift */,
+			);
+			path = "Third Party Wrapper";
+			sourceTree = "<group>";
+		};
 		03C1A533231662D9008EAB76 = {
 			isa = PBXGroup;
 			children = (
 				03C1A53E231662D9008EAB76 /* HouseworkRevolution */,
 				03C1A556231662DA008EAB76 /* HouseworkRevolutionTests */,
 				03C1A53D231662D9008EAB76 /* Products */,
+				C57C404516EA895692B1C48B /* Pods */,
+				2FF63852DA9196A7B69A8A6D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,12 +342,21 @@
 		03C1A53E231662D9008EAB76 /* HouseworkRevolution */ = {
 			isa = PBXGroup;
 			children = (
-				03C1A53F231662D9008EAB76 /* AppDelegate.swift */,
-				03C1A541231662D9008EAB76 /* ViewController.swift */,
+				03C1A58423177103008EAB76 /* Model */,
+				03C1A578231672AE008EAB76 /* Views */,
+				03C1A563231664BC008EAB76 /* Controllers */,
 				03C1A543231662D9008EAB76 /* Main.storyboard */,
-				03C1A549231662DA008EAB76 /* Assets.xcassets */,
+				03C1A56723166518008EAB76 /* Mission.storyboard */,
+				03C1A5692316652F008EAB76 /* Wish.storyboard */,
+				03FEAC222326599A00722A34 /* List.storyboard */,
+				03C1A56B23166544008EAB76 /* Family.storyboard */,
+				03C1A56D23166557008EAB76 /* Auth.storyboard */,
 				03C1A54B231662DA008EAB76 /* LaunchScreen.storyboard */,
+				03C1A571231665F3008EAB76 /* Extension */,
+				03C1A53F231662D9008EAB76 /* AppDelegate.swift */,
+				03C1A549231662DA008EAB76 /* Assets.xcassets */,
 				03C1A54E231662DA008EAB76 /* Info.plist */,
+				03375E362332173800C71330 /* GoogleService-Info.plist */,
 				03C1A546231662D9008EAB76 /* HouseworkRevolution.xcdatamodeld */,
 			);
 			path = HouseworkRevolution;
@@ -99,6 +371,157 @@
 			path = HouseworkRevolutionTests;
 			sourceTree = "<group>";
 		};
+		03C1A563231664BC008EAB76 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0302D9F12321E3C800DE7921 /* Family */,
+				0302D9E1231E5B5E00DE7921 /* List */,
+				0302D9D5231CC1A400DE7921 /* Wish */,
+				03C1A58B2317A256008EAB76 /* Mission */,
+				03C1A575231668A1008EAB76 /* Auth */,
+				03C1A564231664C9008EAB76 /* TabBar */,
+				0302D9C6231912EF00DE7921 /* CustomSegue */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		03C1A564231664C9008EAB76 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				03C1A56F2316658D008EAB76 /* TabBarController.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		03C1A571231665F3008EAB76 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				03C1A5722316660D008EAB76 /* UIStoryboard+Extension.swift */,
+				03C1A57F23167F82008EAB76 /* UIView+Extension.swift */,
+				03C1A59B2318F059008EAB76 /* UIImage+Extension.swift */,
+				03C1A59D2318F147008EAB76 /* UIColor+Extension.swift */,
+				03A45F27232FDA64005D92D5 /* UIViewController+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		03C1A575231668A1008EAB76 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				03C1A576231668B7008EAB76 /* AuthViewController.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		03C1A578231672AE008EAB76 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				03C1A5952318D287008EAB76 /* UserInputTextField.swift */,
+				0302D9D0231B633700DE7921 /* Auth */,
+				0302D9CF231B632F00DE7921 /* Mission */,
+				0302D9D8231CEE7A00DE7921 /* Wish */,
+				0302D9E4231E64DD00DE7921 /* List */,
+				0302D9EE2321E32800DE7921 /* Family */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		03C1A58123168D72008EAB76 /* NameCall */ = {
+			isa = PBXGroup;
+			children = (
+				03C1A5822316908D008EAB76 /* NameCallCollectionViewCell.swift */,
+			);
+			path = NameCall;
+			sourceTree = "<group>";
+		};
+		03C1A58423177103008EAB76 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				03A45F292330E4A2005D92D5 /* Third Party Wrapper */,
+				03A45F22232E175F005D92D5 /* LocalStorage */,
+				03A45F1B232E1469005D92D5 /* FirebaseStorage */,
+				03C1A5932318C7A3008EAB76 /* DataEnums.swift */,
+				03A45F1E232E162E005D92D5 /* DayManager.swift */,
+				0302D9EC231FB6DC00DE7921 /* MissionItem.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		03C1A58B2317A256008EAB76 /* Mission */ = {
+			isa = PBXGroup;
+			children = (
+				03C1A58C2317A2EB008EAB76 /* MissionViewController.swift */,
+				03C1A58E2317C6D2008EAB76 /* AddMissionViewController.swift */,
+				03C1A5902317C6E7008EAB76 /* CheckMissionViewController.swift */,
+			);
+			path = Mission;
+			sourceTree = "<group>";
+		};
+		03FEAC082321F3C000722A34 /* invitingFamilyTableView */ = {
+			isa = PBXGroup;
+			children = (
+				03FEAC092321F3DF00722A34 /* invitingFamilySectionHeader */,
+				0302D9EF2321E34D00DE7921 /* InvitingFamilyTableViewCell.swift */,
+			);
+			path = invitingFamilyTableView;
+			sourceTree = "<group>";
+		};
+		03FEAC092321F3DF00722A34 /* invitingFamilySectionHeader */ = {
+			isa = PBXGroup;
+			children = (
+				03FEAC0A2321F5B200722A34 /* InvitingFamilySectionHeaderView.swift */,
+				03FEAC0C2321F5C900722A34 /* InvitingFamilySectionHeaderView.xib */,
+			);
+			path = invitingFamilySectionHeader;
+			sourceTree = "<group>";
+		};
+		03FEAC0E2322050000722A34 /* FamilyMemberTableView */ = {
+			isa = PBXGroup;
+			children = (
+				03FEAC132322058200722A34 /* FamilyMemberSectionHeaderFooter */,
+				03FEAC142322069100722A34 /* FamilyMemberTableViewCell.swift */,
+			);
+			path = FamilyMemberTableView;
+			sourceTree = "<group>";
+		};
+		03FEAC132322058200722A34 /* FamilyMemberSectionHeaderFooter */ = {
+			isa = PBXGroup;
+			children = (
+				03FEAC0F2322054600722A34 /* FamilyMemberSectionHeader.swift */,
+				03FEAC112322057E00722A34 /* FamilyMemberSectionHeader.xib */,
+			);
+			path = FamilyMemberSectionHeaderFooter;
+			sourceTree = "<group>";
+		};
+		03FEAC1C23226FD500722A34 /* SearchUserTableView */ = {
+			isa = PBXGroup;
+			children = (
+				03FEAC1D23226FFA00722A34 /* SearchUserTableViewCell.swift */,
+				03FEAC202324CC9400722A34 /* ShowDefaultTableViewCell.swift */,
+			);
+			path = SearchUserTableView;
+			sourceTree = "<group>";
+		};
+		2FF63852DA9196A7B69A8A6D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1493339683728FA72397E709 /* Pods_HouseworkRevolution.framework */,
+				768DABA652B8C169712D5223 /* Pods_HouseworkRevolutionTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C57C404516EA895692B1C48B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BFC62AE0B2CBB8382B293A4E /* Pods-HouseworkRevolution.debug.xcconfig */,
+				C3B112AE115369AD6E6092D6 /* Pods-HouseworkRevolution.release.xcconfig */,
+				282E80C58DF6B1DB0CB6F4EB /* Pods-HouseworkRevolutionTests.debug.xcconfig */,
+				7AF5797D81AC8C443CE30B21 /* Pods-HouseworkRevolutionTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -106,9 +529,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 03C1A55C231662DA008EAB76 /* Build configuration list for PBXNativeTarget "HouseworkRevolution" */;
 			buildPhases = (
+				53B5FB76026C6D50F7EA22C9 /* [CP] Check Pods Manifest.lock */,
 				03C1A538231662D9008EAB76 /* Sources */,
 				03C1A539231662D9008EAB76 /* Frameworks */,
 				03C1A53A231662D9008EAB76 /* Resources */,
+				03C1A56223166357008EAB76 /* ShellScript */,
+				AF660D0D3595FABBBB399887 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -123,6 +549,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 03C1A55F231662DA008EAB76 /* Build configuration list for PBXNativeTarget "HouseworkRevolutionTests" */;
 			buildPhases = (
+				6DC527A6DF4C4347CE547085 /* [CP] Check Pods Manifest.lock */,
 				03C1A54F231662DA008EAB76 /* Sources */,
 				03C1A550231662DA008EAB76 /* Frameworks */,
 				03C1A551231662DA008EAB76 /* Resources */,
@@ -180,8 +607,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03375E372332173800C71330 /* GoogleService-Info.plist in Resources */,
+				03C1A56E23166557008EAB76 /* Auth.storyboard in Resources */,
 				03C1A54D231662DA008EAB76 /* LaunchScreen.storyboard in Resources */,
+				03C1A56A2316652F008EAB76 /* Wish.storyboard in Resources */,
+				03C1A56C23166544008EAB76 /* Family.storyboard in Resources */,
 				03C1A54A231662DA008EAB76 /* Assets.xcassets in Resources */,
+				0302D9CB231AB0AF00DE7921 /* WeekdaySectionHeaderView.xib in Resources */,
+				03C1A56823166518008EAB76 /* Mission.storyboard in Resources */,
+				0302D9EB231E7A0800DE7921 /* DailyMissionHeaderView.xib in Resources */,
+				03FEAC0D2321F5C900722A34 /* InvitingFamilySectionHeaderView.xib in Resources */,
+				03FEAC122322057E00722A34 /* FamilyMemberSectionHeader.xib in Resources */,
+				03FEAC232326599A00722A34 /* List.storyboard in Resources */,
 				03C1A545231662D9008EAB76 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -195,14 +632,138 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		03C1A56223166357008EAB76 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
+		53B5FB76026C6D50F7EA22C9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HouseworkRevolution-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6DC527A6DF4C4347CE547085 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HouseworkRevolutionTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AF660D0D3595FABBBB399887 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HouseworkRevolution/Pods-HouseworkRevolution-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HouseworkRevolution/Pods-HouseworkRevolution-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HouseworkRevolution/Pods-HouseworkRevolution-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		03C1A538231662D9008EAB76 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03C1A542231662D9008EAB76 /* ViewController.swift in Sources */,
+				03FEAC1E23226FFA00722A34 /* SearchUserTableViewCell.swift in Sources */,
+				0302D9C12318FBC800DE7921 /* HouseworkCollectionViewCell.swift in Sources */,
+				0302D9E6231E650600DE7921 /* DailyMissionCollectionViewCell.swift in Sources */,
+				03FEAC102322054600722A34 /* FamilyMemberSectionHeader.swift in Sources */,
+				03C1A5702316658D008EAB76 /* TabBarController.swift in Sources */,
+				03FEAC0B2321F5B200722A34 /* InvitingFamilySectionHeaderView.swift in Sources */,
+				03FEAC152322069100722A34 /* FamilyMemberTableViewCell.swift in Sources */,
+				03FEAC212324CC9400722A34 /* ShowDefaultTableViewCell.swift in Sources */,
+				0302D9F02321E34D00DE7921 /* InvitingFamilyTableViewCell.swift in Sources */,
 				03C1A540231662D9008EAB76 /* AppDelegate.swift in Sources */,
+				0302D9DA231CEEDF00DE7921 /* ShowWishesLayout.swift in Sources */,
+				03A45F21232E16E2005D92D5 /* FirebaseUserHelper.swift in Sources */,
+				03C1A58023167F82008EAB76 /* UIView+Extension.swift in Sources */,
+				03A45F2B2330E4E0005D92D5 /* JGProgressHUDWrapper.swift in Sources */,
+				0302D9EA231E7A0800DE7921 /* DailyMissionHeaderView.swift in Sources */,
+				0302D9D7231CC1D600DE7921 /* WishViewController.swift in Sources */,
 				03C1A548231662D9008EAB76 /* HouseworkRevolution.xcdatamodeld in Sources */,
+				03E941DC2337FB7000A52B82 /* RNCryptorManager.swift in Sources */,
+				03A45F28232FDA64005D92D5 /* UIViewController+Extension.swift in Sources */,
+				0302D9C5231912E800DE7921 /* ShowAddSegue.swift in Sources */,
+				0302D9E3231E5B8400DE7921 /* ListViewController.swift in Sources */,
+				0302D9DC231CFD0000DE7921 /* ShowWishesViewController.swift in Sources */,
+				0302D9F52321E74F00DE7921 /* FirebaseData.swift in Sources */,
+				03FEAC1B2322610500722A34 /* SearchUserViewController.swift in Sources */,
+				03A45F24232E1A86005D92D5 /* StorageManager.swift in Sources */,
+				03C1A577231668B7008EAB76 /* AuthViewController.swift in Sources */,
+				03C1A5832316908D008EAB76 /* NameCallCollectionViewCell.swift in Sources */,
+				03C1A59E2318F147008EAB76 /* UIColor+Extension.swift in Sources */,
+				0302D9C32318FBE900DE7921 /* FamilyMemberCollectionViewCell.swift in Sources */,
+				0302D9CD231AB0DA00DE7921 /* WeekdaySectionHeaderView.swift in Sources */,
+				03C1A5912317C6E7008EAB76 /* CheckMissionViewController.swift in Sources */,
+				0302D9ED231FB6DC00DE7921 /* MissionItem.swift in Sources */,
+				03C1A58F2317C6D2008EAB76 /* AddMissionViewController.swift in Sources */,
+				03A45F1D232E1482005D92D5 /* FirebaseManager.swift in Sources */,
+				0302D9C92319259F00DE7921 /* MissionListTableViewCell.swift in Sources */,
+				03A45F1F232E162E005D92D5 /* DayManager.swift in Sources */,
+				0302D9DE231D002800DE7921 /* WishCollectionViewCell.swift in Sources */,
+				03C1A5942318C7A3008EAB76 /* DataEnums.swift in Sources */,
+				03FC4FA62333557A00A1DD29 /* ESPullToRefreshWrapper.swift in Sources */,
+				0302D9F32321E49200DE7921 /* FamilyViewController.swift in Sources */,
+				03C1A5962318D287008EAB76 /* UserInputTextField.swift in Sources */,
+				03A45F26232E1DBF005D92D5 /* KeyChainManager.swift in Sources */,
+				03C1A59C2318F059008EAB76 /* UIImage+Extension.swift in Sources */,
+				03C1A5732316660D008EAB76 /* UIStoryboard+Extension.swift in Sources */,
+				0302D9D4231B63E600DE7921 /* MissionEmptyTableViewCell.swift in Sources */,
+				03C1A58D2317A2EB008EAB76 /* MissionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,9 +923,11 @@
 		};
 		03C1A55D231662DA008EAB76 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BFC62AE0B2CBB8382B293A4E /* Pods-HouseworkRevolution.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2MN93DQ7G3;
 				INFOPLIST_FILE = HouseworkRevolution/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -379,9 +942,11 @@
 		};
 		03C1A55E231662DA008EAB76 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C3B112AE115369AD6E6092D6 /* Pods-HouseworkRevolution.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2MN93DQ7G3;
 				INFOPLIST_FILE = HouseworkRevolution/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -396,6 +961,7 @@
 		};
 		03C1A560231662DA008EAB76 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 282E80C58DF6B1DB0CB6F4EB /* Pods-HouseworkRevolutionTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -416,6 +982,7 @@
 		};
 		03C1A561231662DA008EAB76 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7AF5797D81AC8C443CE30B21 /* Pods-HouseworkRevolutionTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";

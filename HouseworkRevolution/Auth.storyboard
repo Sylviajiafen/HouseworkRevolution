@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="yts-FL-6fl">
+    <device id="retina6_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Auth View Controller-->
+        <scene sceneID="ERf-1O-lCU">
+            <objects>
+                <viewController id="yts-FL-6fl" customClass="AuthViewController" customModule="HouseworkRevolution" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DwH-Nd-TJJ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view alpha="0.55000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B0o-wa-aRw">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="obm-Za-jWW">
+                                <rect key="frame" x="57" y="293" width="300" height="250"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="請為自己的家打造一組大門密碼" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A6w-Mn-8iU" customClass="UserInputTextField" customModule="HouseworkRevolution" customModuleProvider="target">
+                                        <rect key="frame" x="19.666666666666686" y="58" width="261" height="22"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" secureTextEntry="YES" textContentType="password"/>
+                                    </textField>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="egN-nE-r20">
+                                        <rect key="frame" x="100" y="158" width="100" height="33"/>
+                                        <color key="backgroundColor" red="0.92941176470588238" green="0.41176470588235292" blue="0.42352941176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="gwg-3l-EDJ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                        <state key="normal" title="建立我的家">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="showUserSetting:" destination="yts-FL-6fl" eventType="touchUpInside" id="aFf-TZ-6vG"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YDU-6K-FQR">
+                                        <rect key="frame" x="111" y="216" width="179" height="29"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <state key="normal" title="已經建立過，請帶我回家 &gt;&gt;">
+                                            <color key="titleColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="showSignIn:" destination="yts-FL-6fl" eventType="touchUpInside" id="5Fl-bO-4Rz"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qnq-7O-Db9">
+                                        <rect key="frame" x="42" y="18" width="216" height="25"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="金窩銀窩，不如自己的狗窩">
+                                                <attributes>
+                                                    <color key="NSColor" red="0.92156862745098034" green="0.34509803921568627" blue="0.3529411764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <font key="NSFont" size="18" name="STHeitiTC-Medium"/>
+                                                    <font key="NSOriginalFont" metaFont="system" size="19"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="再確認一次" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y2m-DL-hYe" customClass="UserInputTextField" customModule="HouseworkRevolution" customModuleProvider="target">
+                                        <rect key="frame" x="19.666666666666686" y="96" width="261" height="22"/>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" secureTextEntry="YES" textContentType="password"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="※ 請勿輸入任何標點符號" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S8C-Hf-Wbn">
+                                        <rect key="frame" x="88.666666666666657" y="130" width="123" height="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.9882352941176471" green="0.97647058823529409" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="S8C-Hf-Wbn" firstAttribute="top" secondItem="Y2m-DL-hYe" secondAttribute="bottom" constant="12" id="1Un-CU-jdL"/>
+                                    <constraint firstAttribute="width" constant="300" id="43F-nl-ws7"/>
+                                    <constraint firstAttribute="trailing" secondItem="YDU-6K-FQR" secondAttribute="trailing" constant="10" id="6Oe-yE-MJE"/>
+                                    <constraint firstItem="Y2m-DL-hYe" firstAttribute="top" secondItem="A6w-Mn-8iU" secondAttribute="bottom" constant="16" id="8YT-Fl-5ky"/>
+                                    <constraint firstItem="Y2m-DL-hYe" firstAttribute="centerX" secondItem="obm-Za-jWW" secondAttribute="centerX" id="NIv-bh-7DO"/>
+                                    <constraint firstItem="A6w-Mn-8iU" firstAttribute="centerX" secondItem="obm-Za-jWW" secondAttribute="centerX" id="PDs-rd-SYg"/>
+                                    <constraint firstItem="Y2m-DL-hYe" firstAttribute="width" secondItem="A6w-Mn-8iU" secondAttribute="width" id="Rkb-AF-VdH"/>
+                                    <constraint firstItem="qnq-7O-Db9" firstAttribute="centerX" secondItem="obm-Za-jWW" secondAttribute="centerX" id="Tuf-lU-ghJ"/>
+                                    <constraint firstItem="egN-nE-r20" firstAttribute="centerX" secondItem="obm-Za-jWW" secondAttribute="centerX" id="TxU-SU-TEF"/>
+                                    <constraint firstItem="egN-nE-r20" firstAttribute="top" secondItem="Y2m-DL-hYe" secondAttribute="bottom" constant="40" id="aje-oz-K3E"/>
+                                    <constraint firstItem="S8C-Hf-Wbn" firstAttribute="centerX" secondItem="obm-Za-jWW" secondAttribute="centerX" id="c62-rW-0lf"/>
+                                    <constraint firstAttribute="height" constant="250" id="kUm-O8-Nyp"/>
+                                    <constraint firstItem="qnq-7O-Db9" firstAttribute="top" secondItem="obm-Za-jWW" secondAttribute="top" constant="18" id="rFV-7z-bI2"/>
+                                    <constraint firstAttribute="bottom" secondItem="YDU-6K-FQR" secondAttribute="bottom" constant="5" id="wOF-Fl-rdi"/>
+                                    <constraint firstItem="A6w-Mn-8iU" firstAttribute="top" secondItem="qnq-7O-Db9" secondAttribute="bottom" constant="15" id="yWO-SE-iX8"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h29-Y5-es4">
+                                <rect key="frame" x="57" y="308" width="300" height="220"/>
+                                <subviews>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5A3-E7-NNX">
+                                        <rect key="frame" x="105" y="131" width="90" height="33"/>
+                                        <color key="backgroundColor" red="0.92941176469999998" green="0.41176470590000003" blue="0.42352941179999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="90" id="FvH-fd-Gsh"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                        <state key="normal" title="帶我回家">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="findHome:" destination="yts-FL-6fl" eventType="touchUpInside" id="jud-S4-ZU1"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jyY-mx-Jz6">
+                                        <rect key="frame" x="139" y="186" width="151" height="29"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <state key="normal" title="找不到家，重建一個 &gt;&gt;">
+                                            <color key="titleColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="showSignUp:" destination="yts-FL-6fl" eventType="touchUpInside" id="gs7-oA-gjt"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rlZ-Rs-NUa">
+                                        <rect key="frame" x="18" y="15" width="134" height="27"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="找尋我的家">
+                                                <attributes>
+                                                    <color key="NSColor" red="0.92156862745098034" green="0.34509803921568627" blue="0.3529411764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <font key="NSFont" size="19" name="STHeitiTC-Medium"/>
+                                                    <font key="NSOriginalFont" metaFont="system" size="19"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="...">
+                                                <attributes>
+                                                    <color key="NSColor" red="0.92156862745098034" green="0.34509803921568627" blue="0.3529411764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <font key="NSFont" size="19" name="STHeitiTC-Medium"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="輸入大門密碼" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gWs-K4-hPl" customClass="UserInputTextField" customModule="HouseworkRevolution" customModuleProvider="target">
+                                        <rect key="frame" x="19.666666666666686" y="94" width="261" height="22"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" secureTextEntry="YES" textContentType="password"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="輸入您的 id，大小寫需相符" textAlignment="center" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="mVe-aM-Zrd" customClass="UserInputTextField" customModule="HouseworkRevolution" customModuleProvider="target">
+                                        <rect key="frame" x="19.666666666666686" y="57" width="261" height="22"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" textContentType="username"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" red="0.9882352941176471" green="0.97647058823529409" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="rlZ-Rs-NUa" firstAttribute="top" secondItem="h29-Y5-es4" secondAttribute="top" constant="15" id="042-f5-zAj"/>
+                                    <constraint firstAttribute="height" constant="220" id="4qc-wc-xXl"/>
+                                    <constraint firstAttribute="width" constant="300" id="73j-HB-nJe"/>
+                                    <constraint firstAttribute="trailing" secondItem="jyY-mx-Jz6" secondAttribute="trailing" constant="10" id="E8i-da-bbO"/>
+                                    <constraint firstItem="mVe-aM-Zrd" firstAttribute="top" secondItem="rlZ-Rs-NUa" secondAttribute="bottom" constant="15" id="Iqm-ob-DB8"/>
+                                    <constraint firstItem="gWs-K4-hPl" firstAttribute="top" secondItem="mVe-aM-Zrd" secondAttribute="bottom" constant="15" id="NgJ-0Y-OUt"/>
+                                    <constraint firstItem="gWs-K4-hPl" firstAttribute="width" secondItem="mVe-aM-Zrd" secondAttribute="width" id="TG7-bt-IaY"/>
+                                    <constraint firstItem="5A3-E7-NNX" firstAttribute="top" secondItem="gWs-K4-hPl" secondAttribute="bottom" constant="15" id="Utw-q1-uVf"/>
+                                    <constraint firstItem="rlZ-Rs-NUa" firstAttribute="leading" secondItem="h29-Y5-es4" secondAttribute="leading" constant="18" id="kCg-Dt-ZF1"/>
+                                    <constraint firstItem="gWs-K4-hPl" firstAttribute="centerX" secondItem="h29-Y5-es4" secondAttribute="centerX" id="kLq-Kf-ZaV"/>
+                                    <constraint firstAttribute="bottom" secondItem="jyY-mx-Jz6" secondAttribute="bottom" constant="5" id="nR4-gt-gG2"/>
+                                    <constraint firstItem="mVe-aM-Zrd" firstAttribute="centerX" secondItem="h29-Y5-es4" secondAttribute="centerX" id="uen-M3-xXF"/>
+                                    <constraint firstItem="5A3-E7-NNX" firstAttribute="centerX" secondItem="h29-Y5-es4" secondAttribute="centerX" id="ykY-SH-laX"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OjA-R0-w8O">
+                                <rect key="frame" x="57" y="233" width="300" height="430"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iqh-hs-gmP">
+                                        <rect key="frame" x="20" y="18" width="54" height="27"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="我是">
+                                                <attributes>
+                                                    <color key="NSColor" red="0.92156862745098034" green="0.34509803921568627" blue="0.3529411764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <font key="NSFont" size="19" name="STHeitiTC-Medium"/>
+                                                    <font key="NSOriginalFont" metaFont="system" size="19"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="...">
+                                                <attributes>
+                                                    <color key="NSColor" red="0.92156862745098034" green="0.34509803921568627" blue="0.3529411764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <font key="NSFont" size="19" name="STHeitiTC-Medium"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zmH-Vn-gEa">
+                                        <rect key="frame" x="0.0" y="55" width="300" height="244"/>
+                                        <color key="backgroundColor" red="0.98823529409999999" green="0.97647058819999999" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="244" id="dBU-vJ-Dsa"/>
+                                        </constraints>
+                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="15" id="wjq-zh-coA">
+                                            <size key="itemSize" width="50" height="34"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="20" minY="10" maxX="20" maxY="10"/>
+                                        </collectionViewFlowLayout>
+                                        <cells>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="NameCallCollectionViewCell" id="Qyw-dX-o9c" customClass="NameCallCollectionViewCell" customModule="HouseworkRevolution" customModuleProvider="target">
+                                                <rect key="frame" x="20" y="10" width="50" height="34"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="34"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4iH-0X-Ay3">
+                                                            <rect key="frame" x="2" y="4.6666666666666679" width="46.333333333333336" height="25"/>
+                                                            <attributedString key="attributedText">
+                                                                <fragment content="Label">
+                                                                    <attributes>
+                                                                        <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <font key="NSFont" size="18" name="STHeitiTC-Medium"/>
+                                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                    </attributes>
+                                                                </fragment>
+                                                            </attributedString>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </view>
+                                                <constraints>
+                                                    <constraint firstItem="4iH-0X-Ay3" firstAttribute="centerX" secondItem="Qyw-dX-o9c" secondAttribute="centerX" id="2Zm-7S-gDh"/>
+                                                    <constraint firstItem="4iH-0X-Ay3" firstAttribute="centerY" secondItem="Qyw-dX-o9c" secondAttribute="centerY" id="7lO-lT-8Vu"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <integer key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <outlet property="nameCall" destination="4iH-0X-Ay3" id="8VN-as-uGc"/>
+                                                </connections>
+                                            </collectionViewCell>
+                                        </cells>
+                                    </collectionView>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="給自己一個稱呼" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XjB-3l-nZG" customClass="UserInputTextField" customModule="HouseworkRevolution" customModuleProvider="target">
+                                        <rect key="frame" x="90.999999999999986" y="245" width="132.66666666666663" height="22"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KXF-vJ-Ep5">
+                                        <rect key="frame" x="20" y="299" width="78" height="19"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="新增家庭">
+                                                <attributes>
+                                                    <color key="NSColor" red="0.92156862745098034" green="0.34509803921568627" blue="0.3529411764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <font key="NSFont" size="19" name=".PingFangTC-Regular"/>
+                                                    <font key="NSOriginalFont" metaFont="system" size="19"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="為家取個名吧" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aoz-rd-EOo" customClass="UserInputTextField" customModule="HouseworkRevolution" customModuleProvider="target">
+                                        <rect key="frame" x="21" y="342" width="135" height="30"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ej-zS-5dG">
+                                        <rect key="frame" x="265" y="15" width="25" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="25" id="B5R-Nt-pXk"/>
+                                            <constraint firstAttribute="height" constant="25" id="UVv-mq-Hza"/>
+                                        </constraints>
+                                        <color key="tintColor" red="0.91764705882352937" green="0.9137254901960784" blue="0.9137254901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Button" image="dismiss"/>
+                                        <connections>
+                                            <action selector="dissmissUserSetting:" destination="yts-FL-6fl" eventType="touchUpInside" id="hya-RO-KYp"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ImB-JT-XWr">
+                                        <rect key="frame" x="100" y="380" width="100" height="33"/>
+                                        <color key="backgroundColor" red="0.92941176469999998" green="0.41176470590000003" blue="0.42352941179999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="iTL-0v-LCo"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                        <state key="normal" title="建立我的家">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="createNewHome:" destination="yts-FL-6fl" eventType="touchUpInside" id="CFW-7n-xvU"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.9882352941176471" green="0.97647058823529409" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="ImB-JT-XWr" firstAttribute="centerX" secondItem="OjA-R0-w8O" secondAttribute="centerX" id="1j3-pz-LVp"/>
+                                    <constraint firstAttribute="height" constant="430" id="8i6-YW-UYf"/>
+                                    <constraint firstItem="zmH-Vn-gEa" firstAttribute="width" secondItem="OjA-R0-w8O" secondAttribute="width" id="AZF-K6-ifB"/>
+                                    <constraint firstAttribute="width" constant="300" id="H1G-tr-Kg5"/>
+                                    <constraint firstItem="6ej-zS-5dG" firstAttribute="top" secondItem="OjA-R0-w8O" secondAttribute="top" constant="15" id="HYy-oa-WVc"/>
+                                    <constraint firstItem="zmH-Vn-gEa" firstAttribute="top" secondItem="iqh-hs-gmP" secondAttribute="bottom" constant="10" id="K1y-Ss-4XC"/>
+                                    <constraint firstItem="aoz-rd-EOo" firstAttribute="top" secondItem="KXF-vJ-Ep5" secondAttribute="bottom" constant="10" id="Lm0-lZ-NYm"/>
+                                    <constraint firstItem="aoz-rd-EOo" firstAttribute="leading" secondItem="OjA-R0-w8O" secondAttribute="leading" constant="20" id="LtQ-sZ-YUb"/>
+                                    <constraint firstItem="ImB-JT-XWr" firstAttribute="top" secondItem="aoz-rd-EOo" secondAttribute="bottom" constant="30" id="QA7-Bg-IUz"/>
+                                    <constraint firstItem="KXF-vJ-Ep5" firstAttribute="leading" secondItem="OjA-R0-w8O" secondAttribute="leading" constant="20" id="eBz-rO-VOs"/>
+                                    <constraint firstItem="iqh-hs-gmP" firstAttribute="top" secondItem="OjA-R0-w8O" secondAttribute="top" constant="18" id="hKc-bW-UxK"/>
+                                    <constraint firstItem="iqh-hs-gmP" firstAttribute="leading" secondItem="OjA-R0-w8O" secondAttribute="leading" constant="20" id="hxK-GW-4El"/>
+                                    <constraint firstAttribute="trailing" secondItem="6ej-zS-5dG" secondAttribute="trailing" constant="10" id="k3S-cc-SZf"/>
+                                    <constraint firstItem="XjB-3l-nZG" firstAttribute="leading" secondItem="OjA-R0-w8O" secondAttribute="leading" constant="91" id="muA-rQ-5nW"/>
+                                    <constraint firstItem="XjB-3l-nZG" firstAttribute="top" secondItem="OjA-R0-w8O" secondAttribute="top" constant="245" id="qlI-4v-ys4"/>
+                                    <constraint firstItem="zmH-Vn-gEa" firstAttribute="leading" secondItem="OjA-R0-w8O" secondAttribute="leading" id="qxy-1F-2Qf"/>
+                                    <constraint firstItem="KXF-vJ-Ep5" firstAttribute="top" secondItem="zmH-Vn-gEa" secondAttribute="bottom" id="rYD-Iu-eWX"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="OjA-R0-w8O" firstAttribute="centerX" secondItem="DwH-Nd-TJJ" secondAttribute="centerX" id="1Yy-0w-Lod"/>
+                            <constraint firstItem="B0o-wa-aRw" firstAttribute="leading" secondItem="DwH-Nd-TJJ" secondAttribute="leading" id="5B0-ea-j6P"/>
+                            <constraint firstAttribute="bottom" secondItem="B0o-wa-aRw" secondAttribute="bottom" id="CbU-FM-oRr"/>
+                            <constraint firstItem="obm-Za-jWW" firstAttribute="centerX" secondItem="DwH-Nd-TJJ" secondAttribute="centerX" id="FbX-yr-htS"/>
+                            <constraint firstItem="h29-Y5-es4" firstAttribute="centerX" secondItem="DwH-Nd-TJJ" secondAttribute="centerX" id="H09-x0-LF4"/>
+                            <constraint firstItem="mVe-aM-Zrd" firstAttribute="width" secondItem="A6w-Mn-8iU" secondAttribute="width" id="LYZ-2P-Ci3"/>
+                            <constraint firstItem="obm-Za-jWW" firstAttribute="centerY" secondItem="DwH-Nd-TJJ" secondAttribute="centerY" constant="-30" id="OB1-Wg-mgQ"/>
+                            <constraint firstItem="B0o-wa-aRw" firstAttribute="trailing" secondItem="DwH-Nd-TJJ" secondAttribute="trailing" id="UTU-Xw-uQj"/>
+                            <constraint firstItem="h29-Y5-es4" firstAttribute="centerY" secondItem="DwH-Nd-TJJ" secondAttribute="centerY" constant="-30" id="uGY-Zv-UrK"/>
+                            <constraint firstItem="B0o-wa-aRw" firstAttribute="top" secondItem="DwH-Nd-TJJ" secondAttribute="top" id="vgV-hE-sNC"/>
+                            <constraint firstItem="OjA-R0-w8O" firstAttribute="centerY" secondItem="DwH-Nd-TJJ" secondAttribute="centerY" id="wlL-tu-jN4"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="lao-we-X5k"/>
+                    </view>
+                    <connections>
+                        <outlet property="createHomeName" destination="aoz-rd-EOo" id="SNq-TE-pRS"/>
+                        <outlet property="createPassword" destination="A6w-Mn-8iU" id="9cz-kT-TJE"/>
+                        <outlet property="customUserName" destination="XjB-3l-nZG" id="hFA-jS-0IJ"/>
+                        <outlet property="nameCallSelection" destination="zmH-Vn-gEa" id="6kz-Bv-KFQ"/>
+                        <outlet property="pwdConfirmField" destination="Y2m-DL-hYe" id="KVh-xg-NiP"/>
+                        <outlet property="signInView" destination="h29-Y5-es4" id="LcR-W7-YgL"/>
+                        <outlet property="signUpView" destination="obm-Za-jWW" id="2Cc-Xi-kIr"/>
+                        <outlet property="userID" destination="mVe-aM-Zrd" id="o17-4V-lO1"/>
+                        <outlet property="userPassword" destination="gWs-K4-hPl" id="Rka-Hf-1Pg"/>
+                        <outlet property="userSettingView" destination="OjA-R0-w8O" id="Pev-tG-4Lb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YIE-VN-S90" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-917.39130434782612" y="12.053571428571429"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="dismiss" width="21.333333969116211" height="21.333333969116211"/>
+    </resources>
+</document>

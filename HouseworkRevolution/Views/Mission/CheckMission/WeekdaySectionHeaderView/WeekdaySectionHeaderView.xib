@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="WeekdaySectionHeaderView" customModule="HouseworkRevolution" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="75s-Iv-8gB">
+                    <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="星期一" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xDf-mf-X7K">
+                            <rect key="frame" x="30" y="8.5" width="69" height="33"/>
+                            <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="23"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IJN-4s-ApP">
+                            <rect key="frame" x="0.0" y="637" width="375" height="10"/>
+                            <color key="backgroundColor" name="projectBackground"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="10" id="4cp-rU-EMB"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" name="lightLake"/>
+                    <constraints>
+                        <constraint firstItem="xDf-mf-X7K" firstAttribute="leading" secondItem="75s-Iv-8gB" secondAttribute="leading" constant="30" id="5Tr-KQ-NDb"/>
+                        <constraint firstItem="xDf-mf-X7K" firstAttribute="top" secondItem="75s-Iv-8gB" secondAttribute="top" constant="8.5" id="6k8-Pw-mU2"/>
+                        <constraint firstAttribute="trailing" secondItem="IJN-4s-ApP" secondAttribute="trailing" id="IgA-eR-oNe"/>
+                        <constraint firstAttribute="bottom" secondItem="IJN-4s-ApP" secondAttribute="bottom" id="jsC-Wl-rMO"/>
+                        <constraint firstItem="IJN-4s-ApP" firstAttribute="leading" secondItem="75s-Iv-8gB" secondAttribute="leading" id="zDi-A9-BIv"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="75s-Iv-8gB" secondAttribute="trailing" id="ISF-cL-Ut1"/>
+                <constraint firstItem="75s-Iv-8gB" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="KnP-FS-oEy"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="75s-Iv-8gB" secondAttribute="bottom" id="TFI-zu-k42"/>
+                <constraint firstItem="75s-Iv-8gB" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="myo-bc-fn5"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="weekdayLabel" destination="xDf-mf-X7K" id="Ig7-jI-mXW"/>
+            </connections>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="lightLake">
+            <color red="0.64313725490196083" green="0.84313725490196079" blue="0.88235294117647056" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="projectBackground">
+            <color red="0.9882352941176471" green="0.97647058823529409" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
