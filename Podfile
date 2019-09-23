@@ -7,13 +7,16 @@ target 'HouseworkRevolution' do
 
   # Pods for HouseworkRevolution
 pod 'SwiftLint'
-pod 'KeychainAccess'
 pod 'IQKeyboardManagerSwift'
 pod 'JGProgressHUD'
 pod 'ESPullToRefresh'
 pod 'Firebase/Auth'
 pod 'Firebase/Firestore'
 pod 'RNCryptor', '~> 5.0'
+
+pod 'Fabric', '~> 1.10.2'
+pod 'Crashlytics', '~> 3.14.0'
+pod 'Firebase/Analytics'
 
 
   target 'HouseworkRevolutionTests' do

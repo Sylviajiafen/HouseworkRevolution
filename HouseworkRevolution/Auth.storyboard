@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="yts-FL-6fl">
-    <device id="retina6_5" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="yts-FL-6fl">
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -26,7 +25,7 @@
                                 <rect key="frame" x="57" y="293" width="300" height="250"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="請為自己的家打造一組大門密碼" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A6w-Mn-8iU" customClass="UserInputTextField" customModule="HouseworkRevolution" customModuleProvider="target">
-                                        <rect key="frame" x="19.666666666666686" y="58" width="261" height="22"/>
+                                        <rect key="frame" x="21.666666666666686" y="58" width="257" height="22"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" secureTextEntry="YES" textContentType="password"/>
@@ -74,7 +73,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="再確認一次" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y2m-DL-hYe" customClass="UserInputTextField" customModule="HouseworkRevolution" customModuleProvider="target">
-                                        <rect key="frame" x="19.666666666666686" y="96" width="261" height="22"/>
+                                        <rect key="frame" x="21.666666666666686" y="96" width="257" height="22"/>
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" secureTextEntry="YES" textContentType="password"/>
@@ -142,8 +141,8 @@
                                             <action selector="showSignUp:" destination="yts-FL-6fl" eventType="touchUpInside" id="gs7-oA-gjt"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rlZ-Rs-NUa">
-                                        <rect key="frame" x="18" y="15" width="134" height="27"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rlZ-Rs-NUa">
+                                        <rect key="frame" x="18.000000000000007" y="15" width="110.66666666666669" height="27"/>
                                         <attributedString key="attributedText">
                                             <fragment content="找尋我的家">
                                                 <attributes>
@@ -164,13 +163,13 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="輸入大門密碼" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gWs-K4-hPl" customClass="UserInputTextField" customModule="HouseworkRevolution" customModuleProvider="target">
-                                        <rect key="frame" x="19.666666666666686" y="94" width="261" height="22"/>
+                                        <rect key="frame" x="21.666666666666686" y="94" width="257" height="22"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="輸入您的 id，大小寫需相符" textAlignment="center" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="mVe-aM-Zrd" customClass="UserInputTextField" customModule="HouseworkRevolution" customModuleProvider="target">
-                                        <rect key="frame" x="19.666666666666686" y="57" width="261" height="22"/>
+                                        <rect key="frame" x="21.666666666666686" y="57" width="257" height="22"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" textContentType="username"/>
@@ -273,13 +272,13 @@
                                         </cells>
                                     </collectionView>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="給自己一個稱呼" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XjB-3l-nZG" customClass="UserInputTextField" customModule="HouseworkRevolution" customModuleProvider="target">
-                                        <rect key="frame" x="90.999999999999986" y="245" width="132.66666666666663" height="22"/>
+                                        <rect key="frame" x="90.999999999999986" y="245" width="128.66666666666663" height="22"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KXF-vJ-Ep5">
-                                        <rect key="frame" x="20" y="299" width="78" height="19"/>
+                                        <rect key="frame" x="20" y="299" width="76" height="21.333333333333314"/>
                                         <attributedString key="attributedText">
                                             <fragment content="新增家庭">
                                                 <attributes>
@@ -292,8 +291,8 @@
                                         </attributedString>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="為家取個名吧" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aoz-rd-EOo" customClass="UserInputTextField" customModule="HouseworkRevolution" customModuleProvider="target">
-                                        <rect key="frame" x="21" y="342" width="135" height="30"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="為家取個名吧" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aoz-rd-EOo" customClass="UserInputTextField" customModule="HouseworkRevolution" customModuleProvider="target">
+                                        <rect key="frame" x="19.999999999999993" y="330.33333333333337" width="110.33333333333331" height="22"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -311,7 +310,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ImB-JT-XWr">
-                                        <rect key="frame" x="100" y="380" width="100" height="33"/>
+                                        <rect key="frame" x="100" y="382.33333333333337" width="100" height="33"/>
                                         <color key="backgroundColor" red="0.92941176469999998" green="0.41176470590000003" blue="0.42352941179999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="100" id="iTL-0v-LCo"/>
@@ -356,18 +355,49 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="註冊即代表同意" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="luP-qO-GeH">
+                                <rect key="frame" x="167.66666666666666" y="823.66666666666663" width="79" height="13.333333333333371"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <color key="textColor" name="buttonUnSelected"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l3k-Mq-K0U">
+                                <rect key="frame" x="147" y="837" width="120" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="5AR-JJ-tub"/>
+                                </constraints>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="服務條款與隱私權政策">
+                                            <attributes>
+                                                <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <font key="NSFont" size="12" name="STYuanti-TC-Light"/>
+                                                <font key="NSOriginalFont" size="12" name="STYuanti-TC-Light"/>
+                                                <integer key="NSUnderline" value="1"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <connections>
+                                    <action selector="privacyTerms:" destination="yts-FL-6fl" eventType="touchUpInside" id="4Kv-zo-Qo4"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="OjA-R0-w8O" firstAttribute="centerX" secondItem="DwH-Nd-TJJ" secondAttribute="centerX" id="1Yy-0w-Lod"/>
                             <constraint firstItem="B0o-wa-aRw" firstAttribute="leading" secondItem="DwH-Nd-TJJ" secondAttribute="leading" id="5B0-ea-j6P"/>
+                            <constraint firstItem="l3k-Mq-K0U" firstAttribute="centerX" secondItem="DwH-Nd-TJJ" secondAttribute="centerX" id="76Y-YA-6Qs"/>
+                            <constraint firstItem="lao-we-X5k" firstAttribute="bottom" secondItem="l3k-Mq-K0U" secondAttribute="bottom" constant="5" id="ATr-sf-erA"/>
                             <constraint firstAttribute="bottom" secondItem="B0o-wa-aRw" secondAttribute="bottom" id="CbU-FM-oRr"/>
                             <constraint firstItem="obm-Za-jWW" firstAttribute="centerX" secondItem="DwH-Nd-TJJ" secondAttribute="centerX" id="FbX-yr-htS"/>
                             <constraint firstItem="h29-Y5-es4" firstAttribute="centerX" secondItem="DwH-Nd-TJJ" secondAttribute="centerX" id="H09-x0-LF4"/>
                             <constraint firstItem="mVe-aM-Zrd" firstAttribute="width" secondItem="A6w-Mn-8iU" secondAttribute="width" id="LYZ-2P-Ci3"/>
                             <constraint firstItem="obm-Za-jWW" firstAttribute="centerY" secondItem="DwH-Nd-TJJ" secondAttribute="centerY" constant="-30" id="OB1-Wg-mgQ"/>
                             <constraint firstItem="B0o-wa-aRw" firstAttribute="trailing" secondItem="DwH-Nd-TJJ" secondAttribute="trailing" id="UTU-Xw-uQj"/>
+                            <constraint firstItem="l3k-Mq-K0U" firstAttribute="top" secondItem="luP-qO-GeH" secondAttribute="bottom" id="srT-3e-5Vj"/>
                             <constraint firstItem="h29-Y5-es4" firstAttribute="centerY" secondItem="DwH-Nd-TJJ" secondAttribute="centerY" constant="-30" id="uGY-Zv-UrK"/>
+                            <constraint firstItem="luP-qO-GeH" firstAttribute="centerX" secondItem="DwH-Nd-TJJ" secondAttribute="centerX" id="uSi-uF-zuT"/>
                             <constraint firstItem="B0o-wa-aRw" firstAttribute="top" secondItem="DwH-Nd-TJJ" secondAttribute="top" id="vgV-hE-sNC"/>
                             <constraint firstItem="OjA-R0-w8O" firstAttribute="centerY" secondItem="DwH-Nd-TJJ" secondAttribute="centerY" id="wlL-tu-jN4"/>
                         </constraints>
@@ -393,5 +423,8 @@
     </scenes>
     <resources>
         <image name="dismiss" width="21.333333969116211" height="21.333333969116211"/>
+        <namedColor name="buttonUnSelected">
+            <color red="1" green="0.81960784313725488" blue="0.45490196078431372" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>
