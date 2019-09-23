@@ -7,7 +7,6 @@ target 'HouseworkRevolution' do
 
   # Pods for HouseworkRevolution
 pod 'SwiftLint'
-pod 'KeychainAccess'
 pod 'IQKeyboardManagerSwift'
 pod 'JGProgressHUD'
 pod 'ESPullToRefresh'

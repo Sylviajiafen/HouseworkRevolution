@@ -31,7 +31,6 @@
 		03A45F1F232E162E005D92D5 /* DayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A45F1E232E162E005D92D5 /* DayManager.swift */; };
 		03A45F21232E16E2005D92D5 /* FirebaseUserHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A45F20232E16E2005D92D5 /* FirebaseUserHelper.swift */; };
 		03A45F24232E1A86005D92D5 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A45F23232E1A86005D92D5 /* StorageManager.swift */; };
-		03A45F26232E1DBF005D92D5 /* KeyChainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A45F25232E1DBF005D92D5 /* KeyChainManager.swift */; };
 		03A45F28232FDA64005D92D5 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A45F27232FDA64005D92D5 /* UIViewController+Extension.swift */; };
 		03A45F2B2330E4E0005D92D5 /* JGProgressHUDWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A45F2A2330E4E0005D92D5 /* JGProgressHUDWrapper.swift */; };
 		03C1A540231662D9008EAB76 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1A53F231662D9008EAB76 /* AppDelegate.swift */; };
@@ -106,7 +105,6 @@
 		03A45F1E232E162E005D92D5 /* DayManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayManager.swift; sourceTree = "<group>"; };
 		03A45F20232E16E2005D92D5 /* FirebaseUserHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseUserHelper.swift; sourceTree = "<group>"; };
 		03A45F23232E1A86005D92D5 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
-		03A45F25232E1DBF005D92D5 /* KeyChainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainManager.swift; sourceTree = "<group>"; };
 		03A45F27232FDA64005D92D5 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		03A45F2A2330E4E0005D92D5 /* JGProgressHUDWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JGProgressHUDWrapper.swift; sourceTree = "<group>"; };
 		03C1A53C231662D9008EAB76 /* HouseworkRevolution.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HouseworkRevolution.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -311,7 +309,6 @@
 		03A45F292330E4A2005D92D5 /* Third Party Wrapper */ = {
 			isa = PBXGroup;
 			children = (
-				03A45F25232E1DBF005D92D5 /* KeyChainManager.swift */,
 				03A45F2A2330E4E0005D92D5 /* JGProgressHUDWrapper.swift */,
 				03FC4FA52333557A00A1DD29 /* ESPullToRefreshWrapper.swift */,
 				03E941DB2337FB7000A52B82 /* RNCryptorManager.swift */,
@@ -759,7 +756,6 @@
 				03FC4FA62333557A00A1DD29 /* ESPullToRefreshWrapper.swift in Sources */,
 				0302D9F32321E49200DE7921 /* FamilyViewController.swift in Sources */,
 				03C1A5962318D287008EAB76 /* UserInputTextField.swift in Sources */,
-				03A45F26232E1DBF005D92D5 /* KeyChainManager.swift in Sources */,
 				03C1A59C2318F059008EAB76 /* UIImage+Extension.swift in Sources */,
 				03C1A5732316660D008EAB76 /* UIStoryboard+Extension.swift in Sources */,
 				0302D9D4231B63E600DE7921 /* MissionEmptyTableViewCell.swift in Sources */,
@@ -929,6 +925,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2MN93DQ7G3;
 				INFOPLIST_FILE = HouseworkRevolution/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -936,7 +933,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.mycompany.HouseworkRevolution;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -948,6 +945,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2MN93DQ7G3;
 				INFOPLIST_FILE = HouseworkRevolution/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -955,7 +953,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.mycompany.HouseworkRevolution;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

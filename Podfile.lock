@@ -72,7 +72,6 @@ PODS:
   - GTMSessionFetcher/Core (1.2.2)
   - IQKeyboardManagerSwift (6.4.0)
   - JGProgressHUD (2.0.3)
-  - KeychainAccess (3.2.0)
   - leveldb-library (1.20)
   - nanopb (0.3.901):
     - nanopb/decode (= 0.3.901)
@@ -89,7 +88,6 @@ DEPENDENCIES:
   - Firebase/Firestore
   - IQKeyboardManagerSwift
   - JGProgressHUD
-  - KeychainAccess
   - RNCryptor (~> 5.0)
   - SwiftLint
 
@@ -108,7 +106,6 @@ SPEC REPOS:
     - GTMSessionFetcher
     - IQKeyboardManagerSwift
     - JGProgressHUD
-    - KeychainAccess
     - leveldb-library
     - nanopb
     - Protobuf
@@ -129,13 +126,12 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 61bb0f61a4cb560030f1222021178008a5727a23
   IQKeyboardManagerSwift: ed9b04ee0e3067ffba543283462d619f944b05e5
   JGProgressHUD: 12b20a8f4ffe05258f8635c1ab92816e451f904d
-  KeychainAccess: 3b1bf8a77eb4c6ea1ce9404c292e48f948954c6b
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   Protobuf: 1097ca58584c8d9be81bfbf2c5ff5975648dd87a
   RNCryptor: a369134686cd2ad391323cc856b62e591193ba79
   SwiftLint: 79d48a17c6565dc286c37efb8322c7b450f95c67
 
-PODFILE CHECKSUM: 4d82ebee100170f626427f7f9894c50aa9706d7e
+PODFILE CHECKSUM: 170c1a78b4c6b0c4f42adc87f96e222a641418dd
 
 COCOAPODS: 1.7.5
