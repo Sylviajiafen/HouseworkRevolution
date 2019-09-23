@@ -43,6 +43,9 @@ class AuthViewController: UIViewController {
         
         customUserName.isHidden = true
         
+        createHomeName.delegate = self
+        
+        customUserName.delegate = self
     }
     
     @IBAction func showUserSetting(_ sender: Any) {
@@ -159,7 +162,7 @@ class AuthViewController: UIViewController {
                         
                         ProgressHUD.show()
                         
-                        FirebaseUserHelper.shared.registAnId(user) { [weak self] in
+                        FirebaseUserHelper.shared.registAnIdWithEncrypt(user) { [weak self] in
                             
                             FirebaseUserHelper.shared.registDoneWith(family, username: userName) {
                             
@@ -178,7 +181,7 @@ class AuthViewController: UIViewController {
                         
                         ProgressHUD.show()
                         
-                        FirebaseUserHelper.shared.registAnId(user) { [weak self] in
+                        FirebaseUserHelper.shared.registAnIdWithEncrypt(user) { [weak self] in
                             
                             FirebaseUserHelper.shared.registDoneWith(family,
                                                                      username: self?.nameCalls[selectedIndex] ?? "(名稱)") {
@@ -211,7 +214,7 @@ class AuthViewController: UIViewController {
             
             ProgressHUD.show()
             
-            FirebaseUserHelper.shared.loginWith(id: loginId, password: loginPWD) { [weak self] (result) in
+            FirebaseUserHelper.shared.loginWithDecrypt(id: loginId, password: loginPWD) { [weak self] (result) in
                 
                 switch result {
                     
@@ -291,5 +294,21 @@ extension AuthViewController: UICollectionViewDelegate, UICollectionViewDataSour
             customUserName.isHidden = true
         }
     }
+}
+
+extension AuthViewController: UITextFieldDelegate {
     
+    func textField(_ textField: UITextField,
+                   shouldChangeCharactersIn range: NSRange,
+                   replacementString string: String) -> Bool {
+        
+        let currentText = textField.text ?? ""
+
+        guard let stringRange = Range(range, in: currentText) else { return false}
+
+        let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
+        
+        return updatedText.count <= 6
+    }
+
 }

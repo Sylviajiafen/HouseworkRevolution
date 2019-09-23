@@ -56,6 +56,45 @@ class FirebaseUserHelper {
         FirebaseUserHelper.userID = ref.documentID
     }
     
+    // MARK: 註冊功能（有 Encrypt）
+    
+    func registAnIdWithEncrypt(_ user: FamilyMember, completion: @escaping () -> Void) {
+        
+        var userPwdEncrypted = ""
+        
+        do {
+            
+            userPwdEncrypted = try RNCryptorManager.shared
+                .encryptMessage(message: user.password,
+                                encryptionKey: RNCryptorManager.encryptionKey)
+        } catch {
+            
+            print("Encrypt ERR")
+        }
+        
+        let ref = db.collection(DataCollection.houseUser.rawValue)
+            .addDocument(data: [UserData.password.rawValue: userPwdEncrypted,
+                                UserData.name.rawValue: user.name,
+                                UserData.family.rawValue: user.family,
+                                UserData.originFamily.rawValue: user.family,
+                                UserData.wishes.rawValue: user.wishes],
+                         completion: { (err) in
+                            
+                            if let err = err {
+                                                                                            
+                              print("Regist user ID err: \(err)")
+                                                                                            
+                            } else {
+                                                                                            
+                             print("success create user")
+                                
+                             completion()
+                            }
+                })
+        
+        FirebaseUserHelper.userID = ref.documentID
+    }
+    
     func registDoneWith(_ family: FamilyGroup, username: String, completion: @escaping () -> Void) {
         
        var familyRef: DocumentReference?
@@ -97,47 +136,133 @@ class FirebaseUserHelper {
                                 completion()
                             }
             })
-       
-        //        db.collection(DataCollection.houseGroup.rawValue).document(ref.documentID)
-        //            .collection(CollectionOfFamily.missionByDate.rawValue)
-        //            .addDocument(data:
-        //                ["day": "(date)"])
-        
     }
     
-// MARK: 登入功能: 拿到 userID & familyID
+    // MARK: 登入功能: 拿到 userID & familyID
     
     func loginWith(id: String, password: String, completion: LoggedInResult? = nil) {
         
         // 判斷有無此人
         let userRef = db.collection(DataCollection.houseUser.rawValue).document(id)
-        
-        userRef.getDocument { (document, error) in
-            
-            if let document = document, document.exists {
-                
-                guard let correctPwd = document.data()?[UserData.password.rawValue] as? String,
-                    let family = document.data()?[UserData.family.rawValue] as? String else { return }
-                
-                // TODO: correctPWD 拿下來是轉換過的 pwd , 所以要把他轉回來才能比對使用者輸入的 ; 或是先轉使用者輸入的再和 correctPWD 比對
-                
-                if password == correctPwd {
-                    
-                    FirebaseUserHelper.familyID = family
-                    FirebaseUserHelper.userID = id
-                    
-                    print("登入成功, userID:\(String(describing: FirebaseUserHelper.userID)), familyID: \(String(describing: FirebaseUserHelper.familyID))")
-                 
-                    completion?(LoginResult.success("登入成功"))
-                    
-                } else {
     
-                    completion?(LoginResult.failed(LoginError.uncorrectPassword))
+        let userParentRef = db.collection(DataCollection.houseUser.rawValue)
+        
+        var currentExistingIDs = [String]()
+        
+        userParentRef.getDocuments { (querySnapshot, err) in
+            
+            if let querySnapshot = querySnapshot {
+                
+                for doc in querySnapshot.documents {
+                    
+                    currentExistingIDs.append(doc.documentID)
                 }
                 
+                if currentExistingIDs.contains(id) {
+                    
+                    userRef.getDocument { (document, error) in
+                            
+                        if let document = document {
+                                
+                            guard let correctPwd = document.data()?[UserData.password.rawValue] as? String,
+                                let family = document.data()?[UserData.family.rawValue] as? String else { return }
+                                
+                            if password == correctPwd {
+                                    
+                                FirebaseUserHelper.familyID = family
+                                FirebaseUserHelper.userID = id
+                                    
+                                print("登入成功, userID:\(String(describing: FirebaseUserHelper.userID)), familyID: \(String(describing: FirebaseUserHelper.familyID))")
+                                 
+                                completion?(LoginResult.success("登入成功"))
+                                    
+                            } else {
+                    
+                                completion?(LoginResult.failed(.uncorrectPassword))
+                            }
+                        } else if let err = error {
+                            
+                            print("login get userInfo err: \(err)")
+                        }
+                }
             } else {
+                    
+                completion?(LoginResult.failed(.userDidNotExist))
+            }
+            } else if let err = err {
                 
-                completion?(LoginResult.failed(LoginError.userDidNotExist))
+                print("login get user err: \(err)")
+            }
+        }
+    }
+
+    // MARK: 登入功能: 拿到 userID & familyID（有 Decrypt）
+        
+    func loginWithDecrypt(id: String, password: String, completion: LoggedInResult? = nil) {
+            
+        // 判斷有無此人
+        let userRef = db.collection(DataCollection.houseUser.rawValue).document(id)
+        
+        let userParentRef = db.collection(DataCollection.houseUser.rawValue)
+            
+        var currentExistingIDs = [String]()
+            
+        userParentRef.getDocuments { (querySnapshot, err) in
+                
+            if let querySnapshot = querySnapshot {
+                    
+                for doc in querySnapshot.documents {
+                        
+                    currentExistingIDs.append(doc.documentID)
+                }
+                    
+                if currentExistingIDs.contains(id) {
+                        
+                    userRef.getDocument { (document, error) in
+                                
+                        if let document = document {
+                                    
+                            guard let correctPwdEncryted = document.data()?[UserData.password.rawValue] as? String,
+                                let family = document.data()?[UserData.family.rawValue] as? String else { return }
+                                
+                            let correctPwd = try? RNCryptorManager.shared
+                                                    .decryptMessage(encryptedMessage: correctPwdEncryted,
+                                                                    encryptionKey: RNCryptorManager.encryptionKey)
+                                
+                            guard let correctPassword = correctPwd else {
+                                    
+                                print("DecryptError!!")
+                                return
+                            }
+                                
+                            if correctPassword == password {
+                                    
+                                FirebaseUserHelper.familyID = family
+                                FirebaseUserHelper.userID = id
+                                        
+                                print("登入成功, userID:\(String(describing: FirebaseUserHelper.userID)), familyID: \(String(describing: FirebaseUserHelper.familyID))")
+                                     
+                                completion?(LoginResult.success("登入成功"))
+                                    
+                            } else {
+                                    
+                                completion?(LoginResult.failed(.uncorrectPassword))
+                            }
+                                        
+                        } else if let err = error {
+                                
+                            print("login get userInfo err: \(err)")
+                        }
+                    }
+                    
+                } else {
+                        
+                    completion?(LoginResult.failed(.userDidNotExist))
+                }
+                
+            } else if let err = err {
+                    
+                print("login get user err: \(err)")
             }
         }
     }
@@ -673,5 +798,4 @@ class FirebaseUserHelper {
             }
         }
     }
-    
 }
