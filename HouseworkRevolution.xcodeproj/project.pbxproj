@@ -942,6 +942,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 2MN93DQ7G3;
 				INFOPLIST_FILE = HouseworkRevolution/Info.plist;
@@ -963,6 +964,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 2MN93DQ7G3;
 				INFOPLIST_FILE = HouseworkRevolution/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
