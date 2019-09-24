@@ -168,6 +168,8 @@ enum LoginError: String {
     case userDidNotExist = "沒有註冊過唷"
     
     case uncorrectPassword = "密碼不正確"
+    
+    case unknownError = "未知錯誤，請聯絡開發人員"
 }
 
 enum InvitationErr: String {

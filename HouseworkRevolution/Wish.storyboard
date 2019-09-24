@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wishBackground" translatesAutoresizingMaskIntoConstraints="NO" id="ath-Yb-0dU">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="737.00000000000023"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="737"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="每天努力做家事的你，" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bi3-1v-daG">
                                 <rect key="frame" x="70" y="54" width="174" height="21"/>
@@ -155,7 +155,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkWishBackground" translatesAutoresizingMaskIntoConstraints="NO" id="Das-GL-Rpi">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="736.00000000000023"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
                             <button opaque="NO" alpha="0.75" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AxV-wN-WgP">
                                 <rect key="frame" x="20" y="10" width="40" height="40"/>

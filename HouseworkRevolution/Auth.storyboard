@@ -379,7 +379,7 @@
                                     </attributedString>
                                 </state>
                                 <connections>
-                                    <action selector="privacyTerms:" destination="yts-FL-6fl" eventType="touchUpInside" id="4Kv-zo-Qo4"/>
+                                    <action selector="privacyTerm:" destination="yts-FL-6fl" eventType="touchUpInside" id="PHf-cY-pKK"/>
                                 </connections>
                             </button>
                         </subviews>
