@@ -27,6 +27,7 @@
 		0302D9F32321E49200DE7921 /* FamilyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0302D9F22321E49200DE7921 /* FamilyViewController.swift */; };
 		0302D9F52321E74F00DE7921 /* FirebaseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0302D9F42321E74F00DE7921 /* FirebaseData.swift */; };
 		03375E372332173800C71330 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03375E362332173800C71330 /* GoogleService-Info.plist */; };
+		03581CBD233A26F700D9AEA7 /* NSRegularExpression+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03581CBC233A26F700D9AEA7 /* NSRegularExpression+Extension.swift */; };
 		03A45F1D232E1482005D92D5 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A45F1C232E1482005D92D5 /* FirebaseManager.swift */; };
 		03A45F1F232E162E005D92D5 /* DayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A45F1E232E162E005D92D5 /* DayManager.swift */; };
 		03A45F21232E16E2005D92D5 /* FirebaseUserHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A45F20232E16E2005D92D5 /* FirebaseUserHelper.swift */; };
@@ -101,6 +102,7 @@
 		0302D9F22321E49200DE7921 /* FamilyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyViewController.swift; sourceTree = "<group>"; };
 		0302D9F42321E74F00DE7921 /* FirebaseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseData.swift; sourceTree = "<group>"; };
 		03375E362332173800C71330 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		03581CBC233A26F700D9AEA7 /* NSRegularExpression+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSRegularExpression+Extension.swift"; sourceTree = "<group>"; };
 		03A45F1C232E1482005D92D5 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		03A45F1E232E162E005D92D5 /* DayManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayManager.swift; sourceTree = "<group>"; };
 		03A45F20232E16E2005D92D5 /* FirebaseUserHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseUserHelper.swift; sourceTree = "<group>"; };
@@ -398,6 +400,7 @@
 				03C1A59B2318F059008EAB76 /* UIImage+Extension.swift */,
 				03C1A59D2318F147008EAB76 /* UIColor+Extension.swift */,
 				03A45F27232FDA64005D92D5 /* UIViewController+Extension.swift */,
+				03581CBC233A26F700D9AEA7 /* NSRegularExpression+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -743,6 +746,7 @@
 				03FEAC152322069100722A34 /* FamilyMemberTableViewCell.swift in Sources */,
 				03FEAC212324CC9400722A34 /* ShowDefaultTableViewCell.swift in Sources */,
 				0302D9F02321E34D00DE7921 /* InvitingFamilyTableViewCell.swift in Sources */,
+				03581CBD233A26F700D9AEA7 /* NSRegularExpression+Extension.swift in Sources */,
 				03C1A540231662D9008EAB76 /* AppDelegate.swift in Sources */,
 				0302D9DA231CEEDF00DE7921 /* ShowWishesLayout.swift in Sources */,
 				03A45F21232E16E2005D92D5 /* FirebaseUserHelper.swift in Sources */,

@@ -46,6 +46,14 @@ class AuthViewController: UIViewController {
         createHomeName.delegate = self
         
         customUserName.delegate = self
+        
+        //
+        
+        createPassword.delegate = self
+        
+        pwdConfirmField.delegate = self
+        
+        userPassword.delegate = self
     }
     
     @IBAction func showUserSetting(_ sender: Any) {
@@ -247,6 +255,22 @@ class AuthViewController: UIViewController {
         UIApplication.shared.open(privacyURL, options: [:], completionHandler: nil)
     }
     
+//    func isValidPWD(_ pwd: String) -> Bool {
+////        let pwdRegEx = "[A-Z0-9a-z]{1,256}"
+//        let pwdRegEx = #"[A-Z0-9a-z]"#
+//
+//        do {
+//            let regex = try NSRegularExpression(pattern: "pwdRegEx", options: [])
+//
+//
+//        } catch {
+//
+//            print("regex err")
+//        }
+////        let pwdTest = NSPredicate(format: "SELF MATCHES %@", pwdRegEx)
+////        let result = pwdTest.evaluate(with: pwd)
+////        return result
+//    }
 }
 
 extension AuthViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -312,12 +336,25 @@ extension AuthViewController: UITextFieldDelegate {
                    replacementString string: String) -> Bool {
         
         let currentText = textField.text ?? ""
-
-        guard let stringRange = Range(range, in: currentText) else { return false}
-
-        let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
         
-        return updatedText.count <= 6
+            guard let stringRange = Range(range, in: currentText) else { return false }
+
+            let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
+        
+        if textField == customUserName || textField == createHomeName {
+            
+            return updatedText.count <= 6
+        
+        } else {
+            
+            let pattern = "[A-Za-z0-9]"
+            
+            let regex = NSRegularExpression(pattern)
+            
+            print("string now: (\(string))")
+            
+            return regex.matches(string)
+        }
     }
 
 }
