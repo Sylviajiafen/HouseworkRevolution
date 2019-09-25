@@ -46,14 +46,14 @@ class AuthViewController: UIViewController {
         createHomeName.delegate = self
         
         customUserName.delegate = self
-    }
-    
-    @IBAction func privacyTerms(_ sender: Any) {
         
-        guard let privacyURL = URL(string:
-            "https://www.privacypolicies.com/privacy/view/0776e10a3962811581f3623d374a64b9") else { return }
+        //
         
-        UIApplication.shared.open(privacyURL, options: [:], completionHandler: nil)
+        createPassword.delegate = self
+        
+        pwdConfirmField.delegate = self
+        
+        userPassword.delegate = self
     }
     
     @IBAction func showUserSetting(_ sender: Any) {
@@ -310,13 +310,25 @@ extension AuthViewController: UITextFieldDelegate {
                    shouldChangeCharactersIn range: NSRange,
                    replacementString string: String) -> Bool {
         
-        let currentText = textField.text ?? ""
+        if textField == customUserName || textField == createHomeName {
+            
+            let currentText = textField.text ?? ""
+            
+            guard let stringRange = Range(range, in: currentText) else { return false }
 
-        guard let stringRange = Range(range, in: currentText) else { return false}
-
-        let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
+            let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
+            
+            return updatedText.count <= 6
         
-        return updatedText.count <= 6
+        } else {
+            
+            let pattern = "[A-Za-z0-9]"
+            
+            let regex = NSRegularExpression(pattern)
+            
+//            print("string now: (\(string))")
+            
+            return regex.matches(string)
+        }
     }
-
 }
