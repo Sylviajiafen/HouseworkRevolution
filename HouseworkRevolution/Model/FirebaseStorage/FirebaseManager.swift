@@ -219,8 +219,9 @@ class FirebaseManager {
         
         let today = DayManager.shared.stringOfToday
         
-        FirebaseManager.undoMission.removeAll()
-        FirebaseManager.doneMission.removeAll()
+        var undoMissions = [Mission]()
+        
+        var doneMissions = [Mission]()
         
         let missionUndoQuery = db.collection(DataCollection.houseGroup.rawValue)
             .document(family)
@@ -241,8 +242,11 @@ class FirebaseManager {
                             let tiredValue = querySnapshot.documents[index].data()[MissionData.tiredValue.rawValue]
                                 as? Int else { return }
                         
-                        FirebaseManager.undoMission.append(Mission(title: title, tiredValue: tiredValue))
+                        undoMissions.append(Mission(title: title, tiredValue: tiredValue))
+
                     }
+                    
+                    FirebaseManager.undoMission = undoMissions
                     
                     self.delegate?.getUndoListToday(self, didGetUndo: FirebaseManager.undoMission)
                     
@@ -267,8 +271,10 @@ class FirebaseManager {
                             let tiredValue = querySnapshot.documents[index].data()[MissionData.tiredValue.rawValue]
                                 as? Int else { return }
                         
-                        FirebaseManager.doneMission.append(Mission(title: title, tiredValue: tiredValue))
+                        doneMissions.append(Mission(title: title, tiredValue: tiredValue))
                     }
+                    
+                    FirebaseManager.doneMission = doneMissions
                     
                     self.delegate?.getDoneListToday(self, didGetDone: FirebaseManager.doneMission)
                     
