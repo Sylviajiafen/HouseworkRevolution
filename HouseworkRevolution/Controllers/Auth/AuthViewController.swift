@@ -326,7 +326,7 @@ extension AuthViewController: UITextFieldDelegate {
             
             let regex = NSRegularExpression(pattern)
             
-            print("string now: (\(string))")
+//            print("string now: (\(string))")
             
             return regex.matches(string)
         }

@@ -70,7 +70,6 @@ class SearchUserViewController: UIViewController {
     
     @objc func tapTodismiss() {
         
-        print("tab to dismiss!!")
         shouldShowSearchResult = false
         self.dismiss(animated: true, completion: nil)
     }
