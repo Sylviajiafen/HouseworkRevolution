@@ -30,13 +30,13 @@ extension NSRegularExpression {
         print(firstMatch(in: string, options: [], range: range) as Any)
         
         let char = string.cString(using: .utf8)
-        
+
         let isBackSpace = strcmp(char, "\\b")
 
         if isBackSpace == -92 {
 
             return true
-            
+
         } else {
         
             return firstMatch(in: string, options: [], range: range) != nil
