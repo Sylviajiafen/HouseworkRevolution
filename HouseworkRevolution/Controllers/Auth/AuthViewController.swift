@@ -254,23 +254,6 @@ class AuthViewController: UIViewController {
         
         UIApplication.shared.open(privacyURL, options: [:], completionHandler: nil)
     }
-    
-//    func isValidPWD(_ pwd: String) -> Bool {
-////        let pwdRegEx = "[A-Z0-9a-z]{1,256}"
-//        let pwdRegEx = #"[A-Z0-9a-z]"#
-//
-//        do {
-//            let regex = try NSRegularExpression(pattern: "pwdRegEx", options: [])
-//
-//
-//        } catch {
-//
-//            print("regex err")
-//        }
-////        let pwdTest = NSPredicate(format: "SELF MATCHES %@", pwdRegEx)
-////        let result = pwdTest.evaluate(with: pwd)
-////        return result
-//    }
 }
 
 extension AuthViewController: UICollectionViewDelegate, UICollectionViewDataSource {
