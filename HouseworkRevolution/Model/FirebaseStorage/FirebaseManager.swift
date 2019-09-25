@@ -65,12 +65,12 @@ class FirebaseManager {
 
                     } else { // 有家事
                         
-                        for index in 0..<querySnapshot.count {
+                        for document in querySnapshot.documents {
                             
-                            guard let title = querySnapshot.documents[index].data()[MissionData.title.rawValue]
-                                as? String,
-                                let tiredValue = querySnapshot.documents[index].data()[MissionData.tiredValue.rawValue]
-                                    as? Int else { return }
+                            guard let title = document.data()[MissionData.title.rawValue]
+                            as? String,
+                            let tiredValue = document.data()[MissionData.tiredValue.rawValue]
+                                as? Int else { return }
                             
                             print("當天星期有\(querySnapshot.count)件家事: \(querySnapshot.documents)")
                             
@@ -87,6 +87,29 @@ class FirebaseManager {
                                 })
                         }
                     }
+                        
+//                        for index in 0..<querySnapshot.count {
+//
+//                            guard let title = querySnapshot.documents[index].data()[MissionData.title.rawValue]
+//                                as? String,
+//                                let tiredValue = querySnapshot.documents[index].data()[MissionData.tiredValue.rawValue]
+//                                    as? Int else { return }
+//
+//                            print("當天星期有\(querySnapshot.count)件家事: \(querySnapshot.documents)")
+//
+//                            missionByDateQuery.document(DayManager.shared.stringOfToday)
+//                                .collection(CollectionOfFamily.subCollectionMissions.rawValue)
+//                                .addDocument(data:
+//                                    [MissionData.title.rawValue: title,
+//                                     MissionData.tiredValue.rawValue: tiredValue,
+//                                     MissionData.status.rawValue: MissionStatus.undo.rawValue],
+//                                completion: { (err) in
+//
+//                                    print("新增了今天的 missionByDate")
+//                                    completion()
+//                                })
+//                        }
+//                    }
                     
                 } else if let err = error {
                     
