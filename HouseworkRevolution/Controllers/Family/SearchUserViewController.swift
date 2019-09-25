@@ -12,6 +12,7 @@ class SearchUserViewController: UIViewController {
 
     @IBOutlet weak var userIdSearchBar: UISearchBar!
     @IBOutlet weak var showResultTableView: UITableView!
+    @IBOutlet weak var opacityDarkView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +28,8 @@ class SearchUserViewController: UIViewController {
             
             self?.updateResult()
         }
+        
+        addGestureToDarkView()
     }
     
     @IBAction func closeView(_ sender: Any) {
@@ -56,6 +59,20 @@ class SearchUserViewController: UIViewController {
             
             showResultTableView.reloadData()
         }
+    }
+    
+    func addGestureToDarkView() {
+        
+        let touchToDismiss = UITapGestureRecognizer(target: self, action: #selector(tapTodismiss))
+        
+        opacityDarkView.addGestureRecognizer(touchToDismiss)
+    }
+    
+    @objc func tapTodismiss() {
+        
+        print("tab to dismiss!!")
+        shouldShowSearchResult = false
+        self.dismiss(animated: true, completion: nil)
     }
 }
 

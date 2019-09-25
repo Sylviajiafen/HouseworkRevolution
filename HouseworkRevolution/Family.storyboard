@@ -522,6 +522,7 @@
                         <viewLayoutGuide key="safeArea" id="SvD-3B-7Pr"/>
                     </view>
                     <connections>
+                        <outlet property="opacityDarkView" destination="zbV-aU-W31" id="Ozo-C9-3pU"/>
                         <outlet property="searchDisplayController" destination="bYP-eN-Bxm" id="CiG-wd-BbQ"/>
                         <outlet property="showResultTableView" destination="8T8-7v-2tb" id="9Kc-iL-eIv"/>
                         <outlet property="userIdSearchBar" destination="UDy-7i-S2p" id="Bg9-Fo-cQJ"/>
