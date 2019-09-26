@@ -107,6 +107,7 @@
 		03581CBC233A26F700D9AEA7 /* NSRegularExpression+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSRegularExpression+Extension.swift"; sourceTree = "<group>"; };
 		03581CBE233B343500D9AEA7 /* PrivacyTermViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyTermViewController.swift; sourceTree = "<group>"; };
 		03581CC0233B354C00D9AEA7 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		03581CC2233C68C900D9AEA7 /* HouseworkRevolution.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HouseworkRevolution.entitlements; sourceTree = "<group>"; };
 		03A45F1C232E1482005D92D5 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		03A45F1E232E162E005D92D5 /* DayManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayManager.swift; sourceTree = "<group>"; };
 		03A45F20232E16E2005D92D5 /* FirebaseUserHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseUserHelper.swift; sourceTree = "<group>"; };
@@ -346,6 +347,7 @@
 		03C1A53E231662D9008EAB76 /* HouseworkRevolution */ = {
 			isa = PBXGroup;
 			children = (
+				03581CC2233C68C900D9AEA7 /* HouseworkRevolution.entitlements */,
 				03C1A58423177103008EAB76 /* Model */,
 				03C1A578231672AE008EAB76 /* Views */,
 				03C1A563231664BC008EAB76 /* Controllers */,
@@ -953,6 +955,7 @@
 			baseConfigurationReference = BFC62AE0B2CBB8382B293A4E /* Pods-HouseworkRevolution.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = HouseworkRevolution/HouseworkRevolution.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -976,6 +979,7 @@
 			baseConfigurationReference = C3B112AE115369AD6E6092D6 /* Pods-HouseworkRevolution.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = HouseworkRevolution/HouseworkRevolution.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2MN93DQ7G3;

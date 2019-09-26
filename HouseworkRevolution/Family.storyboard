@@ -305,7 +305,7 @@
                                 </constraints>
                                 <state key="normal" title="Button" image="addMember"/>
                                 <connections>
-                                    <segue destination="i2m-rZ-DpT" kind="presentation" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="0ae-Pf-Kxe"/>
+                                    <segue destination="i2m-rZ-DpT" kind="presentation" animates="NO" modalPresentationStyle="overCurrentContext" id="0ae-Pf-Kxe"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xx9-Qv-bzm">

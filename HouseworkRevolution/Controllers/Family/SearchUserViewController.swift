@@ -35,7 +35,7 @@ class SearchUserViewController: UIViewController {
     @IBAction func closeView(_ sender: Any) {
         
         shouldShowSearchResult = false
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: false, completion: nil)
     }
     
     var shouldShowSearchResult: Bool = false {
@@ -71,7 +71,7 @@ class SearchUserViewController: UIViewController {
     @objc func tapTodismiss() {
         
         shouldShowSearchResult = false
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: false, completion: nil)
     }
 }
 
