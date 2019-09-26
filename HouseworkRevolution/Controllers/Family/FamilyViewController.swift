@@ -272,7 +272,7 @@ class FamilyViewController: UIViewController {
         
         destination.inviterFamilyName = familyName
         
-        destination.modalPresentationStyle = .overCurrentContext
+        destination.modalPresentationStyle = .overFullScreen
     }
     
 }

@@ -305,7 +305,7 @@
                                 </constraints>
                                 <state key="normal" title="Button" image="addMember"/>
                                 <connections>
-                                    <segue destination="i2m-rZ-DpT" kind="presentation" animates="NO" modalPresentationStyle="overCurrentContext" id="0ae-Pf-Kxe"/>
+                                    <segue destination="i2m-rZ-DpT" kind="presentation" animates="NO" modalPresentationStyle="overFullScreen" id="0ae-Pf-Kxe"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xx9-Qv-bzm">
@@ -368,7 +368,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q9b-Dr-Mgm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5.5999999999999996" y="2.2488755622188905"/>
+            <point key="canvasLocation" x="45" y="7"/>
         </scene>
         <!--Search User View Controller-->
         <scene sceneID="GRn-2Q-GvS">
