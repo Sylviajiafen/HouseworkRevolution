@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GUe-sm-w7G">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -305,7 +304,7 @@
                                 </constraints>
                                 <state key="normal" title="Button" image="addMember"/>
                                 <connections>
-                                    <segue destination="i2m-rZ-DpT" kind="presentation" animates="NO" modalPresentationStyle="overFullScreen" id="0ae-Pf-Kxe"/>
+                                    <segue destination="i2m-rZ-DpT" kind="presentation" animates="NO" modalPresentationStyle="overFullScreen" id="Gc7-LO-Z3P"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xx9-Qv-bzm">
@@ -401,14 +400,36 @@
                                         <rect key="frame" x="0.0" y="71" width="414" height="164"/>
                                         <color key="backgroundColor" name="projectBackground"/>
                                         <color key="separatorColor" name="projectBackground"/>
-                                        <searchBar key="tableHeaderView" contentMode="redraw" searchBarStyle="minimal" placeholder="請輸入欲加入成員的 id" id="UDy-7i-S2p">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                            <textInputTraits key="textInputTraits"/>
-                                        </searchBar>
+                                        <view key="tableHeaderView" contentMode="scaleToFill" id="Jox-Qu-RfO">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="42"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="請輸入欲加入成員的 id" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="MRc-Ow-dB9">
+                                                    <rect key="frame" x="10" y="6" width="394" height="30"/>
+                                                    <color key="backgroundColor" name="superLightGray"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="HjV-hG-SgY"/>
+                                                    </constraints>
+                                                    <color key="textColor" name="noticeGray"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits" returnKeyType="search"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <integer key="value" value="8"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </textField>
+                                            </subviews>
+                                            <color key="backgroundColor" name="projectBackground"/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="MRc-Ow-dB9" secondAttribute="trailing" constant="10" id="eWt-Xt-tup"/>
+                                                <constraint firstItem="MRc-Ow-dB9" firstAttribute="centerY" secondItem="Jox-Qu-RfO" secondAttribute="centerY" id="rz8-Ok-J1d"/>
+                                                <constraint firstItem="MRc-Ow-dB9" firstAttribute="leading" secondItem="Jox-Qu-RfO" secondAttribute="leading" constant="10" id="tC8-gP-LCc"/>
+                                            </constraints>
+                                        </view>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="SearchUserTableViewCell" rowHeight="70" id="jRV-vW-RBG" customClass="SearchUserTableViewCell" customModule="HouseworkRevolution" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="72" width="414" height="70"/>
+                                                <rect key="frame" x="0.0" y="70" width="414" height="70"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jRV-vW-RBG" id="O3W-vZ-3W3">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
@@ -469,7 +490,7 @@
                                                 </connections>
                                             </tableViewCell>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ShowDefaultTableViewCell" id="UaQ-eP-DWI" customClass="ShowDefaultTableViewCell" customModule="HouseworkRevolution" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="142" width="414" height="37.333332061767578"/>
+                                                <rect key="frame" x="0.0" y="140" width="414" height="37.333332061767578"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="UaQ-eP-DWI" id="iPM-sl-0xE">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="37.333332061767578"/>
@@ -523,30 +544,13 @@
                     </view>
                     <connections>
                         <outlet property="opacityDarkView" destination="zbV-aU-W31" id="Ozo-C9-3pU"/>
-                        <outlet property="searchDisplayController" destination="bYP-eN-Bxm" id="CiG-wd-BbQ"/>
                         <outlet property="showResultTableView" destination="8T8-7v-2tb" id="9Kc-iL-eIv"/>
-                        <outlet property="userIdSearchBar" destination="UDy-7i-S2p" id="Bg9-Fo-cQJ"/>
+                        <outlet property="userIdSearchTF" destination="MRc-Ow-dB9" id="yLV-dq-ZTJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PNY-ug-kcw" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="NRA-af-0VG">
-                    <connections>
-                        <outlet property="delegate" destination="i2m-rZ-DpT" id="IQT-Dj-m8q"/>
-                        <outlet property="searchContentsController" destination="i2m-rZ-DpT" id="7QF-bp-vnI"/>
-                        <outlet property="searchResultsDataSource" destination="i2m-rZ-DpT" id="a13-oi-JLU"/>
-                        <outlet property="searchResultsDelegate" destination="i2m-rZ-DpT" id="TQA-OL-0x2"/>
-                    </connections>
-                </searchDisplayController>
-                <searchDisplayController id="bYP-eN-Bxm">
-                    <connections>
-                        <outlet property="delegate" destination="i2m-rZ-DpT" id="Pdx-xi-wjZ"/>
-                        <outlet property="searchContentsController" destination="i2m-rZ-DpT" id="FAZ-pZ-dUI"/>
-                        <outlet property="searchResultsDataSource" destination="i2m-rZ-DpT" id="BsW-xY-dvx"/>
-                        <outlet property="searchResultsDelegate" destination="i2m-rZ-DpT" id="u4P-1A-CYG"/>
-                    </connections>
-                </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="789.60000000000002" y="0.44977511244377816"/>
+            <point key="canvasLocation" x="798.55072463768124" y="349.55357142857139"/>
         </scene>
     </scenes>
     <resources>
@@ -579,6 +583,9 @@
         </namedColor>
         <namedColor name="projectTitleLight">
             <color red="0.94499999284744263" green="0.54900002479553223" blue="0.55699998140335083" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="superLightGray">
+            <color red="0.9179999828338623" green="0.91399997472763062" blue="0.91399997472763062" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="titleOrange">
             <color red="0.93333333333333335" green="0.53333333333333333" blue="0.066666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -10,14 +10,14 @@ import UIKit
 
 class SearchUserViewController: UIViewController {
 
-    @IBOutlet weak var userIdSearchBar: UISearchBar!
+    @IBOutlet weak var userIdSearchTF: UITextField!
     @IBOutlet weak var showResultTableView: UITableView!
     @IBOutlet weak var opacityDarkView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        userIdSearchBar.delegate = self
+        userIdSearchTF.delegate = self
         showResultTableView.dataSource = self
         
         print("Inviter: User => \(inviterUserName), Family => \(inviterFamilyName)")
@@ -28,6 +28,8 @@ class SearchUserViewController: UIViewController {
             
             self?.updateResult()
         }
+        
+        setUpsearchTF()
         
         addGestureToDarkView()
     }
@@ -61,6 +63,29 @@ class SearchUserViewController: UIViewController {
         }
     }
     
+    var leftImageView = UIImageView()
+    
+    func setUpsearchTF() {
+        
+        let leftImage = UIImage.asset(.searchUser)
+        
+        leftImageView.image = leftImage
+        
+        leftImageView.frame = CGRect(x: 5, y: 5, width: 20, height: 20)
+        
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 35, height: 30))
+        
+        userIdSearchTF.addSubview(leftImageView)
+        
+        userIdSearchTF.leftView = paddingView
+    
+        userIdSearchTF.leftViewMode = .always
+        
+        userIdSearchTF.addTarget(self, action: #selector(searchRealtimeUpdate),
+                                 for: .editingChanged)
+        
+    }
+    
     func addGestureToDarkView() {
         
         let touchToDismiss = UITapGestureRecognizer(target: self, action: #selector(tapTodismiss))
@@ -73,11 +98,16 @@ class SearchUserViewController: UIViewController {
         shouldShowSearchResult = false
         self.dismiss(animated: false, completion: nil)
     }
+    
+    @objc func searchRealtimeUpdate() {
+        
+        updateResult()
+    }
 }
 
 extension SearchUserViewController: UITableViewDataSource,
                                     SearchUserTableViewCellDelegate,
-                                    UISearchBarDelegate {
+                                    UITextFieldDelegate {
     
     // MARK: Set TableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int
@@ -123,36 +153,25 @@ extension SearchUserViewController: UITableViewDataSource,
         }
     }
     
-    // MARK: Search Bar
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
-        updateResult()
-    }
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-
-        updateResult()
-        userIdSearchBar.resignFirstResponder()
-    }
-    
+    // MARK: Search
     func updateResult() {
-    
-        guard let searchingString = userIdSearchBar.text else { return }
-        
+
+        guard let searchingString = userIdSearchTF.text else { return }
+
         if searchingString == "" {
-            
+
             shouldShowSearchResult = false
-            
+
             return
-            
+
         } else {
-            
+
             shouldShowSearchResult = true
-            
+
             filteredData = userData.filter({ (data) -> Bool in
-            
+
                 return data.id.contains(searchingString)
-                
+
             })
         }
     }
@@ -189,9 +208,18 @@ extension SearchUserViewController: UITableViewDataSource,
             })
         }
         
-        userIdSearchBar.text = ""
+        userIdSearchTF.text = ""
         
         shouldShowSearchResult = false
+    }
+    
+    // MARK: TFDelegate
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        updateResult()
+        textField.resignFirstResponder()
+        
+        return true
     }
     
 }
