@@ -75,6 +75,54 @@ class FirebaseNotificationHelper {
             userRef.setData([UserData.fcmToken.rawValue: token], merge: true)
         }
     }
+    
+    func findFamilyMemberTokens(familyID: String = StorageManager.userInfo.familyID,
+                                completion: @escaping ([String]) -> Void) {
+        
+        var memberIDs = [String]()
+        
+        var memberTokens = [String]()
+        
+        let familyQuery = db.collection(DataCollection.houseGroup.rawValue)
+            .document(familyID).collection(CollectionOfFamily.member.rawValue)
+        
+        let userQuery = db.collection(DataCollection.houseUser.rawValue)
+                        
+        familyQuery.getDocuments { (querySnapshot, err) in
+            
+            if let querySnapshot = querySnapshot {
+                
+                for member in querySnapshot.documents {
+                    
+                    memberIDs.append(member.documentID)
+                }
+                
+                for memberID in memberIDs {
+                    
+                    userQuery.document(memberID).getDocument { (doc, err) in
+                        
+                        if let doc = doc {
+                            
+                            guard let token = doc[UserData.fcmToken.rawValue] as? String else { return }
+                            
+                            memberTokens.append(token)
+                            
+                        } else if let err = err {
+                            
+                            print("get member doc err: \(err)")
+                        }
+                    }
+                }
+                
+                completion(memberTokens)
+                
+            } else if let err = err {
+                
+                print("getting family member err: \(err)")
+            }
+        }
+    }
+    
 }
 
 //    func subscribeToFamily(id: String) {
