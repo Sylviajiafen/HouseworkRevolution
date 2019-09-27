@@ -114,6 +114,8 @@ enum UserData: String {
     
     case wishes
     
+    case fcmToken
+    
     case subCollection = "requestingFamily"
 }
 

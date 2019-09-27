@@ -37,6 +37,8 @@ class ListViewController: UIViewController {
         FirebaseManager.shared.delegate = self
     
         notificationRegistAndAuth()
+        
+        FirebaseNotificationHelper.shared.getUserName()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -50,6 +52,8 @@ class ListViewController: UIViewController {
             
             FirebaseManager.shared.getMissionListToday(family: StorageManager.userInfo.familyID)
         }
+        
+        FirebaseNotificationHelper.shared.findFamilyMemberTokens()
     }
     
     @IBOutlet weak var dailyMissionCollectionView: UICollectionView! {
@@ -277,7 +281,7 @@ class ListViewController: UIViewController {
     func notificationRegistAndAuth() {
         
         guard let appdelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-        appdelegate.showAuthzRequest(application: UIApplication.shared)
+        appdelegate.showAuthRequest(application: UIApplication.shared)
     }
 }
 
@@ -470,19 +474,31 @@ extension ListViewController: UICollectionViewDropDelegate {
                     
                         coordinator.drop(item.dragItem, toItemAt: destinationIndexPath)
                     
-                    FirebaseManager.shared.updateMissionStatus(title: missionDone.title, tiredValue: missionDone.tiredValue, family: StorageManager.userInfo.familyID)
+                    FirebaseManager.shared.updateMissionStatus(title: missionDone.title,
+                                                               tiredValue: missionDone.tiredValue,
+                                                               family: StorageManager.userInfo.familyID)
                     
                     print("==== mission complete ====")
                     
                     print(missionDone)
-                    
-                        if missionDropped.tiredValue > 5 {
                         
-                            self?.magicLampViewShow()
-                        }
+                    if missionDropped.tiredValue > 5 {
+                        
+                        self?.magicLampViewShow()
+                        
+                        FirebaseNotificationHelper.shared.sendNotificationToFamilies(
+                            title: "\(FirebaseNotificationHelper.userName)完成「\(missionDone.title)」並實現了一個願望",
+                            body: "起身動一動，完成可以實現願望的家事項目吧～")
+                        
+                    } else {
+                        
+                        FirebaseNotificationHelper.shared.sendNotificationToFamilies(
+                        title: "\(FirebaseNotificationHelper.userName)完成了家事「\(missionDone.title)」",
+                        body: "快跟上他的腳步，來做家事吧！")
                     }
                 }
             }
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView,
