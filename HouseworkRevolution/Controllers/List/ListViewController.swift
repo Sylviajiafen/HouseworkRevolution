@@ -488,7 +488,7 @@ extension ListViewController: UICollectionViewDropDelegate {
                         
                         FirebaseNotificationHelper.shared.sendNotificationToFamilies(
                             title: "\(FirebaseNotificationHelper.userName)完成「\(missionDone.title)」並實現了一個願望",
-                            body: "您也起身動一動，完成可以實現願望的家事項目吧～")
+                            body: "起身動一動，完成可以實現願望的家事項目吧～")
                         
                     } else {
                         
