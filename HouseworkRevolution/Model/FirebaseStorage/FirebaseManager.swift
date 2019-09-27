@@ -377,6 +377,8 @@ class FirebaseManager {
                         
                         FirebaseManager.allMission[day] = []
                         
+                        handler(FirebaseManager.allMission[day] ?? [])
+                        
                     } else {
                     
                         for index in 0..<querySnapshot.count {
@@ -386,9 +388,9 @@ class FirebaseManager {
                         
                             FirebaseManager.allMission[day]?.append(Mission(title: title, tiredValue: tiredValue))
                         }
+                        
+                        handler(FirebaseManager.allMission[day] ?? [])
                     }
-                    
-                    handler(FirebaseManager.allMission[day] ?? [])
                     
                 } else if let err = err {
                     

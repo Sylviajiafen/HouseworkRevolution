@@ -22,9 +22,19 @@ class FirebaseNotificationHelper {
     
     private let db = Firestore.firestore()
     
-    func sendNotificationToFamilyMembers(to memberToken: String,
-                                         title: String,
-                                         body: String) {
+    static var memberTokens = [String]()
+    
+    static var userName: String = ""
+    
+    func sendNotificationToFamilies(title: String, body: String) {
+        
+        for token in FirebaseNotificationHelper.memberTokens {
+                
+            RequestNotification(to: token, title: title, body: body)
+        }
+    }
+    
+    private func RequestNotification(to memberToken: String, title: String, body: String) {
         
         guard let url = NSURL(string: sendNotificationUrlString) else { return }
         
@@ -72,14 +82,26 @@ class FirebaseNotificationHelper {
             let userRef = db.collection(DataCollection.houseUser.rawValue)
                             .document(StorageManager.userInfo.userID)
             
-            userRef.setData([UserData.fcmToken.rawValue: token], merge: true)
+            userRef.setData([UserData.fcmToken.rawValue: token],
+                            merge: true) { (err) in
+                
+                if let err = err {
+                    
+                    print("save token to firebase err: \(err)")
+                } else {
+                    
+                    print("successfully save token! ")
+                }
+            }
+        } else {
+            
+            print("fcmToken Not Ready!!!")
         }
     }
     
-    func findFamilyMemberTokens(familyID: String = StorageManager.userInfo.familyID,
-                                completion: @escaping ([String]) -> Void) {
+    func findFamilyMemberTokens(familyID: String = StorageManager.userInfo.familyID) {
         
-        var memberIDs = [String]()
+        var memberIds = [String]()
         
         var memberTokens = [String]()
         
@@ -94,31 +116,59 @@ class FirebaseNotificationHelper {
                 
                 for member in querySnapshot.documents {
                     
-                    memberIDs.append(member.documentID)
+                    print("一個一個核對 member doc id ")
+                    
+                    memberIds.append(member.documentID)
                 }
                 
-                for memberID in memberIDs {
+                for id in memberIds {
                     
-                    userQuery.document(memberID).getDocument { (doc, err) in
-                        
+                    print(id)
+                    
+                    userQuery.document(id).getDocument { (doc, err) in
+                    
                         if let doc = doc {
-                            
+                        
                             guard let token = doc[UserData.fcmToken.rawValue] as? String else { return }
-                            
+                        
                             memberTokens.append(token)
                             
-                        } else if let err = err {
+                            FirebaseNotificationHelper.memberTokens = memberTokens
                             
+                            print("加 member token 中...")
+                        
+                        } else if let err = err {
+                        
                             print("get member doc err: \(err)")
                         }
                     }
                 }
-                
-                completion(memberTokens)
-                
+        
             } else if let err = err {
                 
                 print("getting family member err: \(err)")
+            }
+        }
+    }
+    
+    func getUserName(user: String = StorageManager.userInfo.userID) {
+        
+        let userIDQuery = db.collection(DataCollection.houseUser.rawValue).document(user)
+        
+        userIDQuery.getDocument { (document, err) in
+            
+            if let document = document {
+                
+                guard let userName = document[UserData.name.rawValue]
+                    as? String else { return }
+                
+                FirebaseNotificationHelper.userName = userName
+                
+                print("成功讀取使用者稱呼：\(userName)")
+                
+            } else if let err = err {
+                
+                print("get user name failure: \(err)")
             }
         }
     }

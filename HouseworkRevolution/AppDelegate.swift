@@ -92,13 +92,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
         UNUserNotificationCenter.current().requestAuthorization(
             options: authOptions,
-            completionHandler: { _, _ in
+            completionHandler: { registStatus, _ in
                 
+                switch registStatus {
+                    
+                case true:
+                    
+                    FirebaseNotificationHelper.shared.updateFirestorePushTokenIfNeeded()
+                    
+                case false:
+                    
+                    print("User denied Notification")
+                }
         })
 
         application.registerForRemoteNotifications()
-    
-        FirebaseNotificationHelper.shared.updateFirestorePushTokenIfNeeded()
     }
 }
 
