@@ -271,6 +271,8 @@ class FamilyViewController: UIViewController {
         destination.inviterUserName = userName
         
         destination.inviterFamilyName = familyName
+        
+        destination.modalPresentationStyle = .overFullScreen
     }
     
 }

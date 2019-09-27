@@ -36,6 +36,7 @@ class ListViewController: UIViewController {
         
         FirebaseManager.shared.delegate = self
     
+        notificationRegistAndAuth()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -273,6 +274,11 @@ class ListViewController: UIViewController {
         root?.selectedIndex = 1
     }
     
+    func notificationRegistAndAuth() {
+        
+        guard let appdelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        appdelegate.showAuthzRequest(application: UIApplication.shared)
+    }
 }
 
 extension ListViewController: UICollectionViewDelegate,
