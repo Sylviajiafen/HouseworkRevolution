@@ -153,6 +153,7 @@ class FamilyViewController: UIViewController {
                                 
                                 self?.isOriginOrNot()
                             }
+                            
                     })
                     
             })

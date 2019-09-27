@@ -277,7 +277,7 @@ class ListViewController: UIViewController {
     func notificationRegistAndAuth() {
         
         guard let appdelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-        appdelegate.showAuthzRequest(application: UIApplication.shared)
+        appdelegate.showAuthRequest(application: UIApplication.shared)
     }
 }
 
