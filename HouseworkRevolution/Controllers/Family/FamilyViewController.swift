@@ -80,6 +80,8 @@ class FamilyViewController: UIViewController {
             FirebaseUserHelper.shared.changeName(user: StorageManager.userInfo.userID,
                                                  to: newName,
                                                  currentFamily: StorageManager.userInfo.familyID)
+            
+            FirebaseNotificationHelper.shared.getUserName()
         }
         
         okAction.setValue(UIColor.lightGreen, forKey: "titleTextColor")
