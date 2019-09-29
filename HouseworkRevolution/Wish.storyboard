@@ -185,7 +185,7 @@
                                                 </imageView>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5aV-uD-lUK">
                                                     <rect key="frame" x="5" y="5" width="99" height="119"/>
-                                                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
+                                                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="18"/>
                                                     <color key="textColor" name="noticeGray"/>
                                                     <nil key="highlightedColor"/>
                                                     <size key="shadowOffset" width="0.0" height="-5"/>
@@ -232,7 +232,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" clipsSubviews="YES" alpha="0.65000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xjk-Hm-dvz">
-                                <rect key="frame" x="167" y="706" width="80" height="25"/>
+                                <rect key="frame" x="167" y="703" width="80" height="25"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="4JN-kP-uAU"/>
@@ -260,7 +260,7 @@
                             <constraint firstItem="5hY-9T-vo8" firstAttribute="trailing" secondItem="9zL-Wg-do7" secondAttribute="trailing" id="8BO-P9-nks"/>
                             <constraint firstItem="iPU-83-3Qb" firstAttribute="centerX" secondItem="9BP-yI-22f" secondAttribute="centerX" id="B6I-YS-1XE"/>
                             <constraint firstItem="xjk-Hm-dvz" firstAttribute="centerX" secondItem="9BP-yI-22f" secondAttribute="centerX" id="K5R-hY-gQW"/>
-                            <constraint firstItem="9zL-Wg-do7" firstAttribute="bottom" secondItem="xjk-Hm-dvz" secondAttribute="bottom" constant="5" id="Mow-Db-gsf"/>
+                            <constraint firstItem="9zL-Wg-do7" firstAttribute="bottom" secondItem="xjk-Hm-dvz" secondAttribute="bottom" constant="8" id="Mow-Db-gsf"/>
                             <constraint firstItem="9zL-Wg-do7" firstAttribute="bottom" secondItem="5hY-9T-vo8" secondAttribute="bottom" id="THv-OO-hWr"/>
                             <constraint firstItem="9zL-Wg-do7" firstAttribute="bottom" secondItem="QjD-mX-17I" secondAttribute="bottom" id="VCO-Ms-R02"/>
                             <constraint firstItem="Das-GL-Rpi" firstAttribute="top" secondItem="9BP-yI-22f" secondAttribute="top" id="WxY-vl-9og"/>
