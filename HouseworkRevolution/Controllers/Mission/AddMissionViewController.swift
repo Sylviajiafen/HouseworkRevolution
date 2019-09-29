@@ -130,7 +130,8 @@ class AddMissionViewController: UIViewController {
                         
                     case .duplicatedAdd(let message):
                         
-                        self?.showAlertOf(message: message, dismiss: true, handler: { [weak self] in
+                        self?.showAlertOf(message: message, dismissByCondition: true,
+                                          handler: { [weak self] in
                             
                             self?.dismiss(animated: true, completion: nil)
                         })
