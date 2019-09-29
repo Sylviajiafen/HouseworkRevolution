@@ -86,7 +86,7 @@ class ShowWishesViewController: UIViewController {
     
     @IBAction func cleanAllWishes(_ sender: Any) {
         
-        let alert = UIAlertController(title: nil, message: "確定一個願望都不留下嗎？🥺", preferredStyle: .alert)
+        let alert = UIAlertController(title: nil, message: "確定一個願望都不留下嗎？", preferredStyle: .alert)
         
         let OKAction = UIAlertAction(title: "沒錯", style: .default, handler: { [weak self] _ in
             
