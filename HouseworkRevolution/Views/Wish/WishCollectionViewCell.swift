@@ -12,8 +12,6 @@ class WishCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var wishContent: UILabel!
     
-    @IBOutlet weak var wishView: UIView!
-    
     weak var delegate: WishCollectionViewCellDelegate?
     
     let deleteBtn = UIButton()
