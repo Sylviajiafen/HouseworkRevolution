@@ -281,7 +281,10 @@ class ListViewController: UIViewController {
     func notificationRegistAndAuth() {
         
         guard let appdelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        
         appdelegate.showAuthRequest(application: UIApplication.shared)
+        
+        FirebaseNotificationHelper.shared.updateFirestorePushTokenIfNeeded()
     }
 }
 
