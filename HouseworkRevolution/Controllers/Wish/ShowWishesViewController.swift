@@ -153,6 +153,8 @@ extension ShowWishesViewController: UICollectionViewDataSource,
             wishCell.blockDelete()
         }
         
+        wishCell.layOutWishLabel()
+        
         return wishCell
     }
     
