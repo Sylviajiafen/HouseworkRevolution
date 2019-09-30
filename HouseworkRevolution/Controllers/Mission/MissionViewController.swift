@@ -21,7 +21,8 @@ class MissionViewController: UIViewController {
     
     @IBAction func showAddMission(_ sender: UISwipeGestureRecognizer) {
         
-        let addMissionViewController = UIStoryboard.mission.instantiateViewController(withIdentifier: String(describing: AddMissionViewController.self))
+        let addMissionViewController = UIStoryboard.mission.instantiateViewController(
+            withIdentifier: String(describing: AddMissionViewController.self))
         
         guard let targetView = addMissionViewController as? AddMissionViewController else { return }
         
@@ -32,7 +33,8 @@ class MissionViewController: UIViewController {
     
     @IBAction func showCheckMission(_ sender: Any) {
         
-        let checkMissionViewController = UIStoryboard.mission.instantiateViewController(withIdentifier: String(describing: CheckMissionViewController.self))
+        let checkMissionViewController = UIStoryboard.mission.instantiateViewController(
+            withIdentifier: String(describing: CheckMissionViewController.self))
         
         guard let targetView = checkMissionViewController as? CheckMissionViewController else { return }
         

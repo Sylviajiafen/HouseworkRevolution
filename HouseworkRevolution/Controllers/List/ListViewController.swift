@@ -152,7 +152,9 @@ class ListViewController: UIViewController {
             
             self?.noticeLabel.alpha = 0
             
-        }) { [weak self] (isCompleted) in
+        })
+        
+        { [weak self] (isCompleted) in
             
             if isCompleted {
                 
@@ -298,13 +300,15 @@ class ListViewController: UIViewController {
     }
     
     @IBAction func showUserHelp(_ sender: Any) {
-        let UserHelpViewController = UIStoryboard.list.instantiateViewController(withIdentifier: "UserHelpViewController")
         
-//        guard let targetView = checkMissionViewController as? CheckMissionViewController else { return }
+        let userHelpViewController = UIStoryboard.list.instantiateViewController(
+            withIdentifier: String(describing: UserHelpViewController.self))
         
-        UserHelpViewController.modalPresentationStyle = .overFullScreen
+        guard let userHelpView = userHelpViewController as? UserHelpViewController else { return }
         
-        present(UserHelpViewController, animated: false, completion: nil)
+        userHelpView.modalPresentationStyle = .overFullScreen
+        
+        present(userHelpView, animated: false, completion: nil)
     }
 }
 
