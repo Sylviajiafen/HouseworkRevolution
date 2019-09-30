@@ -239,8 +239,6 @@ class AuthViewController: UIViewController {
                                 
                                 self?.showAlertOf(message: "\(err)")
                             }
-                            
-                            
                         }
                     }
                 }
@@ -364,8 +362,6 @@ extension AuthViewController: UITextFieldDelegate {
             let pattern = "[A-Za-z0-9]"
             
             let regex = NSRegularExpression(pattern)
-            
-//            print("string now: (\(string))")
             
             return regex.matches(string)
         }

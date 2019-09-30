@@ -88,11 +88,13 @@ class FirebaseNotificationHelper {
                 if let err = err {
                     
                     print("save token to firebase err: \(err)")
+                    
                 } else {
                     
                     print("successfully save token! ")
                 }
             }
+            
         } else {
             
             print("fcmToken Not Ready!!!")
@@ -116,14 +118,10 @@ class FirebaseNotificationHelper {
                 
                 for member in querySnapshot.documents {
                     
-                    print("一個一個核對 member doc id ")
-                    
                     memberIds.append(member.documentID)
                 }
                 
                 for id in memberIds {
-                    
-                    print(id)
                     
                     userQuery.document(id).getDocument { (doc, err) in
                     
@@ -134,8 +132,6 @@ class FirebaseNotificationHelper {
                             memberTokens.append(token)
                             
                             FirebaseNotificationHelper.memberTokens = memberTokens
-                            
-                            print("加 member token 中...")
                         
                         } else if let err = err {
                         
@@ -164,8 +160,6 @@ class FirebaseNotificationHelper {
                 
                 FirebaseNotificationHelper.userName = userName
                 
-                print("成功讀取使用者稱呼：\(userName)")
-                
             } else if let err = err {
                 
                 print("get user name failure: \(err)")
@@ -174,38 +168,3 @@ class FirebaseNotificationHelper {
     }
     
 }
-
-//    func subscribeToFamily(id: String) {
-//
-//        DispatchQueue.main.async {
-//
-//            Messaging.messaging().subscribe(toTopic: id) { error in
-//
-//                if let err = error {
-//
-//                    print("Error of subscribing family(\(id)): \(err) ")
-//                } else {
-//
-//                    print("Subscribed to family(\(id)) succeeded!")
-//                }
-//            }
-//        }
-//    }
-//
-//    func unSubscribePreviousFamily(id: String) {
-//
-//        DispatchQueue.main.async {
-//
-//            Messaging.messaging().unsubscribe(fromTopic: id) { error in
-//
-//                if let err = error {
-//
-//                    print("Error of subscribing family(\(id)): \(err) ")
-//                } else {
-//
-//                    print("Subscribed to family(\(id)) succeeded!")
-//                }
-//            }
-//        }
-//    }
-

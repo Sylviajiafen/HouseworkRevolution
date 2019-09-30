@@ -11,6 +11,7 @@ import UIKit
 class UserInputTextField: UITextField {
     
     required init?(coder aDecoder: NSCoder) {
+        
         super.init(coder: aDecoder)
         
         addUnderLine()

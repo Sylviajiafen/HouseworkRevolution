@@ -19,8 +19,11 @@ struct FamilyMember {
     init(password: String) {
         
         self.password = password
+        
         self.name = "(稱呼)"
+        
         self.family = "(groupID)"
+        
         self.wishes = ["放假(預設)",
                        "跟朋友出門(預設)",
                        "看場電影(預設)",
@@ -149,6 +152,7 @@ enum RequestedMember: String {
     case userID
 }
 
+// Result and Error
 enum LoginResult<T> {
     
     case success(T)
@@ -187,7 +191,6 @@ enum LoginError: String {
     
     case unknownError = "未知錯誤，請聯絡開發人員"
 }
-
 
 enum InvitationErr: String {
     

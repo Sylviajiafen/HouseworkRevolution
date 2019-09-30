@@ -63,9 +63,9 @@ class FirebaseManager {
                         for document in querySnapshot.documents {
                             
                             guard let title = document.data()[MissionData.title.rawValue]
-                            as? String,
-                            let tiredValue = document.data()[MissionData.tiredValue.rawValue]
-                                as? Int else { return }
+                                        as? String,
+                                  let tiredValue = document.data()[MissionData.tiredValue.rawValue]
+                                        as? Int else { return }
                             
                             missionByDateQuery.document(DayManager.shared.stringOfToday)
                                 .collection(CollectionOfFamily.subCollectionMissions.rawValue)
@@ -147,9 +147,9 @@ class FirebaseManager {
                     for index in 0..<querySnapshot.count {
                         
                         guard let title = querySnapshot.documents[index].data()[MissionData.title.rawValue]
-                            as? String,
-                            let tiredValue = querySnapshot.documents[index].data()[MissionData.tiredValue.rawValue]
-                                as? Int else { return }
+                                    as? String,
+                              let tiredValue = querySnapshot.documents[index].data()[MissionData.tiredValue.rawValue]
+                                    as? Int else { return }
                         
                         undoMissions.append(Mission(title: title, tiredValue: tiredValue))
                     }
@@ -175,9 +175,9 @@ class FirebaseManager {
                     for index in 0..<querySnapshot.count {
                         
                         guard let title = querySnapshot.documents[index].data()[MissionData.title.rawValue]
-                            as? String,
-                            let tiredValue = querySnapshot.documents[index].data()[MissionData.tiredValue.rawValue]
-                                as? Int else { return }
+                                    as? String,
+                              let tiredValue = querySnapshot.documents[index].data()[MissionData.tiredValue.rawValue]
+                                    as? Int else { return }
                         
                         doneMissions.append(Mission(title: title, tiredValue: tiredValue))
                     }
@@ -259,8 +259,10 @@ class FirebaseManager {
                     
                         for index in 0..<querySnapshot.count {
                         
-                            guard let title = querySnapshot.documents[index][MissionData.title.rawValue] as? String,
-                                let tiredValue = querySnapshot.documents[index][MissionData.tiredValue.rawValue] as? Int else { return }
+                            guard let title = querySnapshot.documents[index][MissionData.title.rawValue]
+                                        as? String,
+                                  let tiredValue = querySnapshot.documents[index][MissionData.tiredValue.rawValue]
+                                        as? Int else { return }
                         
                             FirebaseManager.allMission[day]?.append(Mission(title: title, tiredValue: tiredValue))
                         }

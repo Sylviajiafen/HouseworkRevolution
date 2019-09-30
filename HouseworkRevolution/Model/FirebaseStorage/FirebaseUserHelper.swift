@@ -278,7 +278,6 @@ class FirebaseUserHelper {
         let query = db.collection(DataCollection.houseUser.rawValue).document(user)
         
         query.setData([UserData.wishes.rawValue: []], merge: true)
-        
     }
     
     // MARK: 顯示id、成員、家庭名稱
@@ -496,6 +495,7 @@ class FirebaseUserHelper {
             } else if let err = err {
                 
                 ProgressHUD.dismiss()
+                
                 print("check query err: \(err)")
             }
         }
@@ -526,6 +526,7 @@ class FirebaseUserHelper {
             } else if let err = err {
                 
                 ProgressHUD.dismiss()
+                
                 print("get inviting family err: \(err)")
             }
         }

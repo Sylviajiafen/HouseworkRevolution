@@ -56,7 +56,6 @@ class WishCollectionViewCell: UICollectionViewCell {
     func blockDelete() {
         
         deleteBtn.isHidden = true
-        
     }
     
     @objc func deleteWish() {

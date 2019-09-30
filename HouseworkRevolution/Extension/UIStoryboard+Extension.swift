@@ -21,7 +21,6 @@ private struct StoryboardCategory {
     static let family = "Family"
     
     static let auth = "Auth"
-    
 }
 
 extension UIStoryboard {

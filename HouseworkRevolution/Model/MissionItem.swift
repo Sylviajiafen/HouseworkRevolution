@@ -11,13 +11,17 @@ import UIKit
 final class MissionItem: NSObject, Codable {
     
     let tiredValue: Int
+    
     let content: String
     
     static let shareIdentifier: String = "missionDone"
     
     init(value: Int, content: String) {
+        
         self.tiredValue = value
+        
         self.content = content
+        
         super.init()
     }
 }
@@ -28,8 +32,7 @@ extension MissionItem: NSItemProviderWriting {
         
         return [MissionItem.shareIdentifier]
     }
-    
-    // Prepare data for providing to destinationAPP
+
     func loadData(withTypeIdentifier typeIdentifier: String,
                   forItemProviderCompletionHandler completionHandler: @escaping (Data?, Error?) -> Void) -> Progress? {
         
@@ -42,6 +45,7 @@ extension MissionItem: NSItemProviderWriting {
             completionHandler(data, nil)
             
         default:
+            
             fatalError()
         }
         
@@ -72,7 +76,9 @@ extension MissionItem: NSItemProviderReading {
                 
                 throw error
             }
+            
         default:
+            
             fatalError()
         }
     }

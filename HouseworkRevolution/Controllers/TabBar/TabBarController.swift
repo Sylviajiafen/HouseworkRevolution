@@ -15,6 +15,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
     let layerGradient = CAGradientLayer()
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         viewControllers = tabs.map({ $0.controller() })
@@ -93,7 +94,6 @@ private enum Tab {
                 image: UIImage.asset(.familyUnselected),
                 selectedImage: UIImage.asset(.familySelected)
             )
-
         }
     }
 }

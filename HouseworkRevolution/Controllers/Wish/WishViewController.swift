@@ -10,6 +10,10 @@ import UIKit
 
 class WishViewController: UIViewController {
 
+    @IBOutlet weak var makeWishView: UIView!
+    
+    @IBOutlet weak var lamp: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -20,12 +24,7 @@ class WishViewController: UIViewController {
         wishInput.delegate = self
         
         wishInput.text = defaultWish
-
     }
-    
-    @IBOutlet weak var makeWishView: UIView!
-    
-    @IBOutlet weak var lamp: UIImageView!
     
     let defaultWish = "有什麼願望是被家事耽擱的呢？"
     
@@ -57,7 +56,6 @@ class WishViewController: UIViewController {
             }
         }
     }
-    // 以上為神燈點擊事件
     
     @IBOutlet weak var wishInput: UITextView!
     
@@ -74,10 +72,6 @@ class WishViewController: UIViewController {
         makeWishView.alpha = 0.0
         
         wishInput.text = ""
-
-//        wishInput.textColor = UIColor.lightGray
-      
-//        wishInput.font = UIFont(name: "Helvetica Neue", size: 14.0)
     }
     
     func showMakeWish(message: String, wishInput viewAlpha: CGFloat) {
@@ -107,7 +101,9 @@ extension WishViewController: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
         
         wishInput.text = ""
+        
         wishInput.textColor = UIColor.noticeGray
+        
         wishInput.font = UIFont(name: "Helvetica Neue", size: 17.0)
     }
     

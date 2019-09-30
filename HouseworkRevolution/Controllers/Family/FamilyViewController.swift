@@ -9,8 +9,6 @@
 import UIKit
 
 class FamilyViewController: UIViewController {
-    
-    // TODO: 接受家庭邀請時，腰要先請 fireBase 拿 familyID，再用此id update coreData
 
     @IBOutlet weak var familyMemberTableView: UITableView!
     
@@ -25,9 +23,11 @@ class FamilyViewController: UIViewController {
     @IBOutlet weak var dropOutView: UIView!
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         invitingFamilyTableView.delegate = self
+        
         invitingFamilyTableView.dataSource = self
         
         userIDLabel.text = StorageManager.userInfo.userID
@@ -46,7 +46,6 @@ class FamilyViewController: UIViewController {
         
         invitingFamilyTableView.register(headerXibOfInviting,
                                          forHeaderFooterViewReuseIdentifier: String(describing: InvitingFamilySectionHeaderView.self))
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -57,6 +56,7 @@ class FamilyViewController: UIViewController {
     @IBAction func copyUserID(_ sender: Any) {
         
         let board  = UIPasteboard.general
+        
         board.string = StorageManager.userInfo.userID
         
         ProgressHUD.showＷith(text: "複製！")
@@ -155,9 +155,7 @@ class FamilyViewController: UIViewController {
                                 
                                 self?.isOriginOrNot()
                             }
-                            
                     })
-                    
             })
         }
         
@@ -187,7 +185,6 @@ class FamilyViewController: UIViewController {
         didSet {
             
             familyMemberTableView.reloadData()
-
         }
     }
     
@@ -206,9 +203,11 @@ class FamilyViewController: UIViewController {
         if invitingFamilyList.count == 0 {
             
             invitingFamilyTableView.isHidden = true
+            
         } else {
             
             invitingFamilyTableView.isHidden = false
+            
         }
     }
     
@@ -224,6 +223,7 @@ class FamilyViewController: UIViewController {
             } else {
                 
                 self?.dropOutView.isHidden = false
+                
             }
         }
     }
@@ -300,9 +300,11 @@ extension FamilyViewController: UITableViewDelegate, UITableViewDataSource {
             }
             
         case invitingFamilyTableView:
+            
             return 1
             
         default:
+            
             return 0
         }
     }
@@ -314,12 +316,15 @@ extension FamilyViewController: UITableViewDelegate, UITableViewDataSource {
         switch tableView {
             
         case familyMemberTableView:
+            
             return 30.0 
             
         case invitingFamilyTableView:
+            
             return 35.0
             
         default:
+            
             return 0
         }
     }
@@ -338,17 +343,25 @@ extension FamilyViewController: UITableViewDelegate, UITableViewDataSource {
             switch section {
                 
             case 0:
+                
                 header.sectionTitleLabel.text = "成員"
+                
                 header.addCorner()
+                
                 return header
                 
             case 1:
+                
                 header.sectionTitleLabel.text = "邀請中的成員"
+                
                 header.addCorner()
+                
                 header.sectionContentView.alpha = 1.0
+                
                 return header
                 
             default:
+                
                 return nil
             }
             
@@ -361,9 +374,9 @@ extension FamilyViewController: UITableViewDelegate, UITableViewDataSource {
             return header
             
         default:
+            
             return nil
         }
-    
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int
@@ -389,6 +402,7 @@ extension FamilyViewController: UITableViewDelegate, UITableViewDataSource {
             footer.backgroundColor = UIColor.projectBackground
             
             return footer
+            
         } else {
             
             return nil
@@ -405,19 +419,24 @@ extension FamilyViewController: UITableViewDelegate, UITableViewDataSource {
             switch section {
                 
             case 0:
+                
                 return familyMember.count
                 
             case 1:
+                
                 return invitedMemberList.count
             
             default:
+                
                 return 0
             }
             
         case invitingFamilyTableView:
+            
             return invitingFamilyList.count
             
         default:
+            
             return 0
         }
     }
@@ -443,7 +462,9 @@ extension FamilyViewController: UITableViewDelegate, UITableViewDataSource {
                                          alpha: 1.0)
                 
                 memberCell.memberCall.text = familyMember[indexPath.row].name
+                
                 memberCell.memberId.text = familyMember[indexPath.row].id
+                
                 memberCell.cancelInvitationBtn.isHidden = true
                 
                 return memberCell
@@ -456,13 +477,17 @@ extension FamilyViewController: UITableViewDelegate, UITableViewDataSource {
                                          alpha: 0.6)
                 
                 memberCell.memberCall.text = invitedMemberList[indexPath.row].name
+                
                 memberCell.memberId.text = invitedMemberList[indexPath.row].id
+                
                 memberCell.cancelInvitationBtn.isHidden = false
+                
                 memberCell.delegate = self
                 
                 return memberCell
                 
             default:
+                
                 return UITableViewCell()
             }
             
@@ -484,6 +509,7 @@ extension FamilyViewController: UITableViewDelegate, UITableViewDataSource {
             return invitingListCell
             
         default:
+            
             return UITableViewCell()
         }
     }
@@ -495,7 +521,7 @@ extension FamilyViewController: InvitingFamilyTableViewCellDelegate {
     func acceptInvitation(_ cell: InvitingFamilyTableViewCell) {
         
         guard let index = invitingFamilyTableView.indexPath(for: cell),
-         let myName = userCallLabel.text else { return }
+              let myName = userCallLabel.text else { return }
         
         let inviterFamilyID = invitingFamilyList[index.row].familyID
         
@@ -518,7 +544,6 @@ extension FamilyViewController: InvitingFamilyTableViewCellDelegate {
                         self?.isOriginOrNot()
                     }
         })
-        
     }
     
     func rejectInvitation(_ cell: InvitingFamilyTableViewCell) {
@@ -528,7 +553,6 @@ extension FamilyViewController: InvitingFamilyTableViewCellDelegate {
         let inviterFamilyID = invitingFamilyList[index.row].familyID
         
         FirebaseUserHelper.shared.rejectInvitation(from: inviterFamilyID, myID: StorageManager.userInfo.userID)
-    
     }
     
 }
@@ -542,7 +566,6 @@ extension FamilyViewController: FamilyMemberTableViewCellDelegate {
         let invitedMemberID = invitedMemberList[index.row].id
         
         FirebaseUserHelper.shared.rejectInvitation(from: StorageManager.userInfo.familyID, myID: invitedMemberID)
-        
     }
 }
 

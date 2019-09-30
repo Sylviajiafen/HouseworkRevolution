@@ -11,25 +11,30 @@ import UIKit
 class ListViewController: UIViewController {
     
     @IBOutlet weak var magicLampView: UIView!
+    
     @IBOutlet weak var lampViewWishLabel: UILabel!
+    
     @IBOutlet weak var skipBtn: UIButton!
+    
     @IBOutlet weak var emptyMissionView: UIView!
+    
     @IBOutlet weak var showNoMissionLabel: UILabel!
+    
     @IBOutlet weak var userHelpBtn: UIButton!
     
     override func viewDidLoad() {
-        super.viewDidLoad()
         
-        print("load list")
+        super.viewDidLoad()
         
         fullScreenSize = UIScreen.main.bounds.size
         
         magicLampView.alpha = 0.0
+        
         skipBtn.alpha = 0.0
         
-        setUpCollectionView()
-        
         emptyMissionView.isHidden = true
+        
+        setUpCollectionView()
         
         let today = DayManager.shared.changeWeekdayIntoCH(weekday: DayManager.shared.weekday)
         
@@ -44,7 +49,6 @@ class ListViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         
-        print("appear list")
         animateTheNoticeLabel()
         
         ProgressHUD.show()
@@ -89,7 +93,7 @@ class ListViewController: UIViewController {
                 
                 self?.dailyMissionCollectionView.reloadData()
                 
-                self?.isMissionEmpty()
+                self?.showMissionEmpty()
                 
                 print("UndoToday: \(String(describing: self?.missionUndoToday))")
             }
@@ -104,7 +108,7 @@ class ListViewController: UIViewController {
                 
                 self?.dailyMissionCollectionView.reloadData()
                 
-                self?.isMissionEmpty()
+                self?.showMissionEmpty()
                 
                 print("DoneToday: \(String(describing: self?.missionDoneToday))")
             }
@@ -150,9 +154,7 @@ class ListViewController: UIViewController {
         
         UIView.animate(withDuration: 6.0, animations: { [weak self] in
             
-            self?.noticeLabel.alpha = 0
-            
-        }) { [weak self] (isCompleted) in
+            self?.noticeLabel.alpha = 0 }) { [weak self] (isCompleted) in
             
             if isCompleted {
                 
@@ -179,8 +181,6 @@ class ListViewController: UIViewController {
                     
                     FirebaseUserHelper.shared.removeWishOf(content: completeWish,
                                                            user: StorageManager.userInfo.userID)
-                    
-                    print("============magic!!")
                     
                     self?.skipBtn.alpha = 1.0
                     
@@ -221,8 +221,6 @@ class ListViewController: UIViewController {
     
     @IBAction func skipAnimateOfMagicView(_ sender: Any) {
         
-        print("skip!!!!!!!!!!!!!!!!!!!!!")
-        
         showAnimate.stopAnimation(true)
         
         viewDisappearAnimate.stopAnimation(true)
@@ -260,7 +258,7 @@ class ListViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    func isMissionEmpty() {
+    func showMissionEmpty() {
         
         dailyMissionCollectionView.endPullToRefresh(dailyMissionCollectionView)
         
@@ -308,6 +306,7 @@ class ListViewController: UIViewController {
         
         present(userHelpView, animated: false, completion: nil)
     }
+    
 }
 
 extension ListViewController: UICollectionViewDelegate,
@@ -322,7 +321,6 @@ extension ListViewController: UICollectionViewDelegate,
     func collectionView(_ collectionView: UICollectionView,
                         viewForSupplementaryElementOfKind kind: String,
                         at indexPath: IndexPath
-        
     ) -> UICollectionReusableView {
         
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
@@ -347,24 +345,26 @@ extension ListViewController: UICollectionViewDelegate,
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int
-        
     ) -> Int {
         
         switch section {
             
         case 0:
+            
             return missionUndoToday.count
             
         case 1:
+            
             return missionDoneToday.count
             
         default:
+            
             return 1
         }
-        
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
         
         let item = dailyMissionCollectionView.dequeueReusableCell(
             withReuseIdentifier: String(describing: DailyMissionCollectionViewCell.self), for: indexPath)
@@ -378,14 +378,17 @@ extension ListViewController: UICollectionViewDelegate,
         case 0:
             
             missionItem.backgroundColor = UIColor.cellGreen
+            
             missionItem.dailyMissionLabel.text = missionUndoToday[indexPath.row].title
             
         case 1:
             
             missionItem.backgroundColor = UIColor.lightCellGreen
+            
             missionItem.dailyMissionLabel.text = missionDoneToday[indexPath.row].title
             
         default:
+            
             break
         }
         
@@ -454,6 +457,7 @@ extension ListViewController: UICollectionViewDragDelegate {
             return[]
         }
     }
+    
 }
 
 extension ListViewController: UICollectionViewDropDelegate {
@@ -495,18 +499,14 @@ extension ListViewController: UICollectionViewDropDelegate {
                         self?.missionDoneToday.insert(missionDone, at: destinationIndexPath.item)
                         collectionView.insertItems(at: [destinationIndexPath])
                         
-                        }, completion: nil)
+                    }, completion: nil)
                     
-                        coordinator.drop(item.dragItem, toItemAt: destinationIndexPath)
+                    coordinator.drop(item.dragItem, toItemAt: destinationIndexPath)
                     
                     FirebaseManager.shared.updateMissionStatus(title: missionDone.title,
                                                                tiredValue: missionDone.tiredValue,
                                                                family: StorageManager.userInfo.familyID)
                     
-                    print("==== mission complete ====")
-                    
-                    print(missionDone)
-                        
                     if missionDropped.tiredValue > 5 {
                         
                         self?.magicLampViewShow()
@@ -530,15 +530,15 @@ extension ListViewController: UICollectionViewDropDelegate {
                         performDropWith coordinator: UICollectionViewDropCoordinator
     ) {
         
-            let defaultDestination = IndexPath(item: 0, section: 1)
+        let defaultDestination = IndexPath(item: 0, section: 1)
         
-            if coordinator.proposal.operation == .move {
+        if coordinator.proposal.operation == .move {
 
-                guard let destination = coordinator.destinationIndexPath else {
+            guard let destination = coordinator.destinationIndexPath else {
                 
-                    reorderItems(coordinator: coordinator,
-                                 destinationIndexPath: defaultDestination,
-                                 collectionView: collectionView)
+                reorderItems(coordinator: coordinator,
+                             destinationIndexPath: defaultDestination,
+                             collectionView: collectionView)
                     
                     return
                 }
@@ -546,18 +546,19 @@ extension ListViewController: UICollectionViewDropDelegate {
                 switch destination.section {
                     
                 case 0:
+                    
                     return
                     
                 case 1:
+                    
                     reorderItems(coordinator: coordinator,
                                  destinationIndexPath: destination,
                                  collectionView: collectionView)
                 default:
+                    
                     return
                 }
-    
             }
-
     }
 
 }
@@ -567,13 +568,11 @@ extension ListViewController: FirebaseManagerDelegate {
     func getUndoListToday(_ manager: FirebaseManager, didGetUndo: [Mission]) {
         
         missionUndoToday = didGetUndo
-        
     }
     
     func getDoneListToday(_ manager: FirebaseManager, didGetDone: [Mission]) {
         
         missionDoneToday = didGetDone
-        
     }
 
 }

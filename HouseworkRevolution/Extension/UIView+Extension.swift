@@ -23,7 +23,6 @@ extension UIView {
         rotation.repeatCount = 60
             
         self.layer.add(rotation, forKey: nil)
-        
     }
     
 }
@@ -87,4 +86,5 @@ extension CALayer {
             insertSublayer(contentLayer, at: 0)
         }
     }
+    
 }

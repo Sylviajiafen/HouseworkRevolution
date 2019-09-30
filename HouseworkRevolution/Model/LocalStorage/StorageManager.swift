@@ -66,25 +66,25 @@ class StorageManager {
     
         let request = NSFetchRequest<UserInfo>(entityName: "UserInfo")
     
-            do {
+        do {
     
-                let userInfo = try viewContext.fetch(request)
+            let userInfo = try viewContext.fetch(request)
     
-                StorageManager.getUser = userInfo
+            StorageManager.getUser = userInfo
                 
-                StorageManager.userInfo = UserLoggedIn(info: userInfo[0])
+            StorageManager.userInfo = UserLoggedIn(info: userInfo[0])
     
-                completion?(Result.success(userInfo))
+            completion?(Result.success(userInfo))
     
-            } catch {
+        } catch {
     
-                completion?(Result.failure(error))
-            }
+            completion?(Result.failure(error))
+        }
     }
     
     func updateFamily(familyID: String, completion: ChangeFamily? = nil) {
         
-         let request = NSFetchRequest<UserInfo>(entityName: "UserInfo")
+        let request = NSFetchRequest<UserInfo>(entityName: "UserInfo")
         
         do {
             
@@ -111,6 +111,5 @@ class StorageManager {
             
             fatalError()
         }
-        
     }
 }

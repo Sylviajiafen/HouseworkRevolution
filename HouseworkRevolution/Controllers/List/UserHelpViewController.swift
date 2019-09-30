@@ -56,7 +56,6 @@ class UserHelpViewController: UIViewController {
             
         } else {
             
-            print("err: CANNOT send email")
             showAlertOf(message: "尚未設定手機的郵件帳戶，無法使用此功能")
         }
     }
@@ -80,6 +79,7 @@ extension UserHelpViewController: MFMailComposeViewControllerDelegate {
             case .sent:
                 
                 dismiss(animated: true, completion: nil)
+                
                 ProgressHUD.showＷith(text: "成功傳送！", self.view)
                 
             default:

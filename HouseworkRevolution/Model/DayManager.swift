@@ -29,7 +29,9 @@ class DayManager {
                                                .Sunday]
     
     private let today = Date()
+    
     private let dateFormatter = DateFormatter()
+    
     private let weekdayFormatter = DateFormatter()
     
     let stringOfToday: String
@@ -39,9 +41,11 @@ class DayManager {
     private init() {
         
         dateFormatter.dateFormat = "YYYYMMdd"
+        
         weekdayFormatter.dateFormat = "EEEE"
         
         stringOfToday = dateFormatter.string(from: today)
+        
         weekday = weekdayFormatter.string(from: today)
     }
     

@@ -14,7 +14,9 @@ class CheckMissionViewController: UIViewController {
         super.viewDidLoad()
         
         missionListTableView.delegate = self
+        
         missionListTableView.dataSource = self
+        
         missionListTableView.backgroundColor = UIColor.projectBackground
         
         // MARK: regist header

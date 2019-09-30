@@ -17,7 +17,9 @@ class FamilyMemberSectionHeader: UITableViewHeaderFooterView {
     func addCorner() {
         
         sectionContentView.clipsToBounds = true
+        
         sectionContentView.layer.cornerRadius = 8
+        
         sectionContentView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMaxYCorner]
     }
     

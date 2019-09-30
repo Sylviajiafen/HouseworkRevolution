@@ -18,9 +18,8 @@ class SearchUserViewController: UIViewController {
         super.viewDidLoad()
 
         userIdSearchTF.delegate = self
-        showResultTableView.dataSource = self
         
-        print("Inviter: User => \(inviterUserName), Family => \(inviterFamilyName)")
+        showResultTableView.dataSource = self
         
         FirebaseUserHelper.shared.getAllUser { [weak self] (allUsers) in
             
@@ -37,6 +36,7 @@ class SearchUserViewController: UIViewController {
     @IBAction func closeView(_ sender: Any) {
         
         shouldShowSearchResult = false
+        
         self.dismiss(animated: false, completion: nil)
     }
     
@@ -45,7 +45,6 @@ class SearchUserViewController: UIViewController {
         didSet {
             
             showResultTableView.reloadData()
-            
         }
     }
     
@@ -97,6 +96,7 @@ class SearchUserViewController: UIViewController {
     @objc override func tapToDismiss() {
         
         shouldShowSearchResult = false
+        
         self.dismiss(animated: false, completion: nil)
     }
     
@@ -137,6 +137,7 @@ extension SearchUserViewController: UITableViewDataSource,
             searchingCell.delegate = self
             
             searchingCell.searchingMemberName.text = filteredData[indexPath.row].name
+            
             searchingCell.searchingMemberId.text = filteredData[indexPath.row].id
             
             return searchingCell
@@ -205,7 +206,6 @@ extension SearchUserViewController: UITableViewDataSource,
                         
                         self?.showAlertOf(message: err.rawValue)
                     }
-                                                    
             })
         }
         
@@ -218,6 +218,7 @@ extension SearchUserViewController: UITableViewDataSource,
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
         updateResult()
+        
         textField.resignFirstResponder()
         
         return true

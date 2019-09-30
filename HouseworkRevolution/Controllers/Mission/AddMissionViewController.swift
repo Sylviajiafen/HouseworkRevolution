@@ -268,7 +268,6 @@ extension AddMissionViewController: UICollectionViewDelegate,
         houseworkCell.setUpLabelfor(background: UIColor.buttonSelected, textColor: UIColor.noticeGray)
             
         selectedIndex = indexPath.item
-    
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
@@ -277,7 +276,6 @@ extension AddMissionViewController: UICollectionViewDelegate,
                                     as? HouseworkCollectionViewCell else { return }
             
         houseworkCell.setUpLabelfor(background: UIColor.buttonUnSelected, textColor: .white)
-        
     }
     
     func deleteHousework(_ cell: HouseworkCollectionViewCell) {
@@ -291,7 +289,6 @@ extension AddMissionViewController: UICollectionViewDelegate,
         shouldEditCell = false
         
         editHouseworkBtn.isSelected = false
-        
     }
     
 }
@@ -309,7 +306,6 @@ extension AddMissionViewController: UITextFieldDelegate {
         let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
         
         return updatedText.count <= 8
-    
     }
     
 }
