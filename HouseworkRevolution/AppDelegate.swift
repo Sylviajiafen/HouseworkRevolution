@@ -92,18 +92,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
         UNUserNotificationCenter.current().requestAuthorization(
             options: authOptions,
-            completionHandler: { registStatus, _ in
-                
-                switch registStatus {
-                    
-                case true:
-                    
-                    FirebaseNotificationHelper.shared.updateFirestorePushTokenIfNeeded()
-                    
-                case false:
-                    
-                    print("User denied Notification")
-                }
+            completionHandler: { _, _ in
+    
         })
 
         application.registerForRemoteNotifications()
@@ -116,12 +106,10 @@ extension AppDelegate: UNUserNotificationCenterDelegate, MessagingDelegate {
         
         print("Firebase registration token: \(fcmToken)")
         
-        // 更新 firebase family member 的 token(但是沒有 userID 怎麼給？)
-        
 //        let dataDict: [String: String] = ["token": fcmToken]
 //        NotificationCenter.default.post(name: Notification.Name("FCMToken"), object: nil, userInfo: dataDict)
         
-        // TODO: If necessary send token to application server.
+        // If necessary send token to application server.
         // Note: This callback is fired at each app startup and whenever a new token is generated.
     }
     

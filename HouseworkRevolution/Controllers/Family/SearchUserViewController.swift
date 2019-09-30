@@ -88,12 +88,13 @@ class SearchUserViewController: UIViewController {
     
     func addGestureToDarkView() {
         
-        let touchToDismiss = UITapGestureRecognizer(target: self, action: #selector(tapTodismiss))
+        let touchToDismiss = UITapGestureRecognizer(target: self,
+                                                    action: #selector(tapToDismiss))
         
         opacityDarkView.addGestureRecognizer(touchToDismiss)
     }
     
-    @objc func tapTodismiss() {
+    @objc override func tapToDismiss() {
         
         shouldShowSearchResult = false
         self.dismiss(animated: false, completion: nil)

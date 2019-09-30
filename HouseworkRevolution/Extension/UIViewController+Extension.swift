@@ -10,13 +10,13 @@ import UIKit
 
 extension UIViewController {
     
-    func showAlertOf(message: String, dismiss: Bool = false, handler: (() -> Void)? = nil) {
+    func showAlertOf(message: String, dismissByCondition: Bool = false, handler: (() -> Void)? = nil) {
         
         let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
         
         var action = UIAlertAction()
         
-        if dismiss {
+        if dismissByCondition {
             
             action = UIAlertAction(title: "OK", style: .default, handler: { _ in
                 
@@ -36,4 +36,8 @@ extension UIViewController {
     
     }
 
+    @objc func tapToDismiss() {
+        
+        dismiss(animated: false, completion: nil)
+    }
 }

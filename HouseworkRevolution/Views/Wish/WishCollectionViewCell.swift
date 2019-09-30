@@ -12,11 +12,26 @@ class WishCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var wishContent: UILabel!
     
-    @IBOutlet weak var wishView: UIView!
-    
     weak var delegate: WishCollectionViewCellDelegate?
     
     let deleteBtn = UIButton()
+    
+    func layOutWishLabel() {
+        
+        if self.bounds.height <= 100 {
+            
+            wishContent.font = UIFont(name: "Helvetica Bold", size: 12.0)
+            
+        } else if self.bounds.height < 200 {
+            
+            wishContent.font = UIFont(name: "Helvetica Bold", size: 14.0)
+            
+        } else {
+            
+            wishContent.font = UIFont(name: "Helvetica Bold", size: 18.0)
+            
+        }
+    }
     
     func showDelete() {
         

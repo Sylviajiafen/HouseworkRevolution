@@ -367,6 +367,15 @@ class FirebaseUserHelper {
         print("successfully remove wish: \(content)!")
     }
     
+    func removeAllWishes(user: String) {
+        
+        let query = db.collection(DataCollection.houseUser.rawValue).document(user)
+        
+        query.setData([UserData.wishes.rawValue: []], merge: true)
+        
+        print("successfully remove all wishes!")
+    }
+    
     // MARK: 顯示id、成員、家庭名稱
     
     func getHomeDatasOf(user: String, family: String,

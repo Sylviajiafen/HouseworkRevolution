@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GUe-sm-w7G">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -404,7 +405,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="42"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="請輸入欲加入成員的 id" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="MRc-Ow-dB9">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="請輸入欲加入成員的 id" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="12" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="MRc-Ow-dB9">
                                                     <rect key="frame" x="10" y="6" width="394" height="30"/>
                                                     <color key="backgroundColor" name="superLightGray"/>
                                                     <constraints>
@@ -457,11 +458,10 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Ga-lP-B7f">
-                                                            <rect key="frame" x="364" y="16" width="35" height="38"/>
+                                                            <rect key="frame" x="364" y="17.666666666666671" width="35" height="35"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="35" id="3jP-xh-4Fw"/>
                                                                 <constraint firstAttribute="width" secondItem="4Ga-lP-B7f" secondAttribute="height" multiplier="1:1" id="Thx-wJ-0vL"/>
-                                                                <constraint firstAttribute="height" constant="35" id="gUN-KA-3Ix"/>
                                                             </constraints>
                                                             <state key="normal" image="addMember"/>
                                                             <connections>
@@ -474,7 +474,6 @@
                                                         <constraint firstItem="Wci-kJ-m4M" firstAttribute="centerY" secondItem="O3W-vZ-3W3" secondAttribute="centerY" id="8xG-et-Vs3"/>
                                                         <constraint firstItem="SwX-kb-Lbb" firstAttribute="leading" secondItem="Wci-kJ-m4M" secondAttribute="trailing" constant="10" id="CZY-kK-uyM"/>
                                                         <constraint firstItem="4Ga-lP-B7f" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="SwX-kb-Lbb" secondAttribute="trailing" constant="10" id="Ipo-Oy-3Cv"/>
-                                                        <constraint firstItem="4Ga-lP-B7f" firstAttribute="top" secondItem="O3W-vZ-3W3" secondAttribute="topMargin" constant="5" id="Oox-MC-sTc"/>
                                                         <constraint firstItem="SwX-kb-Lbb" firstAttribute="top" secondItem="O3W-vZ-3W3" secondAttribute="topMargin" constant="12" id="QbG-Om-6Mf"/>
                                                         <constraint firstItem="Wci-kJ-m4M" firstAttribute="leading" secondItem="O3W-vZ-3W3" secondAttribute="leading" constant="10" id="hW4-zq-JRF"/>
                                                         <constraint firstItem="SwX-kb-Lbb" firstAttribute="centerY" secondItem="O3W-vZ-3W3" secondAttribute="centerY" id="nWH-JZ-LtV"/>

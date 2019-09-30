@@ -21,7 +21,12 @@ struct FamilyMember {
         self.password = password
         self.name = "(稱呼)"
         self.family = "(groupID)"
-        self.wishes = ["放假(系統預設)"]
+        self.wishes = ["放假(預設)",
+                       "跟朋友出門(預設)",
+                       "看場電影(預設)",
+                       "睡到自然醒(預設)",
+                       "不做家事一天(預設)",
+                       "喝下午茶(預設)"]
     }
 }
 

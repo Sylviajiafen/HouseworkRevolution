@@ -60,6 +60,7 @@
 		03C1A59E2318F147008EAB76 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1A59D2318F147008EAB76 /* UIColor+Extension.swift */; };
 		03E941DC2337FB7000A52B82 /* RNCryptorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E941DB2337FB7000A52B82 /* RNCryptorManager.swift */; };
 		03F43BE1233DE224005A7917 /* FirebaseNotificationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F43BE0233DE224005A7917 /* FirebaseNotificationHelper.swift */; };
+		03F43BE323419CC9005A7917 /* UserHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F43BE223419CC8005A7917 /* UserHelpViewController.swift */; };
 		03FC4FA62333557A00A1DD29 /* ESPullToRefreshWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FC4FA52333557A00A1DD29 /* ESPullToRefreshWrapper.swift */; };
 		03FEAC0B2321F5B200722A34 /* InvitingFamilySectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FEAC0A2321F5B200722A34 /* InvitingFamilySectionHeaderView.swift */; };
 		03FEAC0D2321F5C900722A34 /* InvitingFamilySectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03FEAC0C2321F5C900722A34 /* InvitingFamilySectionHeaderView.xib */; };
@@ -143,6 +144,7 @@
 		03C1A59D2318F147008EAB76 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		03E941DB2337FB7000A52B82 /* RNCryptorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNCryptorManager.swift; sourceTree = "<group>"; };
 		03F43BE0233DE224005A7917 /* FirebaseNotificationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseNotificationHelper.swift; sourceTree = "<group>"; };
+		03F43BE223419CC8005A7917 /* UserHelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserHelpViewController.swift; path = HouseworkRevolution/Controllers/List/UserHelpViewController.swift; sourceTree = SOURCE_ROOT; };
 		03FC4FA52333557A00A1DD29 /* ESPullToRefreshWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ESPullToRefreshWrapper.swift; sourceTree = "<group>"; };
 		03FEAC0A2321F5B200722A34 /* InvitingFamilySectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitingFamilySectionHeaderView.swift; sourceTree = "<group>"; };
 		03FEAC0C2321F5C900722A34 /* InvitingFamilySectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InvitingFamilySectionHeaderView.xib; sourceTree = "<group>"; };
@@ -257,6 +259,7 @@
 			isa = PBXGroup;
 			children = (
 				0302D9E2231E5B8400DE7921 /* ListViewController.swift */,
+				03F43BE223419CC8005A7917 /* UserHelpViewController.swift */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -754,6 +757,7 @@
 				0302D9E6231E650600DE7921 /* DailyMissionCollectionViewCell.swift in Sources */,
 				03FEAC102322054600722A34 /* FamilyMemberSectionHeader.swift in Sources */,
 				03C1A5702316658D008EAB76 /* TabBarController.swift in Sources */,
+				03F43BE323419CC9005A7917 /* UserHelpViewController.swift in Sources */,
 				03FEAC0B2321F5B200722A34 /* InvitingFamilySectionHeaderView.swift in Sources */,
 				03FEAC152322069100722A34 /* FamilyMemberTableViewCell.swift in Sources */,
 				03FEAC212324CC9400722A34 /* ShowDefaultTableViewCell.swift in Sources */,
@@ -970,7 +974,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mycompany.HouseworkRevolution;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -993,7 +997,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mycompany.HouseworkRevolution;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

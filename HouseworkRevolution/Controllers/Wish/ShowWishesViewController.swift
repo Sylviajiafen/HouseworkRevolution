@@ -23,6 +23,8 @@ class ShowWishesViewController: UIViewController {
         }
         
         emptyView.isHidden = true
+        
+        cleanAllBtn.isHidden = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -34,10 +36,15 @@ class ShowWishesViewController: UIViewController {
             if wishesInLamp.count == 0 {
                 
                 self?.emptyView.isHidden = false
+                
+                self?.cleanAllBtn.isHidden = true
+                
                 ProgressHUD.dismiss()
                 
             } else {
-            
+                
+                self?.cleanAllBtn.isHidden = false
+                
                 self?.wishArr = wishesInLamp
             
                 self?.wishes = self?.wishArr.shuffled() ?? []
@@ -46,6 +53,8 @@ class ShowWishesViewController: UIViewController {
     }
     
     @IBOutlet weak var emptyView: UIView!
+    
+    @IBOutlet weak var cleanAllBtn: UIButton!
     
     @IBAction func backToRoot(_ sender: UIButton) {
         
@@ -75,6 +84,39 @@ class ShowWishesViewController: UIViewController {
     
     var height: CGFloat?
     
+    @IBAction func cleanAllWishes(_ sender: Any) {
+        
+        let alert = UIAlertController(title: nil, message: "確定一個願望都不留下嗎？", preferredStyle: .alert)
+        
+        let OKAction = UIAlertAction(title: "沒錯", style: .default, handler: { [weak self] _ in
+            
+            FirebaseUserHelper.shared.removeAllWishes(user: StorageManager.userInfo.userID)
+            
+            self?.wishes.removeAll()
+            
+            DispatchQueue.main.async {
+                
+                self?.wishesCollectionView.reloadData()
+                
+                self?.emptyView.isHidden = false
+                
+                self?.cleanAllBtn.isHidden = true
+            }
+        })
+            
+        let cancelAction = UIAlertAction(title: "反悔", style: .cancel)
+        
+        OKAction.setValue(UIColor.lightGreen, forKey: "titleTextColor")
+        
+        cancelAction.setValue(UIColor.lightGreen, forKey: "titleTextColor")
+        
+        alert.addAction(OKAction)
+        
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true, completion: nil)
+    
+    }
 }
 
 extension ShowWishesViewController: UICollectionViewDataSource,
@@ -110,6 +152,8 @@ extension ShowWishesViewController: UICollectionViewDataSource,
             
             wishCell.blockDelete()
         }
+        
+        wishCell.layOutWishLabel()
         
         return wishCell
     }
