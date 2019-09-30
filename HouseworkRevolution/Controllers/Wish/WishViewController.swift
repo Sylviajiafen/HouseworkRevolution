@@ -73,11 +73,11 @@ class WishViewController: UIViewController {
         
         makeWishView.alpha = 0.0
         
-        wishInput.text = defaultWish
-        
-        wishInput.textColor = UIColor.lightGray
-        
-        wishInput.font = UIFont(name: "Helvetica Neue", size: 14.0)
+        wishInput.text = ""
+
+//        wishInput.textColor = UIColor.lightGray
+      
+//        wishInput.font = UIFont(name: "Helvetica Neue", size: 14.0)
     }
     
     func showMakeWish(message: String, wishInput viewAlpha: CGFloat) {

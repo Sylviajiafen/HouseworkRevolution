@@ -11,6 +11,9 @@ import CoreData
 import IQKeyboardManagerSwift
 import Firebase
 
+import UserNotifications
+import FirebaseMessaging
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -29,12 +32,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window?.rootViewController = UIStoryboard.main.instantiateInitialViewController()!
             
             StorageManager.shared.fetchUserInfo()
-            
         }
         
         IQKeyboardManager.shared.enable = true
         
         FirebaseApp.configure()
+        
+        Messaging.messaging().delegate = self
         
         return true
     }
@@ -61,7 +65,71 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
        
 //        self.saveContext()
     }
+    
+// MARK: Notification
+    
+    func application(_ application: UIApplication,
+                     didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        
+        var tokenString = ""
+        
+        for byte in deviceToken {
+            
+            let hexString = String(format: "%02x", byte)
+            
+            tokenString += hexString
+        }
+        
+        print("Appdelegate did get token for remote notification: \(tokenString)")
+    }
+    
+    func showAuthRequest(application: UIApplication) {
+        
+          // For iOS 10 display notification (sent via APNS)
+        UNUserNotificationCenter.current().delegate = self
 
+        let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+            
+        UNUserNotificationCenter.current().requestAuthorization(
+            options: authOptions,
+            completionHandler: { registStatus, _ in
+                
+                switch registStatus {
+                    
+                case true:
+                    
+                    FirebaseNotificationHelper.shared.updateFirestorePushTokenIfNeeded()
+                    
+                case false:
+                    
+                    print("User denied Notification")
+                }
+        })
+
+        application.registerForRemoteNotifications()
+    }
+}
+
+extension AppDelegate: UNUserNotificationCenterDelegate, MessagingDelegate {
+    
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
+        
+        print("Firebase registration token: \(fcmToken)")
+        
+        // 更新 firebase family member 的 token(但是沒有 userID 怎麼給？)
+        
+//        let dataDict: [String: String] = ["token": fcmToken]
+//        NotificationCenter.default.post(name: Notification.Name("FCMToken"), object: nil, userInfo: dataDict)
+        
+        // TODO: If necessary send token to application server.
+        // Note: This callback is fired at each app startup and whenever a new token is generated.
+    }
+    
+    func messaging(_ messaging: Messaging, didReceive remoteMessage: MessagingRemoteMessage) {
+        print("========= remoteMessage App data ========")
+        print(remoteMessage.appData)
+    }
+}
     // MARK: - Core Data stack
 
 //    lazy var persistentContainer: NSPersistentContainer = {
@@ -122,5 +190,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
 //        }
 //    }
-
-}

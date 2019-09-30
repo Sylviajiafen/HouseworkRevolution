@@ -40,6 +40,8 @@ enum ImageAsset: String {
     case customWorkICON
     
     case valueHeart
+    
+    case searchUser
 }
 
 extension UIImage {

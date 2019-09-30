@@ -232,6 +232,9 @@ class FirebaseUserHelper {
                             guard let correctPassword = correctPwd else {
                                     
                                 print("DecryptError!!")
+                                
+                                completion?(.failed(.unknownError))
+                                
                                 return
                             }
                                 

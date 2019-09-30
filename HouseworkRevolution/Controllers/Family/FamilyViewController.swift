@@ -80,6 +80,8 @@ class FamilyViewController: UIViewController {
             FirebaseUserHelper.shared.changeName(user: StorageManager.userInfo.userID,
                                                  to: newName,
                                                  currentFamily: StorageManager.userInfo.familyID)
+            
+            FirebaseNotificationHelper.shared.getUserName()
         }
         
         okAction.setValue(UIColor.lightGreen, forKey: "titleTextColor")
@@ -153,6 +155,7 @@ class FamilyViewController: UIViewController {
                                 
                                 self?.isOriginOrNot()
                             }
+                            
                     })
                     
             })
@@ -271,6 +274,8 @@ class FamilyViewController: UIViewController {
         destination.inviterUserName = userName
         
         destination.inviterFamilyName = familyName
+        
+        destination.modalPresentationStyle = .overFullScreen
     }
     
 }
