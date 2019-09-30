@@ -36,4 +36,8 @@ extension UIViewController {
     
     }
 
+    @objc func tapToDismiss() {
+        
+        dismiss(animated: false, completion: nil)
+    }
 }

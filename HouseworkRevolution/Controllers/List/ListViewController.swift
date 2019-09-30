@@ -15,6 +15,7 @@ class ListViewController: UIViewController {
     @IBOutlet weak var skipBtn: UIButton!
     @IBOutlet weak var emptyMissionView: UIView!
     @IBOutlet weak var showNoMissionLabel: UILabel!
+    @IBOutlet weak var userHelpBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -145,9 +146,18 @@ class ListViewController: UIViewController {
         
         noticeLabel.alpha = 1
         
-        UIView.animate(withDuration: 5.0) { [weak self] in
+        userHelpBtn.alpha = 0
+        
+        UIView.animate(withDuration: 6.0, animations: { [weak self] in
             
             self?.noticeLabel.alpha = 0
+            
+        }) { [weak self] (isCompleted) in
+            
+            if isCompleted {
+                
+                self?.userHelpBtn.alpha = 0.7
+            }
         }
     }
 
@@ -186,7 +196,7 @@ class ListViewController: UIViewController {
                     
                     self?.showAnimate.addCompletion { [weak self] _ in
                         
-                        self?.viewDisappearAnimate.startAnimation(afterDelay: 3.0)
+                        self?.viewDisappearAnimate.startAnimation(afterDelay: 5.0)
                     }
                     
                     self?.viewDisappearAnimate.addCompletion({ [weak self] (_) in
@@ -285,6 +295,16 @@ class ListViewController: UIViewController {
         appdelegate.showAuthRequest(application: UIApplication.shared)
         
         FirebaseNotificationHelper.shared.updateFirestorePushTokenIfNeeded()
+    }
+    
+    @IBAction func showUserHelp(_ sender: Any) {
+        let UserHelpViewController = UIStoryboard.list.instantiateViewController(withIdentifier: "UserHelpViewController")
+        
+//        guard let targetView = checkMissionViewController as? CheckMissionViewController else { return }
+        
+        UserHelpViewController.modalPresentationStyle = .overFullScreen
+        
+        present(UserHelpViewController, animated: false, completion: nil)
     }
 }
 
