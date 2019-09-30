@@ -152,9 +152,7 @@ class ListViewController: UIViewController {
             
             self?.noticeLabel.alpha = 0
             
-        })
-        
-        { [weak self] (isCompleted) in
+        }) { [weak self] (isCompleted) in
             
             if isCompleted {
                 

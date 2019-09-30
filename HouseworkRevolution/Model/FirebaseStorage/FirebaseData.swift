@@ -80,6 +80,8 @@ enum CollectionOfFamily: String {
     case requestedMember
     
     case subCollectionMissions = "missions"
+    
+    case subDocDay = "day"
 }
 
 enum DataCollection: String {
@@ -154,6 +156,13 @@ enum LoginResult<T> {
     case failed(LoginError)
 }
 
+enum RegistResult<T> {
+    
+    case success(T)
+    
+    case failed(Error)
+}
+
 enum SendInvitationResult<T> {
     
     case success(T)
@@ -178,6 +187,7 @@ enum LoginError: String {
     
     case unknownError = "未知錯誤，請聯絡開發人員"
 }
+
 
 enum InvitationErr: String {
     

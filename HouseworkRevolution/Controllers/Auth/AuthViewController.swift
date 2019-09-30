@@ -115,9 +115,6 @@ class AuthViewController: UIViewController {
             
             appdelegate?.window?.rootViewController = UIStoryboard.main.instantiateInitialViewController()!
             
-//            let rootVC = UIStoryboard.main.instantiateInitialViewController()!
-
-//            self?.show(rootVC, sender: nil)
         })
         
         action.setValue(UIColor.lightGreen, forKey: "titleTextColor")
@@ -169,18 +166,38 @@ class AuthViewController: UIViewController {
                         
                         ProgressHUD.show()
                         
-                        FirebaseUserHelper.shared.registAnIdWithEncrypt(user) { [weak self] in
+                        FirebaseUserHelper.shared.registAnIdWithEncrypt(user) { [weak self] (result) in
                             
-                            FirebaseUserHelper.shared.registDoneWith(family, username: userName) {
-                            
-                                StorageManager.shared.saveUserInfo(uid: FirebaseUserHelper.userID,
-                                                                   familyRecognizer: FirebaseUserHelper.familyID)
+                            switch result {
                                 
-                                UserDefaults.standard.set("isLoggedIn", forKey: "userKey")
+                            case .success( _):
                                 
-                                ProgressHUD.dismiss()
+                                FirebaseUserHelper.shared
+                                    .registDoneWith(family, username: userName) { [weak self] (result) in
                                 
-                                self?.showLogin(message: "註冊完成")
+                                        switch result {
+                                            
+                                        case .success(let message):
+                                            
+                                            StorageManager.shared.saveUserInfo(uid: FirebaseUserHelper.userID,
+                                                                               familyRecognizer: FirebaseUserHelper.familyID)
+                                            
+                                            UserDefaults.standard.set(UserDefaultString.value.rawValue,
+                                                                      forKey: UserDefaultString.key.rawValue)
+                                            
+                                            ProgressHUD.dismiss()
+                                            
+                                            self?.showLogin(message: message)
+                                            
+                                        case .failed(let err):
+                                            
+                                            self?.showAlertOf(message: "\(err)")
+                                        }
+                                }
+                                
+                            case .failed(let err):
+                                
+                                self?.showAlertOf(message: "\(err)")
                             }
                         }
                         
@@ -188,20 +205,42 @@ class AuthViewController: UIViewController {
                         
                         ProgressHUD.show()
                         
-                        FirebaseUserHelper.shared.registAnIdWithEncrypt(user) { [weak self] in
+                        FirebaseUserHelper.shared.registAnIdWithEncrypt(user) { [weak self] (result) in
                             
-                            FirebaseUserHelper.shared.registDoneWith(family,
-                                                                     username: self?.nameCalls[selectedIndex] ?? "(名稱)") {
-                                                                        
-                                StorageManager.shared.saveUserInfo(uid: FirebaseUserHelper.userID,
-                                                               familyRecognizer: FirebaseUserHelper.familyID)
-                                                                        
-                                UserDefaults.standard.set("isLoggedIn", forKey: "userKey")
-                                                                        
-                                ProgressHUD.dismiss()
-                                                                        
-                                self?.showLogin(message: "註冊完成")
+                            switch result {
+                                
+                            case .success( _):
+                                
+                                FirebaseUserHelper.shared
+                                    .registDoneWith(family,
+                                    username: self?.nameCalls[selectedIndex] ?? "(名稱)") { [weak self] (result) in
+                                        
+                                        switch result {
+                                            
+                                        case .success(let message):
+                                            
+                                            StorageManager.shared.saveUserInfo(uid: FirebaseUserHelper.userID,
+                                                                           familyRecognizer: FirebaseUserHelper.familyID)
+                                                                                    
+                                            UserDefaults.standard.set(UserDefaultString.value.rawValue,
+                                                                      forKey: UserDefaultString.key.rawValue)
+                                                                                    
+                                            ProgressHUD.dismiss()
+                                                                                    
+                                            self?.showLogin(message: message)
+                                            
+                                        case .failed(let err):
+                                            
+                                            self?.showAlertOf(message: "\(err)")
+                                        }
+                                }
+                                
+                            case .failed(let err):
+                                
+                                self?.showAlertOf(message: "\(err)")
                             }
+                            
+                            
                         }
                     }
                 }
@@ -230,7 +269,8 @@ class AuthViewController: UIViewController {
                     StorageManager.shared.saveUserInfo(uid: FirebaseUserHelper.userID,
                                                        familyRecognizer: FirebaseUserHelper.familyID)
                     
-                    UserDefaults.standard.set("isLoggedIn", forKey: "userKey")
+                    UserDefaults.standard.set(UserDefaultString.value.rawValue,
+                                              forKey: UserDefaultString.key.rawValue)
                     
                     self?.showLogin(message: messege)
                     

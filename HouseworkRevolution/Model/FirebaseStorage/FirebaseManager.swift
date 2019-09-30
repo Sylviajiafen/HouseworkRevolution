@@ -28,10 +28,6 @@ class FirebaseManager {
     
     static var doneMission = [Mission]()
     
-//    static var currentListenerToUndo: ListenerRegistration?
-    
-//    static var currentListenerToDone: ListenerRegistration?
-    
     static var allMission = [WeekdayInEng.Monday.rawValue: [Mission](),
                              WeekdayInEng.Tuesday.rawValue: [Mission](),
                              WeekdayInEng.Wednesday.rawValue: [Mission](),
@@ -58,12 +54,11 @@ class FirebaseManager {
                 
                 if let querySnapshot = querySnapshot {
                     
-                    if querySnapshot.count == 0 { // 沒有設定那個星期日期的家事
-                        
-                        print("沒有當天星期的家事")
+                    if querySnapshot.count == 0 {
+                
                         completion()
 
-                    } else { // 有家事
+                    } else {
                         
                         for document in querySnapshot.documents {
                             
@@ -71,8 +66,6 @@ class FirebaseManager {
                             as? String,
                             let tiredValue = document.data()[MissionData.tiredValue.rawValue]
                                 as? Int else { return }
-                            
-                            print("當天星期有\(querySnapshot.count)件家事: \(querySnapshot.documents)")
                             
                             missionByDateQuery.document(DayManager.shared.stringOfToday)
                                 .collection(CollectionOfFamily.subCollectionMissions.rawValue)
@@ -82,34 +75,12 @@ class FirebaseManager {
                                      MissionData.status.rawValue: MissionStatus.undo.rawValue],
                                 completion: { (err) in
                                     
-                                    print("新增了今天的 missionByDate")
+                                    guard err == nil else { return }
+                                    
                                     completion()
                                 })
                         }
                     }
-                        
-//                        for index in 0..<querySnapshot.count {
-//
-//                            guard let title = querySnapshot.documents[index].data()[MissionData.title.rawValue]
-//                                as? String,
-//                                let tiredValue = querySnapshot.documents[index].data()[MissionData.tiredValue.rawValue]
-//                                    as? Int else { return }
-//
-//                            print("當天星期有\(querySnapshot.count)件家事: \(querySnapshot.documents)")
-//
-//                            missionByDateQuery.document(DayManager.shared.stringOfToday)
-//                                .collection(CollectionOfFamily.subCollectionMissions.rawValue)
-//                                .addDocument(data:
-//                                    [MissionData.title.rawValue: title,
-//                                     MissionData.tiredValue.rawValue: tiredValue,
-//                                     MissionData.status.rawValue: MissionStatus.undo.rawValue],
-//                                completion: { (err) in
-//
-//                                    print("新增了今天的 missionByDate")
-//                                    completion()
-//                                })
-//                        }
-//                    }
                     
                 } else if let err = error {
                     
@@ -127,113 +98,28 @@ class FirebaseManager {
             .document(family)
             .collection(CollectionOfFamily.missionByDate.rawValue)
         
-        missionByDateQuery.whereField("day", isEqualTo: today)
+        missionByDateQuery.whereField(CollectionOfFamily.subDocDay.rawValue, isEqualTo: today)
             .getDocuments { [weak self] (querySnapshot, error) in
                 
                 if let querySnapshot = querySnapshot {
                     
-                    if querySnapshot.documents.count == 0 { // 表示今天還沒有人點開建立，新建一筆
+                    if querySnapshot.documents.count == 0 {
+                    
+                        missionByDateQuery.document(today).setData( [CollectionOfFamily.subDocDay.rawValue: today])
                         
-                        print("沒資料，建一筆")
-                        
-                        missionByDateQuery.document(today).setData(["day": today])
-                        
-                        // 創造每天的 “mission" collection，只能寫一次，不然會重複加
                         self?.addDailyMissionToMissionByDate(of: family, completion: {
                             
                             completion()
-                            print("建完了")
                         })
                         
-                    } else { // 表示今天已有人建一筆，不新增
-                        
-                        print("有資料ㄌ")
+                    } else {
+                       
                         completion()
                     }
                     
                 } else if let error = error {
                     
                     print(error)
-                }
-        }
-    }
-    
-    // 分別讀取今天已完成 & 未完成的家事
-    func getMissionToday(family: String, undoHandler: @escaping ([Mission]) -> Void, doneHandler: @escaping ([Mission]) -> Void ) {
-        
-        let today = DayManager.shared.stringOfToday
-        
-        var undoMissions = [Mission]()
-        
-        var doneMissions = [Mission]()
-        
-        let missionUndoQuery = db.collection(DataCollection.houseGroup.rawValue)
-            .document(family)
-            .collection(CollectionOfFamily.missionByDate.rawValue)
-            .document(today)
-            .collection(CollectionOfFamily.subCollectionMissions.rawValue)
-        
-        // 拿 undo 資料
-        missionUndoQuery.whereField(MissionData.status.rawValue, isEqualTo: MissionStatus.undo.rawValue)
-            .getDocuments { (querySnapshot, error) in
-                
-                if let querySnapshot = querySnapshot {
-                    
-                    if querySnapshot.count == 0 {
-                        
-                        print("沒有未完成家事資料")
-                    }
-                    
-                    for index in 0..<querySnapshot.count {
-                        
-                        guard let title = querySnapshot.documents[index].data()[MissionData.title.rawValue]
-                            as? String,
-                            let tiredValue = querySnapshot.documents[index].data()[MissionData.tiredValue.rawValue]
-                                as? Int else { return }
-                        
-                        undoMissions.append(Mission(title: title, tiredValue: tiredValue))
-                        
-                        FirebaseManager.undoMission = undoMissions
-                    }
-                    
-                    undoHandler (FirebaseManager.undoMission)
-                    
-                } else if let err = error {
-                    
-                    print("Error getting docs: \(err)")
-                }
-        }
-        
-        // 拿 done 資料
-        missionUndoQuery.whereField(MissionData.status.rawValue, isEqualTo: MissionStatus.done.rawValue)
-            .getDocuments { (querySnapshot, error) in
-                
-                if let querySnapshot = querySnapshot {
-                    
-                    if querySnapshot.count == 0 {
-                        
-                        print("沒有已完成家事資料")
-                    }
-                    
-                    for index in 0..<querySnapshot.count {
-                        
-                        guard let title = querySnapshot.documents[index].data()[MissionData.title.rawValue]
-                            as? String,
-                            let tiredValue = querySnapshot.documents[index].data()[MissionData.tiredValue.rawValue]
-                                as? Int else { return }
-                        
-                        doneMissions.append(Mission(title: title, tiredValue: tiredValue))
-                        
-                        FirebaseManager.doneMission = doneMissions
-                    }
-                    
-                    doneHandler (FirebaseManager.doneMission)
-                    
-                } else if let err = error {
-                    
-                    print("Error getting docs: \(err)")
-                    
-                    ProgressHUD.dismiss()
                 }
         }
     }
@@ -266,7 +152,6 @@ class FirebaseManager {
                                 as? Int else { return }
                         
                         undoMissions.append(Mission(title: title, tiredValue: tiredValue))
-
                     }
                     
                     FirebaseManager.undoMission = undoMissions
@@ -330,22 +215,14 @@ class FirebaseManager {
                 
                 if let querySnapshot = querySnapshot {
                     
-                    if querySnapshot.count == 0 {
-                        
-                        print("找不到符合條件並且需要更新的家事")
-                    }
-                    
                     for document in querySnapshot.documents {
                         
                         missionUndoQuery.document(document.documentID).updateData(
                         [MissionData.status.rawValue: MissionStatus.done.rawValue]) { (err) in
                             
                             if let err = err {
-                                print("Error updating document: \(err)")
                                 
-                            } else {
-                                
-                                print("\(missionUndoQuery.document(document.documentID)) successfully updated to \(MissionStatus.done.rawValue)")
+                                print("Error updating mission status: \(err)")
                             }
                         }
                     }
@@ -355,7 +232,6 @@ class FirebaseManager {
                     print("Error getting documents: \(err)")
                 }
         }
-        
     }
     
 // MARK: 讀取全部家事
@@ -394,10 +270,9 @@ class FirebaseManager {
                     
                 } else if let err = err {
                     
-                    print("Error getting documents: \(err)")
+                    print("Error getting all missions: \(err)")
                 }
         }
-        
     }
     
 // MARK: 更動已設定之家事
@@ -406,8 +281,7 @@ class FirebaseManager {
     // 新增
     func addMissionToHouseworks(title: String, tiredValue: Int, weekday: String,
                                 family: String, message: AddMissionMessege? = nil) {
-        // weekday 記得填入英文的星期
-        
+    
         let query = db.collection(DataCollection.houseGroup.rawValue)
             .document(family)
             .collection(CollectionOfFamily.houseworks.rawValue)
@@ -418,7 +292,6 @@ class FirebaseManager {
             .document(DayManager.shared.stringOfToday)
             .collection(CollectionOfFamily.subCollectionMissions.rawValue)
         
-        // 判斷在同天內有沒有設定過一樣的家事 title
         query.whereField(MissionData.title.rawValue, isEqualTo: title)
             .whereField(MissionData.weekday.rawValue, isEqualTo: weekday)
             .getDocuments { (querySnapshot, err) in
@@ -429,19 +302,18 @@ class FirebaseManager {
                         
                         for document in querySnapshot.documents {
                             
-                            print("有在同一天設定過相同家事")
-                            
                             query.document(document.documentID)
-                                .setData([MissionData.tiredValue.rawValue: tiredValue], merge: true) { (err) in
+                                .setData([MissionData.tiredValue.rawValue: tiredValue],
+                                         merge: true) { (err) in
                                     
                                     if let err = err {
                                         
-                                        print("Error updating document: \(err)")
+                                        print("Error updating mission: \(err)")
+                                        
                                     } else {
                                         
                                         message?(AddMissionResult
                                             .duplicatedAdd("同日設定過一樣的家事，更新疲勞值為此次設定值"))
-                                        print("\(query.document(document.documentID))) successfully update)")
                                     }
                             }
                             
@@ -463,9 +335,7 @@ class FirebaseManager {
                         }
                         
                     } else {
-                        
-                        print("未在同一天設定過相同家事")
-                        
+                     
                         query.addDocument(data:
                             [MissionData.title.rawValue: title,
                              MissionData.tiredValue.rawValue: tiredValue,
@@ -474,7 +344,7 @@ class FirebaseManager {
                                 
                                 if let err = err {
                                     
-                                    print("err add mission: \(err)")
+                                    print("Error adding mission: \(err)")
                                 
                                 } else {
                                     
@@ -494,8 +364,8 @@ class FirebaseManager {
                     print("Error getting documents: \(err)")
                 }
         }
-        
     }
+    
     // 刪除
     func deleteMissionFromHouseworks(title: String, tiredValue: Int, weekday: String, family: String) {
         
@@ -509,21 +379,13 @@ class FirebaseManager {
                 
                 if let querySnapshot = querySnapshot {
                     
-                    if querySnapshot.count == 0 {
-                        
-                        print("找不到符合條件的家事")
-                    }
-                    
                     for document in querySnapshot.documents {
                         
                         houseworksQuery.document(document.documentID).delete() { (err) in
                             
                             if let err = err {
                                 
-                                print("Error updating document: \(err)")
-                            } else {
-                                
-                                print("\(houseworksQuery.document(document.documentID)) successfully removed)")
+                                print("Error deleting mission: \(err)")
                             }
                         }
                     }
@@ -554,8 +416,6 @@ class FirebaseManager {
             [MissionData.title.rawValue: title,
              MissionData.tiredValue.rawValue: tiredValue,
              MissionData.status.rawValue: MissionStatus.undo.rawValue])
-        
-        print("同步新增至當日家事列表")
     }
     
     // 從今日列表中刪除
@@ -575,8 +435,6 @@ class FirebaseManager {
                     
                     if querySnapshot.count == 0 {
                         
-                        print("找不到符合條件的家事")
-                        
                         return
                     }
                     
@@ -587,10 +445,7 @@ class FirebaseManager {
                             if let err = err {
                                 
                                 print("Error updating document: \(err)")
-                            } else {
-                                
-                                print("同步從當日家事列表移除 \(query.document(document.documentID))")
-                            }
+                            } 
                         }
                     }
                     

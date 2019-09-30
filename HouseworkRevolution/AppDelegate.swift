@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
          // first open app
-        if UserDefaults.standard.value(forKey: "userKey") == nil {
+        if UserDefaults.standard.value(forKey: UserDefaultString.key.rawValue) == nil {
             
             window?.rootViewController = UIStoryboard.auth.instantiateInitialViewController()!
             

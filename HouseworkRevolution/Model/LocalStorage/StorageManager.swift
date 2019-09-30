@@ -15,18 +15,12 @@ typealias ChangeFamily = () -> Void
 class StorageManager {
     
     static let shared = StorageManager()
+
+    private init() {}
     
     static var getUser = [UserInfo]()
     
-    static var userInfo = UserLoggedIn() {
-        
-        didSet {
-            
-            print("StorageManager did get userInfo: \(userInfo)")
-        }
-    }
-    
-    private init() {}
+    static var userInfo = UserLoggedIn()
     
     lazy var persistentContainer: NSPersistentContainer = {
         
@@ -37,10 +31,6 @@ class StorageManager {
             if let error = error {
                 
                 fatalError("Unresolved error \(error)")
-                
-            } else {
-                
-                print("LocalStorage: \(storeDescription)")
             }
         })
         

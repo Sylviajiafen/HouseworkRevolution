@@ -10,9 +10,13 @@ import Foundation
 import Firebase
 
 typealias LoggedInResult = (LoginResult<String>) -> Void
+
+typealias RegistedResult = (RegistResult<String>) -> Void
+
 typealias AddMemberResult = (SendInvitationResult<String>) -> Void
 
 // swiftlint:disable type_body_length
+// swiftlint:disable function_parameter_count
 
 class FirebaseUserHelper {
     
@@ -25,40 +29,14 @@ class FirebaseUserHelper {
     static var familyID: String = "NOTSETYET"
     
     static var currentListenerRegistration: ListenerRegistration?
+    
     static var currentMemberListener: ListenerRegistration?
     
     private let db = Firestore.firestore()
     
     // MARK: 註冊功能
     
-    func registAnId(_ user: FamilyMember, completion: @escaping () -> Void) {
-        
-        let ref = db.collection(DataCollection.houseUser.rawValue)
-            .addDocument(data: [UserData.password.rawValue: user.password,
-                                UserData.name.rawValue: user.name,
-                                UserData.family.rawValue: user.family,
-                                UserData.originFamily.rawValue: user.family,
-                                UserData.wishes.rawValue: user.wishes],
-                         completion: { (err) in
-                            
-                            if let err = err {
-                                                                                            
-                              print("Regist user ID err: \(err)")
-                                                                                            
-                            } else {
-                                                                                            
-                             print("success create user")
-                                
-                             completion()
-                            }
-                })
-        
-        FirebaseUserHelper.userID = ref.documentID
-    }
-    
-    // MARK: 註冊功能（有 Encrypt）
-    
-    func registAnIdWithEncrypt(_ user: FamilyMember, completion: @escaping () -> Void) {
+    func registAnIdWithEncrypt(_ user: FamilyMember, completion: @escaping RegistedResult) {
         
         var userPwdEncrypted = ""
         
@@ -67,9 +45,10 @@ class FirebaseUserHelper {
             userPwdEncrypted = try RNCryptorManager.shared
                 .encryptMessage(message: user.password,
                                 encryptionKey: RNCryptorManager.encryptionKey)
+
         } catch {
             
-            print("Encrypt ERR")
+            completion(.failed(error))
         }
         
         let ref = db.collection(DataCollection.houseUser.rawValue)
@@ -82,20 +61,18 @@ class FirebaseUserHelper {
                             
                             if let err = err {
                                                                                             
-                              print("Regist user ID err: \(err)")
+                                completion(.failed(err))
                                                                                             
                             } else {
                                                                                             
-                             print("success create user")
-                                
-                             completion()
+                                completion(.success("User 註冊完成"))
                             }
                 })
         
         FirebaseUserHelper.userID = ref.documentID
     }
     
-    func registDoneWith(_ family: FamilyGroup, username: String, completion: @escaping () -> Void) {
+    func registDoneWith(_ family: FamilyGroup, username: String, completion: @escaping RegistedResult) {
         
        var familyRef: DocumentReference?
         
@@ -106,11 +83,9 @@ class FirebaseUserHelper {
                             
                             if let err = err {
                                 
-                                print("Regist ID err: \(err)")
+                                completion(.failed(err))
                                 
                             } else {
-                                
-                                print("success create user")
                                 
                                 guard let familyID = familyRef?.documentID else { return }
                                 
@@ -118,7 +93,8 @@ class FirebaseUserHelper {
                                 
                                 self?.db.collection(DataCollection.houseGroup.rawValue).document(familyID)
                                     .collection(CollectionOfFamily.member.rawValue)
-                                    .document(FirebaseUserHelper.userID).setData(["name": username])
+                                    .document(FirebaseUserHelper.userID)
+                                    .setData([UserData.name.rawValue: username])
                                 
                                 self?.db.collection(DataCollection.houseGroup.rawValue).document(familyID)
                                     .collection(CollectionOfFamily.houseworks.rawValue)
@@ -133,74 +109,15 @@ class FirebaseUserHelper {
                                          UserData.family.rawValue: familyID,
                                          UserData.originFamily.rawValue: familyID], merge: true)
                                 
-                                completion()
+                                completion(.success("註冊完成"))
                             }
             })
-    }
-    
-    // MARK: 登入功能: 拿到 userID & familyID
-    
-    func loginWith(id: String, password: String, completion: LoggedInResult? = nil) {
-        
-        // 判斷有無此人
-        let userRef = db.collection(DataCollection.houseUser.rawValue).document(id)
-    
-        let userParentRef = db.collection(DataCollection.houseUser.rawValue)
-        
-        var currentExistingIDs = [String]()
-        
-        userParentRef.getDocuments { (querySnapshot, err) in
-            
-            if let querySnapshot = querySnapshot {
-                
-                for doc in querySnapshot.documents {
-                    
-                    currentExistingIDs.append(doc.documentID)
-                }
-                
-                if currentExistingIDs.contains(id) {
-                    
-                    userRef.getDocument { (document, error) in
-                            
-                        if let document = document {
-                                
-                            guard let correctPwd = document.data()?[UserData.password.rawValue] as? String,
-                                let family = document.data()?[UserData.family.rawValue] as? String else { return }
-                                
-                            if password == correctPwd {
-                                    
-                                FirebaseUserHelper.familyID = family
-                                FirebaseUserHelper.userID = id
-                                    
-                                print("登入成功, userID:\(String(describing: FirebaseUserHelper.userID)), familyID: \(String(describing: FirebaseUserHelper.familyID))")
-                                 
-                                completion?(LoginResult.success("登入成功"))
-                                    
-                            } else {
-                    
-                                completion?(LoginResult.failed(.uncorrectPassword))
-                            }
-                        } else if let err = error {
-                            
-                            print("login get userInfo err: \(err)")
-                        }
-                }
-            } else {
-                    
-                completion?(LoginResult.failed(.userDidNotExist))
-            }
-            } else if let err = err {
-                
-                print("login get user err: \(err)")
-            }
-        }
     }
 
     // MARK: 登入功能: 拿到 userID & familyID（有 Decrypt）
         
     func loginWithDecrypt(id: String, password: String, completion: LoggedInResult? = nil) {
-            
-        // 判斷有無此人
+       
         let userRef = db.collection(DataCollection.houseUser.rawValue).document(id)
         
         let userParentRef = db.collection(DataCollection.houseUser.rawValue)
@@ -230,8 +147,6 @@ class FirebaseUserHelper {
                                                                     encryptionKey: RNCryptorManager.encryptionKey)
                                 
                             guard let correctPassword = correctPwd else {
-                                    
-                                print("DecryptError!!")
                                 
                                 completion?(.failed(.unknownError))
                                 
@@ -241,9 +156,8 @@ class FirebaseUserHelper {
                             if correctPassword == password {
                                     
                                 FirebaseUserHelper.familyID = family
+                                
                                 FirebaseUserHelper.userID = id
-                                        
-                                print("登入成功, userID:\(String(describing: FirebaseUserHelper.userID)), familyID: \(String(describing: FirebaseUserHelper.familyID))")
                                      
                                 completion?(LoginResult.success("登入成功"))
                                     
@@ -285,11 +199,9 @@ class FirebaseUserHelper {
                 
                 completion(labels)
                 
-                print("Labels: \(labels) read!!")
-                
             } else if let err = err {
                 
-                print("get doc failure: \(err)")
+                print("read label failure: \(err)")
             }
         }
     }
@@ -300,8 +212,6 @@ class FirebaseUserHelper {
         
         query.updateData([
             FamilyGroupData.houseworkLabels.rawValue: FieldValue.arrayUnion([content])])
-        
-        print("successfully add label!")
     }
     
     func removeLabelOf(content: String, family: String) {
@@ -310,8 +220,6 @@ class FirebaseUserHelper {
         
         query.updateData([
             FamilyGroupData.houseworkLabels.rawValue: FieldValue.arrayRemove([content])])
-        
-        print("successfully remove label!")
     }
     
     // MARK: 讀取、新增、移除願望
@@ -328,12 +236,11 @@ class FirebaseUserHelper {
                     as? [String] else { return }
                 
                 completion(wishes)
-                
-                print("Wishes: \(wishes) read!!")
-                
+              
             } else if let err = err {
                 
-                print("get doc failure: \(err)")
+                print("read wishes failure: \(err)")
+                
                 ProgressHUD.dismiss()
             }
         }
@@ -350,6 +257,7 @@ class FirebaseUserHelper {
             if let err = err {
                 
                 print("updateWish err: \(err)")
+                
             } else {
                 
                 ProgressHUD.showＷith(text: "許願成功！")
@@ -363,8 +271,6 @@ class FirebaseUserHelper {
         
         query.updateData([
             UserData.wishes.rawValue: FieldValue.arrayRemove([content])])
-        
-        print("successfully remove wish: \(content)!")
     }
     
     func removeAllWishes(user: String) {
@@ -373,7 +279,6 @@ class FirebaseUserHelper {
         
         query.setData([UserData.wishes.rawValue: []], merge: true)
         
-        print("successfully remove all wishes!")
     }
     
     // MARK: 顯示id、成員、家庭名稱
@@ -394,12 +299,10 @@ class FirebaseUserHelper {
                     as? String else { return }
                 
                 userNameHandler(userName)
-                
-                print("成功讀取使用者稱呼：\(userName)")
-                
+               
             } else if let err = err {
                 
-                print("get doc failure: \(err)")
+                print("get home data failure: \(err)")
                 
                 ProgressHUD.dismiss()
             }
@@ -416,11 +319,9 @@ class FirebaseUserHelper {
                 
                 familyNameHandler(familyName)
                 
-                print("成功讀取家庭名稱：\(familyName)")
-                
             } else if let err = err {
                 
-                print("get doc failure: \(err)")
+               print("get home data failure: \(err)")
             }
         }
     }
@@ -490,9 +391,7 @@ class FirebaseUserHelper {
     func inviteMember(id: String, name: String, from familyID: String,
                       familyName: String, inviter whoseName: String,
                       invitorCompletion: @escaping AddMemberResult) {
-        
-        print("inviting...")
-        
+      
         let familyQuery = db.collection(DataCollection.houseGroup.rawValue).document(familyID)
         
         let userQuery = db.collection(DataCollection.houseUser.rawValue).document(id)
@@ -542,8 +441,8 @@ class FirebaseUserHelper {
                             if let querySnapshot = querySnapshot {
                                 
                                 if querySnapshot.count > 0 {
-                                    
-                                    print("TODO: 告訴 user 重複被邀請了")
+                                 
+                                    return
                                     
                                 } else {
                                     
@@ -635,19 +534,16 @@ class FirebaseUserHelper {
     // MARK: 接受、刪除邀請
     func acceptInvitation(from family: String, myID: String, myName: String) {
         
-        // 新增自己至新家的 member
         let query = db.collection(DataCollection.houseGroup.rawValue)
             .document(family).collection(CollectionOfFamily.member.rawValue)
         
         query.document(myID).setData([UserData.name.rawValue: myName])
         
-        // 更改自己的 family Field Value
         let userQuery = db.collection(DataCollection.houseUser.rawValue)
             .document(myID)
         
         userQuery.setData([UserData.family.rawValue: family], merge: true)
         
-        // 刪除邀請
         self.rejectInvitation(from: family, myID: myID)
     }
     
@@ -704,7 +600,6 @@ class FirebaseUserHelper {
                 
                 guard let originFamily = doc[UserData.originFamily.rawValue] as? String else { return }
                 
-                // 更新自己的 family Field
                 query.setData([UserData.family.rawValue: originFamily], merge: true)
                 
                 getOriginFamily(originFamily)
@@ -724,9 +619,6 @@ class FirebaseUserHelper {
             if let err = err {
                 
                 print("delete member err: \(err)")
-            } else {
-                
-                print("Member deleted!")
             }
         }
     }
@@ -764,9 +656,8 @@ class FirebaseUserHelper {
             if let snapshot = querySnapshot {
                 
                 guard let originFamilyID = snapshot[UserData.originFamily.rawValue]
-                    as? String else { print("找不到原本的家"); return }
+                    as? String else { return }
                 
-                // 更動原本家庭的 member name
                 self?.db.collection(DataCollection.houseGroup.rawValue).document(originFamilyID)
                 .collection(CollectionOfFamily.member.rawValue).document(user)
                 .setData([UserData.name.rawValue: newName], merge: true)

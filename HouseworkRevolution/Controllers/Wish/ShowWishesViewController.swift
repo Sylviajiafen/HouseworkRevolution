@@ -31,7 +31,8 @@ class ShowWishesViewController: UIViewController {
         
         ProgressHUD.show(self.view)
         
-        FirebaseUserHelper.shared.readWishesOf(user: StorageManager.userInfo.userID) { [weak self] (wishesInLamp) in
+        FirebaseUserHelper.shared.readWishesOf(
+            user: StorageManager.userInfo.userID) { [weak self] (wishesInLamp) in
             
             if wishesInLamp.count == 0 {
                 
