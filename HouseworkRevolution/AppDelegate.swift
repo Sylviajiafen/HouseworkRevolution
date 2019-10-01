@@ -101,6 +101,21 @@ extension AppDelegate: UNUserNotificationCenterDelegate, MessagingDelegate {
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
     }
     
+<<<<<<< HEAD
     func messaging(_ messaging: Messaging, didReceive remoteMessage: MessagingRemoteMessage) {
+=======
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                willPresent notification: UNNotification,
+                                withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        
+        let userInfo = notification.request.content.userInfo
+        
+        guard let poster = userInfo["poster"] as? String else { return }
+        
+        if poster != StorageManager.userInfo.userID {
+            
+            completionHandler([.alert, .badge, .sound])
+        }
+>>>>>>> 43e069365901cd5a6ccf8ef60bbe233fb6ac193e
     }
 }
