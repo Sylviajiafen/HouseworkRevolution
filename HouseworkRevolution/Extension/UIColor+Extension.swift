@@ -77,4 +77,6 @@ extension UIColor {
     static let lightGreen = ProjectColor(.lightGreen)
     
     static let darkerprojectBackground = ProjectColor(.darkerprojectBackground)
+    
+    static let darkSky = ProjectColor(.darkSky)
 }

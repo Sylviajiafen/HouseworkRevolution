@@ -85,7 +85,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func showAuthRequest(application: UIApplication) {
         
-          // For iOS 10 display notification (sent via APNS)
         UNUserNotificationCenter.current().delegate = self
 
         let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
@@ -93,7 +92,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UNUserNotificationCenter.current().requestAuthorization(
             options: authOptions,
             completionHandler: { _, _ in
-    
+
         })
 
         application.registerForRemoteNotifications()

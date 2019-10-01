@@ -18,7 +18,7 @@ class FamilyViewController: UIViewController {
     
     @IBOutlet weak var userCallLabel: UILabel!
     
-    @IBOutlet weak var userIDLabel: UILabel!
+    @IBOutlet weak var userIDBtn: UIButton!
     
     @IBOutlet weak var familyNameLabel: UILabel!
     
@@ -28,9 +28,12 @@ class FamilyViewController: UIViewController {
         super.viewDidLoad()
         
         invitingFamilyTableView.delegate = self
+        
         invitingFamilyTableView.dataSource = self
         
-        userIDLabel.text = StorageManager.userInfo.userID
+        userIDBtn.setTitle(StorageManager.userInfo.userID, for: .normal)
+        
+        userIDBtn.titleLabel?.adjustsFontSizeToFitWidth = true
         
         isOriginOrNot()
         
@@ -46,7 +49,6 @@ class FamilyViewController: UIViewController {
         
         invitingFamilyTableView.register(headerXibOfInviting,
                                          forHeaderFooterViewReuseIdentifier: String(describing: InvitingFamilySectionHeaderView.self))
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -57,6 +59,7 @@ class FamilyViewController: UIViewController {
     @IBAction func copyUserID(_ sender: Any) {
         
         let board  = UIPasteboard.general
+        
         board.string = StorageManager.userInfo.userID
         
         ProgressHUD.showＷith(text: "複製！")

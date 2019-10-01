@@ -11,12 +11,6 @@ class MissionViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        let swipeRight: UISwipeGestureRecognizer =
-//            UISwipeGestureRecognizer(target: self, action: #selector(showAddMission(_:)))
-        
-//        swipeRight.direction = UISwipeGestureRecognizer.Direction.right
-        
     }
     
     @IBAction func showAddMission(_ sender: UISwipeGestureRecognizer) {
