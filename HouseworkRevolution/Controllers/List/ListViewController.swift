@@ -95,7 +95,6 @@ class ListViewController: UIViewController {
                 
                 self?.showMissionEmpty()
                 
-                print("UndoToday: \(String(describing: self?.missionUndoToday))")
             }
         }
     }
@@ -110,7 +109,6 @@ class ListViewController: UIViewController {
                 
                 self?.showMissionEmpty()
                 
-                print("DoneToday: \(String(describing: self?.missionDoneToday))")
             }
         }
     }

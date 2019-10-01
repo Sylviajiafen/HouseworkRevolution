@@ -182,8 +182,8 @@ class AuthViewController: UIViewController {
                                             StorageManager.shared.saveUserInfo(uid: FirebaseUserHelper.userID,
                                                                                familyRecognizer: FirebaseUserHelper.familyID)
                                             
-                                            UserDefaults.standard.set(UserDefaultString.value.rawValue,
-                                                                      forKey: UserDefaultString.key.rawValue)
+                                            UserDefaults.standard.set(UserDefaultString.value,
+                                                                      forKey: UserDefaultString.key)
                                             
                                             ProgressHUD.dismiss()
                                             
@@ -222,8 +222,8 @@ class AuthViewController: UIViewController {
                                             StorageManager.shared.saveUserInfo(uid: FirebaseUserHelper.userID,
                                                                            familyRecognizer: FirebaseUserHelper.familyID)
                                                                                     
-                                            UserDefaults.standard.set(UserDefaultString.value.rawValue,
-                                                                      forKey: UserDefaultString.key.rawValue)
+                                            UserDefaults.standard.set(UserDefaultString.value,
+                                                                      forKey: UserDefaultString.key)
                                                                                     
                                             ProgressHUD.dismiss()
                                                                                     
@@ -267,8 +267,8 @@ class AuthViewController: UIViewController {
                     StorageManager.shared.saveUserInfo(uid: FirebaseUserHelper.userID,
                                                        familyRecognizer: FirebaseUserHelper.familyID)
                     
-                    UserDefaults.standard.set(UserDefaultString.value.rawValue,
-                                              forKey: UserDefaultString.key.rawValue)
+                    UserDefaults.standard.set(UserDefaultString.value,
+                                              forKey: UserDefaultString.key)
                     
                     self?.showLogin(message: messege)
                     

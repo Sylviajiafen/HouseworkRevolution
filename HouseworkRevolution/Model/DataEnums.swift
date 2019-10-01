@@ -60,9 +60,9 @@ enum DefaultHouseworks: String {
     
 }
 
-enum UserDefaultString: String {
+struct UserDefaultString {
     
-    case key = "userKey"
+    static let key: String = "userKey"
     
-    case value = "isLoggedIn"
+    static let value: String = "isLoggedIn"
 }
