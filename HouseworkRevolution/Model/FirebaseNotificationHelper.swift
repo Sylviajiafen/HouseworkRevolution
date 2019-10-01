@@ -26,20 +26,21 @@ class FirebaseNotificationHelper {
     
     static var userName: String = ""
     
-    func sendNotificationToFamilies(title: String, body: String) {
+    func sendNotificationToFamilies(title: String, body: String, data: String = StorageManager.userInfo.userID) {
         
         for token in FirebaseNotificationHelper.memberTokens {
                 
-            RequestNotification(to: token, title: title, body: body)
+            requestNotification(to: token, title: title, body: body, data: data)
         }
     }
     
-    private func RequestNotification(to memberToken: String, title: String, body: String) {
+    private func requestNotification(to memberToken: String, title: String, body: String, data: String) {
         
         guard let url = NSURL(string: sendNotificationUrlString) else { return }
         
         let paramString: [String: Any] = ["to": memberToken,
-                                          "notification": ["title": title, "body": body]]
+                                          "notification": ["title": title, "body": body],
+                                          "data": ["poster": data]]
         
         let request = NSMutableURLRequest(url: url as URL)
         
@@ -174,38 +175,4 @@ class FirebaseNotificationHelper {
     }
     
 }
-
-//    func subscribeToFamily(id: String) {
-//
-//        DispatchQueue.main.async {
-//
-//            Messaging.messaging().subscribe(toTopic: id) { error in
-//
-//                if let err = error {
-//
-//                    print("Error of subscribing family(\(id)): \(err) ")
-//                } else {
-//
-//                    print("Subscribed to family(\(id)) succeeded!")
-//                }
-//            }
-//        }
-//    }
-//
-//    func unSubscribePreviousFamily(id: String) {
-//
-//        DispatchQueue.main.async {
-//
-//            Messaging.messaging().unsubscribe(fromTopic: id) { error in
-//
-//                if let err = error {
-//
-//                    print("Error of subscribing family(\(id)): \(err) ")
-//                } else {
-//
-//                    print("Subscribed to family(\(id)) succeeded!")
-//                }
-//            }
-//        }
-//    }
 

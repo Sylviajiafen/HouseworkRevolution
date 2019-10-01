@@ -113,9 +113,18 @@ extension AppDelegate: UNUserNotificationCenterDelegate, MessagingDelegate {
         // Note: This callback is fired at each app startup and whenever a new token is generated.
     }
     
-    func messaging(_ messaging: Messaging, didReceive remoteMessage: MessagingRemoteMessage) {
-        print("========= remoteMessage App data ========")
-        print(remoteMessage.appData)
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                willPresent notification: UNNotification,
+                                withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        
+        let userInfo = notification.request.content.userInfo
+        
+        guard let poster = userInfo["poster"] as? String else { return }
+        
+        if poster != StorageManager.userInfo.userID {
+            
+            completionHandler([.alert, .badge, .sound])
+        }
     }
 }
     // MARK: - Core Data stack
