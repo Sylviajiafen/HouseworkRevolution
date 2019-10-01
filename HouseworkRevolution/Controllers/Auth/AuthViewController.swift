@@ -191,7 +191,7 @@ class AuthViewController: UIViewController {
                                             
                                         case .failed(let err):
                                             
-                                            self?.showAlertOf(message: "\(err)")
+                                            print(err)
                                         }
                                 }
                                 
@@ -231,7 +231,7 @@ class AuthViewController: UIViewController {
                                             
                                         case .failed(let err):
                                             
-                                            self?.showAlertOf(message: "\(err)")
+                                            print(err)
                                         }
                                 }
                                 

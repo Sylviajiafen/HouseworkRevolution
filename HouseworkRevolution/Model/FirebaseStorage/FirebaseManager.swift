@@ -75,9 +75,13 @@ class FirebaseManager {
                                      MissionData.status.rawValue: MissionStatus.undo.rawValue],
                                 completion: { (err) in
                                     
-                                    guard err == nil else { return }
-                                    
-                                    completion()
+                                    if let err = err {
+                                        
+                                        print(err)
+                                    } else {
+                                        
+                                        completion()
+                                    }
                                 })
                         }
                     }
@@ -113,7 +117,7 @@ class FirebaseManager {
                         })
                         
                     } else {
-                       
+                        
                         completion()
                     }
                     
@@ -253,8 +257,6 @@ class FirebaseManager {
                         
                         FirebaseManager.allMission[day] = []
                         
-                        handler(FirebaseManager.allMission[day] ?? [])
-                        
                     } else {
                     
                         for index in 0..<querySnapshot.count {
@@ -266,9 +268,9 @@ class FirebaseManager {
                         
                             FirebaseManager.allMission[day]?.append(Mission(title: title, tiredValue: tiredValue))
                         }
-                        
-                        handler(FirebaseManager.allMission[day] ?? [])
                     }
+                    
+                    handler(FirebaseManager.allMission[day] ?? [])
                     
                 } else if let err = err {
                     
@@ -311,7 +313,7 @@ class FirebaseManager {
                                     if let err = err {
                                         
                                         print("Error updating mission: \(err)")
-                                        
+
                                     } else {
                                         
                                         message?(AddMissionResult

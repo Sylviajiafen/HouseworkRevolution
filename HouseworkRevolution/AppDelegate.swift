@@ -100,10 +100,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate, MessagingDelegate {
     
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
     }
-    
-<<<<<<< HEAD
-    func messaging(_ messaging: Messaging, didReceive remoteMessage: MessagingRemoteMessage) {
-=======
+
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 willPresent notification: UNNotification,
                                 withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
@@ -116,6 +113,5 @@ extension AppDelegate: UNUserNotificationCenterDelegate, MessagingDelegate {
             
             completionHandler([.alert, .badge, .sound])
         }
->>>>>>> 43e069365901cd5a6ccf8ef60bbe233fb6ac193e
     }
 }
