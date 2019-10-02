@@ -275,6 +275,10 @@ class FamilyViewController: UIViewController {
         
         targetView.modalPresentationStyle = .overFullScreen
         
+        guard let userName = self.userCallLabel.text else { return }
+        
+        targetView.userName = userName
+        
         present(targetView, animated: false, completion: nil)
     }
     

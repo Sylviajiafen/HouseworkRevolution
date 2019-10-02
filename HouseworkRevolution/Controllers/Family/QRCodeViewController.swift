@@ -12,6 +12,8 @@ class QRCodeViewController: UIViewController {
 
     @IBOutlet weak var userIDLabel: UILabel!
     
+    @IBOutlet weak var userCallLabel: UILabel!
+    
     @IBOutlet weak var qrcodeView: UIImageView!
     
     @IBOutlet weak var qrCodeImage: UIImageView!
@@ -22,8 +24,13 @@ class QRCodeViewController: UIViewController {
         
         userIDLabel.text = StorageManager.userInfo.userID
         
+        userCallLabel.text = userName
+        
         qrCodeImage.image = generateQRCode(from: StorageManager.userInfo.userID)
+        
     }
+    
+    var userName = ""
     
     func generateQRCode(from string: String) -> UIImage? {
         

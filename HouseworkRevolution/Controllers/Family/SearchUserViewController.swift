@@ -18,6 +18,7 @@ class SearchUserViewController: UIViewController {
         super.viewDidLoad()
 
         userIdSearchTF.delegate = self
+        
         showResultTableView.dataSource = self
         
         print("Inviter: User => \(inviterUserName), Family => \(inviterFamilyName)")
@@ -37,6 +38,7 @@ class SearchUserViewController: UIViewController {
     @IBAction func closeView(_ sender: Any) {
         
         shouldShowSearchResult = false
+        
         self.dismiss(animated: false, completion: nil)
     }
     
@@ -104,6 +106,7 @@ class SearchUserViewController: UIViewController {
         
         updateResult()
     }
+    
     @IBAction func showScanner(_ sender: Any) {
         
         let scannerViewController = UIStoryboard.family.instantiateViewController(
@@ -111,10 +114,15 @@ class SearchUserViewController: UIViewController {
     
         guard let targetView = scannerViewController as? ScannerViewController else { return }
         
+        targetView.delegate = self
+        
         targetView.modalPresentationStyle = .fullScreen
     
         present(targetView, animated: false, completion: nil)
         
+        userIdSearchTF.text = ""
+        
+        updateResult()
     }
 }
 
@@ -233,6 +241,17 @@ extension SearchUserViewController: UITableViewDataSource,
         textField.resignFirstResponder()
         
         return true
+    }
+    
+}
+
+extension SearchUserViewController: ScannerViewControllerDelegate {
+    
+    func inputDetectedUser(id: String) {
+        
+        userIdSearchTF.text = id
+        
+        updateResult()
     }
     
 }
