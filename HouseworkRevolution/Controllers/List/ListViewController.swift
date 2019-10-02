@@ -348,8 +348,9 @@ extension ListViewController: UICollectionViewDelegate,
         return header
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int
-        
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        numberOfItemsInSection section: Int
     ) -> Int {
         
         switch section {
@@ -366,7 +367,9 @@ extension ListViewController: UICollectionViewDelegate,
         
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
         
         let item = dailyMissionCollectionView.dequeueReusableCell(
             withReuseIdentifier: String(describing: DailyMissionCollectionViewCell.self), for: indexPath)

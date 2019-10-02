@@ -18,7 +18,7 @@ extension UIView {
         
         rotation.toValue = Double.pi / 8
             
-        rotation.duration = 0.005
+        rotation.duration = 0.008
             
         rotation.repeatCount = 60
             

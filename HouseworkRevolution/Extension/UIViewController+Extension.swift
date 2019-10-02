@@ -10,9 +10,12 @@ import UIKit
 
 extension UIViewController {
     
-    func showAlertOf(message: String, dismissByCondition: Bool = false, handler: (() -> Void)? = nil) {
+    func showAlertOf(title: String? = nil,
+                     message: String,
+                     dismissByCondition: Bool = false,
+                     handler: (() -> Void)? = nil) {
         
-        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
         var action = UIAlertAction()
         

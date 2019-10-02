@@ -22,6 +22,8 @@ class FamilyViewController: UIViewController {
     
     @IBOutlet weak var dropOutView: UIView!
     
+    @IBOutlet weak var informationIcon: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,6 +36,8 @@ class FamilyViewController: UIViewController {
         userIDBtn.titleLabel?.adjustsFontSizeToFitWidth = true
         
         isOriginOrNot()
+        
+        setInformation()
         
         // MARK: regist header
         let headerXibOfMember = UINib(nibName: String(describing: FamilyMemberSectionHeader.self),
@@ -52,6 +56,21 @@ class FamilyViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
 
         getHomeData()
+    }
+    
+    func setInformation() {
+        
+        informationIcon.isUserInteractionEnabled = true
+        
+        let touch = UITapGestureRecognizer(target: self, action: #selector(tapOnInfo))
+        
+        informationIcon.addGestureRecognizer(touch)
+    }
+    
+    @objc func tapOnInfo() {
+        
+        showAlertOf(title: "點擊下方 id 即可複製",
+                    message: "請妥善保存，換手機、重載app時會用到唷！")
     }
     
     @IBAction func copyUserID(_ sender: Any) {

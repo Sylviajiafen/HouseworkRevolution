@@ -26,6 +26,7 @@ class AddMissionViewController: UIViewController {
         editHouseworkBtn.isSelected = false
         
         customHousework.delegate = self
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -99,12 +100,22 @@ class AddMissionViewController: UIViewController {
         
         guard newHousework != "" else { showAlertOf(message: "欄位留白囉"); return }
         
-        houseworks.append(newHousework)
+        if houseworks.contains(newHousework) {
+            
+            showAlertOf(message: "已有「\(newHousework)」的家事標籤")
+            
+            customHousework.text = ""
+            
+            return
+            
+        } else {
+            
+            houseworks.append(newHousework)
+                
+            FirebaseUserHelper.shared.addLabelOf(content: newHousework,
+                                                 family: StorageManager.userInfo.familyID)
+        }
         
-        FirebaseUserHelper.shared.addLabelOf(content: newHousework,
-                                             family: StorageManager.userInfo.familyID)
-    
-        customHousework.text = ""
     }
     
     @IBAction func createHousework(_ sender: UIButton) {

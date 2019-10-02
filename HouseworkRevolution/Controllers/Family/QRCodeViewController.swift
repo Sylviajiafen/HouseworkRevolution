@@ -51,6 +51,11 @@ class QRCodeViewController: UIViewController {
         return nil
     }
     
+    func addGesture() {
+        
+        
+    }
+    
     @IBAction func backToFamilyPage(_ sender: Any) {
         
         dismiss(animated: false, completion: nil)

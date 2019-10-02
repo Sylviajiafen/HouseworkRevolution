@@ -74,11 +74,7 @@ extension ScannerViewController: AVCaptureMetadataOutputObjectsDelegate {
         
         let captureMetadataOutput = AVCaptureMetadataOutput()
         
-        guard let captureDevice = deviceDiscoverySession.devices.first else {
-            
-            showAlertOf(message: "無法開啟相機")
-            return
-        }
+        guard let captureDevice = deviceDiscoverySession.devices.first else { return }
         
         do {
             

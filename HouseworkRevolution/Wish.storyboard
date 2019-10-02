@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wishBackground" translatesAutoresizingMaskIntoConstraints="NO" id="ath-Yb-0dU">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wishBackground" translatesAutoresizingMaskIntoConstraints="NO" id="ath-Yb-0dU">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="737"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="每天努力做家事的你，" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bi3-1v-daG">
@@ -113,7 +113,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                        <color key="backgroundColor" name="iconBackground"/>
                         <constraints>
                             <constraint firstItem="sX7-sh-M65" firstAttribute="centerX" secondItem="QHD-MI-E0A" secondAttribute="centerX" id="0FF-kO-b7w"/>
                             <constraint firstItem="3WP-Tb-qSy" firstAttribute="top" relation="greaterThanOrEqual" secondItem="o0A-8m-XR2" secondAttribute="bottom" constant="10" id="DEt-ww-4Dj"/>
@@ -297,6 +297,9 @@
         </namedColor>
         <namedColor name="darkCellGreen">
             <color red="0.36078431372549019" green="0.43529411764705883" blue="0.13725490196078433" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="iconBackground">
+            <color red="1" green="0.8901960784313725" blue="0.77254901960784317" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="noticeGray">
             <color red="0.37647058823529411" green="0.36470588235294116" blue="0.36470588235294116" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
