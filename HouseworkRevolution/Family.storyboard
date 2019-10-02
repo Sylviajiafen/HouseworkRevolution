@@ -76,6 +76,7 @@
                         <viewLayoutGuide key="safeArea" id="K5N-7t-lt0"/>
                     </view>
                     <connections>
+                        <outlet property="qrCodeImage" destination="4cV-2D-yZm" id="eBb-8f-bM5"/>
                         <outlet property="qrcodeView" destination="4cV-2D-yZm" id="8wP-hW-D9c"/>
                         <outlet property="userIDLabel" destination="iEh-hx-vsj" id="ARW-9d-qia"/>
                     </connections>

@@ -14,15 +14,45 @@ class QRCodeViewController: UIViewController {
     
     @IBOutlet weak var qrcodeView: UIImageView!
     
+    @IBOutlet weak var qrCodeImage: UIImageView!
+    
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         userIDLabel.text = StorageManager.userInfo.userID
+        
+        qrCodeImage.image = generateQRCode(from: StorageManager.userInfo.userID)
+    }
+    
+    func generateQRCode(from string: String) -> UIImage? {
+        
+        let data = string.data(using: String.Encoding.ascii)
+        
+        if let filter = CIFilter(name: QRCodeString.qrfilterName) {
+            
+            filter.setValue(data, forKey: QRCodeString.qrfilterValue)
+            
+            let transform = CGAffineTransform(scaleX: 8, y: 8)
+            
+            if let output = filter.outputImage?.transformed(by: transform) {
+                
+                return UIImage(ciImage: output)
+            }
+        }
+        
+        return nil
     }
     
     @IBAction func backToFamilyPage(_ sender: Any) {
         
         dismiss(animated: false, completion: nil)
     }
+}
+
+private struct QRCodeString {
     
+    static let qrfilterName: String = "CIQRCodeGenerator"
+    
+    static let qrfilterValue: String = "inputMessage"
 }
