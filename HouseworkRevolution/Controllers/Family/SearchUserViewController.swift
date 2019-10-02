@@ -104,6 +104,18 @@ class SearchUserViewController: UIViewController {
         
         updateResult()
     }
+    @IBAction func showScanner(_ sender: Any) {
+        
+        let scannerViewController = UIStoryboard.family.instantiateViewController(
+            withIdentifier: String(describing: ScannerViewController.self))
+    
+        guard let targetView = scannerViewController as? ScannerViewController else { return }
+        
+        targetView.modalPresentationStyle = .fullScreen
+    
+        present(targetView, animated: false, completion: nil)
+        
+    }
 }
 
 extension SearchUserViewController: UITableViewDataSource,

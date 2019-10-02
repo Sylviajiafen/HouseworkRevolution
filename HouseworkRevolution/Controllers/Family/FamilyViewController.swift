@@ -266,6 +266,18 @@ class FamilyViewController: UIViewController {
         })
     }
     
+    @IBAction func showQRCode(_ sender: Any) {
+        
+       let qrCodeViewController = UIStoryboard.family.instantiateViewController(
+            withIdentifier: String(describing: QRCodeViewController.self))
+        
+        guard let targetView = qrCodeViewController as? QRCodeViewController else { return }
+        
+        targetView.modalPresentationStyle = .overFullScreen
+        
+        present(targetView, animated: false, completion: nil)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         guard let destination = segue.destination as? SearchUserViewController,

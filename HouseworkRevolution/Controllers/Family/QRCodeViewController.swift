@@ -12,6 +12,8 @@ class QRCodeViewController: UIViewController {
 
     @IBOutlet weak var userIDLabel: UILabel!
     
+    @IBOutlet weak var qrcodeView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
