@@ -61,6 +61,7 @@
 		03E941DC2337FB7000A52B82 /* RNCryptorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E941DB2337FB7000A52B82 /* RNCryptorManager.swift */; };
 		03F43BE1233DE224005A7917 /* FirebaseNotificationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F43BE0233DE224005A7917 /* FirebaseNotificationHelper.swift */; };
 		03F43BE323419CC9005A7917 /* UserHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F43BE223419CC8005A7917 /* UserHelpViewController.swift */; };
+		03F43BE523442F0C005A7917 /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F43BE423442F0B005A7917 /* QRCodeViewController.swift */; };
 		03FC4FA62333557A00A1DD29 /* ESPullToRefreshWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FC4FA52333557A00A1DD29 /* ESPullToRefreshWrapper.swift */; };
 		03FEAC0B2321F5B200722A34 /* InvitingFamilySectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FEAC0A2321F5B200722A34 /* InvitingFamilySectionHeaderView.swift */; };
 		03FEAC0D2321F5C900722A34 /* InvitingFamilySectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03FEAC0C2321F5C900722A34 /* InvitingFamilySectionHeaderView.xib */; };
@@ -145,6 +146,7 @@
 		03E941DB2337FB7000A52B82 /* RNCryptorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNCryptorManager.swift; sourceTree = "<group>"; };
 		03F43BE0233DE224005A7917 /* FirebaseNotificationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseNotificationHelper.swift; sourceTree = "<group>"; };
 		03F43BE223419CC8005A7917 /* UserHelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserHelpViewController.swift; path = HouseworkRevolution/Controllers/List/UserHelpViewController.swift; sourceTree = SOURCE_ROOT; };
+		03F43BE423442F0B005A7917 /* QRCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
 		03FC4FA52333557A00A1DD29 /* ESPullToRefreshWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ESPullToRefreshWrapper.swift; sourceTree = "<group>"; };
 		03FEAC0A2321F5B200722A34 /* InvitingFamilySectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitingFamilySectionHeaderView.swift; sourceTree = "<group>"; };
 		03FEAC0C2321F5C900722A34 /* InvitingFamilySectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InvitingFamilySectionHeaderView.xib; sourceTree = "<group>"; };
@@ -297,6 +299,7 @@
 			children = (
 				0302D9F22321E49200DE7921 /* FamilyViewController.swift */,
 				03FEAC1A2322610500722A34 /* SearchUserViewController.swift */,
+				03F43BE423442F0B005A7917 /* QRCodeViewController.swift */,
 			);
 			path = Family;
 			sourceTree = "<group>";
@@ -756,6 +759,7 @@
 				0302D9C12318FBC800DE7921 /* HouseworkCollectionViewCell.swift in Sources */,
 				0302D9E6231E650600DE7921 /* DailyMissionCollectionViewCell.swift in Sources */,
 				03FEAC102322054600722A34 /* FamilyMemberSectionHeader.swift in Sources */,
+				03F43BE523442F0C005A7917 /* QRCodeViewController.swift in Sources */,
 				03C1A5702316658D008EAB76 /* TabBarController.swift in Sources */,
 				03F43BE323419CC9005A7917 /* UserHelpViewController.swift in Sources */,
 				03FEAC0B2321F5B200722A34 /* InvitingFamilySectionHeaderView.swift in Sources */,

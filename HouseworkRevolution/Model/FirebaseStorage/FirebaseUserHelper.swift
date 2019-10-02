@@ -543,7 +543,7 @@ class FirebaseUserHelper {
                                 
                                 if querySnapshot.count > 0 {
                                     
-                                    print("TODO: 告訴 user 重複被邀請了")
+                                    print("告訴 user 重複被邀請了")
                                     
                                 } else {
                                     
