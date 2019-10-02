@@ -114,6 +114,8 @@ class AddMissionViewController: UIViewController {
                 
             FirebaseUserHelper.shared.addLabelOf(content: newHousework,
                                                  family: StorageManager.userInfo.familyID)
+            
+            customHousework.text = ""
         }
         
     }
