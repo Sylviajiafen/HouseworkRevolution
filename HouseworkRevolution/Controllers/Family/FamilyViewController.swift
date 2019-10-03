@@ -24,7 +24,10 @@ class FamilyViewController: UIViewController {
     
     @IBOutlet weak var informationIcon: UIImageView!
     
+    @IBOutlet weak var qrCodeImage: UIImageView!
+    
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         invitingFamilyTableView.delegate = self
@@ -38,6 +41,8 @@ class FamilyViewController: UIViewController {
         isOriginOrNot()
         
         setInformation()
+        
+        setQRCode()
         
         // MARK: regist header
         let headerXibOfMember = UINib(nibName: String(describing: FamilyMemberSectionHeader.self),
@@ -58,6 +63,13 @@ class FamilyViewController: UIViewController {
         getHomeData()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        FirebaseUserHelper.currentListenerRegistration?.remove()
+        
+        FirebaseUserHelper.currentMemberListener?.remove()
+    }
+    
     func setInformation() {
         
         informationIcon.isUserInteractionEnabled = true
@@ -71,6 +83,31 @@ class FamilyViewController: UIViewController {
         
         showAlertOf(title: "點擊下方 id 即可複製",
                     message: "請妥善保存，換手機、重載app時會用到唷！")
+    }
+    
+    func setQRCode() {
+        
+        qrCodeImage.isUserInteractionEnabled = true
+        
+        let touch = UITapGestureRecognizer(target: self, action: #selector(showQRCodePage))
+        
+        qrCodeImage.addGestureRecognizer(touch)
+    }
+    
+    @objc func showQRCodePage() {
+        
+        let qrCodeViewController = UIStoryboard.family.instantiateViewController(
+            withIdentifier: String(describing: QRCodeViewController.self))
+        
+        guard let targetView = qrCodeViewController as? QRCodeViewController else { return }
+        
+        targetView.modalPresentationStyle = .overFullScreen
+        
+        guard let userName = self.userCallLabel.text else { return }
+        
+        targetView.userName = userName
+        
+        present(targetView, animated: false, completion: nil)
     }
     
     @IBAction func copyUserID(_ sender: Any) {
@@ -283,22 +320,6 @@ class FamilyViewController: UIViewController {
                 
                 ProgressHUD.dismiss()
         })
-    }
-    
-    @IBAction func showQRCode(_ sender: Any) {
-        
-       let qrCodeViewController = UIStoryboard.family.instantiateViewController(
-            withIdentifier: String(describing: QRCodeViewController.self))
-        
-        guard let targetView = qrCodeViewController as? QRCodeViewController else { return }
-        
-        targetView.modalPresentationStyle = .overFullScreen
-        
-        guard let userName = self.userCallLabel.text else { return }
-        
-        targetView.userName = userName
-        
-        present(targetView, animated: false, completion: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -13,8 +13,10 @@ class SearchUserViewController: UIViewController {
     @IBOutlet weak var userIdSearchTF: UITextField!
     @IBOutlet weak var showResultTableView: UITableView!
     @IBOutlet weak var opacityDarkView: UIView!
+    @IBOutlet weak var scannerImage: UIImageView!
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
 
         userIdSearchTF.delegate = self
@@ -32,7 +34,10 @@ class SearchUserViewController: UIViewController {
         
         setUpsearchTF()
         
-        addGestureToDarkView()
+        setUpScanner()
+        
+        addTapToDismissGesture(on: opacityDarkView)
+        
     }
     
     @IBAction func closeView(_ sender: Any) {
@@ -47,7 +52,6 @@ class SearchUserViewController: UIViewController {
         didSet {
             
             showResultTableView.reloadData()
-            
         }
     }
     
@@ -85,44 +89,47 @@ class SearchUserViewController: UIViewController {
         
         userIdSearchTF.addTarget(self, action: #selector(searchRealtimeUpdate),
                                  for: .editingChanged)
-        
-    }
-    
-    func addGestureToDarkView() {
-        
-        let touchToDismiss = UITapGestureRecognizer(target: self,
-                                                    action: #selector(tapToDismiss))
-        
-        opacityDarkView.addGestureRecognizer(touchToDismiss)
-    }
-    
-    @objc override func tapToDismiss() {
-        
-        shouldShowSearchResult = false
-        self.dismiss(animated: false, completion: nil)
     }
     
     @objc func searchRealtimeUpdate() {
         
         updateResult()
     }
+
+    func setUpScanner() {
+        
+        scannerImage.isUserInteractionEnabled = true
+        
+        let touch = UITapGestureRecognizer(target: self, action: #selector(showScannerPage))
+        
+        scannerImage.addGestureRecognizer(touch)
+    }
     
-    @IBAction func showScanner(_ sender: Any) {
+    @objc func showScannerPage() {
+        
+        print("點掃描")
         
         let scannerViewController = UIStoryboard.family.instantiateViewController(
-            withIdentifier: String(describing: ScannerViewController.self))
-    
+                   withIdentifier: String(describing: ScannerViewController.self))
+           
         guard let targetView = scannerViewController as? ScannerViewController else { return }
         
         targetView.delegate = self
-        
+               
         targetView.modalPresentationStyle = .fullScreen
-    
+           
         present(targetView, animated: false, completion: nil)
-        
+               
         userIdSearchTF.text = ""
-        
+               
         updateResult()
+    }
+   
+    @objc override func tapToDismiss() {
+        
+        shouldShowSearchResult = false
+        
+        self.dismiss(animated: false, completion: nil)
     }
 }
 

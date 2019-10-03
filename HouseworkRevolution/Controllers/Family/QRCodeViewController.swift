@@ -18,6 +18,8 @@ class QRCodeViewController: UIViewController {
     
     @IBOutlet weak var qrCodeImage: UIImageView!
     
+    @IBOutlet weak var backgroundDarkView: UIView!
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -28,6 +30,7 @@ class QRCodeViewController: UIViewController {
         
         qrCodeImage.image = generateQRCode(from: StorageManager.userInfo.userID)
         
+        addTapToDismissGesture(on: backgroundDarkView)
     }
     
     var userName = ""
@@ -49,11 +52,6 @@ class QRCodeViewController: UIViewController {
         }
         
         return nil
-    }
-    
-    func addGesture() {
-        
-        
     }
     
     @IBAction func backToFamilyPage(_ sender: Any) {

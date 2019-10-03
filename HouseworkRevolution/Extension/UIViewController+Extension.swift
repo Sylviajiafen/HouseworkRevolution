@@ -38,6 +38,14 @@ extension UIViewController {
         present(alert, animated: true, completion: nil)
     
     }
+    
+    func addTapToDismissGesture(on background: UIView) {
+        
+        let touchToDismiss = UITapGestureRecognizer(target: self,
+                                                    action: #selector(tapToDismiss))
+        
+        background.addGestureRecognizer(touchToDismiss)
+    }
 
     @objc func tapToDismiss() {
         

@@ -18,14 +18,13 @@ extension UIView {
         
         rotation.toValue = Double.pi / 8
             
-        rotation.duration = 0.008
+        rotation.duration = 0.0045
             
-        rotation.repeatCount = 60
+        rotation.repeatCount = 70
             
         self.layer.add(rotation, forKey: nil)
         
     }
-    
 }
 
 extension CALayer {
