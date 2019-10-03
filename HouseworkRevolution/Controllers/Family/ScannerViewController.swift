@@ -14,12 +14,16 @@ class ScannerViewController: UIViewController {
 
     @IBOutlet weak var dismissBtn: UIButton!
     
+    @IBOutlet weak var noticeTitle: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setUpCamera()
         
         setQRCodeFrame()
+        
+        setUpNotice()
         
         FirebaseUserHelper.shared.getAllUser { [weak self] (allUsers) in
             
@@ -54,6 +58,21 @@ class ScannerViewController: UIViewController {
             view.addSubview(qrCodeFrameView)
                 
             view.bringSubviewToFront(qrCodeFrameView)
+            
+            view.bringSubviewToFront(noticeTitle)
+        }
+    }
+    
+    func setUpNotice() {
+        
+        if UserDefaults.standard.value(forKey: "userKey") == nil {
+            
+            noticeTitle.text = "掃描自己的 QRCode，系統將會自動輸入您的 ID"
+            
+        } else {
+            
+            noticeTitle.text = "掃描家人的 QRCode，找到家人的 ID 吧！"
+
         }
     }
     
@@ -98,6 +117,8 @@ extension ScannerViewController: AVCaptureMetadataOutputObjectsDelegate {
             
         } catch {
             
+            noticeTitle.isHidden = true
+            
             return
         }
         
@@ -140,7 +161,15 @@ extension ScannerViewController: AVCaptureMetadataOutputObjectsDelegate {
                     
                 } else {
                     
-                    showAlertOf(message: "找不到家人耶")
+                    if UserDefaults.standard.value(forKey: "userKey") == nil {
+                        
+                        showAlertOf(message: "沒有找到您")
+                        
+                    } else {
+                        
+                        showAlertOf(message: "找不到家人耶")
+
+                    }
                 }
             }
         }

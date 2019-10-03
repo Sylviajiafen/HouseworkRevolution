@@ -26,9 +26,6 @@ extension NSRegularExpression {
         
         let range = NSRange(location: 0, length: string.utf16.count)
         
-        print("=== first match ===")
-        print(firstMatch(in: string, options: [], range: range) as Any)
-        
         let char = string.cString(using: .utf8)
 
         let isBackSpace = strcmp(char, "\\b")

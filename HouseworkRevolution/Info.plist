@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>NSCameraUsageDescription</key>
-	<string>開啟相機以掃描 QRCode。若不允許，將無法利用 QRCode 搜尋家人</string>
+	<string>開啟相機以掃描 QRCode。若不允許，將無法利用 QRCode 搜尋 ID。</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>

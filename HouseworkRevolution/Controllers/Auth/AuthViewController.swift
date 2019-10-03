@@ -30,6 +30,8 @@ class AuthViewController: UIViewController {
     
     @IBOutlet weak var userPassword: UITextField!
     
+    @IBOutlet weak var scannerImage: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -47,13 +49,38 @@ class AuthViewController: UIViewController {
         
         customUserName.delegate = self
         
-        //
-        
         createPassword.delegate = self
         
         pwdConfirmField.delegate = self
         
         userPassword.delegate = self
+        
+        setUpScanner()
+    }
+    
+    func setUpScanner() {
+        
+        scannerImage.isUserInteractionEnabled = true
+        
+        let touch = UITapGestureRecognizer(target: self, action: #selector(showScannerPage))
+        
+        scannerImage.addGestureRecognizer(touch)
+    }
+    
+    @objc func showScannerPage() {
+        
+        let scannerViewController = UIStoryboard.family.instantiateViewController(
+                   withIdentifier: String(describing: ScannerViewController.self))
+           
+        guard let targetView = scannerViewController as? ScannerViewController else { return }
+        
+        targetView.delegate = self
+               
+        targetView.modalPresentationStyle = .fullScreen
+        
+        userID.text = ""
+           
+        present(targetView, animated: false, completion: nil)
     }
     
     @IBAction func showUserSetting(_ sender: Any) {
@@ -325,9 +352,17 @@ extension AuthViewController: UITextFieldDelegate {
             
             let regex = NSRegularExpression(pattern)
             
-//            print("string now: (\(string))")
-            
             return regex.matches(string)
         }
     }
+}
+
+extension AuthViewController: ScannerViewControllerDelegate {
+    
+    func inputDetectedUser(id: String) {
+        
+        userID.text = id
+        
+    }
+    
 }

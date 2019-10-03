@@ -107,8 +107,6 @@ class SearchUserViewController: UIViewController {
     
     @objc func showScannerPage() {
         
-        print("點掃描")
-        
         let scannerViewController = UIStoryboard.family.instantiateViewController(
                    withIdentifier: String(describing: ScannerViewController.self))
            
