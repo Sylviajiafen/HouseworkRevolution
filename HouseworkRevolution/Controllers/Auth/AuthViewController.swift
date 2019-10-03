@@ -79,6 +79,8 @@ class AuthViewController: UIViewController {
         targetView.modalPresentationStyle = .fullScreen
         
         userID.text = ""
+        
+        userPassword.text = ""
            
         present(targetView, animated: false, completion: nil)
     }
@@ -96,7 +98,6 @@ class AuthViewController: UIViewController {
         } else {
         
             userSettingView.isHidden = false
-            
         }
     }
     
@@ -362,7 +363,6 @@ extension AuthViewController: ScannerViewControllerDelegate {
     func inputDetectedUser(id: String) {
         
         userID.text = id
-        
     }
     
 }

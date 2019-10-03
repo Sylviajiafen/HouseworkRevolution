@@ -656,7 +656,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="請先至「設定」開啟相機權限" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="845-qw-kbV">
-                                <rect key="frame" x="30" y="240" width="260" height="28"/>
+                                <rect key="frame" x="30" y="230" width="260" height="28"/>
                                 <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="20"/>
                                 <color key="textColor" name="projectTitle"/>
                                 <nil key="highlightedColor"/>
@@ -676,22 +676,65 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
+                            <button opaque="NO" clipsSubviews="YES" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g6D-Kt-NEM">
+                                <rect key="frame" x="110" y="518" width="100" height="30"/>
+                                <color key="backgroundColor" name="lightGreen"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="RbR-FW-8gb"/>
+                                    <constraint firstAttribute="height" constant="30" id="qqK-ZT-klS"/>
+                                </constraints>
+                                <state key="normal" title="從相簿選取">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="pickFromGallery:" destination="Yxl-n2-P78" eventType="touchUpInside" id="AMA-fX-OLj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D36-iR-1pB">
+                                <rect key="frame" x="120" y="266" width="80" height="30"/>
+                                <color key="backgroundColor" name="projectTitleLight"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="sSF-rO-UmC"/>
+                                </constraints>
+                                <state key="normal" title="前往設定">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="directToSetting:" destination="Yxl-n2-P78" eventType="touchUpInside" id="z36-LN-vvg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" name="projectBackground"/>
                         <constraints>
                             <constraint firstAttribute="leading" secondItem="hw4-4m-Amp" secondAttribute="leading" constant="-15" id="1qz-se-Isn"/>
-                            <constraint firstItem="845-qw-kbV" firstAttribute="centerY" secondItem="Abl-po-LqK" secondAttribute="centerY" constant="-30" id="4Id-B4-9Fc"/>
+                            <constraint firstItem="845-qw-kbV" firstAttribute="centerY" secondItem="Abl-po-LqK" secondAttribute="centerY" constant="-40" id="4Id-B4-9Fc"/>
                             <constraint firstItem="845-qw-kbV" firstAttribute="centerX" secondItem="Abl-po-LqK" secondAttribute="centerX" id="5rY-au-VRm"/>
                             <constraint firstItem="hw4-4m-Amp" firstAttribute="top" secondItem="1Sd-AU-6ds" secondAttribute="top" constant="15" id="DLH-yA-QFA"/>
                             <constraint firstItem="VQW-PI-vTU" firstAttribute="leading" secondItem="hw4-4m-Amp" secondAttribute="trailing" constant="15" id="PiX-gY-VL6"/>
+                            <constraint firstItem="1Sd-AU-6ds" firstAttribute="bottom" secondItem="g6D-Kt-NEM" secondAttribute="bottom" constant="20" id="Spz-GI-O8T"/>
                             <constraint firstItem="VQW-PI-vTU" firstAttribute="top" secondItem="1Sd-AU-6ds" secondAttribute="top" constant="20" id="YOh-w3-nDC"/>
+                            <constraint firstItem="D36-iR-1pB" firstAttribute="top" secondItem="845-qw-kbV" secondAttribute="bottom" constant="8" id="ecx-ym-imc"/>
                             <constraint firstItem="1Sd-AU-6ds" firstAttribute="trailing" secondItem="VQW-PI-vTU" secondAttribute="trailing" constant="15" id="nkj-uw-nO4"/>
+                            <constraint firstItem="g6D-Kt-NEM" firstAttribute="centerX" secondItem="Abl-po-LqK" secondAttribute="centerX" id="tyr-AJ-g4k"/>
+                            <constraint firstItem="D36-iR-1pB" firstAttribute="centerX" secondItem="Abl-po-LqK" secondAttribute="centerX" id="u3E-UO-joc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1Sd-AU-6ds"/>
                     </view>
                     <connections>
+                        <outlet property="dierctToSettingBtn" destination="D36-iR-1pB" id="u2d-0E-q6Y"/>
                         <outlet property="dismissBtn" destination="hw4-4m-Amp" id="mFL-Ub-1j4"/>
                         <outlet property="noticeTitle" destination="VQW-PI-vTU" id="p3a-4u-RuZ"/>
+                        <outlet property="pickFromGalleryBtn" destination="g6D-Kt-NEM" id="8UX-Ze-8Yc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2fX-23-TUA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -721,6 +764,9 @@
         </namedColor>
         <namedColor name="darkRed">
             <color red="0.59999999999999998" green="0.082352941176470587" blue="0.082352941176470587" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="lightGreen">
+            <color red="0.61176470588235299" green="0.83529411764705885" blue="0.77254901960784317" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="noticeGray">
             <color red="0.37647058823529411" green="0.36470588235294116" blue="0.36470588235294116" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

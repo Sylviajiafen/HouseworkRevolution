@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>若不允許</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>若不允許，將無法掃描相簿中的 QRCode 圖檔</string>
 	<key>NSCameraUsageDescription</key>
 	<string>開啟相機以掃描 QRCode。若不允許，將無法利用 QRCode 搜尋 ID。</string>
 	<key>CFBundleDevelopmentRegion</key>

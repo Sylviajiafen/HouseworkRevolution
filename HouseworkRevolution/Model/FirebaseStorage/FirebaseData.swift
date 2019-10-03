@@ -186,6 +186,13 @@ enum InvitationErr: String {
     case memberAlreadyExist = "已是家人囉"
 }
 
+enum QRCodeScannedResult<T> {
+    
+    case userFound(T)
+    
+    case userNotFound(T)
+}
+
 // Local Storage
 struct UserLoggedIn {
     
