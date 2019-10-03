@@ -521,9 +521,9 @@ class FirebaseUserHelper {
                                     
                                 } else {
                                     
-                                    familyQuery.collection(CollectionOfFamily.requestedMember.rawValue)
-                                        .addDocument(data: [RequestedMember.username.rawValue: name,
-                                                            RequestedMember.userID.rawValue: id])
+                                familyQuery.collection(CollectionOfFamily.requestedMember.rawValue)
+                                    .addDocument(data: [RequestedMember.username.rawValue: name,
+                                                        RequestedMember.userID.rawValue: id])
                                     
                                     invitorCompletion(.success("邀請成功！"))
                                 }

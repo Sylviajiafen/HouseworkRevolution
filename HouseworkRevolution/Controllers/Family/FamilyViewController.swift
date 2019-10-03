@@ -81,7 +81,7 @@ class FamilyViewController: UIViewController {
     
     @objc func tapOnInfo() {
         
-        showAlertOf(title: "點擊下方 id 即可複製",
+        showAlertOf(title: "點擊下方 ID 即可複製",
                     message: "請妥善保存，換手機、重載app時會用到唷！")
     }
     
@@ -395,12 +395,12 @@ extension FamilyViewController: UITableViewDelegate, UITableViewDataSource {
             switch section {
                 
             case 0:
-                header.sectionTitleLabel.text = "成員"
+                header.sectionTitleLabel.text = "家庭成員"
                 header.addCorner()
                 return header
                 
             case 1:
-                header.sectionTitleLabel.text = "邀請中的成員"
+                header.sectionTitleLabel.text = "邀請中的家人"
                 header.addCorner()
                 header.sectionContentView.alpha = 1.0
                 return header
