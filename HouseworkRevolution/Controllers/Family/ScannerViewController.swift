@@ -184,6 +184,19 @@ class ScannerViewController: UIViewController {
                 }
             }
             
+        } else if status == .authorized {
+            
+            DispatchQueue.main.async { [weak self] in
+            
+                guard let strongSelf = self else { return }
+            
+                strongSelf.imagePicker.allowsEditing = false
+            
+                strongSelf.imagePicker.sourceType = .photoLibrary
+            
+                strongSelf.present(strongSelf.imagePicker, animated: true, completion: nil)
+            }
+        
         } else {
             
             DispatchQueue.main.async { [weak self] in

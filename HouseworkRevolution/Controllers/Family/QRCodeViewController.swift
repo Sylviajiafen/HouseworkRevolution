@@ -71,10 +71,16 @@ class QRCodeViewController: UIViewController {
                         
                         self?.saveQRCodeInfoImage()
                     }
-                
                 } 
             }
             
+        } else if status == .authorized {
+            
+            DispatchQueue.main.async { [weak self] in
+                
+                self?.saveQRCodeInfoImage()
+            }
+        
         } else {
             
             DispatchQueue.main.async { [weak self] in
