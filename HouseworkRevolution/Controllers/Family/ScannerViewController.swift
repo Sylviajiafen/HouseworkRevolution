@@ -23,15 +23,18 @@ class ScannerViewController: UIViewController {
     @IBOutlet weak var dierctToSettingBtn: UIButton!
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         imagePicker.delegate = self
         
+        setSubViews(shouldHide: true)
+        
         switch AVCaptureDevice.authorizationStatus(for: .video) {
             
-        case .notDetermined:
+            case .notDetermined:
             
-            AVCaptureDevice.requestAccess(for: .video) { [weak self] (agree) in
+                AVCaptureDevice.requestAccess(for: .video) { [weak self] (agree) in
                 
                 if agree {
                     
@@ -39,29 +42,22 @@ class ScannerViewController: UIViewController {
                     
                 } else {
                     
-                    DispatchQueue.main.async {
-                        
-                        self?.noticeTitle.isHidden = true
-                                   
-                        self?.pickFromGalleryBtn.isHidden = true
-                    }
+                    self?.setSubViews(shouldHide: true)
                 }
             }
             
-        case .authorized:
+            case .authorized:
             
-            setUpCamera()
+                setUpCamera()
             
-        case .denied, .restricted:
+            case .denied, .restricted:
             
-            noticeTitle.isHidden = true
-                       
-            pickFromGalleryBtn.isHidden = true
+                setSubViews(shouldHide: true)
             
-        @unknown default:
+            @unknown default:
             
-            fatalError()
-        }
+                fatalError()
+            }
         
         setQRCodeFrame()
         
@@ -87,6 +83,8 @@ class ScannerViewController: UIViewController {
     var qrCodeFrameView: UIView?
     
     let imagePicker = UIImagePickerController()
+    
+    var canGetCamraDevice: Bool = true
 
     func setQRCodeFrame() {
         
@@ -98,10 +96,13 @@ class ScannerViewController: UIViewController {
             qrCodeFrameView.layer.borderColor = frameColor.cgColor
                 
             qrCodeFrameView.layer.borderWidth = 2
-                
-            view.addSubview(qrCodeFrameView)
-                
-            view.bringSubviewToFront(qrCodeFrameView)
+
+            DispatchQueue.main.async { [weak self] in
+                    
+                self?.view.addSubview(qrCodeFrameView)
+                    
+                self?.view.bringSubviewToFront(qrCodeFrameView)
+            }
         }
     }
     
@@ -117,17 +118,16 @@ class ScannerViewController: UIViewController {
         }
     }
     
-//    func showUserNotFound() {
-//
-//        if UserDefaults.standard.value(forKey: "userKey") == nil {
-//
-//            showAlertOf(message: "沒有找到您")
-//
-//        } else {
-//
-//            showAlertOf(message: "找不到家人耶")
-//        }
-//    }
+    func setSubViews(shouldHide: Bool) {
+        
+        DispatchQueue.main.async { [weak self] in
+            
+            self?.noticeTitle.isHidden = shouldHide
+            
+            self?.pickFromGalleryBtn.isHidden = shouldHide
+            
+        }
+    }
     
     func detectUser(by detectedString: String, completionHandler: @escaping QRCodeStringMessage) {
         
@@ -177,14 +177,36 @@ extension ScannerViewController: AVCaptureMetadataOutputObjectsDelegate {
     
     func setUpCamera() {
         
-        let deviceDiscoverySession =
-            AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInDualCamera],
-                                             mediaType: AVMediaType.video,
-                                             position: .back)
+//        if #available(iOS 13.0, *) {
+//
+//            let deviceDiscoverySession =
+//                AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInDualCamera, .builtInWideAngleCamera, .builtInTripleCamera],
+//                                                 mediaType: AVMediaType.video,
+//                                                 position: .back)
+//        } else {
+//            // Fallback on earlier versions
+//        }
+
+        guard let captureDevice = AVCaptureDevice.default(for: .video) else {
+            
+            setSubViews(shouldHide: true)
+            
+            DispatchQueue.main.async { [weak self] in
+                
+                self?.showAlertOf(title: nil,
+                                  message: "本機型無法取用相機裝置",
+                                  dismissByCondition: true,
+                                  handler: {
+                     
+                    self?.dismiss(animated: false, completion: nil)
+                })
+            }
+                        
+        return }
         
         let captureMetadataOutput = AVCaptureMetadataOutput()
         
-        guard let captureDevice = deviceDiscoverySession.devices.first else { return }
+        setSubViews(shouldHide: false)
         
         do {
             
@@ -198,23 +220,37 @@ extension ScannerViewController: AVCaptureMetadataOutputObjectsDelegate {
             
             videoPreviewLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
             
-            videoPreviewLayer?.frame = view.layer.bounds
-            
-            view.layer.addSublayer(videoPreviewLayer!)
-            
-            view.bringSubviewToFront(dismissBtn)
-            
-            view.bringSubviewToFront(noticeTitle)
-            
-            view.bringSubviewToFront(pickFromGalleryBtn)
-            
-            captureSession.startRunning()
+            DispatchQueue.main.async { [weak self] in
+
+                guard let strongSelf = self else { return }
+
+                strongSelf.videoPreviewLayer?.frame = strongSelf.view.layer.bounds
+
+                guard let videoPreview = strongSelf.videoPreviewLayer else { return }
+                
+                strongSelf.view.layer.addSublayer(videoPreview)
+
+                strongSelf.view.bringSubviewToFront(strongSelf.dismissBtn)
+
+                strongSelf.view.bringSubviewToFront(strongSelf.noticeTitle)
+
+                strongSelf.view.bringSubviewToFront(strongSelf.pickFromGalleryBtn)
+
+                strongSelf.captureSession.startRunning()
+            }
             
         } catch {
             
-            noticeTitle.isHidden = true
-            
-            pickFromGalleryBtn.isHidden = true
+            DispatchQueue.main.async { [weak self] in
+                
+                self?.showAlertOf(title: nil,
+                                  message: "無法取用相機裝置",
+                                  dismissByCondition: true,
+                                  handler: {
+                     
+                    self?.dismiss(animated: false, completion: nil)
+                })
+            }
    
             return
         }
@@ -263,10 +299,10 @@ extension ScannerViewController: AVCaptureMetadataOutputObjectsDelegate {
                     case .userNotFound(let message):
                         
                         self?.showAlertOf(message: message)
-                }
+                    }
                 
+                }
             }
-        }
         }
     }
     
