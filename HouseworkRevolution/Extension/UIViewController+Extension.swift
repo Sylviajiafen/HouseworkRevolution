@@ -51,4 +51,29 @@ extension UIViewController {
         
         dismiss(animated: false, completion: nil)
     }
+    
+    func showAuthAlertAndDirectToSettings(title: String? = nil, message: String) {
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let directAction = UIAlertAction(title: "前往設定",
+                                         style: .default) { (_) in
+                
+                guard let settingsUrl = URL(string: UIApplication.openSettingsURLString)
+                        else { return }
+                                            
+                if UIApplication.shared.canOpenURL(settingsUrl) {
+                                                
+                                                 UIApplication.shared.open(settingsUrl)
+                }
+        }
+        
+        let cancelAction = UIAlertAction(title: "取消", style: .cancel)
+        
+        alert.addAction(directAction)
+        
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true, completion: nil)
+    }
 }

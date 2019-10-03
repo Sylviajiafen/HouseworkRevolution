@@ -10,6 +10,8 @@ import UIKit
 
 import AVFoundation
 
+import Photos
+
 typealias QRCodeStringMessage = (QRCodeScannedResult<String>) -> Void
 
 class ScannerViewController: UIViewController {
@@ -155,16 +157,41 @@ class ScannerViewController: UIViewController {
         if UIApplication.shared.canOpenURL(settingsUrl) {
             
             UIApplication.shared.open(settingsUrl)
+            
         }
     }
     
     @IBAction func pickFromGallery(_ sender: Any) {
         
-        imagePicker.allowsEditing = false
+        let status = PHPhotoLibrary.authorizationStatus()
         
-        imagePicker.sourceType = .photoLibrary
+        if status == .notDetermined {
+            
+            PHPhotoLibrary.requestAuthorization { [weak self] (status) in
+            
+                if status == .authorized {
+                   
+                    DispatchQueue.main.async {
+                    
+                        guard let strongSelf = self else { return }
+                    
+                        strongSelf.imagePicker.allowsEditing = false
+                    
+                        strongSelf.imagePicker.sourceType = .photoLibrary
+                    
+                        strongSelf.present(strongSelf.imagePicker, animated: true, completion: nil)
+                    }
+                }
+            }
+            
+        } else {
+            
+            DispatchQueue.main.async { [weak self] in
+                
+                self?.showAuthAlertAndDirectToSettings(message: "請先至設定開啟相簿權限")
+            }
+        }
         
-        present(imagePicker, animated: true, completion: nil)
     }
     
     @IBAction func backToSearchView(_ sender: Any) {
@@ -313,8 +340,6 @@ extension ScannerViewController: UIImagePickerControllerDelegate, UINavigationCo
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo
                                 info: [UIImagePickerController.InfoKey: Any]) {
-        
-        print("進 didFinish")
         
         if let qrCodeImage = info[.originalImage] as? UIImage {
             

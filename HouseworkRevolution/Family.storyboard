@@ -22,10 +22,19 @@
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dgq-ee-2dc">
-                                <rect key="frame" x="20" y="104" width="280" height="360"/>
+                                <rect key="frame" x="20" y="79" width="280" height="340"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="顆顆" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xdw-i1-66w">
-                                        <rect key="frame" x="65" y="270" width="150" height="34"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="14" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iEh-hx-vsj">
+                                        <rect key="frame" x="30" y="265" width="220" height="0.0"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="220" id="0WQ-vs-GiV"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="16"/>
+                                        <color key="textColor" name="contentBlue"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xdw-i1-66w">
+                                        <rect key="frame" x="65" y="255" width="150" height="0.0"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="150" id="NuV-cr-aPP"/>
                                         </constraints>
@@ -38,21 +47,22 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1234" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="14" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iEh-hx-vsj">
-                                        <rect key="frame" x="30" y="314" width="220" height="18.5"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4cV-2D-yZm">
+                                        <rect key="frame" x="30" y="20" width="220" height="220"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="220" id="0WQ-vs-GiV"/>
+                                            <constraint firstAttribute="width" constant="220" id="CiK-UN-Yvb"/>
+                                            <constraint firstAttribute="height" constant="220" id="Sqd-Ik-Kge"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="16"/>
-                                        <color key="textColor" name="contentBlue"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" name="projectBackground"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="360" id="0A7-Da-kj6"/>
+                                    <constraint firstAttribute="height" constant="340" id="0A7-Da-kj6"/>
+                                    <constraint firstItem="4cV-2D-yZm" firstAttribute="centerX" secondItem="dgq-ee-2dc" secondAttribute="centerX" id="72T-kf-C8y"/>
                                     <constraint firstAttribute="width" constant="280" id="PjS-jz-gKG"/>
+                                    <constraint firstItem="xdw-i1-66w" firstAttribute="top" secondItem="4cV-2D-yZm" secondAttribute="bottom" constant="15" id="Srb-s1-Tt8"/>
                                     <constraint firstItem="iEh-hx-vsj" firstAttribute="top" secondItem="xdw-i1-66w" secondAttribute="bottom" constant="10" id="Yxc-SD-WXT"/>
+                                    <constraint firstItem="4cV-2D-yZm" firstAttribute="top" secondItem="dgq-ee-2dc" secondAttribute="top" constant="20" id="c6C-va-327"/>
                                     <constraint firstItem="iEh-hx-vsj" firstAttribute="centerX" secondItem="dgq-ee-2dc" secondAttribute="centerX" id="jPh-tB-5ET"/>
                                     <constraint firstItem="xdw-i1-66w" firstAttribute="centerX" secondItem="dgq-ee-2dc" secondAttribute="centerX" id="xKG-QP-0Vj"/>
                                 </constraints>
@@ -63,37 +73,41 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NIe-nN-Ydw">
-                                <rect key="frame" x="300" y="72" width="32" height="32"/>
+                                <rect key="frame" x="300" y="47" width="32" height="32"/>
                                 <state key="normal" image="dismiss"/>
                                 <connections>
                                     <action selector="backToFamilyPage:" destination="GeA-CT-awO" eventType="touchUpInside" id="PDG-Jf-X9W"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4cV-2D-yZm">
-                                <rect key="frame" x="50" y="134" width="220" height="220"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eSu-t6-J6t">
+                                <rect key="frame" x="137.5" y="429" width="45" height="45"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="220" id="CiK-UN-Yvb"/>
-                                    <constraint firstAttribute="height" constant="220" id="Sqd-Ik-Kge"/>
+                                    <constraint firstAttribute="height" constant="45" id="2Au-Bm-Sb9"/>
+                                    <constraint firstAttribute="width" secondItem="eSu-t6-J6t" secondAttribute="height" multiplier="1:1" id="deK-hS-zwe"/>
                                 </constraints>
-                            </imageView>
+                                <state key="normal" title="儲存" image="saveFile"/>
+                                <connections>
+                                    <action selector="saveQRCodeToLibrary:" destination="GeA-CT-awO" eventType="touchUpInside" id="oX9-H5-XqV"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="NIe-nN-Ydw" firstAttribute="leading" secondItem="dgq-ee-2dc" secondAttribute="trailing" id="6t1-qY-EYd"/>
                             <constraint firstItem="dgq-ee-2dc" firstAttribute="centerX" secondItem="znC-Va-QhW" secondAttribute="centerX" id="6wp-4f-Tp2"/>
                             <constraint firstAttribute="bottom" secondItem="y9e-ne-XZ8" secondAttribute="bottom" id="DYm-B9-OVe"/>
-                            <constraint firstItem="xdw-i1-66w" firstAttribute="top" secondItem="4cV-2D-yZm" secondAttribute="bottom" constant="20" id="Dag-Ab-Gig"/>
                             <constraint firstItem="y9e-ne-XZ8" firstAttribute="top" secondItem="znC-Va-QhW" secondAttribute="top" id="EQv-jo-Ddl"/>
-                            <constraint firstItem="dgq-ee-2dc" firstAttribute="centerY" secondItem="znC-Va-QhW" secondAttribute="centerY" id="G2q-LU-alD"/>
+                            <constraint firstItem="dgq-ee-2dc" firstAttribute="centerY" secondItem="znC-Va-QhW" secondAttribute="centerY" constant="-35" id="G2q-LU-alD"/>
                             <constraint firstItem="NIe-nN-Ydw" firstAttribute="bottom" secondItem="dgq-ee-2dc" secondAttribute="top" priority="5" id="OqV-Ag-PfK"/>
                             <constraint firstItem="K5N-7t-lt0" firstAttribute="trailing" secondItem="y9e-ne-XZ8" secondAttribute="trailing" id="Ppv-xU-tFc"/>
-                            <constraint firstItem="4cV-2D-yZm" firstAttribute="centerX" secondItem="znC-Va-QhW" secondAttribute="centerX" id="SlC-Og-5ZJ"/>
+                            <constraint firstItem="eSu-t6-J6t" firstAttribute="top" secondItem="dgq-ee-2dc" secondAttribute="bottom" constant="10" id="V4N-py-Zj8"/>
+                            <constraint firstItem="eSu-t6-J6t" firstAttribute="centerX" secondItem="znC-Va-QhW" secondAttribute="centerX" id="VUf-mh-8bM"/>
                             <constraint firstItem="y9e-ne-XZ8" firstAttribute="leading" secondItem="K5N-7t-lt0" secondAttribute="leading" id="ZiS-I0-JvK"/>
-                            <constraint firstItem="4cV-2D-yZm" firstAttribute="top" secondItem="dgq-ee-2dc" secondAttribute="top" constant="30" id="vqo-e5-jsR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="K5N-7t-lt0"/>
                     </view>
                     <connections>
+                        <outlet property="QRCodeInfoView" destination="dgq-ee-2dc" id="Qot-Bc-oSw"/>
                         <outlet property="backgroundDarkView" destination="y9e-ne-XZ8" id="cVM-pm-tHB"/>
                         <outlet property="qrCodeImage" destination="4cV-2D-yZm" id="eBb-8f-bM5"/>
                         <outlet property="qrcodeView" destination="4cV-2D-yZm" id="8wP-hW-D9c"/>
@@ -751,6 +765,7 @@
         <image name="no" width="24" height="24"/>
         <image name="qrCode" width="60" height="60"/>
         <image name="remove" width="16" height="16"/>
+        <image name="saveFile" width="64" height="64"/>
         <image name="scanner" width="64" height="62"/>
         <image name="yes" width="24" height="24"/>
         <namedColor name="buttonSelected">

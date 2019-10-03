@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Photos
 
 class QRCodeViewController: UIViewController {
 
@@ -19,6 +20,8 @@ class QRCodeViewController: UIViewController {
     @IBOutlet weak var qrCodeImage: UIImageView!
     
     @IBOutlet weak var backgroundDarkView: UIView!
+    
+    @IBOutlet weak var QRCodeInfoView: UIView!
     
     override func viewDidLoad() {
         
@@ -52,6 +55,64 @@ class QRCodeViewController: UIViewController {
         }
         
         return nil
+    }
+    
+    @IBAction func saveQRCodeToLibrary(_ sender: Any) {
+        
+        let status = PHPhotoLibrary.authorizationStatus()
+        
+        if status == .notDetermined {
+            
+            PHPhotoLibrary.requestAuthorization { [weak self] (status) in
+            
+                if status == .authorized {
+                   
+                    DispatchQueue.main.async {
+                        
+                        self?.saveQRCodeInfoImage()
+                    }
+                
+                } 
+            }
+            
+        } else {
+            
+            DispatchQueue.main.async { [weak self] in
+                
+                self?.showAuthAlertAndDirectToSettings(message: "請先至設定開啟相簿權限")
+            }
+        }
+        
+    }
+    
+    func saveQRCodeInfoImage() {
+        
+        let renderer = UIGraphicsImageRenderer(size: QRCodeInfoView.bounds.size)
+        
+        let image = renderer.image(actions: { [weak self] (context) in
+            
+            guard let strongSelf = self else { return }
+            
+            strongSelf.QRCodeInfoView.drawHierarchy(in: strongSelf.QRCodeInfoView.bounds,
+                                                    afterScreenUpdates: true)
+        })
+        
+        UIImageWriteToSavedPhotosAlbum(image, self, #selector(imageSavingResult), nil)
+    }
+    
+    @objc func imageSavingResult(_ image: UIImage,
+                                 didFinishSavingWithError error: Error?,
+                                 contextInfo: UnsafeRawPointer) {
+        if let error = error {
+           
+            showAlertOf(message: "無法儲存至相簿")
+            
+            print(error.localizedDescription)
+            
+        } else {
+            
+            ProgressHUD.showＷith(text: "儲存至相簿", self.view)
+        }
     }
     
     @IBAction func backToFamilyPage(_ sender: Any) {
