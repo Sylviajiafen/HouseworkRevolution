@@ -9,18 +9,22 @@
 import UIKit
 
 class FamilyViewController: UIViewController {
-
+    
     @IBOutlet weak var familyMemberTableView: UITableView!
     
     @IBOutlet weak var invitingFamilyTableView: UITableView!
     
     @IBOutlet weak var userCallLabel: UILabel!
     
-    @IBOutlet weak var userIDLabel: UILabel!
+    @IBOutlet weak var userIDBtn: UIButton!
     
     @IBOutlet weak var familyNameLabel: UILabel!
     
     @IBOutlet weak var dropOutView: UIView!
+    
+    @IBOutlet weak var informationIcon: UIImageView!
+    
+    @IBOutlet weak var qrCodeImage: UIImageView!
     
     override func viewDidLoad() {
         
@@ -30,9 +34,15 @@ class FamilyViewController: UIViewController {
         
         invitingFamilyTableView.dataSource = self
         
-        userIDLabel.text = StorageManager.userInfo.userID
+        userIDBtn.setTitle(StorageManager.userInfo.userID, for: .normal)
+        
+        userIDBtn.titleLabel?.adjustsFontSizeToFitWidth = true
         
         isOriginOrNot()
+        
+        setInformation()
+        
+        setQRCode()
         
         // MARK: regist header
         let headerXibOfMember = UINib(nibName: String(describing: FamilyMemberSectionHeader.self),
@@ -51,6 +61,53 @@ class FamilyViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
 
         getHomeData()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        FirebaseUserHelper.currentListenerRegistration?.remove()
+        
+        FirebaseUserHelper.currentMemberListener?.remove()
+    }
+    
+    func setInformation() {
+        
+        informationIcon.isUserInteractionEnabled = true
+        
+        let touch = UITapGestureRecognizer(target: self, action: #selector(tapOnInfo))
+        
+        informationIcon.addGestureRecognizer(touch)
+    }
+    
+    @objc func tapOnInfo() {
+        
+        showAlertOf(title: "點擊下方 ID 即可複製",
+                    message: "請妥善保存，換手機、重載app時會用到唷！")
+    }
+    
+    func setQRCode() {
+        
+        qrCodeImage.isUserInteractionEnabled = true
+        
+        let touch = UITapGestureRecognizer(target: self, action: #selector(showQRCodePage))
+        
+        qrCodeImage.addGestureRecognizer(touch)
+    }
+    
+    @objc func showQRCodePage() {
+        
+        let qrCodeViewController = UIStoryboard.family.instantiateViewController(
+            withIdentifier: String(describing: QRCodeViewController.self))
+        
+        guard let targetView = qrCodeViewController as? QRCodeViewController else { return }
+        
+        targetView.modalPresentationStyle = .overFullScreen
+        
+        guard let userName = self.userCallLabel.text else { return }
+        
+        targetView.userName = userName
+        
+        present(targetView, animated: false, completion: nil)
     }
     
     @IBAction func copyUserID(_ sender: Any) {
@@ -343,16 +400,14 @@ extension FamilyViewController: UITableViewDelegate, UITableViewDataSource {
             switch section {
                 
             case 0:
-                
-                header.sectionTitleLabel.text = "成員"
-                
+                header.sectionTitleLabel.text = "家庭成員"
                 header.addCorner()
                 
                 return header
                 
             case 1:
                 
-                header.sectionTitleLabel.text = "邀請中的成員"
+                header.sectionTitleLabel.text = "邀請中的家人"
                 
                 header.addCorner()
                 

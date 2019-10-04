@@ -10,9 +10,12 @@ import UIKit
 
 extension UIViewController {
     
-    func showAlertOf(message: String, dismissByCondition: Bool = false, handler: (() -> Void)? = nil) {
+    func showAlertOf(title: String? = nil,
+                     message: String,
+                     dismissByCondition: Bool = false,
+                     handler: (() -> Void)? = nil) {
         
-        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
         var action = UIAlertAction()
         
@@ -35,9 +38,42 @@ extension UIViewController {
         present(alert, animated: true, completion: nil)
     
     }
+    
+    func addTapToDismissGesture(on background: UIView) {
+        
+        let touchToDismiss = UITapGestureRecognizer(target: self,
+                                                    action: #selector(tapToDismiss))
+        
+        background.addGestureRecognizer(touchToDismiss)
+    }
 
     @objc func tapToDismiss() {
         
         dismiss(animated: false, completion: nil)
+    }
+    
+    func showAuthAlertAndDirectToSettings(title: String? = nil, message: String) {
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let directAction = UIAlertAction(title: "前往設定",
+                                         style: .default) { (_) in
+                
+                guard let settingsUrl = URL(string: UIApplication.openSettingsURLString)
+                        else { return }
+                                            
+                if UIApplication.shared.canOpenURL(settingsUrl) {
+                                                
+                                                 UIApplication.shared.open(settingsUrl)
+                }
+        }
+        
+        let cancelAction = UIAlertAction(title: "取消", style: .cancel)
+        
+        alert.addAction(directAction)
+        
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true, completion: nil)
     }
 }

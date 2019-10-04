@@ -419,9 +419,9 @@ class FirebaseUserHelper {
                                     
                                 } else {
                                     
-                                    familyQuery.collection(CollectionOfFamily.requestedMember.rawValue)
-                                        .addDocument(data: [RequestedMember.username.rawValue: name,
-                                                            RequestedMember.userID.rawValue: id])
+                                familyQuery.collection(CollectionOfFamily.requestedMember.rawValue)
+                                    .addDocument(data: [RequestedMember.username.rawValue: name,
+                                                        RequestedMember.userID.rawValue: id])
                                     
                                     invitorCompletion(.success("邀請成功！"))
                                 }
@@ -440,8 +440,8 @@ class FirebaseUserHelper {
                             if let querySnapshot = querySnapshot {
                                 
                                 if querySnapshot.count > 0 {
-                                 
-                                    return
+                                    
+                                    print("告訴 user 重複被邀請了")
                                     
                                 } else {
                                     

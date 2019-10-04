@@ -13,8 +13,10 @@ class SearchUserViewController: UIViewController {
     @IBOutlet weak var userIdSearchTF: UITextField!
     @IBOutlet weak var showResultTableView: UITableView!
     @IBOutlet weak var opacityDarkView: UIView!
+    @IBOutlet weak var scannerImage: UIImageView!
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
 
         userIdSearchTF.delegate = self
@@ -30,7 +32,10 @@ class SearchUserViewController: UIViewController {
         
         setUpsearchTF()
         
-        addGestureToDarkView()
+        setUpScanner()
+        
+        addTapToDismissGesture(on: opacityDarkView)
+        
     }
     
     @IBAction func closeView(_ sender: Any) {
@@ -82,17 +87,40 @@ class SearchUserViewController: UIViewController {
         
         userIdSearchTF.addTarget(self, action: #selector(searchRealtimeUpdate),
                                  for: .editingChanged)
-        
     }
     
-    func addGestureToDarkView() {
+    @objc func searchRealtimeUpdate() {
         
-        let touchToDismiss = UITapGestureRecognizer(target: self,
-                                                    action: #selector(tapToDismiss))
+        updateResult()
+    }
+
+    func setUpScanner() {
         
-        opacityDarkView.addGestureRecognizer(touchToDismiss)
+        scannerImage.isUserInteractionEnabled = true
+        
+        let touch = UITapGestureRecognizer(target: self, action: #selector(showScannerPage))
+        
+        scannerImage.addGestureRecognizer(touch)
     }
     
+    @objc func showScannerPage() {
+        
+        let scannerViewController = UIStoryboard.family.instantiateViewController(
+                   withIdentifier: String(describing: ScannerViewController.self))
+           
+        guard let targetView = scannerViewController as? ScannerViewController else { return }
+        
+        targetView.delegate = self
+               
+        targetView.modalPresentationStyle = .fullScreen
+           
+        present(targetView, animated: false, completion: nil)
+               
+        userIdSearchTF.text = ""
+               
+        updateResult()
+    }
+   
     @objc override func tapToDismiss() {
         
         shouldShowSearchResult = false
@@ -102,7 +130,7 @@ class SearchUserViewController: UIViewController {
     
     @objc func searchRealtimeUpdate() {
         
-        updateResult()
+        self.dismiss(animated: false, completion: nil)
     }
 }
 
@@ -222,6 +250,17 @@ extension SearchUserViewController: UITableViewDataSource,
         textField.resignFirstResponder()
         
         return true
+    }
+    
+}
+
+extension SearchUserViewController: ScannerViewControllerDelegate {
+    
+    func inputDetectedUser(id: String) {
+        
+        userIdSearchTF.text = id
+        
+        updateResult()
     }
     
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NRv-e1-cGi">
-    <device id="retina5_5" orientation="portrait" appearance="light"/>
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
@@ -14,26 +14,27 @@
             <objects>
                 <viewController id="NRv-e1-cGi" customClass="WishViewController" customModule="HouseworkRevolution" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QHD-MI-E0A">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wishBackground" translatesAutoresizingMaskIntoConstraints="NO" id="ath-Yb-0dU">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="737"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.75" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wishBackground" translatesAutoresizingMaskIntoConstraints="NO" id="ath-Yb-0dU">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="813"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="每天努力做家事的你，" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bi3-1v-daG">
-                                <rect key="frame" x="70" y="54" width="174" height="21"/>
+                                <rect key="frame" x="50.666666666666657" y="98" width="174" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="是否記得好好愛自己呢？" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fMf-LE-jSf">
-                                <rect key="frame" x="141.66666666666666" y="85" width="190.99999999999997" height="21"/>
+                                <rect key="frame" x="122" y="129" width="191" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sX7-sh-M65">
-                                <rect key="frame" x="71.666666666666686" y="120.00000000000001" width="271" height="25.666666666666671"/>
+                                <rect key="frame" x="52" y="164" width="271" height="25.333333333333343"/>
                                 <attributedString key="attributedText">
                                     <fragment content="快來向神燈精靈許個願犒賞自己吧">
                                         <attributes>
@@ -45,13 +46,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="magicLamp" translatesAutoresizingMaskIntoConstraints="NO" id="Pd4-G2-eju">
-                                <rect key="frame" x="118.33333333333333" y="175.66666666666663" width="177.33333333333337" height="177.33333333333337"/>
+                                <rect key="frame" x="107" y="229.33333333333337" width="161" height="160.66666666666663"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Pd4-G2-eju" secondAttribute="height" multiplier="1:1" id="OCF-3b-wb4"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o0A-8m-XR2">
-                                <rect key="frame" x="87" y="363" width="240" height="120"/>
+                                <rect key="frame" x="67.666666666666686" y="400" width="240" height="120"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.90000000000000002" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="raJ-Jc-ssn">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="85"/>
@@ -69,7 +70,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </textView>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NMZ-MR-t2b">
-                                        <rect key="frame" x="81.666666666666657" y="91" width="77" height="25"/>
+                                        <rect key="frame" x="81.333333333333329" y="91" width="76.999999999999986" height="25"/>
                                         <color key="backgroundColor" name="buttonUnSelected"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="25" id="D9Q-dy-4z1"/>
@@ -101,7 +102,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3WP-Tb-qSy">
-                                <rect key="frame" x="248" y="700" width="146" height="20"/>
+                                <rect key="frame" x="209" y="742" width="146" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="C6w-Sv-4RE"/>
                                 </constraints>
@@ -113,14 +114,14 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                        <color key="backgroundColor" name="projectBackground"/>
                         <constraints>
                             <constraint firstItem="sX7-sh-M65" firstAttribute="centerX" secondItem="QHD-MI-E0A" secondAttribute="centerX" id="0FF-kO-b7w"/>
                             <constraint firstItem="3WP-Tb-qSy" firstAttribute="top" relation="greaterThanOrEqual" secondItem="o0A-8m-XR2" secondAttribute="bottom" constant="10" id="DEt-ww-4Dj"/>
                             <constraint firstItem="o0A-8m-XR2" firstAttribute="top" secondItem="Pd4-G2-eju" secondAttribute="bottom" constant="10" id="JlV-nC-sKU"/>
                             <constraint firstItem="Pd4-G2-eju" firstAttribute="width" secondItem="ath-Yb-0dU" secondAttribute="width" multiplier="3/7" id="KTI-ha-nk8"/>
                             <constraint firstItem="ath-Yb-0dU" firstAttribute="bottom" secondItem="QHD-MI-E0A" secondAttribute="bottom" constant="1" id="LKb-IN-0hT"/>
-                            <constraint firstItem="Pd4-G2-eju" firstAttribute="top" secondItem="sX7-sh-M65" secondAttribute="bottom" constant="30" id="LYt-4g-Dcb"/>
+                            <constraint firstItem="Pd4-G2-eju" firstAttribute="top" secondItem="sX7-sh-M65" secondAttribute="bottom" constant="40" id="LYt-4g-Dcb"/>
                             <constraint firstItem="n3N-f5-pHs" firstAttribute="trailing" secondItem="3WP-Tb-qSy" secondAttribute="trailing" constant="20" id="RGV-f1-a1m"/>
                             <constraint firstItem="fMf-LE-jSf" firstAttribute="centerX" secondItem="QHD-MI-E0A" secondAttribute="centerX" constant="30" id="RgI-f2-W8A"/>
                             <constraint firstItem="n3N-f5-pHs" firstAttribute="bottom" secondItem="3WP-Tb-qSy" secondAttribute="bottom" constant="16" id="Uo4-eN-Oiy"/>
@@ -151,14 +152,14 @@
             <objects>
                 <viewController id="7ou-j6-ho2" customClass="ShowWishesViewController" customModule="HouseworkRevolution" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9BP-yI-22f">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkWishBackground" translatesAutoresizingMaskIntoConstraints="NO" id="Das-GL-Rpi">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </imageView>
                             <button opaque="NO" alpha="0.75" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AxV-wN-WgP">
-                                <rect key="frame" x="20" y="10" width="40" height="40"/>
+                                <rect key="frame" x="20" y="54" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="402-if-Qcs"/>
                                     <constraint firstAttribute="height" constant="40" id="F3l-si-7hN"/>
@@ -169,7 +170,7 @@
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="white" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="QjD-mX-17I">
-                                <rect key="frame" x="0.0" y="60" width="414" height="676"/>
+                                <rect key="frame" x="0.0" y="104" width="375" height="674"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewLayout key="collectionViewLayout" id="e5r-nM-hWI" customClass="ShowWishesLayout" customModule="HouseworkRevolution" customModuleProvider="target"/>
                                 <cells>
@@ -210,16 +211,16 @@
                                 </cells>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.90000000000000002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="偷看中......" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iPU-83-3Qb">
-                                <rect key="frame" x="170" y="20" width="74" height="22.666666666666671"/>
+                                <rect key="frame" x="150.66666666666666" y="63.999999999999993" width="74" height="22.666666666666664"/>
                                 <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5hY-9T-vo8">
-                                <rect key="frame" x="0.0" y="40" width="414" height="696"/>
+                                <rect key="frame" x="0.0" y="84" width="375" height="694"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="空空的...." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2AE-dq-xUe">
-                                        <rect key="frame" x="149.66666666666666" y="200" width="114.99999999999997" height="39.666666666666657"/>
+                                        <rect key="frame" x="130" y="200" width="115" height="39.666666666666657"/>
                                         <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="28"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -232,7 +233,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" clipsSubviews="YES" alpha="0.65000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xjk-Hm-dvz">
-                                <rect key="frame" x="167" y="703" width="80" height="25"/>
+                                <rect key="frame" x="147.66666666666666" y="745" width="80" height="25"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="4JN-kP-uAU"/>
@@ -244,7 +245,7 @@
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <integer key="value" value="8"/>
+                                        <real key="value" value="12.5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
@@ -300,6 +301,9 @@
         </namedColor>
         <namedColor name="noticeGray">
             <color red="0.37647058823529411" green="0.36470588235294116" blue="0.36470588235294116" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="projectBackground">
+            <color red="0.9882352941176471" green="0.97647058823529409" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
