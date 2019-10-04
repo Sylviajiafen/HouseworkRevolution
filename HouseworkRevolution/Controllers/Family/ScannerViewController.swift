@@ -34,9 +34,9 @@ class ScannerViewController: UIViewController {
         
         switch AVCaptureDevice.authorizationStatus(for: .video) {
             
-            case .notDetermined:
+        case .notDetermined:
             
-                AVCaptureDevice.requestAccess(for: .video) { [weak self] (agree) in
+            AVCaptureDevice.requestAccess(for: .video) { [weak self] (agree) in
                 
                 if agree {
                     
@@ -48,18 +48,18 @@ class ScannerViewController: UIViewController {
                 }
             }
             
-            case .authorized:
+        case .authorized:
             
-                setUpCamera()
+            setUpCamera()
             
-            case .denied, .restricted:
+        case .denied, .restricted:
             
-                setSubViews(shouldHide: true)
+            setSubViews(shouldHide: true)
             
-            @unknown default:
+        @unknown default:
             
-                fatalError()
-            }
+            fatalError()
+        }
         
         setQRCodeFrame()
         

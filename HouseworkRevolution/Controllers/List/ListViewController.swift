@@ -348,7 +348,6 @@ extension ListViewController: UICollectionViewDelegate,
         return header
     }
     
-    
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int
     ) -> Int {
