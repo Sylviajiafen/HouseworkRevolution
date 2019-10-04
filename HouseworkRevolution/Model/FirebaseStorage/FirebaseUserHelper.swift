@@ -11,7 +11,7 @@ import Firebase
 
 typealias LoggedInResult = (LoginResult<String>) -> Void
 
-typealias RegistedResult = (RegistResult<String>) -> Void
+typealias RegisterResult = (RegistResult<String?>) -> Void
 
 typealias AddMemberResult = (SendInvitationResult<String>) -> Void
 
@@ -36,7 +36,7 @@ class FirebaseUserHelper {
     
     // MARK: 註冊功能
     
-    func registAnIdWithEncrypt(_ user: FamilyMember, completion: @escaping RegistedResult) {
+    func registerUserWithEncrypt(_ user: FamilyMember, completion: @escaping RegisterResult) {
         
         var userPwdEncrypted = ""
         
@@ -65,14 +65,14 @@ class FirebaseUserHelper {
                                                                                             
                             } else {
                                                                                             
-                                completion(.success("User 註冊完成"))
+                                completion(.success(nil))
                             }
                 })
         
         FirebaseUserHelper.userID = ref.documentID
     }
     
-    func registDoneWith(_ family: FamilyGroup, username: String, completion: @escaping RegistedResult) {
+    func registerDoneWith(_ family: FamilyGroup, username: String, completion: @escaping RegisterResult) {
         
        var familyRef: DocumentReference?
         
@@ -441,7 +441,7 @@ class FirebaseUserHelper {
                                 
                                 if querySnapshot.count > 0 {
                                     
-                                    print("告訴 user 重複被邀請了")
+                                    return
                                     
                                 } else {
                                     

@@ -128,10 +128,6 @@ class SearchUserViewController: UIViewController {
         self.dismiss(animated: false, completion: nil)
     }
     
-    @objc func searchRealtimeUpdate() {
-        
-        self.dismiss(animated: false, completion: nil)
-    }
 }
 
 extension SearchUserViewController: UITableViewDataSource,

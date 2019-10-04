@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03006C18234738400060AB30 /* UITextFiled+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03006C17234738400060AB30 /* UITextFiled+Extension.swift */; };
 		0302D9C12318FBC800DE7921 /* HouseworkCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0302D9C02318FBC800DE7921 /* HouseworkCollectionViewCell.swift */; };
 		0302D9C32318FBE900DE7921 /* FamilyMemberCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0302D9C22318FBE900DE7921 /* FamilyMemberCollectionViewCell.swift */; };
 		0302D9C5231912E800DE7921 /* ShowAddSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0302D9C4231912E800DE7921 /* ShowAddSegue.swift */; };
@@ -88,6 +89,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		03006C17234738400060AB30 /* UITextFiled+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextFiled+Extension.swift"; sourceTree = "<group>"; };
 		0302D9C02318FBC800DE7921 /* HouseworkCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseworkCollectionViewCell.swift; sourceTree = "<group>"; };
 		0302D9C22318FBE900DE7921 /* FamilyMemberCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyMemberCollectionViewCell.swift; sourceTree = "<group>"; };
 		0302D9C4231912E800DE7921 /* ShowAddSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowAddSegue.swift; sourceTree = "<group>"; };
@@ -419,6 +421,7 @@
 				03C1A59D2318F147008EAB76 /* UIColor+Extension.swift */,
 				03A45F27232FDA64005D92D5 /* UIViewController+Extension.swift */,
 				03581CBC233A26F700D9AEA7 /* NSRegularExpression+Extension.swift */,
+				03006C17234738400060AB30 /* UITextFiled+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -779,6 +782,7 @@
 				0302D9D7231CC1D600DE7921 /* WishViewController.swift in Sources */,
 				03C1A548231662D9008EAB76 /* HouseworkRevolution.xcdatamodeld in Sources */,
 				03E941DC2337FB7000A52B82 /* RNCryptorManager.swift in Sources */,
+				03006C18234738400060AB30 /* UITextFiled+Extension.swift in Sources */,
 				03A45F28232FDA64005D92D5 /* UIViewController+Extension.swift in Sources */,
 				0302D9C5231912E800DE7921 /* ShowAddSegue.swift in Sources */,
 				0302D9E3231E5B8400DE7921 /* ListViewController.swift in Sources */,

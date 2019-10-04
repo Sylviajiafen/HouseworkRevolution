@@ -315,7 +315,7 @@
                                         <color key="tintColor" red="0.91764705882352937" green="0.9137254901960784" blue="0.9137254901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Button" image="dismiss"/>
                                         <connections>
-                                            <action selector="dissmissUserSetting:" destination="yts-FL-6fl" eventType="touchUpInside" id="hya-RO-KYp"/>
+                                            <action selector="dismissUserSetting:" destination="yts-FL-6fl" eventType="touchUpInside" id="XJf-eu-trT"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ImB-JT-XWr">

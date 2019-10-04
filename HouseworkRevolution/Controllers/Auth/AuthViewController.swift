@@ -35,15 +35,18 @@ class AuthViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setDelegates()
+        
+        setViews()
+        
+        setUpScanner()
+    }
+    
+    func setDelegates() {
+        
         nameCallSelection.delegate = self
         
         nameCallSelection.dataSource = self
-        
-        signInView.isHidden = true
-        
-        userSettingView.isHidden = true
-        
-        customUserName.isHidden = true
         
         createHomeName.delegate = self
         
@@ -54,8 +57,15 @@ class AuthViewController: UIViewController {
         pwdConfirmField.delegate = self
         
         userPassword.delegate = self
+    }
+    
+    func setViews() {
         
-        setUpScanner()
+        signInView.isHidden = true
+        
+        userSettingView.isHidden = true
+        
+        customUserName.isHidden = true
     }
     
     func setUpScanner() {
@@ -70,7 +80,7 @@ class AuthViewController: UIViewController {
     @objc func showScannerPage() {
         
         let scannerViewController = UIStoryboard.family.instantiateViewController(
-                   withIdentifier: String(describing: ScannerViewController.self))
+                        withIdentifier: String(describing: ScannerViewController.self))
            
         guard let targetView = scannerViewController as? ScannerViewController else { return }
         
@@ -78,9 +88,9 @@ class AuthViewController: UIViewController {
                
         targetView.modalPresentationStyle = .fullScreen
         
-        userID.text = ""
+        userID.clearText()
         
-        userPassword.text = ""
+        userPassword.clearText()
            
         present(targetView, animated: false, completion: nil)
     }
@@ -107,41 +117,42 @@ class AuthViewController: UIViewController {
         
         signUpView.isHidden = true
         
-        createPassword.text = ""
+        createPassword.clearText()
         
-        pwdConfirmField.text = ""
+        pwdConfirmField.clearText()
+        
     }
     
     @IBAction func showSignUp(_ sender: Any) {
         
+        signUpView.isHidden = false
+        
         signInView.isHidden = true
         
-        userID.text = ""
+        userID.clearText()
         
-        userPassword.text = ""
-        
-        signUpView.isHidden = false
+        userPassword.clearText()
         
     }
     
-    @IBAction func dissmissUserSetting(_ sender: Any) {
+    @IBAction func dismissUserSetting(_ sender: Any) {
         
         userSettingView.isHidden = true
         
-        createPassword.text = ""
+        createPassword.clearText()
         
-        pwdConfirmField.text = ""
+        pwdConfirmField.clearText()
     }
     
-    func showLogin(message: String) {
+    func showLoggedIn(message: String) {
         
         let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
         
         let action = UIAlertAction(title: "翻轉家事 Go!", style: .default, handler: { _ in
             
-            let appdelegate = UIApplication.shared.delegate as? AppDelegate
+            let appDelegate = UIApplication.shared.delegate as? AppDelegate
             
-            appdelegate?.window?.rootViewController = UIStoryboard.main.instantiateInitialViewController()!
+            appDelegate?.window?.rootViewController = UIStoryboard.main.instantiateInitialViewController()!
             
         })
         
@@ -192,84 +203,58 @@ class AuthViewController: UIViewController {
                         
                         guard let userName = customUserName.text else { return }
                         
-                        ProgressHUD.show()
-                        
-                        FirebaseUserHelper.shared.registAnIdWithEncrypt(user) { [weak self] (result) in
-                            
-                            switch result {
-                                
-                            case .success( _):
-                                
-                                FirebaseUserHelper.shared
-                                    .registDoneWith(family, username: userName) { [weak self] (result) in
-                                
-                                        switch result {
-                                            
-                                        case .success(let message):
-                                            
-                                            StorageManager.shared.saveUserInfo(uid: FirebaseUserHelper.userID,
-                                                                               familyRecognizer: FirebaseUserHelper.familyID)
-                                            
-                                            UserDefaults.standard.set(UserDefaultString.value,
-                                                                      forKey: UserDefaultString.key)
-                                            
-                                            ProgressHUD.dismiss()
-                                            
-                                            self?.showLogin(message: message)
-                                            
-                                        case .failed(let err):
-                                            
-                                            print(err)
-                                        }
-                                }
-                                
-                            case .failed(let err):
-                                
-                                self?.showAlertOf(message: "\(err)")
-                            }
-                        }
+                        registerHome(of: user, userName: userName, family: family)
                         
                     } else {
                         
-                        ProgressHUD.show()
-                        
-                        FirebaseUserHelper.shared.registAnIdWithEncrypt(user) { [weak self] (result) in
-                            
-                            switch result {
-                                
-                            case .success( _):
-                                
-                                FirebaseUserHelper.shared
-                                    .registDoneWith(family,
-                                    username: self?.nameCalls[selectedIndex] ?? "(名稱)") { [weak self] (result) in
-                                        
-                                        switch result {
-                                            
-                                        case .success(let message):
-                                            
-                                            StorageManager.shared.saveUserInfo(uid: FirebaseUserHelper.userID,
-                                                                           familyRecognizer: FirebaseUserHelper.familyID)
-                                                                                    
-                                            UserDefaults.standard.set(UserDefaultString.value,
-                                                                      forKey: UserDefaultString.key)
-                                                                                    
-                                            ProgressHUD.dismiss()
-                                                                                    
-                                            self?.showLogin(message: message)
-                                            
-                                        case .failed(let err):
-                                            
-                                            print(err)
-                                        }
-                                }
-                                
-                            case .failed(let err):
-                                
-                                self?.showAlertOf(message: "\(err)")
-                            }
-                        }
+                        registerHome(of: user, userName: nameCalls[selectedIndex], family: family)
                     }
                 }
+            }
+        }
+    }
+    
+    private func registerHome(of user: FamilyMember, userName: String, family: FamilyGroup) {
+        
+        ProgressHUD.show()
+        
+        FirebaseUserHelper.shared.registerUserWithEncrypt(user) { [weak self] (result) in
+            
+            switch result {
+                
+            case .success:
+                
+                FirebaseUserHelper.shared.registerDoneWith(family,
+                                                           username: userName
+                ) { [weak self] (result) in
+                        
+                        switch result {
+                            
+                        case .success(let message):
+                            
+                            StorageManager.shared.saveUserInfo(uid: FirebaseUserHelper.userID,
+                                                               familyRecognizer: FirebaseUserHelper.familyID)
+                                                                    
+                            UserDefaults.standard.set(UserDefaultString.value,
+                                                      forKey: UserDefaultString.key)
+                                                                    
+                            ProgressHUD.dismiss()
+                                                    
+                            guard let message = message else { return }
+                            
+                            self?.showLoggedIn(message: message)
+                            
+                        case .failed(let err):
+                            
+                            print(err.localizedDescription)
+                            self?.showAlertOf(message: "註冊失敗，請再嘗試一次")
+                        }
+                }
+                
+            case .failed(let err):
+                
+                print(err.localizedDescription)
+                self?.showAlertOf(message: "註冊失敗，請再嘗試一次")
             }
         }
     }
@@ -282,15 +267,18 @@ class AuthViewController: UIViewController {
             
         } else {
             
-            guard let loginId = userID.text, let loginPWD = userPassword.text else { return }
+            guard let loginId = userID.text,
+                let loginPWD = userPassword.text else { return }
             
             ProgressHUD.show()
             
-            FirebaseUserHelper.shared.loginWithDecrypt(id: loginId, password: loginPWD) { [weak self] (result) in
+            FirebaseUserHelper.shared.loginWithDecrypt(id: loginId,
+                                                       password: loginPWD
+            ) { [weak self] (result) in
                 
                 switch result {
                     
-                case .success(let messege):
+                case .success(let message):
                     
                     StorageManager.shared.saveUserInfo(uid: FirebaseUserHelper.userID,
                                                        familyRecognizer: FirebaseUserHelper.familyID)
@@ -298,7 +286,7 @@ class AuthViewController: UIViewController {
                     UserDefaults.standard.set(UserDefaultString.value,
                                               forKey: UserDefaultString.key)
                     
-                    self?.showLogin(message: messege)
+                    self?.showLoggedIn(message: message)
                     
                     ProgressHUD.dismiss()
                     
@@ -315,12 +303,38 @@ class AuthViewController: UIViewController {
 
 extension AuthViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func setSelection(cellColor: UIColor?,
+                      textColor: UIColor?,
+                      at index: IndexPath,
+                      shouldHideCustomName: Bool
+    ) {
+        
+        guard let nameCallItem = nameCallSelection.cellForItem(at: index)
+            
+              as? NameCallCollectionViewCell else { return }
+        
+        nameCallItem.backgroundColor = cellColor
+        
+        nameCallItem.nameCall.textColor = textColor
+        
+        selectedNameIndex = index.row
+        
+        if index.row == nameCalls.count - 1 {
+            
+            customUserName.isHidden = shouldHideCustomName
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        numberOfItemsInSection section: Int
+    ) -> Int {
         
         return nameCalls.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
         
         let item = nameCallSelection.dequeueReusableCell(
             withReuseIdentifier: "NameCallCollectionViewCell", for: indexPath)
@@ -334,38 +348,24 @@ extension AuthViewController: UICollectionViewDelegate, UICollectionViewDataSour
         return nameCallItem
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView,
+                        didSelectItemAt indexPath: IndexPath
+    ) {
         
-        guard let nameCallItem = nameCallSelection.cellForItem(at: indexPath)
-            
-              as? NameCallCollectionViewCell else { return }
-        
-        nameCallItem.backgroundColor = UIColor.buttonSelected
-        
-        nameCallItem.nameCall.textColor = UIColor.noticeGray
-        
-        selectedNameIndex = indexPath.row
-        
-        if indexPath.row == nameCalls.count - 1 {
-            
-            customUserName.isHidden = false
-        }
+        setSelection(cellColor: UIColor.buttonSelected,
+                     textColor: UIColor.noticeGray,
+                     at: indexPath,
+                     shouldHideCustomName: false)
     }
     
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView,
+                        didDeselectItemAt indexPath: IndexPath
+    ) {
         
-        guard let nameCallItem = nameCallSelection.cellForItem(at: indexPath)
-            
-            as? NameCallCollectionViewCell else { return }
-        
-        nameCallItem.backgroundColor = UIColor.buttonUnSelected
-        
-        nameCallItem.nameCall.textColor = .white
-        
-        if indexPath.row == nameCalls.count - 1 {
-            
-            customUserName.isHidden = true
-        }
+        setSelection(cellColor: UIColor.buttonUnSelected,
+                     textColor: .white,
+                     at: indexPath,
+                     shouldHideCustomName: true)
     }
 }
 

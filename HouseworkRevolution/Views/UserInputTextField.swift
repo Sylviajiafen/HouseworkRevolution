@@ -26,7 +26,6 @@ class UserInputTextField: UITextField {
         addSubview(underline)
         
         NSLayoutConstraint.activate([
-            
             leadingAnchor.constraint(equalTo: underline.leadingAnchor),
             trailingAnchor.constraint(equalTo: underline.trailingAnchor),
             underline.heightAnchor.constraint(equalToConstant: 1.0),
@@ -35,5 +34,5 @@ class UserInputTextField: UITextField {
         
         underline.backgroundColor = UIColor.superLightGray
     }
-
+    
 }

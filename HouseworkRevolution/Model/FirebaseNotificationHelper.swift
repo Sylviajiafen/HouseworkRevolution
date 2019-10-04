@@ -67,6 +67,7 @@ class FirebaseNotificationHelper {
                         print("Recieved Data: \(jsonDataDict)")
                     }
                 }
+                
             } catch let err as NSError {
                 
                 print(err.debugDescription)
