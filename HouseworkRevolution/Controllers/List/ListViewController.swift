@@ -152,15 +152,13 @@ class ListViewController: UIViewController {
             
             self?.noticeLabel.alpha = 0
             
-        })
-        
-        { [weak self] (isCompleted) in
+        }) { [weak self] (isCompleted) in
             
-            if isCompleted {
+                if isCompleted {
                 
-                self?.userHelpBtn.alpha = 0.7
+                    self?.userHelpBtn.alpha = 0.7
+                }
             }
-        }
     }
 
     // MARK: - 實現願望
@@ -348,8 +346,8 @@ extension ListViewController: UICollectionViewDelegate,
         return header
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int
-        
+    func collectionView(_ collectionView: UICollectionView,
+                        numberOfItemsInSection section: Int
     ) -> Int {
         
         switch section {
@@ -366,7 +364,9 @@ extension ListViewController: UICollectionViewDelegate,
         
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
         
         let item = dailyMissionCollectionView.dequeueReusableCell(
             withReuseIdentifier: String(describing: DailyMissionCollectionViewCell.self), for: indexPath)

@@ -18,8 +18,8 @@ class UserHelpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        addGestureToBackground()
-        
+        addTapToDismissGesture(on: backgroundView)
+
         versionView.layer.roundCorners(radius: 10.0)
         
         versionView.layer.addShadow()
@@ -31,15 +31,7 @@ class UserHelpViewController: UIViewController {
         
         dismiss(animated: false, completion: nil)
     }
-    
-    func addGestureToBackground() {
-        
-        let touchToDismiss = UITapGestureRecognizer(target: self,
-                                                    action: #selector(tapToDismiss))
-        
-        backgroundView.addGestureRecognizer(touchToDismiss)
-    }
-    
+  
     @IBAction func sendEmail(_ sender: Any) {
        
         let mail = MFMailComposeViewController()
@@ -48,7 +40,14 @@ class UserHelpViewController: UIViewController {
         
         mail.setToRecipients(["eggie152832@gmail.com"])
         
-        mail.setSubject("我在「翻轉家事」遇到了問題：")
+        if let version = UIApplication.appVersion {
+            
+            mail.setSubject("我在「翻轉家事(\(version))」遇到了問題：")
+            
+        } else {
+            
+            mail.setSubject("我在「翻轉家事」遇到了問題：")
+        }
         
         if MFMailComposeViewController.canSendMail() {
 

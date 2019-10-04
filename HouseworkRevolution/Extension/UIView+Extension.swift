@@ -18,14 +18,13 @@ extension UIView {
         
         rotation.toValue = Double.pi / 8
             
-        rotation.duration = 0.005
+        rotation.duration = 0.0045
             
-        rotation.repeatCount = 60
+        rotation.repeatCount = 70
             
         self.layer.add(rotation, forKey: nil)
         
     }
-    
 }
 
 extension CALayer {
@@ -64,8 +63,8 @@ extension CALayer {
             
             masksToBounds = false
             
-            sublayers?.filter{ $0.frame.equalTo(self.bounds) }
-                .forEach{ $0.roundCorners(radius: self.cornerRadius) }
+            sublayers?.filter { $0.frame.equalTo(self.bounds) }
+                .forEach { $0.roundCorners(radius: self.cornerRadius) }
             
             self.contents = nil
             

@@ -13,6 +13,7 @@ typealias LoggedInResult = (LoginResult<String>) -> Void
 typealias AddMemberResult = (SendInvitationResult<String>) -> Void
 
 // swiftlint:disable type_body_length
+// swiftlint:disable function_parameter_count
 
 class FirebaseUserHelper {
     
@@ -521,9 +522,9 @@ class FirebaseUserHelper {
                                     
                                 } else {
                                     
-                                    familyQuery.collection(CollectionOfFamily.requestedMember.rawValue)
-                                        .addDocument(data: [RequestedMember.username.rawValue: name,
-                                                            RequestedMember.userID.rawValue: id])
+                                familyQuery.collection(CollectionOfFamily.requestedMember.rawValue)
+                                    .addDocument(data: [RequestedMember.username.rawValue: name,
+                                                        RequestedMember.userID.rawValue: id])
                                     
                                     invitorCompletion(.success("邀請成功！"))
                                 }
@@ -543,7 +544,7 @@ class FirebaseUserHelper {
                                 
                                 if querySnapshot.count > 0 {
                                     
-                                    print("TODO: 告訴 user 重複被邀請了")
+                                    print("告訴 user 重複被邀請了")
                                     
                                 } else {
                                     
