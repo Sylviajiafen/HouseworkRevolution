@@ -13,6 +13,7 @@ typealias LoggedInResult = (LoginResult<String>) -> Void
 typealias AddMemberResult = (SendInvitationResult<String>) -> Void
 
 // swiftlint:disable type_body_length
+// swiftlint:disable function_parameter_count
 
 class FirebaseUserHelper {
     

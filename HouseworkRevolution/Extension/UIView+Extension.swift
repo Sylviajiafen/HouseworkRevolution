@@ -63,8 +63,8 @@ extension CALayer {
             
             masksToBounds = false
             
-            sublayers?.filter{ $0.frame.equalTo(self.bounds) }
-                .forEach{ $0.roundCorners(radius: self.cornerRadius) }
+            sublayers?.filter { $0.frame.equalTo(self.bounds) }
+                .forEach { $0.roundCorners(radius: self.cornerRadius) }
             
             self.contents = nil
             

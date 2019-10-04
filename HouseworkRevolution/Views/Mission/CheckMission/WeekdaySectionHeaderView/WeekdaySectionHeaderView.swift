@@ -12,5 +12,4 @@ class WeekdaySectionHeaderView: UITableViewHeaderFooterView {
 
     @IBOutlet weak var weekdayLabel: UILabel!
     
-    
 }

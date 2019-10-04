@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>FCMSendNotificationURL</key>
+	<string>https://fcm.googleapis.com/fcm/send</string>
+	<key>FirebaseFCMKey</key>
+	<string>AAAA__pbBY8:APA91bGeUq7XzHj3hlQvVnAbvqiMMl_pwMJTiGG0o2U_lPBImCO9a7yv7-TFKnA3F_FsfBAM5SJynPQ8xVv3MDaAOfUjMzn5hS-Ve9KmNvjsr-y9_7Uw8CuYGp3W_9rvy3SwNH9NVHkK</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>若不允許，將無法利用相簿存取或掃描 QRCode</string>
 	<key>NSPhotoLibraryUsageDescription</key>

@@ -152,15 +152,13 @@ class ListViewController: UIViewController {
             
             self?.noticeLabel.alpha = 0
             
-        })
-        
-        { [weak self] (isCompleted) in
+        }) { [weak self] (isCompleted) in
             
-            if isCompleted {
+                if isCompleted {
                 
-                self?.userHelpBtn.alpha = 0.7
+                    self?.userHelpBtn.alpha = 0.7
+                }
             }
-        }
     }
 
     // MARK: - 實現願望

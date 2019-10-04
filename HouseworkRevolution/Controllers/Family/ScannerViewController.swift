@@ -61,8 +61,6 @@ class ScannerViewController: UIViewController {
             fatalError()
         }
         
-        setQRCodeFrame()
-        
         setUpNotice()
         
         FirebaseUserHelper.shared.getAllUser { [weak self] (allUsers) in
@@ -157,7 +155,6 @@ class ScannerViewController: UIViewController {
         if UIApplication.shared.canOpenURL(settingsUrl) {
             
             UIApplication.shared.open(settingsUrl)
-            
         }
     }
     
@@ -275,7 +272,9 @@ extension ScannerViewController: AVCaptureMetadataOutputObjectsDelegate {
                 strongSelf.view.bringSubviewToFront(strongSelf.noticeTitle)
 
                 strongSelf.view.bringSubviewToFront(strongSelf.pickFromGalleryBtn)
-
+                
+                strongSelf.setQRCodeFrame()
+                
                 strongSelf.captureSession.startRunning()
             }
             
