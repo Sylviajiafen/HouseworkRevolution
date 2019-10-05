@@ -72,6 +72,13 @@ class ScannerViewController: UIViewController {
         }
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        FirebaseUserHelper.allUserListener?.remove()
+        
+        FirebaseUserHelper.allUserListener = nil
+    }
+    
     var allUserID = [String]()
     
     weak var delegate: ScannerViewControllerDelegate?
