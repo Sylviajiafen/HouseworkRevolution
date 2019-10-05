@@ -38,6 +38,13 @@ class SearchUserViewController: UIViewController {
         
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        FirebaseUserHelper.allUserListener?.remove()
+        
+        FirebaseUserHelper.allUserListener = nil
+    }
+    
     @IBAction func closeView(_ sender: Any) {
         
         shouldShowSearchResult = false

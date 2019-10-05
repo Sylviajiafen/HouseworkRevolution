@@ -65,9 +65,7 @@ class FamilyViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         
-        FirebaseUserHelper.currentListenerRegistration?.remove()
-        
-        FirebaseUserHelper.currentMemberListener?.remove()
+        removeListeners()
     }
     
     func setInformation() {
@@ -194,10 +192,7 @@ class FamilyViewController: UIViewController {
         
         let okAction = UIAlertAction(title: "確定", style: .default) { [weak self] _ in
             
-            FirebaseUserHelper.currentListenerRegistration?.remove()
-            FirebaseUserHelper.currentListenerRegistration = nil
-            FirebaseUserHelper.currentMemberListener?.remove()
-            FirebaseUserHelper.currentMemberListener = nil
+            self?.removeListeners()
             
             FirebaseUserHelper.shared.dropOutFamily(familyID: StorageManager.userInfo.familyID,
                                                     user: StorageManager.userInfo.userID,
@@ -320,6 +315,21 @@ class FamilyViewController: UIViewController {
                 
                 ProgressHUD.dismiss()
         })
+    }
+    
+    private func removeListeners() {
+        
+        FirebaseUserHelper.currentListenerRegistration?.remove()
+        
+        FirebaseUserHelper.currentListenerRegistration = nil
+        
+        FirebaseUserHelper.currentMemberListener?.remove()
+        
+        FirebaseUserHelper.currentMemberListener = nil
+        
+        FirebaseUserHelper.currentInvitationListener?.remove()
+        
+        FirebaseUserHelper.currentInvitationListener = nil
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -580,10 +590,7 @@ extension FamilyViewController: InvitingFamilyTableViewCellDelegate {
         
         let inviterFamilyID = invitingFamilyList[index.row].familyID
         
-        FirebaseUserHelper.currentListenerRegistration?.remove()
-        FirebaseUserHelper.currentListenerRegistration = nil
-        FirebaseUserHelper.currentMemberListener?.remove()
-        FirebaseUserHelper.currentMemberListener = nil
+        removeListeners()
         
         FirebaseUserHelper.shared.acceptInvitation(from: inviterFamilyID,
                                                    myID: StorageManager.userInfo.userID,

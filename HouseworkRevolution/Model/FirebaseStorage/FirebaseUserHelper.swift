@@ -31,6 +31,8 @@ class FirebaseUserHelper {
     static var currentListenerRegistration: ListenerRegistration?
     
     static var currentMemberListener: ListenerRegistration?
+    static var currentInvitationListener: ListenerRegistration?
+    static var allUserListener: ListenerRegistration?
     
     private let db = Firestore.firestore()
     
@@ -364,6 +366,7 @@ class FirebaseUserHelper {
         let query = db.collection(DataCollection.houseUser.rawValue)
         
         // addSnapshot
+        FirebaseUserHelper.allUserListener =
         query.addSnapshotListener { (querySnapshot, err) in
             
             if let houseUsers = querySnapshot?.documents {
@@ -504,6 +507,7 @@ class FirebaseUserHelper {
             .collection(UserData.subCollection.rawValue)
         
         // addSnapshot
+        FirebaseUserHelper.currentInvitationListener =
         userQuery.addSnapshotListener { (querySnapshot, err) in
             
             if let querySnapshot = querySnapshot {
