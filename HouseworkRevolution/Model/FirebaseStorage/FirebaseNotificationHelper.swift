@@ -64,7 +64,7 @@ class FirebaseNotificationHelper {
                                                             options: JSONSerialization.ReadingOptions.allowFragments)
                         as? [String: AnyObject] {
                         
-                        print("Recieved Data: \(jsonDataDict)")
+                        print("Received Data: \(jsonDataDict)")
                     }
                 }
                 
