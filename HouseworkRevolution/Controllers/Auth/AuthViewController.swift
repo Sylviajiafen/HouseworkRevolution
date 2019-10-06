@@ -39,10 +39,10 @@ class AuthViewController: UIViewController {
         
         setViews()
         
-        setUpScanner()
+        setScanner()
     }
     
-    func setDelegates() {
+    private func setDelegates() {
         
         nameCallSelection.delegate = self
         
@@ -59,7 +59,7 @@ class AuthViewController: UIViewController {
         userPassword.delegate = self
     }
     
-    func setViews() {
+    private func setViews() {
         
         signInView.isHidden = true
         
@@ -68,7 +68,7 @@ class AuthViewController: UIViewController {
         customUserName.isHidden = true
     }
     
-    func setUpScanner() {
+    private func setScanner() {
         
         scannerImage.isUserInteractionEnabled = true
         

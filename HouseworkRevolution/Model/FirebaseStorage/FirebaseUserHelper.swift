@@ -679,7 +679,7 @@ class FirebaseUserHelper {
         familyQuery.setData([UserData.name.rawValue: newName], merge: true)
     }
     
-    func changFamilyName(family: String, to new: String) {
+    func changeFamilyName(family: String, to new: String) {
         
         let query = db.collection(DataCollection.houseGroup.rawValue).document(family)
         

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddMissionViewController: UIViewController {
+class AddMissionViewController: TextCountLimitBaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +41,8 @@ class AddMissionViewController: UIViewController {
             }
         }
     }
+    
+    override var textLimitCount: Int { return 8 }
     
     @IBOutlet weak var houseworksCollection: UICollectionView!
 
@@ -302,23 +304,6 @@ extension AddMissionViewController: UICollectionViewDelegate,
         shouldEditCell = false
         
         editHouseworkBtn.isSelected = false
-    }
-    
-}
-
-extension AddMissionViewController: UITextFieldDelegate {
-    
-    func textField(_ textField: UITextField,
-                   shouldChangeCharactersIn range: NSRange,
-                   replacementString string: String) -> Bool {
-        
-        let currentText = textField.text ?? ""
-
-        guard let stringRange = Range(range, in: currentText) else { return false}
-
-        let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
-        
-        return updatedText.count <= 8
     }
     
 }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		03006C18234738400060AB30 /* UITextFiled+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03006C17234738400060AB30 /* UITextFiled+Extension.swift */; };
+		03006C1B234989420060AB30 /* TextCountLimitBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03006C1A234989420060AB30 /* TextCountLimitBaseViewController.swift */; };
 		0302D9C12318FBC800DE7921 /* HouseworkCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0302D9C02318FBC800DE7921 /* HouseworkCollectionViewCell.swift */; };
 		0302D9C32318FBE900DE7921 /* FamilyMemberCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0302D9C22318FBE900DE7921 /* FamilyMemberCollectionViewCell.swift */; };
 		0302D9C5231912E800DE7921 /* ShowAddSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0302D9C4231912E800DE7921 /* ShowAddSegue.swift */; };
@@ -90,6 +91,7 @@
 
 /* Begin PBXFileReference section */
 		03006C17234738400060AB30 /* UITextFiled+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextFiled+Extension.swift"; sourceTree = "<group>"; };
+		03006C1A234989420060AB30 /* TextCountLimitBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextCountLimitBaseViewController.swift; sourceTree = "<group>"; };
 		0302D9C02318FBC800DE7921 /* HouseworkCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseworkCollectionViewCell.swift; sourceTree = "<group>"; };
 		0302D9C22318FBE900DE7921 /* FamilyMemberCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyMemberCollectionViewCell.swift; sourceTree = "<group>"; };
 		0302D9C4231912E800DE7921 /* ShowAddSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowAddSegue.swift; sourceTree = "<group>"; };
@@ -190,6 +192,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		03006C19234989120060AB30 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				03006C1A234989420060AB30 /* TextCountLimitBaseViewController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
 		0302D9C6231912EF00DE7921 /* CustomSegue */ = {
 			isa = PBXGroup;
 			children = (
@@ -393,6 +403,7 @@
 		03C1A563231664BC008EAB76 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				03006C19234989120060AB30 /* Base */,
 				0302D9F12321E3C800DE7921 /* Family */,
 				0302D9E1231E5B5E00DE7921 /* List */,
 				0302D9D5231CC1A400DE7921 /* Wish */,
@@ -795,6 +806,7 @@
 				03C1A577231668B7008EAB76 /* AuthViewController.swift in Sources */,
 				03C1A5832316908D008EAB76 /* NameCallCollectionViewCell.swift in Sources */,
 				03C1A59E2318F147008EAB76 /* UIColor+Extension.swift in Sources */,
+				03006C1B234989420060AB30 /* TextCountLimitBaseViewController.swift in Sources */,
 				0302D9C32318FBE900DE7921 /* FamilyMemberCollectionViewCell.swift in Sources */,
 				0302D9CD231AB0DA00DE7921 /* WeekdaySectionHeaderView.swift in Sources */,
 				03C1A5912317C6E7008EAB76 /* CheckMissionViewController.swift in Sources */,

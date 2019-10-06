@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FamilyViewController: UIViewController {
+class FamilyViewController: TextCountLimitBaseViewController {
     
     @IBOutlet weak var familyMemberTableView: UITableView!
     
@@ -25,6 +25,8 @@ class FamilyViewController: UIViewController {
     @IBOutlet weak var informationIcon: UIImageView!
     
     @IBOutlet weak var qrCodeImage: UIImageView!
+    
+    override var textLimitCount: Int { return 6 }
     
     override func viewDidLoad() {
         
@@ -119,18 +121,10 @@ class FamilyViewController: UIViewController {
     
     @IBAction func editUserCall(_ sender: Any) {
         
-        let alert = UIAlertController(title: "編輯稱呼", message: "換個自己喜歡的稱呼吧", preferredStyle: .alert)
-        
-        alert.addTextField(configurationHandler: nil)
-        
-        alert.textFields?[0].delegate = self
-        
-        let okAction = UIAlertAction(title: "更改", style: .default) { [weak self] _ in
-            
-            guard alert.textFields?[0].text != "",
-                let newName = alert.textFields?[0].text else { return }
-                
-            self?.userCallLabel.text = alert.textFields?[0].text
+        showEditableAlertView(of: userCallLabel,
+                              title: "編輯稱呼",
+                              message: "換個自己喜歡的稱呼吧")
+        { (newName) in
             
             FirebaseUserHelper.shared.changeName(user: StorageManager.userInfo.userID,
                                                  to: newName,
@@ -138,37 +132,41 @@ class FamilyViewController: UIViewController {
             
             FirebaseNotificationHelper.shared.getUserName()
         }
-        
-        okAction.setValue(UIColor.lightGreen, forKey: "titleTextColor")
-        
-        alert.addAction(okAction)
-        
-        let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
-        
-        cancelAction.setValue(UIColor.lightGreen, forKey: "titleTextColor")
-        
-        alert.addAction(cancelAction)
-        
-        present(alert, animated: true, completion: nil)
     }
     
     @IBAction func editFamilyName(_ sender: Any) {
         
-        let alert = UIAlertController(title: "編輯家庭名稱", message: "幫自己的家取個響亮的名字吧", preferredStyle: .alert)
+        showEditableAlertView(of: familyNameLabel,
+                              title: "編輯家庭名稱",
+                              message: "幫自己的家取個響亮的名字吧")
+        { (newName) in
+                                
+            FirebaseUserHelper.shared.changeFamilyName(family: StorageManager.userInfo.familyID,
+                                                       to: newName)
+        }
+    }
+    
+    func showEditableAlertView(of label: UILabel,
+                               title: String,
+                               message: String,
+                               completion: @escaping (String) -> Void) {
+        
+        let alert = UIAlertController(title: title,
+                                      message: message,
+                                      preferredStyle: .alert)
         
         alert.addTextField(configurationHandler: nil)
         
         alert.textFields?[0].delegate = self
         
-        let okAction = UIAlertAction(title: "更改", style: .default) { [weak self] _ in
+        let okAction = UIAlertAction(title: "更改", style: .default) { _ in
             
             guard alert.textFields?[0].text != "",
                 let newName = alert.textFields?[0].text else { return }
             
-            self?.familyNameLabel.text = alert.textFields?[0].text
+            label.text = alert.textFields?[0].text
             
-            FirebaseUserHelper.shared.changFamilyName(family: StorageManager.userInfo.familyID,
-                                                      to: newName)
+            completion(newName)
         }
         
         okAction.setValue(UIColor.lightGreen, forKey: "titleTextColor")
@@ -628,21 +626,5 @@ extension FamilyViewController: FamilyMemberTableViewCellDelegate {
         let invitedMemberID = invitedMemberList[index.row].id
         
         FirebaseUserHelper.shared.rejectInvitation(from: StorageManager.userInfo.familyID, myID: invitedMemberID)
-    }
-}
-
-extension FamilyViewController: UITextFieldDelegate {
-    
-    func textField(_ textField: UITextField,
-                   shouldChangeCharactersIn range: NSRange,
-                   replacementString string: String) -> Bool {
-        
-        let currentText = textField.text ?? ""
-
-        guard let stringRange = Range(range, in: currentText) else { return false}
-
-        let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
-        
-        return updatedText.count <= 6
     }
 }
