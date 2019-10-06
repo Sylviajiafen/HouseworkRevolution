@@ -18,7 +18,8 @@ class MissionViewController: UIViewController {
         let addMissionViewController = UIStoryboard.mission.instantiateViewController(
             withIdentifier: String(describing: AddMissionViewController.self))
         
-        guard let targetView = addMissionViewController as? AddMissionViewController else { return }
+        guard let targetView = addMissionViewController
+            as? AddMissionViewController else { return }
         
         targetView.modalPresentationStyle = .fullScreen
         
@@ -30,7 +31,8 @@ class MissionViewController: UIViewController {
         let checkMissionViewController = UIStoryboard.mission.instantiateViewController(
             withIdentifier: String(describing: CheckMissionViewController.self))
         
-        guard let targetView = checkMissionViewController as? CheckMissionViewController else { return }
+        guard let targetView = checkMissionViewController
+            as? CheckMissionViewController else { return }
         
         targetView.modalPresentationStyle = .fullScreen
         

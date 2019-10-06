@@ -9,7 +9,7 @@
 import Foundation
 import Firebase
 
-typealias AddMissionMessege = (AddMissionResult<String>) -> Void
+typealias AddMissionMessage = (AddMissionResult<String>) -> Void
 
 // swiftlint:disable type_body_length
 // swiftlint:disable empty_parentheses_with_trailing_closure
@@ -290,7 +290,8 @@ class FirebaseManager {
     // 更新 houseworks collection
     // 新增
     func addMissionToHouseworks(title: String, tiredValue: Int, weekday: String,
-                                family: String, message: AddMissionMessege? = nil) {
+                                family: String = StorageManager.userInfo.familyID,
+                                message: AddMissionMessage? = nil) {
     
         let query = db.collection(DataCollection.houseGroup.rawValue)
             .document(family)
@@ -377,7 +378,10 @@ class FirebaseManager {
     }
     
     // 刪除
-    func deleteMissionFromHouseworks(title: String, tiredValue: Int, weekday: String, family: String) {
+    func deleteMissionFromHouseworks(title: String,
+                                     tiredValue: Int,
+                                     weekday: String,
+                                     family: String = StorageManager.userInfo.familyID) {
         
         let houseworksQuery = db.collection(DataCollection.houseGroup.rawValue).document(family)
             .collection(CollectionOfFamily.houseworks.rawValue)

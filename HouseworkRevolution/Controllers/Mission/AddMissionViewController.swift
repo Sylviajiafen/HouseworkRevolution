@@ -13,20 +13,9 @@ class AddMissionViewController: TextCountLimitBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        houseworksCollection.delegate = self
-        
-        houseworksCollection.dataSource = self
-        
-        weekdayPicker.delegate = self
-        
-        weekdayPicker.dataSource = self
-        
         tiredSlider.setThumbImage(UIImage.asset(.valueHeart), for: .normal)
         
         editHouseworkBtn.isSelected = false
-        
-        customHousework.delegate = self
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -42,22 +31,43 @@ class AddMissionViewController: TextCountLimitBaseViewController {
         }
     }
     
-    override var textLimitCount: Int { return 8 }
-    
-    @IBOutlet weak var houseworksCollection: UICollectionView!
+    @IBOutlet weak var houseworksCollection: UICollectionView! {
+        
+        didSet {
+            
+            houseworksCollection.delegate = self
+            
+            houseworksCollection.dataSource = self
+        }
+    }
 
     @IBOutlet weak var editHouseworkBtn: UIButton!
     
-    @IBOutlet weak var customHousework: UITextField!
+    @IBOutlet weak var customHousework: UITextField! {
+        
+        didSet {
+            
+            customHousework.delegate = self
+        }
+    }
     
-    @IBOutlet weak var weekdayPicker: UIPickerView!
+    @IBOutlet weak var weekdayPicker: UIPickerView! {
+        
+        didSet {
+            
+            weekdayPicker.delegate = self
+                   
+            weekdayPicker.dataSource = self
+        }
+    }
     
     @IBOutlet weak var tiredSlider: UISlider!
     
     @IBOutlet weak var tiredValue: UILabel!
     
+    override var textLimitCount: Int { return 8 }
+    
     var houseworks: [String] =
-        
         [DefaultHouseworks.sweep.rawValue,
          DefaultHouseworks.mop.rawValue,
          DefaultHouseworks.vacuum.rawValue,
@@ -70,6 +80,7 @@ class AddMissionViewController: TextCountLimitBaseViewController {
         didSet {
             
             houseworksCollection.reloadData()
+            
             selectedIndex = nil
         }
     }
@@ -79,6 +90,7 @@ class AddMissionViewController: TextCountLimitBaseViewController {
         didSet {
             
             houseworksCollection.reloadData()
+            
             selectedIndex = nil
         }
     }
@@ -106,7 +118,7 @@ class AddMissionViewController: TextCountLimitBaseViewController {
             
             showAlertOf(message: "已有「\(newHousework)」的家事標籤")
             
-            customHousework.text = ""
+            customHousework.clearText()
             
             return
             
@@ -114,10 +126,9 @@ class AddMissionViewController: TextCountLimitBaseViewController {
             
             houseworks.append(newHousework)
                 
-            FirebaseUserHelper.shared.addLabelOf(content: newHousework,
-                                                 family: StorageManager.userInfo.familyID)
+            FirebaseUserHelper.shared.addLabelOf(newHousework)
             
-            customHousework.text = ""
+            customHousework.clearText()
         }
         
     }
@@ -130,7 +141,12 @@ class AddMissionViewController: TextCountLimitBaseViewController {
             
         } else {
             
-            guard let selectedIndex = selectedIndex else { showAlertOf(message: "資訊不完整呢 ><"); return }
+            guard let selectedIndex = selectedIndex else {
+                
+                showAlertOf(message: "資訊不完整呢 ><")
+                
+                return
+            }
             
             ProgressHUD.show(self.view)
             
@@ -138,7 +154,6 @@ class AddMissionViewController: TextCountLimitBaseViewController {
                 title: houseworks[selectedIndex],
                 tiredValue: tiredValueInNum,
                 weekday: selectedDay,
-                family: StorageManager.userInfo.familyID,
                 message: { [weak self] message in
                     
                     switch message {
@@ -164,7 +179,7 @@ class AddMissionViewController: TextCountLimitBaseViewController {
                         
                         print(failed)
                     }
-                })
+            })
         }
     }
     
@@ -172,14 +187,7 @@ class AddMissionViewController: TextCountLimitBaseViewController {
         
         sender.isSelected.toggle()
         
-        if sender.isSelected == true {
-        
-            shouldEditCell = true
-            
-        } else {
-            
-            shouldEditCell = false
-        }
+        shouldEditCell = sender.isSelected
     }
     
     @IBAction func backToRoot(_ sender: UIButton) {
@@ -278,7 +286,7 @@ extension AddMissionViewController: UICollectionViewDelegate,
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
             
         guard let houseworkCell = houseworksCollection.cellForItem(at: indexPath)
-                                    as? HouseworkCollectionViewCell else { return }
+                as? HouseworkCollectionViewCell else { return }
             
         houseworkCell.setUpLabelfor(background: UIColor.buttonSelected, textColor: UIColor.noticeGray)
             
@@ -288,7 +296,7 @@ extension AddMissionViewController: UICollectionViewDelegate,
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
             
         guard let houseworkCell = houseworksCollection.cellForItem(at: indexPath)
-                                    as? HouseworkCollectionViewCell else { return }
+                as? HouseworkCollectionViewCell else { return }
             
         houseworkCell.setUpLabelfor(background: UIColor.buttonUnSelected, textColor: .white)
     }

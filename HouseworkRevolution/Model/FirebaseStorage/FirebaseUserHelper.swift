@@ -208,7 +208,7 @@ class FirebaseUserHelper {
         }
     }
     
-    func addLabelOf(content: String, family: String) {
+    func addLabelOf(_ content: String, family: String = StorageManager.userInfo.familyID) {
         
         let query = db.collection(DataCollection.houseGroup.rawValue).document(family)
         

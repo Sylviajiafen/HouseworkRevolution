@@ -12,6 +12,28 @@ class CheckMissionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+      
+        ProgressHUD.show(self.view)
+        
+        for weekdays in DayManager.weekdayInEng {
+        
+            FirebaseManager.shared.getAllMissions(day: weekdays.rawValue
+            ) { [weak self] (dailyMission) in
+                                                    
+                DispatchQueue.main.async {
+                    
+                    self?.missionListTableView.reloadData()
+                    
+                    ProgressHUD.dismiss()
+                }
+            }
+        }
+    }
+    
+    func setUpTableView() {
         
         missionListTableView.delegate = self
         
@@ -20,9 +42,12 @@ class CheckMissionViewController: UIViewController {
         missionListTableView.backgroundColor = UIColor.projectBackground
         
         // MARK: regist header
-        let headerXib = UINib(nibName: String(describing: WeekdaySectionHeaderView.self), bundle: nil)
+        let headerXib = UINib(nibName: String(describing: WeekdaySectionHeaderView.self),
+                              bundle: nil)
         
-        missionListTableView.register(headerXib, forHeaderFooterViewReuseIdentifier: String(describing: WeekdaySectionHeaderView.self))
+        missionListTableView.register(headerXib,
+                                      forHeaderFooterViewReuseIdentifier:
+                                        String(describing: WeekdaySectionHeaderView.self))
         
         missionListTableView.addPullToRefresh(missionListTableView) {  [weak self] in
             
@@ -45,27 +70,13 @@ class CheckMissionViewController: UIViewController {
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    @IBOutlet weak var missionListTableView: UITableView! {
         
-        ProgressHUD.show(self.view)
-        
-        for weekdays in DayManager.weekdayInEng {
-        
-            FirebaseManager.shared.getAllMissions(day: weekdays.rawValue
-            ) { [weak self] (dailyMission) in
-                                                    
-                DispatchQueue.main.async {
-                    
-                    self?.missionListTableView.reloadData()
-                }
-            }
+        didSet {
+            
+            setUpTableView()
         }
-        
-        ProgressHUD.dismiss()
     }
-    
-    @IBOutlet weak var missionListTableView: UITableView!
-    
     
     @IBAction func backToRoot(_ sender: UIButton) {
         
@@ -157,7 +168,8 @@ extension CheckMissionViewController: UITableViewDelegate,
                 let cell = missionListTableView.dequeueReusableCell(
                     withIdentifier: String(describing: MissionEmptyTableViewCell.self), for: indexPath)
                 
-                guard let emptyMission = cell as? MissionEmptyTableViewCell else { return UITableViewCell() }
+                guard let emptyMission = cell
+                    as? MissionEmptyTableViewCell else { return UITableViewCell() }
                 
                 return emptyMission
             }
@@ -173,7 +185,8 @@ extension CheckMissionViewController: UITableViewDelegate,
     func removeMission(_ cell: MissionListTableViewCell) {
         
         guard let index = missionListTableView.indexPath(for: cell),
-            let missionOfDay = FirebaseManager.allMission[DayManager.weekdayInEng[index.section].rawValue] else { return }
+            let missionOfDay = FirebaseManager.allMission[DayManager.weekdayInEng[index.section].rawValue]
+            else { return }
         
         let toBeRemovedMission = missionOfDay[index.row]
         
@@ -181,8 +194,7 @@ extension CheckMissionViewController: UITableViewDelegate,
         
         FirebaseManager.shared.deleteMissionFromHouseworks(title: toBeRemovedMission.title,
                                                            tiredValue: toBeRemovedMission.tiredValue,
-                                                           weekday: DayManager.weekdayInEng[index.section].rawValue,
-                                                           family: StorageManager.userInfo.familyID)
+                                                           weekday: DayManager.weekdayInEng[index.section].rawValue)
         
         DispatchQueue.main.async { [weak self] in
             
