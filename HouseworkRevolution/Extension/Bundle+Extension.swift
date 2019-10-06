@@ -7,3 +7,25 @@
 //
 
 import Foundation
+
+extension Bundle {
+  
+    static func valueForString(key: BundleKey) -> String {
+        
+        guard let string = Bundle.main.infoDictionary?[key.rawValue]
+            as? String else { return "" }
+        
+        return string
+    }
+}
+
+enum BundleKey: String {
+    
+    case privacyLink = "PrivacyLinkURL"
+    
+    case sendNotification = "FCMSendNotificationURL"
+    
+    case fcmKey = "FirebaseFCMKey"
+    
+    case mailReceiver = "ProjectEmailReceiver"
+}

@@ -310,8 +310,7 @@ extension AuthViewController: UICollectionViewDelegate, UICollectionViewDataSour
     ) {
         
         guard let nameCallItem = nameCallSelection.cellForItem(at: index)
-            
-              as? NameCallCollectionViewCell else { return }
+            as? NameCallCollectionViewCell else { return }
         
         nameCallItem.backgroundColor = cellColor
         
@@ -337,9 +336,11 @@ extension AuthViewController: UICollectionViewDelegate, UICollectionViewDataSour
     ) -> UICollectionViewCell {
         
         let item = nameCallSelection.dequeueReusableCell(
-            withReuseIdentifier: "NameCallCollectionViewCell", for: indexPath)
+            withReuseIdentifier: String(describing: NameCallCollectionViewCell.self),
+            for: indexPath)
         
-        guard let nameCallItem = item as? NameCallCollectionViewCell else { return UICollectionViewCell() }
+        guard let nameCallItem = item
+            as? NameCallCollectionViewCell else { return UICollectionViewCell() }
         
         nameCallItem.backgroundColor = UIColor.buttonUnSelected
         

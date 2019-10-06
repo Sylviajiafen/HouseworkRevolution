@@ -15,10 +15,7 @@ class FirebaseNotificationHelper {
     
     private init() {}
     
-    private let serverKeyFirstHalf = "AAAA__pbBY8:APA91bGeUq7XzHj3hlQvVnAbvqiMMl_pwMJTiGG0o2U_lPBImCO9a7yv7-TFKnA3F_Fs"
-    private let serverKetSecondHalf = "fBAM5SJynPQ8xVv3MDaAOfUjMzn5hS-Ve9KmNvjsr-y9_7Uw8CuYGp3W_9rvy3SwNH9NVHkK"
-    
-    private let sendNotificationUrlString = "https://fcm.googleapis.com/fcm/send"
+    private let sendNotificationUrlString = Bundle.valueForString(key: .sendNotification)
     
     private let db = Firestore.firestore()
     
@@ -38,9 +35,9 @@ class FirebaseNotificationHelper {
         
         guard let url = NSURL(string: sendNotificationUrlString) else { return }
         
-        let paramString: [String: Any] = ["to": memberToken,
-                                          "notification": ["title": title, "body": body],
-                                          "data": ["poster": data]]
+        let paramString: [String: Any] = [HTTPBodyKey.to: memberToken,
+                                          HTTPBodyKey.notification: [HTTPBodyKey.title: title, HTTPBodyKey.body: body],
+                                          HTTPBodyKey.data: [HTTPBodyKey.poster: data]]
         
         let request = NSMutableURLRequest(url: url as URL)
         
@@ -49,9 +46,9 @@ class FirebaseNotificationHelper {
         request.httpBody = try? JSONSerialization.data(withJSONObject: paramString,
                                                        options: [.prettyPrinted])
         
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-        request.setValue("key=\(serverKeyFirstHalf)\(serverKetSecondHalf)", forHTTPHeaderField: "Authorization")
+        request.setValue(HTTPHeaderValue.json, forHTTPHeaderField: HTTPHeaderField.contentType)
+
+        request.setValue(HTTPHeaderValue.firebaseServerKey, forHTTPHeaderField: HTTPHeaderField.auth)
         
         let task = URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
             
@@ -61,7 +58,8 @@ class FirebaseNotificationHelper {
                     
                     if let jsonDataDict = try JSONSerialization
                                                 .jsonObject(with: jsonData,
-                                                            options: JSONSerialization.ReadingOptions.allowFragments)
+                                                            options: JSONSerialization
+                                                                .ReadingOptions.allowFragments)
                         as? [String: AnyObject] {
                         
                         print("Received Data: \(jsonDataDict)")
@@ -168,5 +166,35 @@ class FirebaseNotificationHelper {
             }
         }
     }
+}
+
+struct HTTPHeaderField {
+
+    static let contentType: String = "Content-Type"
+
+    static let auth: String = "Authorization"
+}
+
+struct HTTPHeaderValue {
+
+    private static let serverKey = Bundle.valueForString(key: .fcmKey)
     
+    static let json: String = "application/json"
+    
+    static let firebaseServerKey: String = "key=\(HTTPHeaderValue.serverKey)"
+}
+
+struct HTTPBodyKey {
+    
+    static let to: String = "to"
+    
+    static let notification: String = "notification"
+    
+    static let title: String = "title"
+    
+    static let body: String = "body"
+    
+    static let data: String = "data"
+    
+    static let poster: String = "poster"
 }

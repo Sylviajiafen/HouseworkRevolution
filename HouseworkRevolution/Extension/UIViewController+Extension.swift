@@ -10,6 +10,8 @@ import UIKit
 
 extension UIViewController {
     
+    var fullScreenSize: CGSize { return UIScreen.main.bounds.size }
+    
     func showAlertOf(title: String? = nil,
                      message: String,
                      dismissByCondition: Bool = false,
@@ -75,5 +77,14 @@ extension UIViewController {
         alert.addAction(cancelAction)
         
         present(alert, animated: true, completion: nil)
+    }
+    
+    func directToViewAt(index: Int) {
+        
+        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+        
+        let root = appDelegate?.window?.rootViewController as? TabBarController
+        
+        root?.selectedIndex = index
     }
 }

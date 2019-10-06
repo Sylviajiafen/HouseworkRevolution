@@ -26,23 +26,13 @@ class ListViewController: UIViewController {
         
         super.viewDidLoad()
         
-        fullScreenSize = UIScreen.main.bounds.size
-        
-        magicLampView.alpha = 0.0
-        
-        skipBtn.alpha = 0.0
-        
-        emptyMissionView.isHidden = true
+        setUpSubViews()
         
         setUpCollectionView()
         
-        let today = DayManager.shared.changeWeekdayIntoCH(weekday: DayManager.shared.weekday)
-        
-        showNoMissionLabel.text = "尚未設定今天（\(today)）的家事"
+        notificationRegisterAndAuth()
         
         FirebaseManager.shared.delegate = self
-    
-        notificationRegistAndAuth()
         
         FirebaseNotificationHelper.shared.getUserName()
     }
@@ -53,10 +43,10 @@ class ListViewController: UIViewController {
         
         ProgressHUD.show()
         
-        FirebaseManager.shared.checkToday(family: StorageManager.userInfo.familyID) {
+        FirebaseManager.shared.checkToday(completion: {
             
-            FirebaseManager.shared.getMissionListToday(family: StorageManager.userInfo.familyID)
-        }
+            FirebaseManager.shared.getMissionListToday()
+        })
         
         FirebaseNotificationHelper.shared.findFamilyMemberTokens()
     }
@@ -81,10 +71,6 @@ class ListViewController: UIViewController {
     
     @IBOutlet weak var noticeLabel: UILabel!
     
-    var fullScreenSize: CGSize?
-    
-    private let spacing: CGFloat = 16.0
-    
     var missionUndoToday = [Mission]() {
         
         didSet {
@@ -94,7 +80,6 @@ class ListViewController: UIViewController {
                 self?.dailyMissionCollectionView.reloadData()
                 
                 self?.showMissionEmpty()
-                
             }
         }
     }
@@ -108,16 +93,42 @@ class ListViewController: UIViewController {
                 self?.dailyMissionCollectionView.reloadData()
                 
                 self?.showMissionEmpty()
-                
             }
         }
     }
     
-    var missionBeDropped = MissionItem(value: 0, content: "")
+    func showMissionEmpty() {
+        
+        dailyMissionCollectionView.endPullToRefresh(dailyMissionCollectionView)
+        
+        if missionUndoToday.count == 0 && missionDoneToday.count == 0 {
+            
+            emptyMissionView.isHidden = false
+            
+            ProgressHUD.dismiss()
+            
+        } else {
+            
+            emptyMissionView.isHidden = true
+            
+            ProgressHUD.dismiss()
+        }
+    }
     
-    let showAnimate = UIViewPropertyAnimator(duration: 0.8, curve: .linear)
+    func setUpSubViews() {
+        
+        magicLampView.alpha = 0.0
+        
+        skipBtn.alpha = 0.0
+        
+        emptyMissionView.isHidden = true
+        
+        let today = DayManager.shared.changeWeekdayIntoCH(weekday: DayManager.shared.weekday)
+        
+        showNoMissionLabel.text = "尚未設定今天（\(today)）的家事"
+    }
     
-    let viewDisappearAnimate = UIViewPropertyAnimator(duration: 0.5, curve: .linear)
+    private let spacing: CGFloat = 16.0
     
     func setUpCollectionView() {
         
@@ -126,23 +137,31 @@ class ListViewController: UIViewController {
                 forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
                 withReuseIdentifier: String(describing: DailyMissionHeaderView.self))
         
-        dailyMissionFlowLayout.sectionInset = UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing)
+        dailyMissionFlowLayout.sectionInset = UIEdgeInsets(top: spacing,
+                                                           left: spacing,
+                                                           bottom: spacing,
+                                                           right: spacing)
         
         dailyMissionFlowLayout.minimumLineSpacing = spacing
         
         dailyMissionFlowLayout.minimumInteritemSpacing = spacing
         
-        guard let screenWidth = fullScreenSize?.width else { return }
-        
-        dailyMissionFlowLayout.headerReferenceSize = CGSize(width: screenWidth, height: 40.0)
+        dailyMissionFlowLayout.headerReferenceSize = CGSize(width: fullScreenSize.width, height: 40.0)
         
         dailyMissionCollectionView.addPullToRefresh(dailyMissionCollectionView) {
             
-            FirebaseManager.shared.getMissionListToday(family: StorageManager.userInfo.familyID)
+            FirebaseManager.shared.getMissionListToday()
         }
     }
-    
-    var itemHeight: CGFloat = 0.0
+
+    func notificationRegisterAndAuth() {
+        
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        
+        appDelegate.showAuthRequest(application: UIApplication.shared)
+        
+        FirebaseNotificationHelper.shared.updateFirestorePushTokenIfNeeded()
+    }
     
     func animateTheNoticeLabel() {
         
@@ -152,6 +171,7 @@ class ListViewController: UIViewController {
         
         UIView.animate(withDuration: 6.0, animations: { [weak self] in
             
+            // swiftlint:disable multiple_closures_with_trailing_closure
             self?.noticeLabel.alpha = 0 }) { [weak self] (isCompleted) in
             
                 if isCompleted {
@@ -160,7 +180,12 @@ class ListViewController: UIViewController {
                 }
             }
     }
+    
+    var itemHeight: CGFloat = 0.0
 
+    let showAnimate = UIViewPropertyAnimator(duration: 0.8, curve: .linear)
+    
+    let viewDisappearAnimate = UIViewPropertyAnimator(duration: 0.5, curve: .linear)
     // MARK: - 實現願望
     func magicLampViewShow() {
         
@@ -226,21 +251,15 @@ class ListViewController: UIViewController {
         magicLampView.alpha = 0.0
         
         skipBtn.alpha = 0.0
-    
     }
     
     func directToWishPage(message: String) {
         
         let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
         
-        let action = UIAlertAction(title: "許願去", style: .default, handler: { _ in
+        let action = UIAlertAction(title: "許願去", style: .default, handler: {[weak self] _ in
             
-            let appdelegate = UIApplication.shared.delegate as? AppDelegate
-            
-            let root = appdelegate?.window?.rootViewController as? TabBarController
-            
-            root?.selectedIndex = 2
-            
+            self?.directToViewAt(index: 2)
         })
         
         action.setValue(UIColor.lightGreen, forKey: "titleTextColor")
@@ -256,41 +275,9 @@ class ListViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    func showMissionEmpty() {
-        
-        dailyMissionCollectionView.endPullToRefresh(dailyMissionCollectionView)
-        
-        if missionUndoToday.count == 0 && missionDoneToday.count == 0 {
-            
-            emptyMissionView.isHidden = false
-            
-            ProgressHUD.dismiss()
-            
-        } else {
-            
-            emptyMissionView.isHidden = true
-            
-            ProgressHUD.dismiss()
-    
-        }
-    }
-    
     @IBAction func goToAddMission(_ sender: Any) {
         
-        let appdelegate = UIApplication.shared.delegate as? AppDelegate
-        
-        let root = appdelegate?.window?.rootViewController as? TabBarController
-        
-        root?.selectedIndex = 1
-    }
-    
-    func notificationRegistAndAuth() {
-        
-        guard let appdelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-        
-        appdelegate.showAuthRequest(application: UIApplication.shared)
-        
-        FirebaseNotificationHelper.shared.updateFirestorePushTokenIfNeeded()
+        directToViewAt(index: 1)
     }
     
     @IBAction func showUserHelp(_ sender: Any) {
@@ -303,6 +290,28 @@ class ListViewController: UIViewController {
         userHelpView.modalPresentationStyle = .overFullScreen
         
         present(userHelpView, animated: false, completion: nil)
+    }
+    
+}
+
+extension ListViewController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath
+    ) -> CGSize {
+        
+        let numberOfItemsPerRow: CGFloat = 4
+        
+        let spacingBetweenCells: CGFloat = 16
+        
+        let totalSpacing = (2 * self.spacing) + ((numberOfItemsPerRow - 1) * spacingBetweenCells)
+        
+        let width = (fullScreenSize.width - totalSpacing) / numberOfItemsPerRow
+            
+        itemHeight = width
+            
+        return CGSize(width: width, height: width)
     }
     
 }
@@ -327,12 +336,12 @@ extension ListViewController: UICollectionViewDelegate,
         
         if kind == UICollectionView.elementKindSectionHeader {
             
-            guard let headerView = header as? DailyMissionHeaderView else { return UICollectionReusableView() }
+            guard let headerView = header
+                as? DailyMissionHeaderView else { return UICollectionReusableView() }
             
             if indexPath.section == 0 {
                 
                 headerView.sectionTitle.text = "還有哪些家事任務呢？"
-                
             } else {
                 
                 headerView.sectionTitle.text = "完成了！"
@@ -369,7 +378,8 @@ extension ListViewController: UICollectionViewDelegate,
         let item = dailyMissionCollectionView.dequeueReusableCell(
             withReuseIdentifier: String(describing: DailyMissionCollectionViewCell.self), for: indexPath)
         
-        guard let missionItem = item as? DailyMissionCollectionViewCell else { return UICollectionViewCell() }
+        guard let missionItem = item
+            as? DailyMissionCollectionViewCell else { return UICollectionViewCell() }
         
         missionItem.layer.cornerRadius = itemHeight / 2
         
@@ -377,15 +387,13 @@ extension ListViewController: UICollectionViewDelegate,
             
         case 0:
             
-            missionItem.backgroundColor = UIColor.cellGreen
-            
-            missionItem.dailyMissionLabel.text = missionUndoToday[indexPath.row].title
+            missionItem.layout(background: UIColor.cellGreen,
+                               mission: missionUndoToday[indexPath.row].title)
             
         case 1:
             
-            missionItem.backgroundColor = UIColor.lightCellGreen
-            
-            missionItem.dailyMissionLabel.text = missionDoneToday[indexPath.row].title
+            missionItem.layout(background: UIColor.lightCellGreen,
+                               mission: missionDoneToday[indexPath.row].title)
             
         default:
             
@@ -393,35 +401,6 @@ extension ListViewController: UICollectionViewDelegate,
         }
         
         return missionItem
-    }
-    
-}
-
-extension ListViewController: UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        sizeForItemAt indexPath: IndexPath
-    ) -> CGSize {
-        
-        let numberOfItemsPerRow: CGFloat = 4
-        
-        let spacingBetweenCells: CGFloat = 16
-        
-        let totalSpacing = (2 * self.spacing) + ((numberOfItemsPerRow - 1) * spacingBetweenCells)
-        
-        if let screenWidth = fullScreenSize?.width {
-            
-            let width = (screenWidth - totalSpacing) / numberOfItemsPerRow
-            
-            itemHeight = width
-            
-            return CGSize(width: width, height: width)
-            
-        } else {
-            
-            return CGSize(width: 0, height: 0)
-        }
     }
     
 }
@@ -450,7 +429,7 @@ extension ListViewController: UICollectionViewDragDelegate {
             
         case 1:
             
-            return[] // 不可 drag
+            return[]
             
         default:
             
@@ -469,8 +448,8 @@ extension ListViewController: UICollectionViewDropDelegate {
         
         if collectionView.hasActiveDrag {
             
-            return UICollectionViewDropProposal(operation: .move, intent: .insertIntoDestinationIndexPath)
-            
+            return UICollectionViewDropProposal(operation: .move,
+                                                intent: .insertIntoDestinationIndexPath)
         }
         
         return UICollectionViewDropProposal(operation: .forbidden)
@@ -483,13 +462,15 @@ extension ListViewController: UICollectionViewDropDelegate {
         if let item = coordinator.items.first,
             let sourceIndexPath = item.sourceIndexPath {
     
-            item.dragItem.itemProvider.loadObject(ofClass: MissionItem.self) { [weak self] (mission, error) in
+            item.dragItem.itemProvider.loadObject(ofClass: MissionItem.self
+            ) { [weak self] (mission, error) in
                 
                 DispatchQueue.main.async {
 
                     guard let missionDropped = mission as? MissionItem else { return }
                     
-                    let missionDone = Mission(title: missionDropped.content, tiredValue: missionDropped.tiredValue)
+                    let missionDone = Mission(title: missionDropped.content,
+                                              tiredValue: missionDropped.tiredValue)
                 
                     collectionView.performBatchUpdates({
                         
@@ -504,8 +485,7 @@ extension ListViewController: UICollectionViewDropDelegate {
                     coordinator.drop(item.dragItem, toItemAt: destinationIndexPath)
                     
                     FirebaseManager.shared.updateMissionStatus(title: missionDone.title,
-                                                               tiredValue: missionDone.tiredValue,
-                                                               family: StorageManager.userInfo.familyID)
+                                                               tiredValue: missionDone.tiredValue)
                     
                     if missionDropped.tiredValue > 5 {
                         

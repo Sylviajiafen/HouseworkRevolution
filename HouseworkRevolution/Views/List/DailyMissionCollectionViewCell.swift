@@ -11,4 +11,11 @@ import UIKit
 class DailyMissionCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var dailyMissionLabel: UILabel!
+    
+    func layout(background color: UIColor?, mission title: String) {
+        
+        self.backgroundColor = color
+        
+        dailyMissionLabel.text = title
+    }
 }

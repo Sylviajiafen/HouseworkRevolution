@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>ProjectEmailReceiver</key>
+	<string>eggie152832@gmail.com</string>
+	<key>PrivacyLinkURL</key>
+	<string>https://www.privacypolicies.com/privacy/view/0776e10a3962811581f3623d374a64b9</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>

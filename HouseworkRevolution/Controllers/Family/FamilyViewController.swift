@@ -123,27 +123,27 @@ class FamilyViewController: TextCountLimitBaseViewController {
         
         showEditableAlertView(of: userCallLabel,
                               title: "編輯稱呼",
-                              message: "換個自己喜歡的稱呼吧")
-        { (newName) in
+                              message: "換個自己喜歡的稱呼吧",
+                              completion: { (newName) in
             
             FirebaseUserHelper.shared.changeName(user: StorageManager.userInfo.userID,
                                                  to: newName,
                                                  currentFamily: StorageManager.userInfo.familyID)
             
             FirebaseNotificationHelper.shared.getUserName()
-        }
+        })
     }
     
     @IBAction func editFamilyName(_ sender: Any) {
         
         showEditableAlertView(of: familyNameLabel,
                               title: "編輯家庭名稱",
-                              message: "幫自己的家取個響亮的名字吧")
-        { (newName) in
+                              message: "幫自己的家取個響亮的名字吧",
+                              completion: { (newName) in
                                 
             FirebaseUserHelper.shared.changeFamilyName(family: StorageManager.userInfo.familyID,
                                                        to: newName)
-        }
+        })
     }
     
     func showEditableAlertView(of label: UILabel,

@@ -25,9 +25,9 @@ class PrivacyTermViewController: UIViewController {
         
         privacyWebView.navigationDelegate = self
         
-        guard let privacyURL = URL(string:
-                    "https://www.privacypolicies.com/privacy/view/0776e10a3962811581f3623d374a64b9")
-            else { return }
+        let privacyLinkString = Bundle.valueForString(key: .privacyLink)
+        
+        guard let privacyURL = URL(string: privacyLinkString) else { return }
         
         let request = URLRequest(url: privacyURL)
         
@@ -42,12 +42,14 @@ class PrivacyTermViewController: UIViewController {
 
 extension PrivacyTermViewController: WKNavigationDelegate {
     
-    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+    func webView(_ webView: WKWebView,
+                 didStartProvisionalNavigation navigation: WKNavigation!) {
         
         loadingIndicator.startAnimating()
     }
     
-    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+    func webView(_ webView: WKWebView,
+                 didFinish navigation: WKNavigation!) {
         
         loadingIndicator.stopAnimating()
     }

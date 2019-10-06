@@ -12,7 +12,9 @@ import MessageUI
 class UserHelpViewController: UIViewController {
 
     @IBOutlet weak var backgroundView: UIView!
+    
     @IBOutlet weak var versionView: UIView!
+    
     @IBOutlet weak var versionLabel: UILabel!
     
     override func viewDidLoad() {
@@ -20,6 +22,13 @@ class UserHelpViewController: UIViewController {
         
         addTapToDismissGesture(on: backgroundView)
 
+        setVersionView()
+        
+        print(Bundle.valueForString(key: .mailReceiver))
+    }
+    
+    func setVersionView() {
+        
         versionView.layer.roundCorners(radius: 10.0)
         
         versionView.layer.addShadow()
@@ -38,7 +47,7 @@ class UserHelpViewController: UIViewController {
         
         mail.mailComposeDelegate = self
         
-        mail.setToRecipients(["eggie152832@gmail.com"])
+        mail.setToRecipients([Bundle.valueForString(key: .mailReceiver)])
         
         if let version = UIApplication.appVersion {
             
@@ -94,6 +103,7 @@ extension UIApplication {
     
     static var appVersion: String? {
         
-        return Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String
+        return Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString")
+            as? String
     }
 }

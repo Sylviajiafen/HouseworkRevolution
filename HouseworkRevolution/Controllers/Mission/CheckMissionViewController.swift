@@ -28,20 +28,20 @@ class CheckMissionViewController: UIViewController {
             
             for weekdays in DayManager.weekdayInEng {
                 
-                FirebaseManager.shared.getAllMissions(family: StorageManager.userInfo.familyID,
-                            day: weekdays.rawValue) { [weak self] (dailyMission) in
-                                                        
-                        DispatchQueue.main.async {
-                                                            
-                            self?.missionListTableView.reloadData()
-                            
-                        }
+                FirebaseManager.shared.getAllMissions(day: weekdays.rawValue
+                ) { [weak self] (dailyMission) in
+                    
+                    guard let strongSelf = self else { return }
+                    
+                    DispatchQueue.main.async {
+                        
+                        strongSelf.missionListTableView.reloadData()
+                        
+                        strongSelf.missionListTableView
+                            .endPullToRefresh(strongSelf.missionListTableView)
+                    }
                 }
             }
-            
-            guard let strongSelf = self else { return }
-                
-            strongSelf.missionListTableView.endPullToRefresh(strongSelf.missionListTableView)
         }
     }
     
@@ -51,8 +51,8 @@ class CheckMissionViewController: UIViewController {
         
         for weekdays in DayManager.weekdayInEng {
         
-            FirebaseManager.shared.getAllMissions(family: StorageManager.userInfo.familyID,
-                                                  day: weekdays.rawValue) { [weak self] (dailyMission) in
+            FirebaseManager.shared.getAllMissions(day: weekdays.rawValue
+            ) { [weak self] (dailyMission) in
                                                     
                 DispatchQueue.main.async {
                     
@@ -66,11 +66,11 @@ class CheckMissionViewController: UIViewController {
     
     @IBOutlet weak var missionListTableView: UITableView!
     
+    
     @IBAction func backToRoot(_ sender: UIButton) {
         
         self.dismiss(animated: true, completion: nil)
     }
-
 }
 
 extension CheckMissionViewController: UITableViewDelegate,

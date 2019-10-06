@@ -106,7 +106,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate, MessagingDelegate {
         
         let userInfo = notification.request.content.userInfo
         
-        guard let poster = userInfo["poster"] as? String else { return }
+        guard let poster = userInfo[HTTPBodyKey.poster] as? String else { return }
         
         if poster != StorageManager.userInfo.userID {
             

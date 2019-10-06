@@ -39,7 +39,8 @@ class FirebaseManager {
 // MARK: 讀取今日家事
     
     // 新增當日 missions collection
-    private func addDailyMissionToMissionByDate(of family: String, completion: @escaping () -> Void ) {
+    private func addDailyMissionToMissionByDate(of family: String,
+                                                completion: @escaping () -> Void ) {
         
         let houseworksQuery = db.collection(DataCollection.houseGroup.rawValue)
             .document(family)
@@ -94,7 +95,8 @@ class FirebaseManager {
     }
     
     // 檢查 database 有沒有今天的資料，沒有的話新增
-    func checkToday(family: String, completion: @escaping () -> Void) {
+    func checkToday(family: String = StorageManager.userInfo.familyID,
+                    completion: @escaping () -> Void) {
         
         let today = DayManager.shared.stringOfToday
         
@@ -128,7 +130,7 @@ class FirebaseManager {
         }
     }
     
-    func getMissionListToday(family: String) {
+    func getMissionListToday(family: String = StorageManager.userInfo.familyID) {
         
         let today = DayManager.shared.stringOfToday
         
@@ -202,7 +204,9 @@ class FirebaseManager {
     }
     
     // 完成家事，更新成 done
-    func updateMissionStatus(title: String, tiredValue: Int, family: String) {
+    func updateMissionStatus(title: String,
+                             tiredValue: Int,
+                             family: String = StorageManager.userInfo.familyID) {
         
         let today = DayManager.shared.stringOfToday
         
@@ -240,7 +244,9 @@ class FirebaseManager {
     
 // MARK: 讀取全部家事
     
-    func getAllMissions(family: String, day: String, handler: @escaping ([Mission]) -> Void) {
+    func getAllMissions(family: String = StorageManager.userInfo.familyID,
+                        day: String,
+                        handler: @escaping ([Mission]) -> Void) {
         
         FirebaseManager.allMission[day]?.removeAll()
         
