@@ -34,6 +34,13 @@ class InvitingFamilyTableViewCell: UITableViewCell {
         self.delegate?.rejectInvitation(self)
     }
     
+    func layoutLabel(with invitation: InvitingFamily) {
+        
+        invitingPersonLabel.text = "的「\(invitation.from)」邀請您加入家庭"
+        
+        invitingFamilyName.text = invitation.familyName
+    }
+    
 }
 
 protocol InvitingFamilyTableViewCellDelegate: AnyObject {

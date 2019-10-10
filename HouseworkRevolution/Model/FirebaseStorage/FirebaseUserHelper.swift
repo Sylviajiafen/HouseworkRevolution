@@ -11,7 +11,7 @@ import Firebase
 
 typealias LoggedInResult = (LoginResult<String>) -> Void
 
-typealias RegisterResult = (RegistResult<String?>) -> Void
+typealias RegisteredResult = (RegisterResult<String?>) -> Void
 
 typealias AddMemberResult = (SendInvitationResult<String>) -> Void
 
@@ -31,14 +31,16 @@ class FirebaseUserHelper {
     static var currentListenerRegistration: ListenerRegistration?
     
     static var currentMemberListener: ListenerRegistration?
+    
     static var currentInvitationListener: ListenerRegistration?
+    
     static var allUserListener: ListenerRegistration?
     
     private let db = Firestore.firestore()
     
     // MARK: 註冊功能
     
-    func registerUserWithEncrypt(_ user: FamilyMember, completion: @escaping RegisterResult) {
+    func registerUserWithEncrypt(_ user: FamilyMember, completion: @escaping RegisteredResult) {
         
         var userPwdEncrypted = ""
         
@@ -74,7 +76,7 @@ class FirebaseUserHelper {
         FirebaseUserHelper.userID = ref.documentID
     }
     
-    func registerDoneWith(_ family: FamilyGroup, username: String, completion: @escaping RegisterResult) {
+    func registerDoneWith(_ family: FamilyGroup, username: String, completion: @escaping RegisteredResult) {
         
        var familyRef: DocumentReference?
         
@@ -165,7 +167,7 @@ class FirebaseUserHelper {
                                     
                             } else {
                                     
-                                completion?(LoginResult.failed(.uncorrectPassword))
+                                completion?(LoginResult.failed(.incorrectPassword))
                             }
                                         
                         } else if let err = error {
@@ -468,6 +470,78 @@ class FirebaseUserHelper {
         })
     }
     
+    //
+    func showMemberInvitation(family: String = StorageManager.userInfo.familyID,
+                              invitedMember: @escaping ([MemberData]) -> Void) {
+        
+        ProgressHUD.show()
+        
+        let familyQuery = db.collection(DataCollection.houseGroup.rawValue).document(family)
+            .collection(CollectionOfFamily.requestedMember.rawValue)
+    
+        // addSnapshot
+        FirebaseUserHelper.currentListenerRegistration =
+        familyQuery.addSnapshotListener { (querySnapshot, err) in
+                        
+            var invitedUser = [MemberData]()
+                        
+            if let querySnapshot = querySnapshot {
+                            
+                for invited in querySnapshot.documents {
+                                
+                    guard let id = invited[RequestedMember.userID.rawValue] as? String,
+                            let name = invited[RequestedMember.username.rawValue] as? String else { return }
+                                
+                    invitedUser.append(MemberData(id: id, name: name))
+                }
+                            
+                invitedMember(invitedUser)
+    
+            } else if let err = err {
+                
+                ProgressHUD.dismiss()
+                
+                print("check query err: \(err)")
+            }
+        }
+    }
+    
+    func showFamilyInvitation(user: String = StorageManager.userInfo.userID,
+                              invitingFamily: @escaping ([InvitingFamily]) -> Void) {
+        
+        let userQuery = db.collection(DataCollection.houseUser.rawValue).document(user)
+            .collection(UserData.subCollection.rawValue)
+        
+        // addSnapshot
+        FirebaseUserHelper.currentInvitationListener =
+        userQuery.addSnapshotListener { (querySnapshot, err) in
+            
+            if let querySnapshot = querySnapshot {
+                
+                var invitingGroup = [InvitingFamily]()
+                
+                for inviting in querySnapshot.documents {
+                    
+                    guard let familyId = inviting[RequestingFamily.familyID.rawValue] as? String,
+                        let familyName = inviting[RequestingFamily.familyName.rawValue] as? String,
+                        let inviter = inviting[RequestingFamily.from.rawValue] as? String else { return }
+                    
+                    invitingGroup.append(InvitingFamily(familyID: familyId,
+                                                        familyName: familyName,
+                                                        from: inviter))
+                }
+                
+                invitingFamily(invitingGroup)
+                
+            } else if let err = err {
+                
+                ProgressHUD.dismiss()
+                
+                print("get inviting family err: \(err)")
+            }
+        }
+    }
+    
     func showInvites(family: String, user: String,
                      invitedMember: @escaping ([MemberData]) -> Void,
                      invitingFamily: @escaping ([InvitingFamily]) -> Void) {
@@ -594,7 +668,9 @@ class FirebaseUserHelper {
     }
     
     // MARK: 移除(退出)家庭
-    func dropOutFamily(familyID: String, user: String, getOriginFamily: @escaping (String) -> Void) {
+    func dropOutFamily(familyID: String = StorageManager.userInfo.familyID,
+                       user: String = StorageManager.userInfo.userID,
+                       getOriginFamily: @escaping (String) -> Void) {
         
         let query = db.collection(DataCollection.houseUser.rawValue)
             .document(user)
@@ -650,7 +726,9 @@ class FirebaseUserHelper {
     
 // MARK: 變更名稱
     
-    func changeName(user: String, to newName: String, currentFamily: String) {
+    func changeName(user: String = StorageManager.userInfo.userID,
+                    to newName: String,
+                    currentFamily: String = StorageManager.userInfo.familyID) {
         
         let query = db.collection(DataCollection.houseUser.rawValue).document(user)
         
@@ -679,7 +757,8 @@ class FirebaseUserHelper {
         familyQuery.setData([UserData.name.rawValue: newName], merge: true)
     }
     
-    func changeFamilyName(family: String, to new: String) {
+    func changeFamilyName(family: String = StorageManager.userInfo.familyID,
+                          to new: String) {
         
         let query = db.collection(DataCollection.houseGroup.rawValue).document(family)
         
@@ -688,7 +767,8 @@ class FirebaseUserHelper {
     
 // MARK: 判斷是否為 originFamily
     
-    func comparingFamily(user: String, originFamilyHandler: @escaping (String) -> Void) {
+    func comparingFamily(user: String = StorageManager.userInfo.userID,
+                         isOriginFamily: @escaping (Bool) -> Void) {
         
         let query = db.collection(DataCollection.houseUser.rawValue).document(user)
         
@@ -698,7 +778,14 @@ class FirebaseUserHelper {
                 
                 guard let origin = doc[UserData.originFamily.rawValue] as? String else { return }
                 
-                originFamilyHandler(origin)
+                if origin == StorageManager.userInfo.familyID {
+                    
+                    isOriginFamily(true)
+                    
+                } else {
+                    
+                    isOriginFamily(false)
+                }
                 
             } else if let err = err {
                 

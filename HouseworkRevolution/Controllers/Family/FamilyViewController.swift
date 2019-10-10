@@ -12,7 +12,15 @@ class FamilyViewController: TextCountLimitBaseViewController {
     
     @IBOutlet weak var familyMemberTableView: UITableView!
     
-    @IBOutlet weak var invitingFamilyTableView: UITableView!
+    @IBOutlet weak var invitingFamilyTableView: UITableView! {
+        
+        didSet {
+            
+            showInvitingOrNot()
+            
+            invitingFamilyTableView.reloadData()
+        }
+    }
     
     @IBOutlet weak var userCallLabel: UILabel!
     
@@ -29,26 +37,45 @@ class FamilyViewController: TextCountLimitBaseViewController {
     override var textLimitCount: Int { return 6 }
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         
-        invitingFamilyTableView.delegate = self
+        registerHeader()
         
-        invitingFamilyTableView.dataSource = self
+        setUserID()
         
-        userIDBtn.setTitle(StorageManager.userInfo.userID, for: .normal)
-        
-        userIDBtn.titleLabel?.adjustsFontSizeToFitWidth = true
-        
-        isOriginOrNot()
+        checkOriginFamily()
         
         setInformation()
         
         setQRCode()
         
-        // MARK: regist header
+//        let invitationController = InvitationController()
+//        invitationController.delegate = self
+//        invitingFamilyTableView.dataSource = invitationController
+//        invitingFamilyTableView.delegate = invitationController
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+
+        getHomeData()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        removeListeners()
+    }
+    
+    func setUserID() {
+        
+        userIDBtn.setTitle(StorageManager.userInfo.userID, for: .normal)
+        
+        userIDBtn.titleLabel?.adjustsFontSizeToFitWidth = true
+    }
+    
+    func registerHeader() {
+        
         let headerXibOfMember = UINib(nibName: String(describing: FamilyMemberSectionHeader.self),
-                                        bundle: nil)
+                                      bundle: nil)
         
         familyMemberTableView.register(headerXibOfMember,
                                        forHeaderFooterViewReuseIdentifier: String(describing: FamilyMemberSectionHeader.self))
@@ -60,14 +87,12 @@ class FamilyViewController: TextCountLimitBaseViewController {
                                          forHeaderFooterViewReuseIdentifier: String(describing: InvitingFamilySectionHeaderView.self))
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-
-        getHomeData()
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
+    func checkOriginFamily() {
         
-        removeListeners()
+        FirebaseUserHelper.shared.comparingFamily { [weak self] (isOriginFamily) in
+            
+            self?.dropOutView.isHidden = isOriginFamily
+        }
     }
     
     func setInformation() {
@@ -126,9 +151,7 @@ class FamilyViewController: TextCountLimitBaseViewController {
                               message: "換個自己喜歡的稱呼吧",
                               completion: { (newName) in
             
-            FirebaseUserHelper.shared.changeName(user: StorageManager.userInfo.userID,
-                                                 to: newName,
-                                                 currentFamily: StorageManager.userInfo.familyID)
+            FirebaseUserHelper.shared.changeName(to: newName)
             
             FirebaseNotificationHelper.shared.getUserName()
         })
@@ -141,8 +164,7 @@ class FamilyViewController: TextCountLimitBaseViewController {
                               message: "幫自己的家取個響亮的名字吧",
                               completion: { (newName) in
                                 
-            FirebaseUserHelper.shared.changeFamilyName(family: StorageManager.userInfo.familyID,
-                                                       to: newName)
+            FirebaseUserHelper.shared.changeFamilyName(to: newName)
         })
     }
     
@@ -192,8 +214,7 @@ class FamilyViewController: TextCountLimitBaseViewController {
             
             self?.removeListeners()
             
-            FirebaseUserHelper.shared.dropOutFamily(familyID: StorageManager.userInfo.familyID,
-                                                    user: StorageManager.userInfo.userID,
+            FirebaseUserHelper.shared.dropOutFamily(
                 getOriginFamily: { [weak self] (origin) in
                     
                     StorageManager.shared.updateFamily(familyID: origin,
@@ -203,7 +224,7 @@ class FamilyViewController: TextCountLimitBaseViewController {
                             
                             DispatchQueue.main.async {
                                 
-                                self?.isOriginOrNot()
+                                self?.checkOriginFamily()
                             }
                     })
             })
@@ -257,24 +278,6 @@ class FamilyViewController: TextCountLimitBaseViewController {
         } else {
             
             invitingFamilyTableView.isHidden = false
-            
-        }
-    }
-    
-    func isOriginOrNot() {
-        
-        FirebaseUserHelper.shared.comparingFamily(
-            user: StorageManager.userInfo.userID) { [weak self] (originFamily) in
-            
-            if originFamily == StorageManager.userInfo.familyID {
-                
-                self?.dropOutView.isHidden = true
-                
-            } else {
-                
-                self?.dropOutView.isHidden = false
-                
-            }
         }
     }
     
@@ -408,25 +411,19 @@ extension FamilyViewController: UITableViewDelegate, UITableViewDataSource {
             switch section {
                 
             case 0:
-                header.sectionTitleLabel.text = "家庭成員"
-                header.addCorner()
                 
-                return header
+                header.layoutOf(title: "家庭成員")
                 
             case 1:
                 
-                header.sectionTitleLabel.text = "邀請中的家人"
-                
-                header.addCorner()
-                
-                header.sectionContentView.alpha = 1.0
-                
-                return header
+                header.layoutOf(title: "邀請中的家人")
                 
             default:
                 
-                return nil
+                break
             }
+            
+            return header
             
         case invitingFamilyTableView:
             
@@ -473,7 +470,8 @@ extension FamilyViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     // MARK: TableView Cell
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int
+    ) -> Int {
         
         switch tableView {
             
@@ -504,7 +502,8 @@ extension FamilyViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath
+    ) -> UITableViewCell {
         
         switch tableView {
             
@@ -519,31 +518,19 @@ extension FamilyViewController: UITableViewDelegate, UITableViewDataSource {
                 
             case 0:
                 
-                memberCell.setLabelColor(background: UIColor.buttonUnSelected,
-                                         textColor: UIColor.noticeGray,
-                                         idTextColor: .lightGray,
-                                         alpha: 1.0)
-                
-                memberCell.memberCall.text = familyMember[indexPath.row].name
-                
-                memberCell.memberId.text = familyMember[indexPath.row].id
-                
-                memberCell.cancelInvitationBtn.isHidden = true
+                memberCell.layoutCell(with: familyMember[indexPath.row],
+                                      textColor: UIColor.noticeGray,
+                                      alpha: 1.0,
+                                      hideCancel: true)
                 
                 return memberCell
                 
             case 1:
                 
-                memberCell.setLabelColor(background: UIColor.buttonUnSelected,
-                                         textColor: .white,
-                                         idTextColor: .lightGray,
-                                         alpha: 0.6)
-                
-                memberCell.memberCall.text = invitedMemberList[indexPath.row].name
-                
-                memberCell.memberId.text = invitedMemberList[indexPath.row].id
-                
-                memberCell.cancelInvitationBtn.isHidden = false
+                memberCell.layoutCell(with: invitedMemberList[indexPath.row],
+                                      textColor: .white,
+                                      alpha: 0.6,
+                                      hideCancel: false)
                 
                 memberCell.delegate = self
                 
@@ -561,12 +548,8 @@ extension FamilyViewController: UITableViewDelegate, UITableViewDataSource {
             
             guard let invitingListCell = cell as? InvitingFamilyTableViewCell else { return UITableViewCell() }
             
-            let invitingPerson = invitingFamilyList[indexPath.row].from
-            
-            invitingListCell.invitingPersonLabel.text = "的「\(invitingPerson)」邀請您加入家庭"
-            
-            invitingListCell.invitingFamilyName.text = invitingFamilyList[indexPath.row].familyName
-            
+            invitingListCell.layoutLabel(with: invitingFamilyList[indexPath.row])
+   
             invitingListCell.delegate = self
             
             return invitingListCell
@@ -601,7 +584,7 @@ extension FamilyViewController: InvitingFamilyTableViewCellDelegate {
 
                     DispatchQueue.main.async {
     
-                        self?.isOriginOrNot()
+                        self?.checkOriginFamily()
                     }
         })
     }

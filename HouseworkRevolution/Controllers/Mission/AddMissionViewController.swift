@@ -158,7 +158,7 @@ class AddMissionViewController: TextCountLimitBaseViewController {
                     
                     switch message {
                         
-                    case .duplicatedAdd(let message):
+                    case .duplicated(let message):
                         
                         self?.showAlertOf(message: message, dismissByCondition: true,
                                           handler: { [weak self] in

@@ -42,9 +42,9 @@ class QRCodeViewController: UIViewController {
         
         let data = string.data(using: String.Encoding.ascii)
         
-        if let filter = CIFilter(name: QRCodeString.qrfilterName) {
+        if let filter = CIFilter(name: QRCodeString.qrFilterName) {
             
-            filter.setValue(data, forKey: QRCodeString.qrfilterValue)
+            filter.setValue(data, forKey: QRCodeString.qrFilterValue)
             
             let transform = CGAffineTransform(scaleX: 8, y: 8)
             
@@ -129,7 +129,7 @@ class QRCodeViewController: UIViewController {
 
 private struct QRCodeString {
     
-    static let qrfilterName: String = "CIQRCodeGenerator"
+    static let qrFilterName: String = "CIQRCodeGenerator"
     
-    static let qrfilterValue: String = "inputMessage"
+    static let qrFilterValue: String = "inputMessage"
 }

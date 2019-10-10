@@ -153,6 +153,7 @@ enum RequestedMember: String {
 }
 
 // Result and Error
+
 enum LoginResult<T> {
     
     case success(T)
@@ -160,7 +161,7 @@ enum LoginResult<T> {
     case failed(LoginError)
 }
 
-enum RegistResult<T> {
+enum RegisterResult<T> {
     
     case success(T)
     
@@ -176,7 +177,7 @@ enum SendInvitationResult<T> {
 
 enum AddMissionResult<T> {
     
-    case duplicatedAdd(T)
+    case duplicated(T)
     
     case success(T)
     
@@ -187,7 +188,7 @@ enum LoginError: String {
     
     case userDidNotExist = "沒有註冊過唷"
     
-    case uncorrectPassword = "密碼不正確"
+    case incorrectPassword = "密碼不正確"
     
     case unknownError = "未知錯誤，請聯絡開發人員"
 }
@@ -207,6 +208,7 @@ enum QRCodeScannedResult<T> {
 }
 
 // Local Storage
+
 struct UserLoggedIn {
     
     let userID: String

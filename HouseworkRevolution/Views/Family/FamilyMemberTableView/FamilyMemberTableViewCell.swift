@@ -18,25 +18,25 @@ class FamilyMemberTableViewCell: UITableViewCell {
     
     weak var delegate: FamilyMemberTableViewCellDelegate?
     
-    func setLabelColor(background: UIColor?,
-                       textColor: UIColor?,
-                       idTextColor: UIColor?,
-                       alpha: CGFloat) {
-        
-        guard let background = background,
-              let textColor = textColor,
-              let idTextColor = idTextColor else { return }
-        
-        memberCall.backgroundColor = background
-        
-        memberCall.textColor = textColor
-        
-        memberId.textColor = idTextColor
-        
-        memberCall.alpha = alpha
-        
-        memberId.alpha = alpha
-    }
+//    func setLabelColor(background: UIColor?,
+//                       textColor: UIColor?,
+//                       idTextColor: UIColor?,
+//                       alpha: CGFloat) {
+//        
+//        guard let background = background,
+//              let textColor = textColor,
+//              let idTextColor = idTextColor else { return }
+//        
+//        memberCall.backgroundColor = background
+//        
+//        memberCall.textColor = textColor
+//        
+//        memberId.textColor = idTextColor
+//        
+//        memberCall.alpha = alpha
+//        
+//        memberId.alpha = alpha
+//    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -51,6 +51,30 @@ class FamilyMemberTableViewCell: UITableViewCell {
         self.delegate?.cancelInvitation(self)
     }
     
+    func layoutCell(with member: MemberData,
+                    textColor: UIColor?,
+                    alpha: CGFloat,
+                    hideCancel: Bool) {
+        
+        guard let textColor = textColor,
+              let background = UIColor.buttonUnSelected else { return }
+               
+        memberCall.backgroundColor = background
+               
+        memberCall.textColor = textColor
+               
+        memberId.textColor = .lightGray
+               
+        memberCall.alpha = alpha
+               
+        memberId.alpha = alpha
+        
+        memberCall.text = member.name
+        
+        memberId.text = member.id
+        
+        cancelInvitationBtn.isHidden = hideCancel
+    }
 }
 
 protocol FamilyMemberTableViewCellDelegate: AnyObject {

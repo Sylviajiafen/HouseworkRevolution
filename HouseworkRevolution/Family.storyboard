@@ -294,8 +294,8 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="GUe-sm-w7G" id="ior-ap-XrY"/>
-                                    <outlet property="delegate" destination="GUe-sm-w7G" id="BJC-g8-ObM"/>
+                                    <outlet property="dataSource" destination="GUe-sm-w7G" id="Hnd-TS-N0A"/>
+                                    <outlet property="delegate" destination="GUe-sm-w7G" id="yhT-YS-0fa"/>
                                 </connections>
                             </tableView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" contentInsetAdjustmentBehavior="never" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5sy-HF-Iy3">
@@ -380,6 +380,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="GUe-sm-w7G" id="9qM-BN-uoz"/>
+                                    <outlet property="delegate" destination="GUe-sm-w7G" id="3PW-gJ-48i"/>
+                                </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hC6-eN-Frp">
                                 <rect key="frame" x="260" y="199.5" width="30" height="30"/>

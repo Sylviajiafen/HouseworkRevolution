@@ -14,13 +14,20 @@ class FamilyMemberSectionHeader: UITableViewHeaderFooterView {
     
     @IBOutlet weak var sectionContentView: UIView!
     
-    func addCorner() {
+    private func addCorner() {
         
         sectionContentView.clipsToBounds = true
         
         sectionContentView.layer.cornerRadius = 8
         
         sectionContentView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMaxYCorner]
+    }
+    
+    func layoutOf(title: String) {
+        
+        self.addCorner()
+        
+        sectionTitleLabel.text = title
     }
     
 }

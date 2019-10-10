@@ -12,7 +12,6 @@
 		03006C1D2349BF520060AB30 /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03006C1C2349BF520060AB30 /* Bundle+Extension.swift */; };
 		0302D9C12318FBC800DE7921 /* HouseworkCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0302D9C02318FBC800DE7921 /* HouseworkCollectionViewCell.swift */; };
 		0302D9C32318FBE900DE7921 /* FamilyMemberCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0302D9C22318FBE900DE7921 /* FamilyMemberCollectionViewCell.swift */; };
-		0302D9C5231912E800DE7921 /* ShowAddSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0302D9C4231912E800DE7921 /* ShowAddSegue.swift */; };
 		0302D9C92319259F00DE7921 /* MissionListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0302D9C82319259F00DE7921 /* MissionListTableViewCell.swift */; };
 		0302D9CB231AB0AF00DE7921 /* WeekdaySectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0302D9CA231AB0AF00DE7921 /* WeekdaySectionHeaderView.xib */; };
 		0302D9CD231AB0DA00DE7921 /* WeekdaySectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0302D9CC231AB0DA00DE7921 /* WeekdaySectionHeaderView.swift */; };
@@ -29,6 +28,8 @@
 		0302D9F02321E34D00DE7921 /* InvitingFamilyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0302D9EF2321E34D00DE7921 /* InvitingFamilyTableViewCell.swift */; };
 		0302D9F32321E49200DE7921 /* FamilyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0302D9F22321E49200DE7921 /* FamilyViewController.swift */; };
 		0302D9F52321E74F00DE7921 /* FirebaseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0302D9F42321E74F00DE7921 /* FirebaseData.swift */; };
+		030B8C76234CD0DA00729A64 /* FamilyMemberController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030B8C75234CD0DA00729A64 /* FamilyMemberController.swift */; };
+		030B8C78234CD0EC00729A64 /* InvitationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030B8C77234CD0EC00729A64 /* InvitationController.swift */; };
 		03375E372332173800C71330 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03375E362332173800C71330 /* GoogleService-Info.plist */; };
 		03581CBD233A26F700D9AEA7 /* NSRegularExpression+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03581CBC233A26F700D9AEA7 /* NSRegularExpression+Extension.swift */; };
 		03581CBF233B343500D9AEA7 /* PrivacyTermViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03581CBE233B343500D9AEA7 /* PrivacyTermViewController.swift */; };
@@ -96,7 +97,6 @@
 		03006C1C2349BF520060AB30 /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
 		0302D9C02318FBC800DE7921 /* HouseworkCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseworkCollectionViewCell.swift; sourceTree = "<group>"; };
 		0302D9C22318FBE900DE7921 /* FamilyMemberCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyMemberCollectionViewCell.swift; sourceTree = "<group>"; };
-		0302D9C4231912E800DE7921 /* ShowAddSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowAddSegue.swift; sourceTree = "<group>"; };
 		0302D9C82319259F00DE7921 /* MissionListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionListTableViewCell.swift; sourceTree = "<group>"; };
 		0302D9CA231AB0AF00DE7921 /* WeekdaySectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeekdaySectionHeaderView.xib; sourceTree = "<group>"; };
 		0302D9CC231AB0DA00DE7921 /* WeekdaySectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekdaySectionHeaderView.swift; sourceTree = "<group>"; };
@@ -113,6 +113,8 @@
 		0302D9EF2321E34D00DE7921 /* InvitingFamilyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitingFamilyTableViewCell.swift; sourceTree = "<group>"; };
 		0302D9F22321E49200DE7921 /* FamilyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyViewController.swift; sourceTree = "<group>"; };
 		0302D9F42321E74F00DE7921 /* FirebaseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseData.swift; sourceTree = "<group>"; };
+		030B8C75234CD0DA00729A64 /* FamilyMemberController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyMemberController.swift; sourceTree = "<group>"; };
+		030B8C77234CD0EC00729A64 /* InvitationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitationController.swift; sourceTree = "<group>"; };
 		03375E362332173800C71330 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		03581CBC233A26F700D9AEA7 /* NSRegularExpression+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSRegularExpression+Extension.swift"; sourceTree = "<group>"; };
 		03581CBE233B343500D9AEA7 /* PrivacyTermViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyTermViewController.swift; sourceTree = "<group>"; };
@@ -200,14 +202,6 @@
 				03006C1A234989420060AB30 /* TextCountLimitBaseViewController.swift */,
 			);
 			path = Base;
-			sourceTree = "<group>";
-		};
-		0302D9C6231912EF00DE7921 /* CustomSegue */ = {
-			isa = PBXGroup;
-			children = (
-				0302D9C4231912E800DE7921 /* ShowAddSegue.swift */,
-			);
-			path = CustomSegue;
 			sourceTree = "<group>";
 		};
 		0302D9CE231AB31300DE7921 /* WeekdaySectionHeaderView */ = {
@@ -317,6 +311,8 @@
 				03FEAC1A2322610500722A34 /* SearchUserViewController.swift */,
 				03F43BE423442F0B005A7917 /* QRCodeViewController.swift */,
 				03F43BE623444476005A7917 /* ScannerViewController.swift */,
+				030B8C75234CD0DA00729A64 /* FamilyMemberController.swift */,
+				030B8C77234CD0EC00729A64 /* InvitationController.swift */,
 			);
 			path = Family;
 			sourceTree = "<group>";
@@ -413,7 +409,6 @@
 				03C1A58B2317A256008EAB76 /* Mission */,
 				03C1A575231668A1008EAB76 /* Auth */,
 				03C1A564231664C9008EAB76 /* TabBar */,
-				0302D9C6231912EF00DE7921 /* CustomSegue */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -778,6 +773,7 @@
 				03FEAC1E23226FFA00722A34 /* SearchUserTableViewCell.swift in Sources */,
 				03006C1D2349BF520060AB30 /* Bundle+Extension.swift in Sources */,
 				0302D9C12318FBC800DE7921 /* HouseworkCollectionViewCell.swift in Sources */,
+				030B8C78234CD0EC00729A64 /* InvitationController.swift in Sources */,
 				0302D9E6231E650600DE7921 /* DailyMissionCollectionViewCell.swift in Sources */,
 				03FEAC102322054600722A34 /* FamilyMemberSectionHeader.swift in Sources */,
 				03F43BE523442F0C005A7917 /* QRCodeViewController.swift in Sources */,
@@ -798,8 +794,8 @@
 				03C1A548231662D9008EAB76 /* HouseworkRevolution.xcdatamodeld in Sources */,
 				03E941DC2337FB7000A52B82 /* RNCryptorManager.swift in Sources */,
 				03006C18234738400060AB30 /* UITextFiled+Extension.swift in Sources */,
+				030B8C76234CD0DA00729A64 /* FamilyMemberController.swift in Sources */,
 				03A45F28232FDA64005D92D5 /* UIViewController+Extension.swift in Sources */,
-				0302D9C5231912E800DE7921 /* ShowAddSegue.swift in Sources */,
 				0302D9E3231E5B8400DE7921 /* ListViewController.swift in Sources */,
 				03F43BE1233DE224005A7917 /* FirebaseNotificationHelper.swift in Sources */,
 				0302D9DC231CFD0000DE7921 /* ShowWishesViewController.swift in Sources */,

@@ -324,7 +324,7 @@ class FirebaseManager {
                                     } else {
                                         
                                         message?(AddMissionResult
-                                            .duplicatedAdd("同日設定過一樣的家事，更新疲勞值為此次設定值"))
+                                            .duplicated("同日設定過一樣的家事，更新疲勞值為此次設定值"))
                                     }
                             }
                             
