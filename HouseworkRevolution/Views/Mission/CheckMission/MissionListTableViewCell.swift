@@ -32,7 +32,16 @@ class MissionListTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func setIcon(by mission: Mission) {
+    func layout(by mission: Mission) {
+        
+        missionLabel.text = mission.title
+
+        tiredValueLabel.text = "\(mission.tiredValue)"
+        
+        setIcon(by: mission)
+    }
+    
+    private func setIcon(by mission: Mission) {
         
         switch mission.title {
             

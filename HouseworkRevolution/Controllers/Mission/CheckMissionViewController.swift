@@ -153,11 +153,7 @@ extension CheckMissionViewController: UITableViewDelegate,
 
                 guard let mission = cell as? MissionListTableViewCell else { return UITableViewCell() }
 
-                mission.missionLabel.text = missionOfDay[indexPath.row].title
-
-                mission.tiredValueLabel.text = "\(missionOfDay[indexPath.row].tiredValue)"
-        
-                mission.setIcon(by: missionOfDay[indexPath.row])
+                mission.layout(by: missionOfDay[indexPath.row])
 
                 mission.delegate = self
 
