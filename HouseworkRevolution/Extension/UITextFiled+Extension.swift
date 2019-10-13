@@ -15,3 +15,11 @@ extension UITextField {
         self.text = ""
     }
 }
+
+extension UITextView {
+    
+    func clearText() {
+        
+        self.text = ""
+    }
+}

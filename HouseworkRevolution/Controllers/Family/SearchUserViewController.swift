@@ -11,8 +11,11 @@ import UIKit
 class SearchUserViewController: UIViewController {
 
     @IBOutlet weak var userIdSearchTF: UITextField!
+    
     @IBOutlet weak var showResultTableView: UITableView!
+    
     @IBOutlet weak var opacityDarkView: UIView!
+    
     @IBOutlet weak var scannerImage: UIImageView!
     
     override func viewDidLoad() {
@@ -123,7 +126,7 @@ class SearchUserViewController: UIViewController {
            
         present(targetView, animated: false, completion: nil)
                
-        userIdSearchTF.text = ""
+        userIdSearchTF.clearText()
                
         updateResult()
     }
@@ -167,9 +170,7 @@ extension SearchUserViewController: UITableViewDataSource,
             
             searchingCell.delegate = self
             
-            searchingCell.searchingMemberName.text = filteredData[indexPath.row].name
-            
-            searchingCell.searchingMemberId.text = filteredData[indexPath.row].id
+            searchingCell.layout(by: filteredData[indexPath.row])
             
             return searchingCell
             
@@ -191,7 +192,7 @@ extension SearchUserViewController: UITableViewDataSource,
 
         guard let searchingString = userIdSearchTF.text else { return }
 
-        if searchingString == "" {
+        if searchingString == "" || searchingString.contains(" ") {
 
             shouldShowSearchResult = false
 
@@ -240,7 +241,7 @@ extension SearchUserViewController: UITableViewDataSource,
             })
         }
         
-        userIdSearchTF.text = ""
+        userIdSearchTF.clearText()
         
         shouldShowSearchResult = false
     }

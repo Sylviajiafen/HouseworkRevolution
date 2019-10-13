@@ -71,7 +71,7 @@ class WishViewController: UIViewController {
         
         makeWishView.alpha = 0.0
         
-        wishInput.text = ""
+        wishInput.clearText()
     }
     
     func showMakeWish(message: String, wishInput viewAlpha: CGFloat) {
@@ -100,7 +100,7 @@ extension WishViewController: UITextViewDelegate {
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         
-        wishInput.text = ""
+        wishInput.clearText()
         
         wishInput.textColor = UIColor.noticeGray
         

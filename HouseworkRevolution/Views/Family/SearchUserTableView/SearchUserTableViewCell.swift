@@ -21,6 +21,13 @@ class SearchUserTableViewCell: UITableViewCell {
     
     weak var delegate: SearchUserTableViewCellDelegate?
     
+    func layout(by member: MemberData) {
+        
+        searchingMemberName.text = member.name
+        
+        searchingMemberId.text = member.id
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
