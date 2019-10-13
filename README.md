@@ -62,7 +62,8 @@ ________________________________________________________________________________
   * 新增當天星期之家事，會同步更新當天的「今日家事列表」未完成欄位
   * 使用 `UITextField` 的 delegate function `shouldChangeCharactersIn` 限制使用者新增家事標籤時的字數
   
-  ![GITHUB](https://github.com/Sylviajiafen/HouseworkRevolution/blob/READMEresource/IMG_548.png)
+ ![GITHUB](https://github.com/Sylviajiafen/HouseworkRevolution/blob/READMEresource/housework_02.gif)
+ ![GITHUB](https://github.com/Sylviajiafen/HouseworkRevolution/blob/READMEresource/IMG_5489.png)
   
   
   
