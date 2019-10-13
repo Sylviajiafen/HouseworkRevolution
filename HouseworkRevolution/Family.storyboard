@@ -110,7 +110,6 @@
                         <outlet property="QRCodeInfoView" destination="dgq-ee-2dc" id="Qot-Bc-oSw"/>
                         <outlet property="backgroundDarkView" destination="y9e-ne-XZ8" id="cVM-pm-tHB"/>
                         <outlet property="qrCodeImage" destination="4cV-2D-yZm" id="eBb-8f-bM5"/>
-                        <outlet property="qrcodeView" destination="4cV-2D-yZm" id="8wP-hW-D9c"/>
                         <outlet property="userCallLabel" destination="xdw-i1-66w" id="IEP-Rc-wOs"/>
                         <outlet property="userIDLabel" destination="iEh-hx-vsj" id="ARW-9d-qia"/>
                     </connections>
@@ -749,7 +748,6 @@
                         <viewLayoutGuide key="safeArea" id="1Sd-AU-6ds"/>
                     </view>
                     <connections>
-                        <outlet property="dierctToSettingBtn" destination="D36-iR-1pB" id="u2d-0E-q6Y"/>
                         <outlet property="dismissBtn" destination="hw4-4m-Amp" id="mFL-Ub-1j4"/>
                         <outlet property="noticeTitle" destination="VQW-PI-vTU" id="p3a-4u-RuZ"/>
                         <outlet property="pickFromGalleryBtn" destination="g6D-Kt-NEM" id="8UX-Ze-8Yc"/>

@@ -22,8 +22,6 @@ class ScannerViewController: UIViewController {
     
     @IBOutlet weak var pickFromGalleryBtn: UIButton!
     
-    @IBOutlet weak var dierctToSettingBtn: UIButton!
-    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -31,6 +29,26 @@ class ScannerViewController: UIViewController {
         imagePicker.delegate = self
         
         setSubViews(shouldHide: true)
+        
+        requestForAuth()
+        
+        FirebaseUserHelper.shared.getAllUser { [weak self] (allUsers) in
+            
+            for user in allUsers {
+                
+                self?.allUserID.append(user.id)
+            }
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        FirebaseUserHelper.allUserListener?.remove()
+        
+        FirebaseUserHelper.allUserListener = nil
+    }
+    
+    func requestForAuth() {
         
         switch AVCaptureDevice.authorizationStatus(for: .video) {
             
@@ -60,23 +78,6 @@ class ScannerViewController: UIViewController {
             
             fatalError()
         }
-        
-        setUpNotice()
-        
-        FirebaseUserHelper.shared.getAllUser { [weak self] (allUsers) in
-            
-            for user in allUsers {
-                
-                self?.allUserID.append(user.id)
-            }
-        }
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        
-        FirebaseUserHelper.allUserListener?.remove()
-        
-        FirebaseUserHelper.allUserListener = nil
     }
     
     var allUserID = [String]()
@@ -90,8 +91,6 @@ class ScannerViewController: UIViewController {
     var qrCodeFrameView: UIView?
     
     let imagePicker = UIImagePickerController()
-    
-    var canGetCamraDevice: Bool = true
 
     func setQRCodeFrame() {
         
@@ -113,6 +112,18 @@ class ScannerViewController: UIViewController {
         }
     }
     
+    func setSubViews(shouldHide: Bool) {
+        
+        DispatchQueue.main.async { [weak self] in
+            
+            self?.noticeTitle.isHidden = shouldHide
+            
+            self?.pickFromGalleryBtn.isHidden = shouldHide
+            
+            self?.setUpNotice()
+        }
+    }
+    
     func setUpNotice() {
         
         if UserDefaults.standard.value(forKey: "userKey") == nil {
@@ -122,17 +133,6 @@ class ScannerViewController: UIViewController {
         } else {
             
             noticeTitle.text = "掃描家人的 QRCode，找到家人的 ID 吧！"
-        }
-    }
-    
-    func setSubViews(shouldHide: Bool) {
-        
-        DispatchQueue.main.async { [weak self] in
-            
-            self?.noticeTitle.isHidden = shouldHide
-            
-            self?.pickFromGalleryBtn.isHidden = shouldHide
-            
         }
     }
     
@@ -221,16 +221,6 @@ extension ScannerViewController: AVCaptureMetadataOutputObjectsDelegate {
     
     func setUpCamera() {
         
-//        if #available(iOS 13.0, *) {
-//
-//            let deviceDiscoverySession =
-//                AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInDualCamera, .builtInWideAngleCamera, .builtInTripleCamera],
-//                                                 mediaType: AVMediaType.video,
-//                                                 position: .back)
-//        } else {
-//            // Fallback on earlier versions
-//        }
-
         guard let captureDevice = AVCaptureDevice.default(for: .video) else {
             
             setSubViews(shouldHide: true)
@@ -400,7 +390,6 @@ extension ScannerViewController: UIImagePickerControllerDelegate, UINavigationCo
                             
                             self?.showAlertOf(message: message)
                         })
-                        
                     }
                 }
             }

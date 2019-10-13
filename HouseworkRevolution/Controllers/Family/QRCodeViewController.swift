@@ -15,8 +15,6 @@ class QRCodeViewController: UIViewController {
     
     @IBOutlet weak var userCallLabel: UILabel!
     
-    @IBOutlet weak var qrcodeView: UIImageView!
-    
     @IBOutlet weak var qrCodeImage: UIImageView!
     
     @IBOutlet weak var backgroundDarkView: UIView!
@@ -88,7 +86,6 @@ class QRCodeViewController: UIViewController {
                 self?.showAuthAlertAndDirectToSettings(message: "請先至設定開啟相簿權限")
             }
         }
-        
     }
     
     func saveQRCodeInfoImage() {

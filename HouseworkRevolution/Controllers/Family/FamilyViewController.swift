@@ -48,11 +48,6 @@ class FamilyViewController: TextCountLimitBaseViewController {
         setInformation()
         
         setQRCode()
-        
-//        let invitationController = InvitationController()
-//        invitationController.delegate = self
-//        invitingFamilyTableView.dataSource = invitationController
-//        invitingFamilyTableView.delegate = invitationController
     }
     
     override func viewWillAppear(_ animated: Bool) {
