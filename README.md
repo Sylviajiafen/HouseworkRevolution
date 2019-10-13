@@ -27,8 +27,14 @@ ________________________________________________________________________________
   
 * 使用 `UICollectionView Drag and Drop API`，讓使用者可以藉由長按、拖曳，
   將家事項目移動至「完成了！」欄位
+  
+* 每完成一項家事，家人都會收到推播通知：實作 `Firebase Cloud Messaging`
 
 * 使用 `UIViewPropertyAnimator` 完成神燈實現願望時的畫面淡入動畫，
   並讓動畫可藉由使用者點選 ```skip 按鈕``` 後提前結束。
   
+![GITHUB](https://github.com/Sylviajiafen/HouseworkRevolution/blob/READMEresource/IMG_5488.png)
+
+
 ![GITHUB](https://github.com/Sylviajiafen/HouseworkRevolution/blob/READMEresource/housework_01.gif)
+![GITHUB](https://github.com/Sylviajiafen/HouseworkRevolution/blob/READMEresource/IMG_5505.png)
