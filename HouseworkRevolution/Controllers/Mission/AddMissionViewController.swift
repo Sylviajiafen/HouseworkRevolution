@@ -71,7 +71,7 @@ class AddMissionViewController: TextCountLimitBaseViewController {
         [DefaultHouseworks.sweep.rawValue,
          DefaultHouseworks.mop.rawValue,
          DefaultHouseworks.vacuum.rawValue,
-         DefaultHouseworks.garbadge.rawValue,
+         DefaultHouseworks.garbage.rawValue,
          DefaultHouseworks.laundry.rawValue,
          DefaultHouseworks.cook.rawValue,
          DefaultHouseworks.grocery.rawValue,
@@ -115,13 +115,13 @@ class AddMissionViewController: TextCountLimitBaseViewController {
         guard newHousework != "" else { showAlertOf(message: "欄位留白囉"); return }
         
         if houseworks.contains(newHousework) {
-            
+
             showAlertOf(message: "已有「\(newHousework)」的家事標籤")
-            
+
             customHousework.clearText()
-            
+
             return
-            
+
         } else {
             
             houseworks.append(newHousework)
@@ -259,59 +259,49 @@ extension AddMissionViewController: UICollectionViewDelegate,
     ) -> UICollectionViewCell {
         
         let cell = houseworksCollection.dequeueReusableCell(
-                withReuseIdentifier: String(describing: HouseworkCollectionViewCell.self), for: indexPath)
+                withReuseIdentifier: String(describing: HouseworkCollectionViewCell.self),
+                for: indexPath)
             
         guard let houseworkCell = cell as? HouseworkCollectionViewCell else { return UICollectionViewCell() }
             
-        houseworkCell.setUpLabelfor(background: UIColor.buttonUnSelected, textColor: .white)
-            
-        houseworkCell.houseworkLabel.text = houseworks[indexPath.row]
+        houseworkCell.initial(with: houseworks[indexPath.row])
+        
+        houseworkCell.setDeleteIcon(at: indexPath.row, by: shouldEditCell)
             
         houseworkCell.delegate = self
-            
-        if shouldEditCell == true {
-            
-            if indexPath.row > 7 {
-                
-                houseworkCell.deleteCellBtn.isHidden = false
-                
-            } else {
-                
-                houseworkCell.deleteCellBtn.isHidden = true
-            }
-                
-        } else {
-                
-            houseworkCell.deleteCellBtn.isHidden = true
-        }
             
         return houseworkCell
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView,
+                        didSelectItemAt indexPath: IndexPath
+    ) {
             
         guard let houseworkCell = houseworksCollection.cellForItem(at: indexPath)
                 as? HouseworkCollectionViewCell else { return }
             
-        houseworkCell.setUpLabelfor(background: UIColor.buttonSelected, textColor: UIColor.noticeGray)
+        houseworkCell.setUpLabelFor(background: UIColor.buttonSelected,
+                                    textColor: UIColor.noticeGray)
             
         selectedIndex = indexPath.item
     }
     
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView,
+                        didDeselectItemAt indexPath: IndexPath
+    ) {
             
         guard let houseworkCell = houseworksCollection.cellForItem(at: indexPath)
                 as? HouseworkCollectionViewCell else { return }
             
-        houseworkCell.setUpLabelfor(background: UIColor.buttonUnSelected, textColor: .white)
+        houseworkCell.initial()
     }
     
     func deleteHousework(_ cell: HouseworkCollectionViewCell) {
         
         guard let index = houseworksCollection.indexPath(for: cell) else { return }
         
-        FirebaseUserHelper.shared.removeLabelOf(content: houseworks[index.item],
-                                                family: StorageManager.userInfo.familyID)
+        FirebaseUserHelper.shared.removeLabelOf(content: houseworks[index.item])
+        
         houseworks.remove(at: index.item)
         
         shouldEditCell = false

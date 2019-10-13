@@ -149,7 +149,8 @@ extension CheckMissionViewController: UITableViewDelegate,
             if missionOfDay.count > 0 {
 
                 let cell = missionListTableView.dequeueReusableCell(
-                        withIdentifier: String(describing: MissionListTableViewCell.self), for: indexPath)
+                        withIdentifier: String(describing: MissionListTableViewCell.self),
+                        for: indexPath)
 
                 guard let mission = cell as? MissionListTableViewCell else { return UITableViewCell() }
 
@@ -162,7 +163,8 @@ extension CheckMissionViewController: UITableViewDelegate,
             } else {
                 
                 let cell = missionListTableView.dequeueReusableCell(
-                    withIdentifier: String(describing: MissionEmptyTableViewCell.self), for: indexPath)
+                    withIdentifier: String(describing: MissionEmptyTableViewCell.self),
+                    for: indexPath)
                 
                 guard let emptyMission = cell
                     as? MissionEmptyTableViewCell else { return UITableViewCell() }
@@ -186,7 +188,8 @@ extension CheckMissionViewController: UITableViewDelegate,
         
         let toBeRemovedMission = missionOfDay[index.row]
         
-        FirebaseManager.allMission[DayManager.weekdayInEng[index.section].rawValue]?.remove(at: index.row)
+        FirebaseManager.allMission[DayManager.weekdayInEng[index.section].rawValue]?
+                       .remove(at: index.row)
         
         FirebaseManager.shared.deleteMissionFromHouseworks(title: toBeRemovedMission.title,
                                                            tiredValue: toBeRemovedMission.tiredValue,

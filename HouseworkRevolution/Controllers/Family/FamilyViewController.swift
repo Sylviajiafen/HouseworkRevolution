@@ -48,6 +48,7 @@ class FamilyViewController: TextCountLimitBaseViewController {
         setInformation()
         
         setQRCode()
+ 
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -57,7 +58,7 @@ class FamilyViewController: TextCountLimitBaseViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         
-        removeListeners()
+        FirebaseUserHelper.shared.removeListeners()
     }
     
     func setUserID() {
@@ -69,17 +70,21 @@ class FamilyViewController: TextCountLimitBaseViewController {
     
     func registerHeader() {
         
-        let headerXibOfMember = UINib(nibName: String(describing: FamilyMemberSectionHeader.self),
+        let headerXibOfMember = UINib(nibName: String(describing:
+                                      FamilyMemberSectionHeader.self),
                                       bundle: nil)
         
         familyMemberTableView.register(headerXibOfMember,
-                                       forHeaderFooterViewReuseIdentifier: String(describing: FamilyMemberSectionHeader.self))
+                                       forHeaderFooterViewReuseIdentifier: String(describing:
+                                       FamilyMemberSectionHeader.self))
         
-        let headerXibOfInviting = UINib(nibName: String(describing: InvitingFamilySectionHeaderView.self),
+        let headerXibOfInviting = UINib(nibName: String(describing:
+                                        InvitingFamilySectionHeaderView.self),
                                         bundle: nil)
         
         invitingFamilyTableView.register(headerXibOfInviting,
-                                         forHeaderFooterViewReuseIdentifier: String(describing: InvitingFamilySectionHeaderView.self))
+                                         forHeaderFooterViewReuseIdentifier: String(describing:
+                                         InvitingFamilySectionHeaderView.self))
     }
     
     func checkOriginFamily() {
@@ -207,7 +212,7 @@ class FamilyViewController: TextCountLimitBaseViewController {
         
         let okAction = UIAlertAction(title: "確定", style: .default) { [weak self] _ in
             
-            self?.removeListeners()
+            FirebaseUserHelper.shared.removeListeners()
             
             FirebaseUserHelper.shared.dropOutFamily(
                 getOriginFamily: { [weak self] (origin) in
@@ -311,21 +316,6 @@ class FamilyViewController: TextCountLimitBaseViewController {
                 
                 ProgressHUD.dismiss()
         })
-    }
-    
-    private func removeListeners() {
-        
-        FirebaseUserHelper.currentListenerRegistration?.remove()
-        
-        FirebaseUserHelper.currentListenerRegistration = nil
-        
-        FirebaseUserHelper.currentMemberListener?.remove()
-        
-        FirebaseUserHelper.currentMemberListener = nil
-        
-        FirebaseUserHelper.currentInvitationListener?.remove()
-        
-        FirebaseUserHelper.currentInvitationListener = nil
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -566,7 +556,7 @@ extension FamilyViewController: InvitingFamilyTableViewCellDelegate {
         
         let inviterFamilyID = invitingFamilyList[index.row].familyID
         
-        removeListeners()
+        FirebaseUserHelper.shared.removeListeners()
         
         FirebaseUserHelper.shared.acceptInvitation(from: inviterFamilyID,
                                                    myID: StorageManager.userInfo.userID,

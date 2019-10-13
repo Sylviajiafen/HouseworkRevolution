@@ -23,7 +23,6 @@ class ListViewController: UIViewController {
     @IBOutlet weak var userHelpBtn: UIButton!
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         
         setUpSubViews()
@@ -186,6 +185,7 @@ class ListViewController: UIViewController {
     let showAnimate = UIViewPropertyAnimator(duration: 0.8, curve: .linear)
     
     let viewDisappearAnimate = UIViewPropertyAnimator(duration: 0.5, curve: .linear)
+    
     // MARK: - 實現願望
     func magicLampViewShow() {
         
@@ -331,7 +331,8 @@ extension ListViewController: UICollectionViewDelegate,
     ) -> UICollectionReusableView {
         
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
-                                    withReuseIdentifier: String(describing: DailyMissionHeaderView.self),
+                                    withReuseIdentifier: String(describing:
+                                    DailyMissionHeaderView.self),
                                     for: indexPath)
         
         if kind == UICollectionView.elementKindSectionHeader {
@@ -376,7 +377,9 @@ extension ListViewController: UICollectionViewDelegate,
     ) -> UICollectionViewCell {
         
         let item = dailyMissionCollectionView.dequeueReusableCell(
-            withReuseIdentifier: String(describing: DailyMissionCollectionViewCell.self), for: indexPath)
+            withReuseIdentifier:
+            String(describing: DailyMissionCollectionViewCell.self),
+            for: indexPath)
         
         guard let missionItem = item
             as? DailyMissionCollectionViewCell else { return UICollectionViewCell() }
@@ -519,9 +522,8 @@ extension ListViewController: UICollectionViewDropDelegate {
                 reorderItems(coordinator: coordinator,
                              destinationIndexPath: defaultDestination,
                              collectionView: collectionView)
-                    
-                    return
-                }
+                return
+            }
                 
                 switch destination.section {
                     

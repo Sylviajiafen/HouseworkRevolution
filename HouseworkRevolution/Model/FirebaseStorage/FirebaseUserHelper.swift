@@ -218,7 +218,7 @@ class FirebaseUserHelper {
             FamilyGroupData.houseworkLabels.rawValue: FieldValue.arrayUnion([content])])
     }
     
-    func removeLabelOf(content: String, family: String) {
+    func removeLabelOf(content: String, family: String = StorageManager.userInfo.familyID) {
         
         let query = db.collection(DataCollection.houseGroup.rawValue).document(family)
         
@@ -250,7 +250,7 @@ class FirebaseUserHelper {
         }
     }
     
-    func addWishOf(content: String, user: String) {
+    func addWishOf(content: String, user: String = StorageManager.userInfo.userID) {
         
         ProgressHUD.show()
         
@@ -392,9 +392,12 @@ class FirebaseUserHelper {
     }
     
 // MARK: 邀請成員
-    func inviteMember(id: String, name: String, from familyID: String,
-                      familyName: String, inviter whoseName: String,
-                      invitorCompletion: @escaping AddMemberResult) {
+    func inviteMember(id: String,
+                      name: String,
+                      familyID: String = StorageManager.userInfo.familyID,
+                      from familyName: String,
+                      inviter whoseName: String,
+                      inviteCompletion: @escaping AddMemberResult) {
       
         let familyQuery = db.collection(DataCollection.houseGroup.rawValue).document(familyID)
         
@@ -407,7 +410,7 @@ class FirebaseUserHelper {
                 
                 if doc.exists {
                     
-                    invitorCompletion(.failed(.memberAlreadyExist))
+                    inviteCompletion(.failed(.memberAlreadyExist))
                     
                 } else {
                     
@@ -420,7 +423,7 @@ class FirebaseUserHelper {
                                 
                                 if querySnapshot.count > 0 {
                                     
-                                    invitorCompletion(.failed(.duplicatedInvitation))
+                                    inviteCompletion(.failed(.duplicatedInvitation))
                                     
                                 } else {
                                     
@@ -428,7 +431,7 @@ class FirebaseUserHelper {
                                     .addDocument(data: [RequestedMember.username.rawValue: name,
                                                         RequestedMember.userID.rawValue: id])
                                     
-                                    invitorCompletion(.success("邀請成功！"))
+                                    inviteCompletion(.success("邀請成功！"))
                                 }
                                 
                             } else if let err = err {
@@ -792,5 +795,20 @@ class FirebaseUserHelper {
                 print("comparingFamily Err: \(err)")
             }
         }
+    }
+    
+    func removeListeners() {
+        
+        FirebaseUserHelper.currentListenerRegistration?.remove()
+        
+        FirebaseUserHelper.currentListenerRegistration = nil
+        
+        FirebaseUserHelper.currentMemberListener?.remove()
+        
+        FirebaseUserHelper.currentMemberListener = nil
+        
+        FirebaseUserHelper.currentInvitationListener?.remove()
+        
+        FirebaseUserHelper.currentInvitationListener = nil
     }
 }

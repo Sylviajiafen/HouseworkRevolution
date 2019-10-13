@@ -57,7 +57,7 @@ class MissionListTableViewCell: UITableViewCell {
             
             houseworkIcon.image = UIImage.asset(.vacuumICON)
             
-        case DefaultHouseworks.garbadge.rawValue:
+        case DefaultHouseworks.garbage.rawValue:
             
             houseworkIcon.image = UIImage.asset(.garbageICON)
         

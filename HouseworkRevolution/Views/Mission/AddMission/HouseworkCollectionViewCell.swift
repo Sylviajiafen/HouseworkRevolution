@@ -11,16 +11,49 @@ import UIKit
 class HouseworkCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var houseworkLabel: UILabel!
+    
     @IBOutlet weak var deleteCellBtn: UIButton!
     
     weak var delegate: HouseworkCollectionViewCellDelegate?
     
-    func setUpLabelfor(background: UIColor?, textColor: UIColor?) {
+    func setUpLabelFor(background: UIColor?, textColor: UIColor?) {
         
         guard let background = background, let textColor = textColor else { return }
         
         self.backgroundColor = background
+        
         self.houseworkLabel.textColor = textColor
+    }
+    
+    func initial(with housework: String? = nil) {
+        
+        self.backgroundColor = UIColor.buttonUnSelected
+        
+        self.houseworkLabel.textColor = .white
+        
+        if housework != nil {
+            
+            houseworkLabel.text = housework
+        }
+    }
+    
+    func setDeleteIcon(at index: Int, by shouldEdit: Bool) {
+        
+        if shouldEdit == true {
+            
+            if index > 7 {
+                
+                deleteCellBtn.isHidden = false
+                
+            } else {
+                
+                deleteCellBtn.isHidden = true
+            }
+                
+        } else {
+                
+           deleteCellBtn.isHidden = true
+        }
     }
     
     @IBAction func deleteHousework(_ sender: UIButton) {

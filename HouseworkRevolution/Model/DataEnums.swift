@@ -48,7 +48,7 @@ enum DefaultHouseworks: String {
     
     case vacuum = "吸塵"
     
-    case garbadge = "倒垃圾"
+    case garbage = "倒垃圾"
     
     case laundry = "洗衣服"
     

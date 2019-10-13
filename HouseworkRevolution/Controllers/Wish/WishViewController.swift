@@ -66,8 +66,7 @@ class WishViewController: UIViewController {
         
         guard let newWish = wishInput.text else { return }
     
-        FirebaseUserHelper.shared.addWishOf(content: newWish,
-                                            user: StorageManager.userInfo.userID)
+        FirebaseUserHelper.shared.addWishOf(content: newWish)
         
         makeWishView.alpha = 0.0
         
@@ -88,11 +87,9 @@ class WishViewController: UIViewController {
         
         makeWishView.alpha = viewAlpha
         
-        wishInput.text = defaultWish
-        
-        wishInput.textColor = UIColor.lightGray
-        
-        wishInput.font = UIFont(name: "Helvetica Neue", size: 14.0)
+        wishInput.setUpBy(text: defaultWish,
+                          font: UIFont(name: "Helvetica Neue", size: 14.0),
+                          textColor: UIColor.lightGray)
     }
 }
 
@@ -100,14 +97,13 @@ extension WishViewController: UITextViewDelegate {
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         
-        wishInput.clearText()
-        
-        wishInput.textColor = UIColor.noticeGray
-        
-        wishInput.font = UIFont(name: "Helvetica Neue", size: 17.0)
+        wishInput.setUpBy(font: UIFont(name: "Helvetica Neue", size: 17.0),
+                          textColor: UIColor.noticeGray)
     }
     
-    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+    func textView(_ textView: UITextView,
+                  shouldChangeTextIn range: NSRange,
+                  replacementText text: String) -> Bool {
         
         let currentText = wishInput.text ?? ""
         

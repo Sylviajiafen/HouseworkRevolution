@@ -22,4 +22,20 @@ extension UITextView {
         
         self.text = ""
     }
+    
+    func setUpBy(text: String = "", font: UIFont?, textColor: UIColor?) {
+        
+        if let color = textColor, let textFont = font {
+        
+            self.textColor = color
+            
+            self.font = textFont
+            
+        } else {
+            
+            self.textColor = .darkGray
+        }
+     
+        self.text = text
+    }
 }

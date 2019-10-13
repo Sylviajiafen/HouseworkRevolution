@@ -33,7 +33,7 @@ class SearchUserViewController: UIViewController {
             self?.updateResult()
         }
         
-        setUpsearchTF()
+        setUpSearchTF()
         
         setUpScanner()
         
@@ -79,7 +79,7 @@ class SearchUserViewController: UIViewController {
     
     var leftImageView = UIImageView()
     
-    func setUpsearchTF() {
+    func setUpSearchTF() {
         
         let leftImage = UIImage.asset(.searchUser)
         
@@ -223,10 +223,9 @@ extension SearchUserViewController: UITableViewDataSource,
             
             FirebaseUserHelper.shared.inviteMember(id: filteredData[index.row].id,
                                                    name: filteredData[index.row].name,
-                                                   from: StorageManager.userInfo.familyID,
-                                                   familyName: inviterFamilyName,
+                                                   from: inviterFamilyName,
                                                    inviter: inviterUserName,
-                invitorCompletion: { [weak self] (result) in
+                inviteCompletion: { [weak self] (result) in
                     
                     switch result {
                         
