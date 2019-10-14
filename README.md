@@ -38,17 +38,17 @@ func textField(_ textField: UITextField,
 **《今日家事》**
 
 * 顯示當日的家事項目：利用 weekday 搜尋當天的星期所設定之家事項目，
-  在 database 中建立一筆當日日期的資料，並儲存家事項目的完成狀態
+  在 database 中建立一筆當日日期的資料，用以儲存家事項目的完成狀態
   
 * 使用 `UICollectionView Drag and Drop API`，讓使用者可以藉由長按、拖曳，
   將家事項目移動至「完成了！」欄位
   
 * 每完成一項家事，家人都會收到推播通知：實作 `Firebase Cloud Messaging`
 
-* 使用 `UIViewPropertyAnimator` 完成神燈實現願望時的畫面淡入動畫，
+* 使用 `UIViewPropertyAnimator` 完成神燈實現願望畫面之淡入動畫，
   並讓動畫可藉由使用者點選 ```skip 按鈕``` 後提前結束。
   
-* 使用者遇到問題時，可點選右下角小圖查看版號，與寄信給我們（利用`MFMailComposeViewController`）
+* 使用者遇到問題時，可點選右下角小圖查看版號，與利用`MFMailComposeViewController`寄信給我們
   
 ![GITHUB](https://github.com/Sylviajiafen/HouseworkRevolution/blob/READMEresource/IMG_5488.png)
 
