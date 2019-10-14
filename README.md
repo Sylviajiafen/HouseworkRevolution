@@ -124,8 +124,6 @@ func textField(_ textField: UITextField,
   
   * 利用 `CIQRCodeGenerator` 實現將 id 字串轉換為 QRCode，並利用 `UIGraphicsImageRenderer`實現將 QRCode 存進手機相簿之功能
   
-  <br />
-  
   ```Swift
   func generateQRCode(from string: String) -> UIImage? {
         
