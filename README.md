@@ -22,8 +22,8 @@ ________________________________________________________________________________
 
 ![GITHUB](https://github.com/Sylviajiafen/HouseworkRevolution/blob/READMEresource/housework_00.gif)
 
-_____________________________________________________________________________________________________
-**《今日家事》**
+
+> **《今日家事》**
 
 * 顯示當日的家事項目：利用 weekday 搜尋當天的星期所設定之家事項目，
   在 database 中建立一筆當日日期的資料，並儲存家事項目的完成狀態
@@ -44,8 +44,8 @@ ________________________________________________________________________________
 ![GITHUB](https://github.com/Sylviajiafen/HouseworkRevolution/blob/READMEresource/housework_01.gif)
 ![GITHUB](https://github.com/Sylviajiafen/HouseworkRevolution/blob/READMEresource/IMG_5506.jpg)
 
-_____________________________________________________________________________________________________
-**《查看、刪除、新增家事》**
+
+> **《查看、刪除、新增家事》**
 
 * 查看與刪除：
   * 使用 `UITableView` 搭配兩種 `UITableViewCell`（有設定家事與未設定家事）顯示星期一至星期五的家事：包括搭配小圖、疲勞值
