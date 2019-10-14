@@ -24,7 +24,7 @@ func textField(_ textField: UITextField,
   return regex.matches(string)
 }
 ```
-* 密碼加密轉換成亂碼字串後才上傳 database
+* 密碼加密轉換成亂碼字串
 
 * 利用 `UICollectionView` 顯示預設成員名稱，與其 delegate function `didSelectItemAt`、`didDeselectItemAt` ，顯示使用者之選擇
 
