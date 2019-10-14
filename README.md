@@ -1,20 +1,18 @@
 # 翻轉家事
 
+* App Store 連結： https://apps.apple.com/tw/app/id1481048778
+
 一款紀錄家事項目與完成進度的 app，旨在讓家事變得更有趣，並促進全家人共同參與家庭事務
-
-<a href="https://apps.apple.com/app/id1481048778"><img src="https://i.imgur.com/Pc1KdHw.png" width="100"></a>
-
 _____________________________________________________________________________________________________
-
 ## 頁面
 
-> **《登入 / 註冊》**
+**《登入 / 註冊》**
 
 * 尊重使用者隱私，不需填入任何使用者資料，僅需設定一組密碼即可註冊
 
 * 利用 `Regular Expression` 限制密碼欄位僅能填入大小寫英文字母及阿拉伯數字
 
-* 利用 `UICollectionView` delegate function `didSelectItemAt`、`didDeselectItemAt` 製作預設家庭成員名稱，方便使用者加速註冊流程
+* 利用 `UICollectionView` 搭配 delegate function `didSelectItemAt`、`didDeselectItemAt` 製作預設家庭成員名稱，方便使用者加速註冊流程
 
 * 登入時可利用 QRCode 掃描器，開啟相機掃描 QRCode，或是從相簿選擇 QRCode 檔案，讀取個人 id
 
@@ -22,8 +20,9 @@ ________________________________________________________________________________
 
 ![GITHUB](https://github.com/Sylviajiafen/HouseworkRevolution/blob/READMEresource/housework_00.gif)
 
+<br />
 
-> **《今日家事》**
+**《今日家事》**
 
 * 顯示當日的家事項目：利用 weekday 搜尋當天的星期所設定之家事項目，
   在 database 中建立一筆當日日期的資料，並儲存家事項目的完成狀態
@@ -44,30 +43,44 @@ ________________________________________________________________________________
 ![GITHUB](https://github.com/Sylviajiafen/HouseworkRevolution/blob/READMEresource/housework_01.gif)
 ![GITHUB](https://github.com/Sylviajiafen/HouseworkRevolution/blob/READMEresource/IMG_5506.jpg)
 
+<br />
 
-> **《查看、刪除、新增家事》**
+**《查看、刪除、新增家事》**
 
 * 查看與刪除：
-  * 使用 `UITableView` 搭配兩種 `UITableViewCell`（有設定家事與未設定家事）顯示星期一至星期五的家事：包括搭配小圖、疲勞值
+  * 使用 `UITableView` 搭配兩種 `UITableViewCell`（有設定家事與未設定家事）顯示星期一至星期五的家事：包括家事內容、小圖、疲勞值
   * 使用 `enum` 管理預設的家事項目，並將其各搭配一個小圖
-  * 刪除某個星期的最後一項家事時，`UITableView` 直接 `reloadData()`，讓 `UITableViewCell` 直接更新成顯示未設定家事的 cell
+  * 刪除家事時，`UITableView` `reloadData()`，當日最後一項家事被刪除時，會直接更新成顯示未設定家事的 cell
   * 刪除當天星期之家事，會同步從當天的「今日家事」列表中移除
   
 * 新增：
-  * 預設八種家事標籤，使用 `UICollectionView` 搭配 delegate function `didSelectItemAt`、`didDeselectItemAt`，也讓使用者可以新增、刪除自訂家事標籤
-  * 使用 `UIPickerView` 作為選擇星期之工具；為了畫面和諧，其 `viewForRow` 是用 `UILabel` 建構而成
+  * 預設八種家事標籤，使用 `UICollectionView` 搭配 delegate function `didSelectItemAt`、`didDeselectItemAt`，使用者也可以新增、刪除自訂家事標籤
+  * 使用 `UIPickerView` 作為選擇星期之工具；為了畫面和諧，其 `viewForRow` 是由 `UILabel` 建構而成
   * 使用 `UISlider` 作為設定疲勞值之工具；使用者滑動時，顯示對應的數值（整數數字）
   * 防呆處理：
-    - 點選「新增家事標籤」時，UITextField 不可留白
-    - 點選「完成」時，不可無選擇的家事俵千
+    - 點選「新增家事標籤」時，若未輸入任何內容，提醒使用者 UITextField 不可留白
+    - 點選「完成」時，若尚未選擇家事標籤，提醒使用者
     - 新增相同文字的家事標籤時，提醒使用者標籤已經存在
-  * 重複設定家事之處理：若同天有相同項目的家事被設定第二次或以上，會更新此家事之疲勞值為新設定的值，並通知使用者
+  * 重複設定家事之處理：若同天有相同項目的家事再度被設定，會更新此家事之疲勞值為新設定的值，並通知使用者此變更
   * 新增當天星期之家事，會同步更新當天的「今日家事列表」未完成欄位
-  * 使用 `UITextField` 的 delegate function `shouldChangeCharactersIn` 限制使用者新增家事標籤時的字數
+  * 利用 `UITextField` 的 delegate function `shouldChangeCharactersIn` 限制使用者新增家事標籤時的字數
   
  ![GITHUB](https://github.com/Sylviajiafen/HouseworkRevolution/blob/READMEresource/housework_02.gif)
  ![GITHUB](https://github.com/Sylviajiafen/HouseworkRevolution/blob/READMEresource/IMG_5489.png)
+
+<br />
+
+**《神燈許願》** 
+
+* 許願：
+  * 利用 `CABasicAnimation(keyPath: "transform.rotation")`，製作點擊神燈時的搖動動畫
+  * 利用 `UITextView` 的 delegate function `shouldChangeTextIn` 限制使用者許願內容的字數
+
+* 查看神燈願望：
+  * 利用 `UICollectionViewLayout` 的 sub class 創建一個瀑布流(waterful)的 custom layout，使願望分佈更符合主題的「神燈奇幻感」
+  * 使用 3 種字體大小，並讓 cell 的高度配合字體大小變化，增加效果
   
-  
-  
+![GITHUB](https://github.com/Sylviajiafen/HouseworkRevolution/blob/READMEresource/housework_03.gif)
+![GITHUB](https://github.com/Sylviajiafen/HouseworkRevolution/blob/READMEresource/IMG_5490.png)
+
  
