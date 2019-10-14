@@ -1,7 +1,5 @@
 # 翻轉家事
 
-* App Store 連結： https://apps.apple.com/tw/app/id1481048778
-
 一款紀錄家事項目與完成進度的 app，旨在讓家事變得更有趣，並促進全家人共同參與家庭事務
 _____________________________________________________________________________________________________
 ## 頁面
@@ -199,3 +197,6 @@ func textField(_ textField: UITextField,
 * JGProgressHUD
 * ESPullToRefresh
 * RNCryptor
+
+## 下載連結
+<a href="https://apps.apple.com/tw/app/id1481048778"><img src="https://i.imgur.com/Pc1KdHw.png" width="100"></a>
