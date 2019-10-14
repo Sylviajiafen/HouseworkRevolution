@@ -61,7 +61,7 @@ func textField(_ textField: UITextField,
 
 **《查看、刪除、新增家事》**
 
-* 查看與刪除：
+* 查看與刪除
 
   * 使用 `UITableView` 搭配兩種 `UITableViewCell`（有設定家事與未設定家事）顯示一週家事，包括家事內容、小圖、疲勞值
   
@@ -71,7 +71,7 @@ func textField(_ textField: UITextField,
   
   * 刪除當天星期之家事，會同步從當天的「今日家事」列表中移除
   
-* 新增：
+* 新增
 
   * 預設八種家事標籤，使用 `UICollectionView` 搭配 delegate function `didSelectItemAt`、`didDeselectItemAt`，使用者也可以新增、刪除自訂家事標籤
   
@@ -97,13 +97,13 @@ func textField(_ textField: UITextField,
 
 **《神燈許願》** 
 
-* 許願：
+* 許願
 
   * 利用 `CABasicAnimation(keyPath: "transform.rotation")`，製作點擊神燈時的搖動動畫
   
   * 利用 `UITextView` 的 delegate function `shouldChangeTextIn` 限制使用者許願內容的字數
 
-* 查看神燈願望：
+* 查看神燈願望
 
   * 利用 `UICollectionViewLayout` 的 sub class 創建一個瀑布流(waterful)的 custom layout，使願望的畫面分佈更符合主題的「神燈奇幻感」
   
