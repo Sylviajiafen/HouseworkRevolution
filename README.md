@@ -1,17 +1,20 @@
 # 翻轉家事
 
-* App Store 連結： https://apps.apple.com/tw/app/id1481048778
-
 一款紀錄家事項目與完成進度的 app，旨在讓家事變得更有趣，並促進全家人共同參與家庭事務
+
+<a href="https://apps.apple.com/app/id1481048778"><img src="https://i.imgur.com/Pc1KdHw.png" width="100"></a>
+
 _____________________________________________________________________________________________________
 
-**《登入 / 註冊》**
+## 頁面
+
+> **《登入 / 註冊》**
 
 * 尊重使用者隱私，不需填入任何使用者資料，僅需設定一組密碼即可註冊
 
 * 利用 `Regular Expression` 限制密碼欄位僅能填入大小寫英文字母及阿拉伯數字
 
-* 利用 `UICollectionView` 搭配 delegate function `didSelectItemAt`、`didDeselectItemAt` 製作預設家庭成員名稱，方便使用者加速註冊流程
+* 利用 `UICollectionView` delegate function `didSelectItemAt`、`didDeselectItemAt` 製作預設家庭成員名稱，方便使用者加速註冊流程
 
 * 登入時可利用 QRCode 掃描器，開啟相機掃描 QRCode，或是從相簿選擇 QRCode 檔案，讀取個人 id
 
