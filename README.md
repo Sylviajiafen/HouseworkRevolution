@@ -11,7 +11,7 @@ ________________________________________________________________________________
 * 尊重使用者隱私，不需填入任何使用者資料，僅需設定一組密碼即可註冊（註冊後提供一個英數組合 id 給使用者）
 
 * 利用 `Regular Expression` 限制密碼欄位僅能填入大小寫英文字母及阿拉伯數字
-
+<br />
 ```Swift
 func textField(_ textField: UITextField,
                    shouldChangeCharactersIn range: NSRange,
@@ -105,7 +105,7 @@ func textField(_ textField: UITextField,
   * 顯示個人稱呼、id、家庭（家庭名稱與成員、邀請中的成員)、收到家庭邀請時顯示同意或拒絕選項
   * 利用 `UIPasteboard.general` 實現點擊 id 複製的功能
   * 利用 `CIQRCodeGenerator` 實現將 id 字串轉換為 QRCode，並利用 `UIGraphicsImageRenderer`實現將 QRCode 存進手機相簿之功能
-  
+  <br />
   ```Swift
   func generateQRCode(from string: String) -> UIImage? {
         
