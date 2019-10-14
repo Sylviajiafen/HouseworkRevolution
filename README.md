@@ -157,7 +157,12 @@ func textField(_ textField: UITextField,
 * 變更名稱
   * 可變更個人稱呼及所在家庭的名稱
   * `UIAlertController` 加上 `UITextField`
-    
-![GITHUB](https://github.com/Sylviajiafen/HouseworkRevolution/blob/READMEresource/housework_03.gif)
+
+
+![GITHUB](https://github.com/Sylviajiafen/HouseworkRevolution/blob/READMEresource/IMG_5491.png)
+![GITHUB](https://github.com/Sylviajiafen/HouseworkRevolution/blob/READMEresource/housework_04.gif)
+![GITHUB](https://github.com/Sylviajiafen/HouseworkRevolution/blob/READMEresource/housework_05.gif)
+![GITHUB](https://github.com/Sylviajiafen/HouseworkRevolution/blob/READMEresource/housework_06.gif)
+![GITHUB](https://github.com/Sylviajiafen/HouseworkRevolution/blob/READMEresource/housework_07.gif)
 ![GITHUB](https://github.com/Sylviajiafen/HouseworkRevolution/blob/READMEresource/IMG_5490.png)
  
