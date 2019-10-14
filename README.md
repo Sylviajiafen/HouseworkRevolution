@@ -25,9 +25,9 @@ func textField(_ textField: UITextField,
 }
 ```
 
-* 利用 `UICollectionView` 搭配 delegate function `didSelectItemAt`、`didDeselectItemAt` 製作預設家庭成員名稱，方便使用者加速註冊流程
+* 利用 `UICollectionView` delegate function `didSelectItemAt`、`didDeselectItemAt` 顯示預設家庭成員名稱之選擇
 
-* 登入時可利用 QRCode 掃描器，開啟相機掃描 QRCode，或是從相簿選擇 QRCode 檔案，讀取個人 id
+* 登入時可利用 QRCode 掃描器，開啟相機掃描 QRCode，或是從相簿選擇 QRCode 檔案，讀取個人 id（有關 QRCode Generator 於家庭頁面詳述）
 
 * 隱私權政策頁面：使用 `WKWebView` 顯示 privacy term link 的內容
 
@@ -43,12 +43,12 @@ func textField(_ textField: UITextField,
 * 使用 `UICollectionView Drag and Drop API`，讓使用者可以藉由長按、拖曳，
   將家事項目移動至「完成了！」欄位
   
-* 每完成一項家事，家人都會收到推播通知：實作 `Firebase Cloud Messaging`
+* 實作 `Firebase Cloud Messaging`，每完成一項家事，家人都會收到推播通知
 
 * 使用 `UIViewPropertyAnimator` 完成神燈實現願望畫面之淡入動畫，
-  並讓動畫可藉由使用者點選 ```skip 按鈕``` 後提前結束。
+  並讓動畫可藉由使用者點選 ```skip 按鈕``` 後提前結束
   
-* 使用者遇到問題時，可點選右下角小圖查看版號，與利用`MFMailComposeViewController`寄信給我們
+* 使用者遇到問題時，可點選右下角小圖查看版號、利用`MFMailComposeViewController`寄信給我們
   
 ![GITHUB](https://github.com/Sylviajiafen/HouseworkRevolution/blob/READMEresource/IMG_5488.png)
 
