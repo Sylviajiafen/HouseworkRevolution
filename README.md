@@ -8,7 +8,7 @@ ________________________________________________________________________________
 
 **《登入 / 註冊》**
 
-* 尊重使用者隱私，不需填入任何使用者資料，僅需設定一組密碼即可註冊
+* 尊重使用者隱私，不需填入任何使用者資料，僅需設定一組密碼即可註冊（註冊後提供一個英數組合 id 給使用者）
 
 * 利用 `Regular Expression` 限制密碼欄位僅能填入大小寫英文字母及阿拉伯數字
 
@@ -24,8 +24,9 @@ func textField(_ textField: UITextField,
   return regex.matches(string)
 }
 ```
+* 密碼加密轉換成亂碼字串後才上傳 database
 
-* 利用 `UICollectionView` delegate function `didSelectItemAt`、`didDeselectItemAt` 顯示預設家庭成員名稱之選擇
+* 利用 `UICollectionView` 顯示預設成員名稱，與其 delegate function `didSelectItemAt`、`didDeselectItemAt` ，顯示使用者之選擇
 
 * 登入時可利用 QRCode 掃描器，開啟相機掃描 QRCode，或是從相簿選擇 QRCode 檔案，讀取個人 id（有關 QRCode Generator 於家庭頁面詳述）
 
@@ -61,14 +62,14 @@ func textField(_ textField: UITextField,
 **《查看、刪除、新增家事》**
 
 * 查看與刪除：
-  * 使用 `UITableView` 搭配兩種 `UITableViewCell`（有設定家事與未設定家事）顯示星期一至星期五的家事：包括家事內容、小圖、疲勞值
+  * 使用 `UITableView` 搭配兩種 `UITableViewCell`（有設定家事與未設定家事）顯示一週家事，包括家事內容、小圖、疲勞值
   * 使用 `enum` 管理預設的家事項目，並將其各搭配一個小圖
   * 刪除家事時，`UITableView` `reloadData()`，當日最後一項家事被刪除時，會直接更新成顯示未設定家事的 cell
   * 刪除當天星期之家事，會同步從當天的「今日家事」列表中移除
   
 * 新增：
   * 預設八種家事標籤，使用 `UICollectionView` 搭配 delegate function `didSelectItemAt`、`didDeselectItemAt`，使用者也可以新增、刪除自訂家事標籤
-  * 使用 `UIPickerView` 作為選擇星期之工具；為了畫面和諧，其 `viewForRow` 是由 `UILabel` 建構而成
+  * 時間以星期日期為單位，使用 `UIPickerView` 作為選擇星期之工具；為了畫面和諧，其 `viewForRow` 是由 `UILabel` 建構而成
   * 使用 `UISlider` 作為設定疲勞值之工具；使用者滑動時，顯示對應的數值（整數數字）
   * 防呆處理：
     - 點選「新增家事標籤」時，若未輸入任何內容，提醒使用者 UITextField 不可留白
@@ -90,7 +91,7 @@ func textField(_ textField: UITextField,
   * 利用 `UITextView` 的 delegate function `shouldChangeTextIn` 限制使用者許願內容的字數
 
 * 查看神燈願望：
-  * 利用 `UICollectionViewLayout` 的 sub class 創建一個瀑布流(waterful)的 custom layout，使願望分佈更符合主題的「神燈奇幻感」
+  * 利用 `UICollectionViewLayout` 的 sub class 創建一個瀑布流(waterful)的 custom layout，使願望的畫面分佈更符合主題的「神燈奇幻感」
   * 使用 3 種字體大小，並讓 cell 的高度配合字體大小變化，增加效果
   
 ![GITHUB](https://github.com/Sylviajiafen/HouseworkRevolution/blob/READMEresource/housework_03.gif)
@@ -142,8 +143,8 @@ func textField(_ textField: UITextField,
     }
     ```
 * 加入/ 退出家庭：
-  * 點選同意加庭邀請後，即加入新家庭，家事一併更新為新家庭的內容
-  * 若所在家庭非註冊時的家庭，顯示 `退出家庭` 按鈕，若選擇退出，則回到註冊時的家庭，家事一樣同步更新
+  * 點選同意家庭邀請即加入新家庭，家事一併更新為新家庭的內容
+  * 若所在家庭非註冊時的家庭，顯示 `退出家庭` 按鈕；若選擇退出，則回到註冊時的家庭，家事一樣同步更新
   
 * 新增成員
   * 可利用輸入成員 id 搜尋成員並發送邀請
@@ -164,4 +165,11 @@ func textField(_ textField: UITextField,
 ![GITHUB](https://github.com/Sylviajiafen/HouseworkRevolution/blob/READMEresource/housework_05.gif)
 ![GITHUB](https://github.com/Sylviajiafen/HouseworkRevolution/blob/READMEresource/housework_06.gif)
 ![GITHUB](https://github.com/Sylviajiafen/HouseworkRevolution/blob/READMEresource/housework_07.gif)
- 
+
+<br />
+
+## 使用套件
+* IQKeyboardManagerSwift
+* JGProgressHUD
+* ESPullToRefresh
+* RNCryptor
