@@ -122,9 +122,12 @@ class ListViewController: UIViewController {
         
         emptyMissionView.isHidden = true
         
-        let today = DayManager.shared.changeWeekdayIntoCH(weekday: DayManager.shared.weekday)
+        let today = DayManager.shared.convertToCH(of: DayManager.shared.weekday)
         
-        showNoMissionLabel.text = "尚未設定今天（\(today)）的家事"
+        if let today = today {
+            
+            showNoMissionLabel.text = "尚未設定今天（ \(today.rawValue) ）的家事"
+        }
     }
     
     private let spacing: CGFloat = 16.0
