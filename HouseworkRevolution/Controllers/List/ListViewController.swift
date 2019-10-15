@@ -124,10 +124,7 @@ class ListViewController: UIViewController {
         
         let today = DayManager.shared.convertToCH(of: DayManager.shared.weekday)
         
-        if let today = today {
-            
-            showNoMissionLabel.text = "尚未設定今天（ \(today.rawValue) ）的家事"
-        }
+        showNoMissionLabel.text = "尚未設定今天（ \(today?.rawValue ?? "") ）的家事"
     }
     
     private let spacing: CGFloat = 16.0
