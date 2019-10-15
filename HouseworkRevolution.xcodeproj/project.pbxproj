@@ -28,6 +28,7 @@
 		0302D9F02321E34D00DE7921 /* InvitingFamilyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0302D9EF2321E34D00DE7921 /* InvitingFamilyTableViewCell.swift */; };
 		0302D9F32321E49200DE7921 /* FamilyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0302D9F22321E49200DE7921 /* FamilyViewController.swift */; };
 		0302D9F52321E74F00DE7921 /* FirebaseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0302D9F42321E74F00DE7921 /* FirebaseData.swift */; };
+		030B8C7E23556F1200729A64 /* DayManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030B8C7D23556F1200729A64 /* DayManagerTests.swift */; };
 		03375E372332173800C71330 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03375E362332173800C71330 /* GoogleService-Info.plist */; };
 		03581CBD233A26F700D9AEA7 /* NSRegularExpression+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03581CBC233A26F700D9AEA7 /* NSRegularExpression+Extension.swift */; };
 		03581CBF233B343500D9AEA7 /* PrivacyTermViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03581CBE233B343500D9AEA7 /* PrivacyTermViewController.swift */; };
@@ -111,6 +112,7 @@
 		0302D9EF2321E34D00DE7921 /* InvitingFamilyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitingFamilyTableViewCell.swift; sourceTree = "<group>"; };
 		0302D9F22321E49200DE7921 /* FamilyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyViewController.swift; sourceTree = "<group>"; };
 		0302D9F42321E74F00DE7921 /* FirebaseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseData.swift; sourceTree = "<group>"; };
+		030B8C7D23556F1200729A64 /* DayManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayManagerTests.swift; sourceTree = "<group>"; };
 		03375E362332173800C71330 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		03581CBC233A26F700D9AEA7 /* NSRegularExpression+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSRegularExpression+Extension.swift"; sourceTree = "<group>"; };
 		03581CBE233B343500D9AEA7 /* PrivacyTermViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyTermViewController.swift; sourceTree = "<group>"; };
@@ -388,6 +390,7 @@
 			isa = PBXGroup;
 			children = (
 				03C1A557231662DA008EAB76 /* HouseworkRevolutionTests.swift */,
+				030B8C7D23556F1200729A64 /* DayManagerTests.swift */,
 				03C1A559231662DA008EAB76 /* Info.plist */,
 			);
 			path = HouseworkRevolutionTests;
@@ -824,6 +827,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				030B8C7E23556F1200729A64 /* DayManagerTests.swift in Sources */,
 				03C1A558231662DA008EAB76 /* HouseworkRevolutionTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
