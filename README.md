@@ -26,7 +26,7 @@ func textField(_ textField: UITextField,
 ```
 * 密碼加密轉換成亂碼字串
 
-* 利用 `UICollectionView` 顯示預設成員名稱，與其 delegate function `didSelectItemAt`、`didDeselectItemAt` ，顯示使用者之選擇
+* 利用 `UICollectionView` 顯示預設成員名稱，與 delegate function `didSelectItemAt`、`didDeselectItemAt` ，顯示使用者之選擇
 
 * 登入時可利用 QRCode 掃描器，開啟相機掃描 QRCode，或是從相簿選擇 QRCode 檔案，讀取個人 id（有關 QRCode Generator 於家庭頁面詳述）
 
@@ -49,7 +49,7 @@ func textField(_ textField: UITextField,
 * 使用 `UIViewPropertyAnimator` 完成神燈實現願望畫面之淡入動畫，
   並讓動畫可藉由使用者點選 ```skip 按鈕``` 後提前結束
   
-* 使用者遇到問題時，可點選右下角小圖查看版號、利用`MFMailComposeViewController`寄信給我們
+* 使用者遇到問題時，可點選右下角小圖查看版號、利用 `MFMailComposeViewController` 寄信給我們
   
 ![GITHUB](https://github.com/Sylviajiafen/HouseworkRevolution/blob/READMEresource/IMG_5488.png)
 
