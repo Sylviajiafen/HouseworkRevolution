@@ -73,7 +73,7 @@ func textField(_ textField: UITextField,
   
 * 新增
 
-  * 預設八種家事標籤，使用 `UICollectionView` 搭配 delegate function `didSelectItemAt`、`didDeselectItemAt`，使用者也可以新增、刪除自訂家事標籤
+  * 預設八種家事標籤，使用 `UICollectionView` 搭配 delegate function `didSelectItemAt`、`didDeselectItemAt` 顯示使用者選擇，使用者也可以新增、刪除自訂家事標籤
   
   * 時間以星期日期為單位，使用 `UIPickerView` 作為選擇星期之工具；為了畫面和諧，其 `viewForRow` 是由 `UILabel` 建構而成
   
