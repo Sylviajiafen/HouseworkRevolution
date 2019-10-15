@@ -13,36 +13,78 @@ import XCTest
 class DayManagerTests: XCTestCase {
     
     var sut: DayManager!
+    
+    var today: String!
 
     override func setUp() {
         super.setUp()
         
         sut = DayManager.shared
+        
+        today = sut.weekday
     }
 
     override func tearDown() {
         super.tearDown()
         
         sut = nil
+        
+        today = nil
     }
 
     func testExample() {
         
     }
     
-    func testWeekdayConvertor() {
+    func testWeekdayString() {
         
-        let today = sut.weekday
+        let aWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
         
-        let whatDayIsToday = sut.changeWeekdayIntoCH(weekday: today)
-        
-        if today == "Tuesday" && whatDayIsToday == "星期二" {
+        if aWeek.contains(today) {
             
             XCTAssert(true)
             
         } else {
             
-            XCTAssert(false, "日期轉換錯誤")
+            XCTAssert(false, "DayManager 讀取今日星期錯誤")
+        }
+    }
+    
+    func testWeekdayConvertor() {
+        
+        let whatDayIsToday = sut.convertToCH(of: today) ?? Weekdays(rawValue: "")
+            
+        if today == "Monday" && whatDayIsToday?.rawValue == "星期一" {
+                
+            XCTAssert(true)
+                
+        } else if today == "Tuesday" && whatDayIsToday?.rawValue == "星期二" {
+        
+            XCTAssert(true)
+            
+        } else if today == "Wednesday" && whatDayIsToday?.rawValue == "星期三" {
+        
+            XCTAssert(true)
+            
+        } else if today == "Thursday" && whatDayIsToday?.rawValue == "星期四" {
+        
+            XCTAssert(true)
+            
+        } else if today == "Friday" && whatDayIsToday?.rawValue == "星期五" {
+        
+            XCTAssert(true)
+            
+        } else if today == "Saturday" && whatDayIsToday?.rawValue == "星期六" {
+        
+            XCTAssert(true)
+        
+        } else if today == "Sunday" && whatDayIsToday?.rawValue == "星期日" {
+        
+            XCTAssert(true)
+            
+        } else {
+                
+            XCTAssert(false, "轉換中文星期錯誤")
         }
     }
 
