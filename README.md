@@ -80,7 +80,7 @@ func textField(_ textField: UITextField,
   * 使用 `UISlider` 作為設定疲勞值之工具；使用者滑動時，顯示對應的數值（整數數字）
   
   * 防呆處理：
-    - 點選「新增家事標籤」時，若未輸入任何內容，提醒使用者 UITextField 不可留白
+    - 點選「新增家事標籤」時，若未輸入任何內容，提醒使用者不可留白
     - 點選「完成」時，若尚未選擇家事標籤，提醒使用者
     - 新增相同文字的家事標籤時，提醒使用者標籤已經存在
     
@@ -88,7 +88,7 @@ func textField(_ textField: UITextField,
   
   * 新增當天星期之家事，會同步更新當天的「今日家事列表」未完成欄位
   
-  * 利用 `UITextField` 的 delegate function `shouldChangeCharactersIn` 限制使用者新增家事標籤時的字數
+  * 利用 `UITextField` 的 delegate function `shouldChangeCharactersIn` 限制使用者新增家事標籤的字數
   
  ![GITHUB](https://github.com/Sylviajiafen/HouseworkRevolution/blob/READMEresource/housework_02.gif)
  ![GITHUB](https://github.com/Sylviajiafen/HouseworkRevolution/blob/READMEresource/IMG_5489.png)
@@ -105,7 +105,7 @@ func textField(_ textField: UITextField,
 
 * 查看神燈願望
 
-  * 利用 `UICollectionViewLayout` 的 sub class 創建一個瀑布流(waterful)的 custom layout，使願望的畫面分佈更符合主題的「神燈奇幻感」
+  * 利用 `UICollectionViewLayout` 的 sub class 創建一個瀑布流 (waterful) 的 custom layout，使願望的畫面分佈更符合主題的「神燈奇幻感」
   
   * 使用 3 種字體大小，並讓 cell 的高度配合字體大小變化，增加效果
   
@@ -122,7 +122,7 @@ func textField(_ textField: UITextField,
   
   * 利用 `UIPasteboard.general` 實現點擊 id 複製的功能
   
-  * 利用 `CIQRCodeGenerator` 實現將 id 字串轉換為 QRCode，並利用 `UIGraphicsImageRenderer`實現將 QRCode 存進手機相簿之功能
+  * 利用 `CIQRCodeGenerator` 實現將 id 字串轉換為 QRCode，並利用 `UIGraphicsImageRenderer` 實現將 QRCode 存進手機相簿之功能
   
   ```Swift
   func generateQRCode(from string: String) -> UIImage? {
@@ -160,11 +160,14 @@ func textField(_ textField: UITextField,
         UIImageWriteToSavedPhotosAlbum(image, self, #selector(imageSavingResult), nil)
     }
     ```
+    
+  * 利用 `UIAlertController` 加上 `UITextField` ，提供使用者變更個人稱呼及所在家庭的名稱之功能
+  
 * 加入/ 退出家庭
 
   * 點選同意家庭邀請即加入新家庭，家事一併更新為新家庭的內容
   
-  * 若所在家庭非註冊時的家庭，顯示 `退出家庭` 按鈕；若選擇退出，則回到註冊時的家庭，家事一樣同步更新
+  * 若所在家庭非註冊時的家庭，顯示 `退出家庭` 按鈕；若選擇退出，則回到註冊時的家庭，家事同步更新
   
 * 新增成員
 
@@ -178,12 +181,6 @@ func textField(_ textField: UITextField,
     - 受邀人為自己時，提醒使用者
     - 重複邀請同一人時，提醒使用者，並不重複邀請
     - 受邀人已是家庭成員時，提醒使用者，並不發送邀請
-    
-* 變更名稱
-
-  * 可變更個人稱呼及所在家庭的名稱
-  
-  * `UIAlertController` 加上 `UITextField`
 
 
 ![GITHUB](https://github.com/Sylviajiafen/HouseworkRevolution/blob/READMEresource/IMG_5491.png)
