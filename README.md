@@ -147,17 +147,17 @@ func textField(_ textField: UITextField,
     ```Swift
     func saveQRCodeInfoImage() {
         
-        let renderer = UIGraphicsImageRenderer(size: QRCodeInfoView.bounds.size)
+         let renderer = UIGraphicsImageRenderer(size: QRCodeInfoView.bounds.size)
         
-        let image = renderer.image(actions: { [weak self] (context) in
+         let image = renderer.image(actions: { [weak self] (context) in
             
-            guard let strongSelf = self else { return }
+             guard let strongSelf = self else { return }
             
-            strongSelf.QRCodeInfoView.drawHierarchy(in: strongSelf.QRCodeInfoView.bounds,
+             strongSelf.QRCodeInfoView.drawHierarchy(in: strongSelf.QRCodeInfoView.bounds,
                                                     afterScreenUpdates: true)
-        })
+         })
         
-        UIImageWriteToSavedPhotosAlbum(image, self, #selector(imageSavingResult), nil)
+         UIImageWriteToSavedPhotosAlbum(image, self, #selector(imageSavingResult), nil)
     }
     ```
     
