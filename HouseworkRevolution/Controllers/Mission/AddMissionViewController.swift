@@ -206,7 +206,7 @@ extension AddMissionViewController: UIPickerViewDelegate, UIPickerViewDataSource
         
     ) -> Int {
         
-        return DayManager.weekdayInCH.count
+        return DayManager.weekdayInEng.count
     }
     
     func pickerView(_ pickerView: UIPickerView,
@@ -214,7 +214,7 @@ extension AddMissionViewController: UIPickerViewDelegate, UIPickerViewDataSource
                     forComponent component: Int,
                     reusing view: UIView?) -> UIView {
         
-        return viewForPicker(of: DayManager.weekdayInCH[row])
+        return viewForPicker(of: DayManager.weekdayInEng[row].inChinese)
     }
     
     func pickerView(_ pickerView: UIPickerView,
@@ -224,7 +224,7 @@ extension AddMissionViewController: UIPickerViewDelegate, UIPickerViewDataSource
         selectedDay = DayManager.weekdayInEng[row].rawValue
     }
     
-    private func viewForPicker(of weekday: Weekdays) -> UILabel {
+    private func viewForPicker(of weekday: String) -> UILabel {
         
         let pickerLabel = UILabel()
         
@@ -232,7 +232,7 @@ extension AddMissionViewController: UIPickerViewDelegate, UIPickerViewDataSource
         
         pickerLabel.textColor = UIColor.noticeGray
         
-        pickerLabel.text = weekday.rawValue
+        pickerLabel.text = weekday
         
         pickerLabel.textAlignment = .center
         

@@ -146,29 +146,52 @@ class FirebaseUserHelper {
                             guard let correctPwdEncryted = document.data()?[UserData.password.rawValue] as? String,
                                 let family = document.data()?[UserData.family.rawValue] as? String else { return }
                                 
-                            let correctPwd = try? RNCryptorManager.shared
-                                                    .decryptMessage(encryptedMessage: correctPwdEncryted,
-                                                                    encryptionKey: RNCryptorManager.encryptionKey)
+                            do {
                                 
-                            guard let correctPassword = correctPwd else {
+                                let correctPwd = try RNCryptorManager.shared
+                                .decryptMessage(encryptedMessage: correctPwdEncryted,
+                                                encryptionKey: RNCryptorManager.encryptionKey)
+                                
+                                if correctPwd == password {
+
+                                    FirebaseUserHelper.familyID = family
+
+                                    FirebaseUserHelper.userID = id
+
+                                    completion?(LoginResult.success("登入成功"))
+
+                                } else {
+
+                                    completion?(LoginResult.failed(.incorrectPassword))
+                                }
+                            } catch {
                                 
                                 completion?(.failed(.unknownError))
-                                
-                                return
                             }
-                                
-                            if correctPassword == password {
-                                    
-                                FirebaseUserHelper.familyID = family
-                                
-                                FirebaseUserHelper.userID = id
-                                     
-                                completion?(LoginResult.success("登入成功"))
-                                    
-                            } else {
-                                    
-                                completion?(LoginResult.failed(.incorrectPassword))
-                            }
+                            
+//                            let correctPwd = try? RNCryptorManager.shared
+//                                                    .decryptMessage(encryptedMessage: correctPwdEncryted,
+//                                                                    encryptionKey: RNCryptorManager.encryptionKey)
+//
+//                            guard let correctPassword = correctPwd else {
+//
+//                                completion?(.failed(.unknownError))
+//
+//                                return
+//                            }
+//
+//                            if correctPassword == password {
+//
+//                                FirebaseUserHelper.familyID = family
+//
+//                                FirebaseUserHelper.userID = id
+//
+//                                completion?(LoginResult.success("登入成功"))
+//
+//                            } else {
+//
+//                                completion?(LoginResult.failed(.incorrectPassword))
+//                            }
                                         
                         } else if let err = error {
                                 

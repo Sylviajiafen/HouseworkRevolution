@@ -12,14 +12,6 @@ class DayManager {
     
     static let shared = DayManager()
     
-    static let weekdayInCH: [Weekdays] = [.Monday,
-                                          .Tuesday,
-                                          .Wednesday,
-                                          .Thursday,
-                                          .Friday,
-                                          .Saturday,
-                                          .Sunday]
-    
     static let weekdayInEng: [WeekdayInEng] = [.Monday,
                                                .Tuesday,
                                                .Wednesday,
@@ -49,7 +41,7 @@ class DayManager {
         weekday = weekdayFormatter.string(from: today)
     }
     
-    func convertToCH(of weekday: String) -> Weekdays? {
+    func convertToCH(of weekday: String) -> WeekdayInEng? {
         
         switch weekday {
             

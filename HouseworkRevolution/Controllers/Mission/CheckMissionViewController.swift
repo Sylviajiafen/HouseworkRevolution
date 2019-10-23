@@ -91,7 +91,7 @@ extension CheckMissionViewController: UITableViewDelegate,
     // MARK: Section Header
     func numberOfSections(in tableView: UITableView) -> Int {
         
-        return DayManager.weekdayInCH.count
+        return DayManager.weekdayInEng.count
     }
     
     func tableView(_ tableView: UITableView,
@@ -115,8 +115,10 @@ extension CheckMissionViewController: UITableViewDelegate,
         guard let header = missionListTableView.dequeueReusableHeaderFooterView(
             withIdentifier: String(describing: WeekdaySectionHeaderView.self))
             as? WeekdaySectionHeaderView else { return nil }
-             
-        header.weekdayLabel.text = DayManager.weekdayInCH[section].rawValue
+        
+        let day = DayManager.weekdayInEng[section]
+        
+        header.weekdayLabel.text = day.inChinese
         
         return header
     }
