@@ -159,7 +159,7 @@ extension ShowWishesViewController: UICollectionViewDataSource,
         return wishCell
     }
     
-    func collectionView(_collectionView: UICollectionView,
+    func collectionView(_ collectionView: UICollectionView,
                         heightForItemAtIndexPath indexPath: IndexPath
     ) -> CGFloat {
         

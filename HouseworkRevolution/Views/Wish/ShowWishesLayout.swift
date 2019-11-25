@@ -57,7 +57,7 @@ class ShowWishesLayout: UICollectionViewLayout {
             
             let indexPath = IndexPath(item: item, section: 0)
             
-            guard let itemHeight = delegate?.collectionView(_collectionView: collectionView,
+            guard let itemHeight = delegate?.collectionView(collectionView,
                                                             heightForItemAtIndexPath: indexPath) else { return }
             
             let height = cellPadding * 2 + itemHeight
@@ -85,6 +85,7 @@ class ShowWishesLayout: UICollectionViewLayout {
                 column = 0
             }
         }
+        
     }
     
     override func layoutAttributesForElements(
@@ -112,6 +113,6 @@ class ShowWishesLayout: UICollectionViewLayout {
 
 protocol ShowWishesLayoutDelegate: AnyObject {
     
-    func collectionView(_collectionView: UICollectionView,
+    func collectionView(_ collectionView: UICollectionView,
                         heightForItemAtIndexPath indexPath: IndexPath) -> CGFloat
 }
