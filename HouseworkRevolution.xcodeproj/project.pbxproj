@@ -29,6 +29,8 @@
 		0302D9F32321E49200DE7921 /* FamilyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0302D9F22321E49200DE7921 /* FamilyViewController.swift */; };
 		0302D9F52321E74F00DE7921 /* FirebaseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0302D9F42321E74F00DE7921 /* FirebaseData.swift */; };
 		030B8C7E23556F1200729A64 /* DayManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030B8C7D23556F1200729A64 /* DayManagerTests.swift */; };
+		0336226B239567C300FA9332 /* MissionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0336226A239567C300FA9332 /* MissionCellViewModel.swift */; };
+		0336226D239574F000FA9332 /* CheckMissionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0336226C239574F000FA9332 /* CheckMissionViewModel.swift */; };
 		03375E372332173800C71330 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03375E362332173800C71330 /* GoogleService-Info.plist */; };
 		03581CBD233A26F700D9AEA7 /* NSRegularExpression+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03581CBC233A26F700D9AEA7 /* NSRegularExpression+Extension.swift */; };
 		03581CBF233B343500D9AEA7 /* PrivacyTermViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03581CBE233B343500D9AEA7 /* PrivacyTermViewController.swift */; };
@@ -113,6 +115,8 @@
 		0302D9F22321E49200DE7921 /* FamilyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyViewController.swift; sourceTree = "<group>"; };
 		0302D9F42321E74F00DE7921 /* FirebaseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseData.swift; sourceTree = "<group>"; };
 		030B8C7D23556F1200729A64 /* DayManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayManagerTests.swift; sourceTree = "<group>"; };
+		0336226A239567C300FA9332 /* MissionCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionCellViewModel.swift; sourceTree = "<group>"; };
+		0336226C239574F000FA9332 /* CheckMissionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckMissionViewModel.swift; sourceTree = "<group>"; };
 		03375E362332173800C71330 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		03581CBC233A26F700D9AEA7 /* NSRegularExpression+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSRegularExpression+Extension.swift"; sourceTree = "<group>"; };
 		03581CBE233B343500D9AEA7 /* PrivacyTermViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyTermViewController.swift; sourceTree = "<group>"; };
@@ -240,7 +244,6 @@
 		0302D9D2231B638800DE7921 /* CheckMission */ = {
 			isa = PBXGroup;
 			children = (
-				0302D9C82319259F00DE7921 /* MissionListTableViewCell.swift */,
 				0302D9D3231B63E600DE7921 /* MissionEmptyTableViewCell.swift */,
 				0302D9CE231AB31300DE7921 /* WeekdaySectionHeaderView */,
 			);
@@ -313,6 +316,41 @@
 			path = Family;
 			sourceTree = "<group>";
 		};
+		03362266239566B600FA9332 /* MVVM practice */ = {
+			isa = PBXGroup;
+			children = (
+				03362269239566CE00FA9332 /* ViewModel */,
+				03362268239566C900FA9332 /* View */,
+				03362267239566C200FA9332 /* Model */,
+			);
+			path = "MVVM practice";
+			sourceTree = "<group>";
+		};
+		03362267239566C200FA9332 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		03362268239566C900FA9332 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				03C1A5902317C6E7008EAB76 /* CheckMissionViewController.swift */,
+				0302D9C82319259F00DE7921 /* MissionListTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		03362269239566CE00FA9332 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				0336226A239567C300FA9332 /* MissionCellViewModel.swift */,
+				0336226C239574F000FA9332 /* CheckMissionViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		03A45F1B232E1469005D92D5 /* FirebaseStorage */ = {
 			isa = PBXGroup;
 			children = (
@@ -365,6 +403,7 @@
 		03C1A53E231662D9008EAB76 /* HouseworkRevolution */ = {
 			isa = PBXGroup;
 			children = (
+				03362266239566B600FA9332 /* MVVM practice */,
 				03581CC2233C68C900D9AEA7 /* HouseworkRevolution.entitlements */,
 				03C1A58423177103008EAB76 /* Model */,
 				03C1A578231672AE008EAB76 /* Views */,
@@ -481,7 +520,6 @@
 			children = (
 				03C1A58C2317A2EB008EAB76 /* MissionViewController.swift */,
 				03C1A58E2317C6D2008EAB76 /* AddMissionViewController.swift */,
-				03C1A5902317C6E7008EAB76 /* CheckMissionViewController.swift */,
 			);
 			path = Mission;
 			sourceTree = "<group>";
@@ -607,6 +645,7 @@
 				TargetAttributes = {
 					03C1A53B231662D9008EAB76 = {
 						CreatedOnToolsVersion = 10.2.1;
+						LastSwiftMigration = 1100;
 					};
 					03C1A552231662DA008EAB76 = {
 						CreatedOnToolsVersion = 10.2.1;
@@ -790,6 +829,7 @@
 				03C1A548231662D9008EAB76 /* HouseworkRevolution.xcdatamodeld in Sources */,
 				03E941DC2337FB7000A52B82 /* RNCryptorManager.swift in Sources */,
 				03006C18234738400060AB30 /* UITextFiled+Extension.swift in Sources */,
+				0336226D239574F000FA9332 /* CheckMissionViewModel.swift in Sources */,
 				03A45F28232FDA64005D92D5 /* UIViewController+Extension.swift in Sources */,
 				0302D9E3231E5B8400DE7921 /* ListViewController.swift in Sources */,
 				03F43BE1233DE224005A7917 /* FirebaseNotificationHelper.swift in Sources */,
@@ -799,6 +839,7 @@
 				03A45F24232E1A86005D92D5 /* StorageManager.swift in Sources */,
 				03581CBF233B343500D9AEA7 /* PrivacyTermViewController.swift in Sources */,
 				03C1A577231668B7008EAB76 /* AuthViewController.swift in Sources */,
+				0336226B239567C300FA9332 /* MissionCellViewModel.swift in Sources */,
 				03C1A5832316908D008EAB76 /* NameCallCollectionViewCell.swift in Sources */,
 				03C1A59E2318F147008EAB76 /* UIColor+Extension.swift in Sources */,
 				03006C1B234989420060AB30 /* TextCountLimitBaseViewController.swift in Sources */,
@@ -983,6 +1024,7 @@
 			baseConfigurationReference = BFC62AE0B2CBB8382B293A4E /* Pods-HouseworkRevolution.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = HouseworkRevolution/HouseworkRevolution.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
@@ -997,6 +1039,8 @@
 				MARKETING_VERSION = 1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mycompany.HouseworkRevolution;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1007,6 +1051,7 @@
 			baseConfigurationReference = C3B112AE115369AD6E6092D6 /* Pods-HouseworkRevolution.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = HouseworkRevolution/HouseworkRevolution.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
@@ -1020,6 +1065,7 @@
 				MARKETING_VERSION = 1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mycompany.HouseworkRevolution;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

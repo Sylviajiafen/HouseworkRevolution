@@ -25,11 +25,15 @@ class MissionListTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+    }
+    
+    func setBy(viewModel: MissionCellViewModel) {
+        
+        viewModel.configure(self)
     }
     
     func layout(by mission: Mission) {
@@ -78,7 +82,7 @@ class MissionListTableViewCell: UITableViewCell {
             houseworkIcon.image = UIImage.asset(.cleanToiletICON)
             
         default:
-            
+           
             houseworkIcon.image = UIImage.asset(.customWorkICON)
         }
     }

@@ -50,43 +50,43 @@ class DayManagerTests: XCTestCase {
         }
     }
     
-    func testWeekdayConvertor() {
-        
-        let whatDayIsToday = sut.convertToCH(of: today) ?? Weekdays(rawValue: "")
-            
-        if today == "Monday" && whatDayIsToday?.rawValue == "星期一" {
-                
-            XCTAssert(true)
-                
-        } else if today == "Tuesday" && whatDayIsToday?.rawValue == "星期二" {
-        
-            XCTAssert(true)
-            
-        } else if today == "Wednesday" && whatDayIsToday?.rawValue == "星期三" {
-        
-            XCTAssert(true)
-            
-        } else if today == "Thursday" && whatDayIsToday?.rawValue == "星期四" {
-        
-            XCTAssert(true)
-            
-        } else if today == "Friday" && whatDayIsToday?.rawValue == "星期五" {
-        
-            XCTAssert(true)
-            
-        } else if today == "Saturday" && whatDayIsToday?.rawValue == "星期六" {
-        
-            XCTAssert(true)
-        
-        } else if today == "Sunday" && whatDayIsToday?.rawValue == "星期日" {
-        
-            XCTAssert(true)
-            
-        } else {
-                
-            XCTAssert(false, "轉換中文星期錯誤")
-        }
-    }
+//    func testWeekdayConvertor() {
+//
+//        let whatDayIsToday = sut.convertToCH(of: today) ?? Weekdays(rawValue: "")
+//
+//        if today == "Monday" && whatDayIsToday?.rawValue == "星期一" {
+//
+//            XCTAssert(true)
+//
+//        } else if today == "Tuesday" && whatDayIsToday?.rawValue == "星期二" {
+//
+//            XCTAssert(true)
+//            
+//        } else if today == "Wednesday" && whatDayIsToday?.rawValue == "星期三" {
+//
+//            XCTAssert(true)
+//
+//        } else if today == "Thursday" && whatDayIsToday?.rawValue == "星期四" {
+//
+//            XCTAssert(true)
+//
+//        } else if today == "Friday" && whatDayIsToday?.rawValue == "星期五" {
+//
+//            XCTAssert(true)
+//
+//        } else if today == "Saturday" && whatDayIsToday?.rawValue == "星期六" {
+//
+//            XCTAssert(true)
+//
+//        } else if today == "Sunday" && whatDayIsToday?.rawValue == "星期日" {
+//
+//            XCTAssert(true)
+//
+//        } else {
+//
+//            XCTAssert(false, "轉換中文星期錯誤")
+//        }
+//    }
 
     func testPerformanceExample() {
         // This is an example of a performance test case.
