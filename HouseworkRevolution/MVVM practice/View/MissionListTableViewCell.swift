@@ -36,15 +36,9 @@ class MissionListTableViewCell: UITableViewCell {
         viewModel.configure(self)
     }
     
-//    func layout(by mission: Mission) {
-//        
-//        missionLabel.text = mission.title
-//
-//        tiredValueLabel.text = "\(mission.tiredValue)"
-//        
-//        setIcon(by: mission)
-//    }
-
+    func setBy(viewModel: CheckMissionViewModel, day: String) {
+        
+    }
 }
 
 protocol MissionListTableViewCellDelegate: AnyObject {

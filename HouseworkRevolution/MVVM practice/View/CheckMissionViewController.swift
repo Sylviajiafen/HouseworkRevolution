@@ -16,50 +16,20 @@ class CheckMissionViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
       
-//        ProgressHUD.show(self.view)
-//
-//        for weekdays in DayManager.weekdayInEng {
-//
-//            FirebaseManager.shared.getAllMissions(day: weekdays.rawValue
-//            ) { [weak self] (dailyMission) in
-//
-//                DispatchQueue.main.async {
-//
-//                    self?.missionListTableView.reloadData()
-//
-//                    ProgressHUD.dismiss()
-//                }
-//            }
-//        }
+        ProgressHUD.show(self.view)
         
-        for weekday in DayManager.weekdayInEng {
+        mainViewModel.getMissions { [weak self] in
             
-            let viewModel = CheckMissionViewModel(day: weekday.rawValue)
-            
-            viewModel.getMission { [weak self] in
+            DispatchQueue.main.async {
                 
-//                self?.cellViewModels = viewModel.cellViewModel
+                self?.missionListTableView.reloadData()
                 
-                self?.viewModels[weekday.rawValue]?.append(contentsOf: viewModel.cellViewModel)
-                
-                DispatchQueue.main.async {
-
-                    self?.missionListTableView.reloadData()
-                }
+                ProgressHUD.dismiss()
             }
-            
         }
     }
     
-    var viewModels = [WeekdayInEng.Monday.rawValue: [MissionCellViewModel](),
-                      WeekdayInEng.Tuesday.rawValue: [MissionCellViewModel](),
-                      WeekdayInEng.Wednesday.rawValue: [MissionCellViewModel](),
-                      WeekdayInEng.Thursday.rawValue: [MissionCellViewModel](),
-                      WeekdayInEng.Friday.rawValue: [MissionCellViewModel](),
-                      WeekdayInEng.Saturday.rawValue: [MissionCellViewModel](),
-                      WeekdayInEng.Sunday.rawValue: [MissionCellViewModel]()]
-    
-    var cellViewModels = [MissionCellViewModel]()
+    let mainViewModel = CheckMissionViewModel()
     
     func setUpTableView() {
         
@@ -156,11 +126,11 @@ extension CheckMissionViewController: UITableViewDelegate,
                    numberOfRowsInSection section: Int
     ) -> Int {
         
-//        guard let missionOfDay =
-//            FirebaseManager.allMission[DayManager.weekdayInEng[section].rawValue]
-//            else { return 0 }
+        let day = DayManager.weekdayInEng[section].rawValue
+
+        let viewModels = mainViewModel.cellViewModels
         
-        guard let missionOfDay = viewModels[DayManager.weekdayInEng[section].rawValue] else { return 0 }
+        guard let missionOfDay = viewModels[day] else { return 0 }
     
         if missionOfDay.count == 0 {
             
@@ -175,8 +145,14 @@ extension CheckMissionViewController: UITableViewDelegate,
     func tableView(_ tableView: UITableView,
                    cellForRowAt indexPath: IndexPath
     ) -> UITableViewCell {
+    
+        let day = DayManager.weekdayInEng[indexPath.section].rawValue
         
-        if let missionOfDay = viewModels[DayManager.weekdayInEng[indexPath.section].rawValue] {
+        let viewModels = mainViewModel.cellViewModels
+        
+        if let missionOfDay = viewModels[day] {
+            
+            print("viewModelOf\(day): \(missionOfDay)")
             
             if missionOfDay.count > 0 {
 
@@ -187,7 +163,6 @@ extension CheckMissionViewController: UITableViewDelegate,
                 guard let mission = cell as? MissionListTableViewCell else { return UITableViewCell() }
 
                 mission.setBy(viewModel: missionOfDay[indexPath.row])
-//                mission.layout(by: missionOfDay[indexPath.row])
 
                 mission.delegate = self
 

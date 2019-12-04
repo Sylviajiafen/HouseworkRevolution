@@ -11,25 +11,42 @@ import UIKit
 
 class CheckMissionViewModel {
     
-    let day: String
-
-    var cellViewModel = [MissionCellViewModel]()
+    var cellViewModels = [WeekdayInEng.Monday.rawValue: [MissionCellViewModel](),
+                          WeekdayInEng.Tuesday.rawValue: [MissionCellViewModel](),
+                          WeekdayInEng.Wednesday.rawValue: [MissionCellViewModel](),
+                          WeekdayInEng.Thursday.rawValue: [MissionCellViewModel](),
+                          WeekdayInEng.Friday.rawValue: [MissionCellViewModel](),
+                          WeekdayInEng.Saturday.rawValue: [MissionCellViewModel](),
+                          WeekdayInEng.Sunday.rawValue: [MissionCellViewModel]()]
     
-    func getMission(completion: @escaping () -> Void) {
+    func getMissions(completion: @escaping () -> Void) {
         
-        FirebaseManager.shared.getAllMissions(day: self.day) { [weak self] (dailyMissions) in
+        for weekday in DayManager.weekdayInEng {
             
-            for mission in dailyMissions {
+            FirebaseManager.shared.getAllMissions(day: weekday.rawValue) { [weak self] (dailyMissions) in
                 
-                self?.cellViewModel.append(MissionCellViewModel(housework: mission))
+                self?.setCellViewModel(for: dailyMissions, of: weekday.rawValue)
             }
-            
-            completion()
         }
+        
+        completion()
     }
     
-    init(day: String) {
+    private func setCellViewModel(for missions: [Mission], of day: String) {
         
-        self.day = day
+        var cellViewModel = [MissionCellViewModel]()
+        
+        for mission in missions {
+            
+            cellViewModel.append(MissionCellViewModel(housework: mission))
+        }
+        
+        cellViewModels[day] = cellViewModel
     }
+    
+}
+
+protocol CheckMissionViewModelDelegate {
+    
+    
 }
