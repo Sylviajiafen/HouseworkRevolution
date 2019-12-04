@@ -48,32 +48,17 @@ class CheckMissionViewController: UIViewController {
         
         missionListTableView.addPullToRefresh(missionListTableView) {  [weak self] in
             
-        self?.mainViewModel.getMissions { [weak self] in
+            self?.mainViewModel.getMissions { [weak self] in
                 
-            DispatchQueue.main.async {
+                DispatchQueue.main.async {
                     
-                guard let strongSelf = self else { return }
-                strongSelf.missionListTableView.reloadData()
+                    guard let strongSelf = self else { return }
                     
-                strongSelf.missionListTableView.endPullToRefresh(strongSelf.missionListTableView)
+                    strongSelf.missionListTableView.reloadData()
+                    
+                    strongSelf.missionListTableView.endPullToRefresh(strongSelf.missionListTableView)
+               }
             }
-        }
-//            for weekdays in DayManager.weekdayInEng {
-//
-//                FirebaseManager.shared.getAllMissions(day: weekdays.rawValue
-//                ) { [weak self] (dailyMission) in
-//
-//                    guard let strongSelf = self else { return }
-//
-//                    DispatchQueue.main.async {
-//
-//                        strongSelf.missionListTableView.reloadData()
-//
-//                        strongSelf.missionListTableView
-//                            .endPullToRefresh(strongSelf.missionListTableView)
-//                    }
-//                }
-//            }
         }
     }
     
@@ -196,24 +181,6 @@ extension CheckMissionViewController: UITableViewDelegate,
     
     // MARK: - Remove Mission
     func removeMission(_ cell: MissionListTableViewCell) {
-        
-//        guard let index = missionListTableView.indexPath(for: cell),
-//            let missionOfDay = FirebaseManager.allMission[DayManager.weekdayInEng[index.section].rawValue]
-//            else { return }
-        
-//        let toBeRemovedMission = missionOfDay[index.row]
- 
-//        FirebaseManager.allMission[DayManager.weekdayInEng[index.section].rawValue]?
-//                       .remove(at: index.row)
-//
-//        FirebaseManager.shared.deleteMissionFromHouseworks(title: toBeRemovedMission.title,
-//                                                           tiredValue: toBeRemovedMission.tiredValue,
-//                                                           weekday: DayManager.weekdayInEng[index.section].rawValue)
-//
-//        DispatchQueue.main.async { [weak self] in
-//
-//            self?.missionListTableView.reloadData()
-//        }
         
         guard let index = missionListTableView.indexPath(for: cell) else { return }
         
