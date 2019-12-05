@@ -7,12 +7,13 @@
 //
 
 #import "OCCheckMissionViewModel.h"
+#import "HouseworkRevolution-Bridging-Header.h"
 
 @implementation OCCheckMissionViewModel
 
--(instancetype) init {
+- (OCMissionObject *) getMissionObjects: (NSString *)day {
     
-    return self;
+   
 }
 
 @end

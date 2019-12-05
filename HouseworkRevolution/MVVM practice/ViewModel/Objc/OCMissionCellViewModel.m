@@ -10,24 +10,24 @@
 
 @interface OCMissionCellViewModel()
 
-@property Mission housework;
+@property OCMissionObject *housework;
 
 @end
 
 @implementation OCMissionCellViewModel
 
-+ (instancetype) initWithObject:(Mission *)housework {
++ (instancetype) initWithMissionObject:(OCMissionObject *)housework {
     
     OCMissionCellViewModel *viewModel = [[OCMissionCellViewModel alloc]initWith:housework];
     
     return viewModel;
 }
 
-- (instancetype) initWith:(Mission *)housework {
+- (instancetype) initWith:(OCMissionObject *)housework {
     self = [super init];
     
     if (self) {
-        self.housework = *(housework);
+        self.housework = housework;
     }
     
     return self;

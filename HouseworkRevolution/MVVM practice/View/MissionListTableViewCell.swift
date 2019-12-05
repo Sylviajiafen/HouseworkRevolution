@@ -35,10 +35,6 @@ class MissionListTableViewCell: UITableViewCell {
         
         viewModel.configure(self)
     }
-    
-    func setBy(viewModel: CheckMissionViewModel, day: String) {
-        
-    }
 }
 
 protocol MissionListTableViewCellDelegate: AnyObject {

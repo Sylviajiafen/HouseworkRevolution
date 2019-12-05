@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "OCMissionCellViewModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -19,7 +20,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface OCCheckMissionViewModel : NSObject
 
-@property (nonatomic, assign) id<OCCheckMissionViewModelDelegate> delegate;
+@property (nonatomic, weak) id<OCCheckMissionViewModelDelegate> delegate;
+
+@property NSDictionary <NSString *, id> *OCCellViewModel;
+
+- (OCMissionObject *) getMissionObjects: (NSString *)day;
 
 @end
 

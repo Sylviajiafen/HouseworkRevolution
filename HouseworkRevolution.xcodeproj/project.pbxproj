@@ -80,6 +80,7 @@
 		1235BE7E2398AD4100AA76BC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1235BE7D2398AD4100AA76BC /* GoogleService-Info.plist */; };
 		1261B4FE2398A6A40014AC7A /* OCMissionCellViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1261B4FD2398A6A40014AC7A /* OCMissionCellViewModel.m */; };
 		1286BD642399106800064FF1 /* OCCheckMissionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1286BD632399106800064FF1 /* OCCheckMissionViewController.m */; };
+		128AB9D823995C0600AB7FDC /* FirebaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128AB9D723995C0600AB7FDC /* FirebaseHelper.swift */; };
 		12C2D8222398F10E006A1C9C /* OCCheckMissionViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 12C2D8212398F10E006A1C9C /* OCCheckMissionViewModel.m */; };
 		13C2546C9B3D4DD77EDFFF43 /* Pods_HouseworkRevolution.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1493339683728FA72397E709 /* Pods_HouseworkRevolution.framework */; };
 		A426424894EE163385C27B85 /* Pods_HouseworkRevolutionTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 768DABA652B8C169712D5223 /* Pods_HouseworkRevolutionTests.framework */; };
@@ -177,6 +178,7 @@
 		1261B4FD2398A6A40014AC7A /* OCMissionCellViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OCMissionCellViewModel.m; sourceTree = "<group>"; };
 		1286BD622399106800064FF1 /* OCCheckMissionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OCCheckMissionViewController.h; sourceTree = "<group>"; };
 		1286BD632399106800064FF1 /* OCCheckMissionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OCCheckMissionViewController.m; sourceTree = "<group>"; };
+		128AB9D723995C0600AB7FDC /* FirebaseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseHelper.swift; sourceTree = "<group>"; };
 		12C2D8202398F10E006A1C9C /* OCCheckMissionViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OCCheckMissionViewModel.h; sourceTree = "<group>"; };
 		12C2D8212398F10E006A1C9C /* OCCheckMissionViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OCCheckMissionViewModel.m; sourceTree = "<group>"; };
 		1493339683728FA72397E709 /* Pods_HouseworkRevolution.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HouseworkRevolution.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -340,6 +342,7 @@
 			isa = PBXGroup;
 			children = (
 				1261B4FF2398A74B0014AC7A /* Objc */,
+				128AB9D723995C0600AB7FDC /* FirebaseHelper.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -897,6 +900,7 @@
 				03C1A5942318C7A3008EAB76 /* DataEnums.swift in Sources */,
 				03FC4FA62333557A00A1DD29 /* ESPullToRefreshWrapper.swift in Sources */,
 				0302D9F32321E49200DE7921 /* FamilyViewController.swift in Sources */,
+				128AB9D823995C0600AB7FDC /* FirebaseHelper.swift in Sources */,
 				1286BD642399106800064FF1 /* OCCheckMissionViewController.m in Sources */,
 				03C1A5962318D287008EAB76 /* UserInputTextField.swift in Sources */,
 				03C1A59C2318F059008EAB76 /* UIImage+Extension.swift in Sources */,

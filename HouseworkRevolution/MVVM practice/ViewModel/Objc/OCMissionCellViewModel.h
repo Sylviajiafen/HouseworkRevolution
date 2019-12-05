@@ -17,17 +17,26 @@ struct Mission {
     
     int tiredValue;
 };
-typedef struct Mission Mission;
+typedef struct OCMission Mission;
 
 @interface OCMissionCellViewModel : NSObject
 
-+ (instancetype) initWithObject:(Mission *)housework;
++ (instancetype) initWithMissionObject: (NSObject *)housework;
 
 @property (nonatomic, readonly) NSString *title;
 
 @property (nonatomic, readonly) int tiredValue;
 
 @property (nonatomic, readonly) UIImage *icon;
+
+@end
+
+
+@interface OCMissionObject : NSObject
+
+@property NSString *title;
+
+@property int tiredValue;
 
 @end
 
