@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -31,7 +31,6 @@
 		030B8C7E23556F1200729A64 /* DayManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030B8C7D23556F1200729A64 /* DayManagerTests.swift */; };
 		0336226B239567C300FA9332 /* MissionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0336226A239567C300FA9332 /* MissionCellViewModel.swift */; };
 		0336226D239574F000FA9332 /* CheckMissionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0336226C239574F000FA9332 /* CheckMissionViewModel.swift */; };
-		03375E372332173800C71330 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03375E362332173800C71330 /* GoogleService-Info.plist */; };
 		03581CBD233A26F700D9AEA7 /* NSRegularExpression+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03581CBC233A26F700D9AEA7 /* NSRegularExpression+Extension.swift */; };
 		03581CBF233B343500D9AEA7 /* PrivacyTermViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03581CBE233B343500D9AEA7 /* PrivacyTermViewController.swift */; };
 		03581CC1233B354C00D9AEA7 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03581CC0233B354C00D9AEA7 /* WebKit.framework */; };
@@ -78,6 +77,9 @@
 		03FEAC1E23226FFA00722A34 /* SearchUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FEAC1D23226FFA00722A34 /* SearchUserTableViewCell.swift */; };
 		03FEAC212324CC9400722A34 /* ShowDefaultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FEAC202324CC9400722A34 /* ShowDefaultTableViewCell.swift */; };
 		03FEAC232326599A00722A34 /* List.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03FEAC222326599A00722A34 /* List.storyboard */; };
+		1235BE7E2398AD4100AA76BC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1235BE7D2398AD4100AA76BC /* GoogleService-Info.plist */; };
+		1261B4FE2398A6A40014AC7A /* OCMissionCellViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1261B4FD2398A6A40014AC7A /* OCMissionCellViewModel.m */; };
+		12C2D8222398F10E006A1C9C /* OCCheckMissionViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 12C2D8212398F10E006A1C9C /* OCCheckMissionViewModel.m */; };
 		13C2546C9B3D4DD77EDFFF43 /* Pods_HouseworkRevolution.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1493339683728FA72397E709 /* Pods_HouseworkRevolution.framework */; };
 		A426424894EE163385C27B85 /* Pods_HouseworkRevolutionTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 768DABA652B8C169712D5223 /* Pods_HouseworkRevolutionTests.framework */; };
 /* End PBXBuildFile section */
@@ -117,7 +119,6 @@
 		030B8C7D23556F1200729A64 /* DayManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayManagerTests.swift; sourceTree = "<group>"; };
 		0336226A239567C300FA9332 /* MissionCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionCellViewModel.swift; sourceTree = "<group>"; };
 		0336226C239574F000FA9332 /* CheckMissionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckMissionViewModel.swift; sourceTree = "<group>"; };
-		03375E362332173800C71330 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		03581CBC233A26F700D9AEA7 /* NSRegularExpression+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSRegularExpression+Extension.swift"; sourceTree = "<group>"; };
 		03581CBE233B343500D9AEA7 /* PrivacyTermViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyTermViewController.swift; sourceTree = "<group>"; };
 		03581CC0233B354C00D9AEA7 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
@@ -169,6 +170,12 @@
 		03FEAC1D23226FFA00722A34 /* SearchUserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserTableViewCell.swift; sourceTree = "<group>"; };
 		03FEAC202324CC9400722A34 /* ShowDefaultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDefaultTableViewCell.swift; sourceTree = "<group>"; };
 		03FEAC222326599A00722A34 /* List.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = List.storyboard; sourceTree = "<group>"; };
+		1235BE7D2398AD4100AA76BC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "HouseworkRevolution/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1261B4FB2398A6A40014AC7A /* HouseworkRevolution-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HouseworkRevolution-Bridging-Header.h"; sourceTree = "<group>"; };
+		1261B4FC2398A6A40014AC7A /* OCMissionCellViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OCMissionCellViewModel.h; sourceTree = "<group>"; };
+		1261B4FD2398A6A40014AC7A /* OCMissionCellViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OCMissionCellViewModel.m; sourceTree = "<group>"; };
+		12C2D8202398F10E006A1C9C /* OCCheckMissionViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OCCheckMissionViewModel.h; sourceTree = "<group>"; };
+		12C2D8212398F10E006A1C9C /* OCCheckMissionViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OCCheckMissionViewModel.m; sourceTree = "<group>"; };
 		1493339683728FA72397E709 /* Pods_HouseworkRevolution.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HouseworkRevolution.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		282E80C58DF6B1DB0CB6F4EB /* Pods-HouseworkRevolutionTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HouseworkRevolutionTests.debug.xcconfig"; path = "Target Support Files/Pods-HouseworkRevolutionTests/Pods-HouseworkRevolutionTests.debug.xcconfig"; sourceTree = "<group>"; };
 		768DABA652B8C169712D5223 /* Pods_HouseworkRevolutionTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HouseworkRevolutionTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -329,6 +336,7 @@
 		03362267239566C200FA9332 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1261B4FF2398A74B0014AC7A /* Objc */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -345,6 +353,7 @@
 		03362269239566CE00FA9332 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				1261B4FA2398A66E0014AC7A /* Objc */,
 				0336226A239567C300FA9332 /* MissionCellViewModel.swift */,
 				0336226C239574F000FA9332 /* CheckMissionViewModel.swift */,
 			);
@@ -383,6 +392,7 @@
 		03C1A533231662D9008EAB76 = {
 			isa = PBXGroup;
 			children = (
+				1235BE7D2398AD4100AA76BC /* GoogleService-Info.plist */,
 				03C1A53E231662D9008EAB76 /* HouseworkRevolution */,
 				03C1A556231662DA008EAB76 /* HouseworkRevolutionTests */,
 				03C1A53D231662D9008EAB76 /* Products */,
@@ -403,6 +413,7 @@
 		03C1A53E231662D9008EAB76 /* HouseworkRevolution */ = {
 			isa = PBXGroup;
 			children = (
+				1261B4FB2398A6A40014AC7A /* HouseworkRevolution-Bridging-Header.h */,
 				03362266239566B600FA9332 /* MVVM practice */,
 				03581CC2233C68C900D9AEA7 /* HouseworkRevolution.entitlements */,
 				03C1A58423177103008EAB76 /* Model */,
@@ -419,7 +430,6 @@
 				03C1A53F231662D9008EAB76 /* AppDelegate.swift */,
 				03C1A549231662DA008EAB76 /* Assets.xcassets */,
 				03C1A54E231662DA008EAB76 /* Info.plist */,
-				03375E362332173800C71330 /* GoogleService-Info.plist */,
 				03C1A546231662D9008EAB76 /* HouseworkRevolution.xcdatamodeld */,
 			);
 			path = HouseworkRevolution;
@@ -569,6 +579,24 @@
 			path = SearchUserTableView;
 			sourceTree = "<group>";
 		};
+		1261B4FA2398A66E0014AC7A /* Objc */ = {
+			isa = PBXGroup;
+			children = (
+				1261B4FC2398A6A40014AC7A /* OCMissionCellViewModel.h */,
+				1261B4FD2398A6A40014AC7A /* OCMissionCellViewModel.m */,
+				12C2D8202398F10E006A1C9C /* OCCheckMissionViewModel.h */,
+				12C2D8212398F10E006A1C9C /* OCCheckMissionViewModel.m */,
+			);
+			path = Objc;
+			sourceTree = "<group>";
+		};
+		1261B4FF2398A74B0014AC7A /* Objc */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Objc;
+			sourceTree = "<group>";
+		};
 		2FF63852DA9196A7B69A8A6D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -645,7 +673,7 @@
 				TargetAttributes = {
 					03C1A53B231662D9008EAB76 = {
 						CreatedOnToolsVersion = 10.2.1;
-						LastSwiftMigration = 1100;
+						LastSwiftMigration = 1120;
 					};
 					03C1A552231662DA008EAB76 = {
 						CreatedOnToolsVersion = 10.2.1;
@@ -677,7 +705,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03375E372332173800C71330 /* GoogleService-Info.plist in Resources */,
 				03C1A56E23166557008EAB76 /* Auth.storyboard in Resources */,
 				03C1A54D231662DA008EAB76 /* LaunchScreen.storyboard in Resources */,
 				03C1A56A2316652F008EAB76 /* Wish.storyboard in Resources */,
@@ -690,6 +717,7 @@
 				03FEAC122322057E00722A34 /* FamilyMemberSectionHeader.xib in Resources */,
 				03FEAC232326599A00722A34 /* List.storyboard in Resources */,
 				03C1A545231662D9008EAB76 /* Main.storyboard in Resources */,
+				1235BE7E2398AD4100AA76BC /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -788,11 +816,9 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HouseworkRevolution/Pods-HouseworkRevolution-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HouseworkRevolution/Pods-HouseworkRevolution-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -825,6 +851,7 @@
 				03C1A58023167F82008EAB76 /* UIView+Extension.swift in Sources */,
 				03A45F2B2330E4E0005D92D5 /* JGProgressHUDWrapper.swift in Sources */,
 				0302D9EA231E7A0800DE7921 /* DailyMissionHeaderView.swift in Sources */,
+				1261B4FE2398A6A40014AC7A /* OCMissionCellViewModel.m in Sources */,
 				0302D9D7231CC1D600DE7921 /* WishViewController.swift in Sources */,
 				03C1A548231662D9008EAB76 /* HouseworkRevolution.xcdatamodeld in Sources */,
 				03E941DC2337FB7000A52B82 /* RNCryptorManager.swift in Sources */,
@@ -843,6 +870,7 @@
 				03C1A5832316908D008EAB76 /* NameCallCollectionViewCell.swift in Sources */,
 				03C1A59E2318F147008EAB76 /* UIColor+Extension.swift in Sources */,
 				03006C1B234989420060AB30 /* TextCountLimitBaseViewController.swift in Sources */,
+				12C2D8222398F10E006A1C9C /* OCCheckMissionViewModel.m in Sources */,
 				0302D9C32318FBE900DE7921 /* FamilyMemberCollectionViewCell.swift in Sources */,
 				0302D9CD231AB0DA00DE7921 /* WeekdaySectionHeaderView.swift in Sources */,
 				03C1A5912317C6E7008EAB76 /* CheckMissionViewController.swift in Sources */,
@@ -1039,7 +1067,7 @@
 				MARKETING_VERSION = 1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mycompany.HouseworkRevolution;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "HouseworkRevolution/HouseworkRevolution-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1065,7 +1093,7 @@
 				MARKETING_VERSION = 1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mycompany.HouseworkRevolution;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "HouseworkRevolution/HouseworkRevolution-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

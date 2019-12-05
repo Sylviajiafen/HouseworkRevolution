@@ -141,7 +141,7 @@ DEPENDENCIES:
   - SwiftLint
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - BoringSSL-GRPC
     - Crashlytics
     - ESPullToRefresh
@@ -197,4 +197,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 69cc5dccf05f896e679dc949c6cc9d47e9f6cae8
 
-COCOAPODS: 1.7.5
+COCOAPODS: 1.8.4
