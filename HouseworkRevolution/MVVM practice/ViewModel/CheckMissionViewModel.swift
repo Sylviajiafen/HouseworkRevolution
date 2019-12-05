@@ -21,8 +21,6 @@ class CheckMissionViewModel {
                           WeekdayInEng.Saturday.rawValue: [MissionCellViewModel](),
                           WeekdayInEng.Sunday.rawValue: [MissionCellViewModel]()]
     
-    var viewModelsReady: (() -> Void)?
-    
     func getMissions(completion: @escaping () -> Void) {
         
         let group = DispatchGroup()

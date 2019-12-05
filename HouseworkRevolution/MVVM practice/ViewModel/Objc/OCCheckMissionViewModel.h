@@ -7,10 +7,19 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol OCCheckMissionViewModelDelegate <NSObject>
+
+- (void) missionDeleted;
+
+@end
+
 @interface OCCheckMissionViewModel : NSObject
+
+@property (nonatomic, assign) id<OCCheckMissionViewModelDelegate> delegate;
 
 @end
 

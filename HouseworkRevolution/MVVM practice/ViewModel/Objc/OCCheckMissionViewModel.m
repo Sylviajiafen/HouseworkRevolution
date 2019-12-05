@@ -10,6 +10,9 @@
 
 @implementation OCCheckMissionViewModel
 
-
+-(instancetype) init {
+    
+    return self;
+}
 
 @end
