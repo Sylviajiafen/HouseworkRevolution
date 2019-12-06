@@ -12,6 +12,8 @@
 
 @property OCCheckMissionViewModel *OCMainViewModel;
 
+@property (nonatomic, weak) IBOutlet UITableView *OCCheckMissionTableView;
+
 @end
 
 @implementation OCCheckMissionViewController
@@ -20,21 +22,112 @@
     [super viewDidLoad];
     
     self.OCMainViewModel = [[OCCheckMissionViewModel alloc]init];
+    
+    UINib *headerXib = [UINib nibWithNibName:@"WeekdaySectionHeaderView" bundle: nil];
+    
+    [self.OCCheckMissionTableView registerNib:headerXib
+           forHeaderFooterViewReuseIdentifier: @" WeekdaySectionHeaderView"];
 }
 
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)backToPrevious:(id)sender {
+    
 }
-*/
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    
+    return 60.0;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    
+    return 10.0;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    
+    OCWeekdaySectionHeaderView *header = [self.OCCheckMissionTableView
+                      dequeueReusableHeaderFooterViewWithIdentifier: @"WeekdaySectionHeaderView"];
+    
+    NSString *day = [self.OCMainViewModel.weekdays objectAtIndex: section];
+    
+    header.weekdayLabel.text = day;
+    
+    return header;
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    
+    return [self.OCMainViewModel.weekdays count];
+}
+
+- (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView
+                             cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    
+    NSString *day = [self.OCMainViewModel.weekdays objectAtIndex: indexPath.section];
+    
+    NSArray *dailyMissions = [self.OCMainViewModel.OCCellViewModel objectForKey:day];
+    
+    NSInteger missionsCount = [dailyMissions count];
+    
+    if (missionsCount > 0) {
+        
+        static NSString *identifier = @"MissionListTableViewCell";
+        
+        OCCheckMissionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: identifier];
+        
+        if (cell == nil) {
+            
+            cell = [[OCCheckMissionTableViewCell alloc] initWithStyle: UITableViewCellStyleDefault
+                                                        reuseIdentifier: identifier];
+            
+            return cell;
+        }
+        
+        return cell;
+        
+    } else {
+        
+        static NSString *emptyCellIdentifier = @"MissionEmptyTableViewCell";
+        
+        OCEmptyMissionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: emptyCellIdentifier];
+        
+        if (cell == nil) {
+            
+            cell = [[OCEmptyMissionTableViewCell alloc] initWithStyle: UITableViewCellStyleDefault
+                                                        reuseIdentifier: emptyCellIdentifier];
+            
+            return cell;
+        }
+        
+        return cell;
+    }
+}
+
+- (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+
+    NSString *day = [self.OCMainViewModel.weekdays objectAtIndex: section];
+    
+    NSArray *dailyMissions = [self.OCMainViewModel.OCCellViewModel objectForKey:day];
+    
+    NSInteger missionsCount = [dailyMissions count];
+    
+    if (missionsCount == 0) {
+        
+        return 1;
+        
+    } else {
+        
+        return missionsCount;
+    }
+}
 
 - (void)missionDeleted {
-    // 
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        [self.OCCheckMissionTableView reloadData];
+    });
 }
 
 @end

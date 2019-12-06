@@ -80,6 +80,8 @@
 		1235BE7E2398AD4100AA76BC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1235BE7D2398AD4100AA76BC /* GoogleService-Info.plist */; };
 		1261B4FE2398A6A40014AC7A /* OCMissionCellViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1261B4FD2398A6A40014AC7A /* OCMissionCellViewModel.m */; };
 		1282B184239A0756006E45B4 /* OCCheckMissionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1282B183239A0756006E45B4 /* OCCheckMissionTableViewCell.m */; };
+		1282B187239A35E9006E45B4 /* OCEmptyMissionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1282B186239A35E9006E45B4 /* OCEmptyMissionTableViewCell.m */; };
+		1282B18B239A4C2B006E45B4 /* OCWeekdaySectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1282B18A239A4C2B006E45B4 /* OCWeekdaySectionHeaderView.m */; };
 		1286BD642399106800064FF1 /* OCCheckMissionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1286BD632399106800064FF1 /* OCCheckMissionViewController.m */; };
 		128AB9D823995C0600AB7FDC /* FirebaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128AB9D723995C0600AB7FDC /* FirebaseHelper.swift */; };
 		12C2D8222398F10E006A1C9C /* OCCheckMissionViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 12C2D8212398F10E006A1C9C /* OCCheckMissionViewModel.m */; };
@@ -179,6 +181,10 @@
 		1261B4FD2398A6A40014AC7A /* OCMissionCellViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OCMissionCellViewModel.m; sourceTree = "<group>"; };
 		1282B182239A0756006E45B4 /* OCCheckMissionTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OCCheckMissionTableViewCell.h; sourceTree = "<group>"; };
 		1282B183239A0756006E45B4 /* OCCheckMissionTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OCCheckMissionTableViewCell.m; sourceTree = "<group>"; };
+		1282B185239A35E9006E45B4 /* OCEmptyMissionTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OCEmptyMissionTableViewCell.h; sourceTree = "<group>"; };
+		1282B186239A35E9006E45B4 /* OCEmptyMissionTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OCEmptyMissionTableViewCell.m; sourceTree = "<group>"; };
+		1282B189239A4C2B006E45B4 /* OCWeekdaySectionHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OCWeekdaySectionHeaderView.h; sourceTree = "<group>"; };
+		1282B18A239A4C2B006E45B4 /* OCWeekdaySectionHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OCWeekdaySectionHeaderView.m; sourceTree = "<group>"; };
 		1286BD622399106800064FF1 /* OCCheckMissionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OCCheckMissionViewController.h; sourceTree = "<group>"; };
 		1286BD632399106800064FF1 /* OCCheckMissionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OCCheckMissionViewController.m; sourceTree = "<group>"; };
 		128AB9D723995C0600AB7FDC /* FirebaseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseHelper.swift; sourceTree = "<group>"; };
@@ -607,6 +613,15 @@
 			path = Objc;
 			sourceTree = "<group>";
 		};
+		1282B188239A4B33006E45B4 /* SectionHeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				1282B189239A4C2B006E45B4 /* OCWeekdaySectionHeaderView.h */,
+				1282B18A239A4C2B006E45B4 /* OCWeekdaySectionHeaderView.m */,
+			);
+			path = SectionHeaderView;
+			sourceTree = "<group>";
+		};
 		1286BD652399107000064FF1 /* Objc */ = {
 			isa = PBXGroup;
 			children = (
@@ -614,6 +629,9 @@
 				1286BD632399106800064FF1 /* OCCheckMissionViewController.m */,
 				1282B182239A0756006E45B4 /* OCCheckMissionTableViewCell.h */,
 				1282B183239A0756006E45B4 /* OCCheckMissionTableViewCell.m */,
+				1282B185239A35E9006E45B4 /* OCEmptyMissionTableViewCell.h */,
+				1282B186239A35E9006E45B4 /* OCEmptyMissionTableViewCell.m */,
+				1282B188239A4B33006E45B4 /* SectionHeaderView */,
 			);
 			path = Objc;
 			sourceTree = "<group>";
@@ -865,6 +883,7 @@
 				03FEAC0B2321F5B200722A34 /* InvitingFamilySectionHeaderView.swift in Sources */,
 				03FEAC152322069100722A34 /* FamilyMemberTableViewCell.swift in Sources */,
 				03FEAC212324CC9400722A34 /* ShowDefaultTableViewCell.swift in Sources */,
+				1282B187239A35E9006E45B4 /* OCEmptyMissionTableViewCell.m in Sources */,
 				0302D9F02321E34D00DE7921 /* InvitingFamilyTableViewCell.swift in Sources */,
 				03581CBD233A26F700D9AEA7 /* NSRegularExpression+Extension.swift in Sources */,
 				03C1A540231662D9008EAB76 /* AppDelegate.swift in Sources */,
@@ -898,6 +917,7 @@
 				03C1A5912317C6E7008EAB76 /* CheckMissionViewController.swift in Sources */,
 				0302D9ED231FB6DC00DE7921 /* MissionItem.swift in Sources */,
 				03C1A58F2317C6D2008EAB76 /* AddMissionViewController.swift in Sources */,
+				1282B18B239A4C2B006E45B4 /* OCWeekdaySectionHeaderView.m in Sources */,
 				03A45F1D232E1482005D92D5 /* FirebaseManager.swift in Sources */,
 				0302D9C92319259F00DE7921 /* MissionListTableViewCell.swift in Sources */,
 				03F43BE723444476005A7917 /* ScannerViewController.swift in Sources */,

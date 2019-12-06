@@ -11,14 +11,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-struct Mission {
-    
-    NSString *title;
-    
-    int tiredValue;
-};
-typedef struct OCMission Mission;
-
 @interface OCMissionCellViewModel : NSObject
 
 + (instancetype) initWithMissionObject: (NSObject *)housework;
@@ -41,3 +33,11 @@ typedef struct OCMission Mission;
 @end
 
 NS_ASSUME_NONNULL_END
+
+//struct Mission {
+    
+//    NSString *title;
+    
+//    int tiredValue;
+//};
+//typedef struct OCMission Mission;

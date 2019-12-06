@@ -11,7 +11,7 @@
 
 @interface OCCheckMissionViewModel()
 
-@property NSArray *weekdays;
+//@property (nonatomic) NSArray *weekdays;
 
 @end
 
@@ -22,18 +22,21 @@
 
 @implementation OCCheckMissionViewModel
 
+- (NSArray *)weekdays {
+    
+    return [NSArray arrayWithObjects:
+            @"Monday",
+            @"Tuesday",
+            @"Wednesday",
+            @"Thursday",
+            @"Friday",
+            @"Saturday",
+            @"Sunday", nil];
+}
+
 - (void) getMissionObjects {
     
     FirebaseHelper *firebaseHelper = [[FirebaseHelper alloc]init];
-    
-    self.weekdays = [NSArray arrayWithObjects:
-                     @"Monday",
-                     @"Tuesday",
-                     @"Wednesday",
-                     @"Thursday",
-                     @"Friday",
-                     @"Saturday",
-                     @"Sunday", nil];
     
     int count = [self.weekdays count];
     
