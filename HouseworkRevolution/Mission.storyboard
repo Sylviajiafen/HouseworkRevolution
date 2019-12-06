@@ -12,7 +12,7 @@
         <!--Check Mission View Controller-->
         <scene sceneID="SZC-Zc-wn8">
             <objects>
-                <viewController storyboardIdentifier="CheckMissionViewController" id="dbK-ow-rFb" customClass="CheckMissionViewController" customModule="HouseworkRevolution" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CheckMissionViewController" id="dbK-ow-rFb" customClass="OCCheckMissionViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="i86-k5-e5O">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -34,8 +34,7 @@
                                         </constraints>
                                         <state key="normal" image="remove"/>
                                         <connections>
-                                            <action selector="backToRoot:" destination="qPN-MY-sez" eventType="touchUpInside" id="I3Z-wk-KEY"/>
-                                            <action selector="backToRoot:" destination="dbK-ow-rFb" eventType="touchUpInside" id="oPL-Es-if7"/>
+                                            <action selector="backToPrevious:" destination="dbK-ow-rFb" eventType="touchUpInside" id="dlv-lS-nsZ"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -54,7 +53,7 @@
                                 <color key="separatorColor" name="projectBackground"/>
                                 <color key="sectionIndexBackgroundColor" name="projectBackground"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="MissionListTableViewCell" id="OcY-1K-iwP" customClass="MissionListTableViewCell" customModule="HouseworkRevolution" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="MissionListTableViewCell" id="OcY-1K-iwP" customClass="OCCheckMissionTableViewCell">
                                         <rect key="frame" x="0.0" y="55.5" width="320" height="41"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OcY-1K-iwP" id="ltY-uh-cFh">
@@ -111,7 +110,7 @@
                                                     </constraints>
                                                     <state key="normal" title="移除" image="deleteMission"/>
                                                     <connections>
-                                                        <action selector="removeDidPressed:" destination="OcY-1K-iwP" eventType="touchUpInside" id="eUj-bB-Ild"/>
+                                                        <action selector="delete:" destination="OcY-1K-iwP" eventType="touchUpInside" id="4EB-QB-TWT"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -136,9 +135,9 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" name="projectBackground"/>
                                         <connections>
-                                            <outlet property="houseworkIcon" destination="Z5l-Qx-ORs" id="4am-LW-pPd"/>
-                                            <outlet property="missionLabel" destination="LWf-cM-61v" id="Gkh-Kp-aYh"/>
-                                            <outlet property="tiredValueLabel" destination="Izk-xs-VSF" id="yJL-ZU-5N4"/>
+                                            <outlet property="houseworkIcon" destination="Z5l-Qx-ORs" id="c68-tL-nvU"/>
+                                            <outlet property="missionLabel" destination="LWf-cM-61v" id="baj-2o-GHy"/>
+                                            <outlet property="tiredValueLabel" destination="Izk-xs-VSF" id="wYd-jA-Muz"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="MissionEmptyTableViewCell" id="cmz-wp-e17" customClass="MissionEmptyTableViewCell" customModule="HouseworkRevolution" customModuleProvider="target">
@@ -180,7 +179,7 @@
                         <viewLayoutGuide key="safeArea" id="WfD-li-yIQ"/>
                     </view>
                     <connections>
-                        <outlet property="missionListTableView" destination="Tkw-e8-0cH" id="Xci-j7-SBv"/>
+                        <outlet property="OCCheckMissionTableView" destination="Tkw-e8-0cH" id="KFk-Xy-aCK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="skG-wx-89n" userLabel="First Responder" sceneMemberID="firstResponder"/>

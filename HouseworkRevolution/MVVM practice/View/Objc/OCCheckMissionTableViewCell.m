@@ -23,6 +23,12 @@
 
 - (void)setByViewModel: (OCMissionCellViewModel *)viewModel {
     
-    
+    [viewModel configure: self];
 }
+
+- (IBAction)delete:(id)sender {
+    
+    [self.delegate removeMission: self];
+}
+
 @end
