@@ -8,8 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "OCCheckMissionTableViewCell.h"
 
 NS_ASSUME_NONNULL_BEGIN
+
+@class OCCheckMissionTableViewCell;
 
 @interface OCMissionCellViewModel : NSObject
 
@@ -20,6 +23,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) int tiredValue;
 
 @property (nonatomic, readonly) UIImage *icon;
+
+- (void) configure: (OCCheckMissionTableViewCell *)cell;
 
 @end
 

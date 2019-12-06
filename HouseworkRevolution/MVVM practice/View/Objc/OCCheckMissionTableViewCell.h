@@ -8,10 +8,23 @@
 
 #import <UIKit/UIKit.h>
 #import "OCMissionCellViewModel.h"
+#import "OCCheckMissionTableViewCell.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class OCCheckMissionTableViewCell;
+
+@class OCMissionCellViewModel;
+
+@protocol OCCheckMissionTableViewCellDelegate <NSObject>
+
+- (void) removeMission: (OCCheckMissionTableViewCell *)cell;
+
+@end
+
 @interface OCCheckMissionTableViewCell : UITableViewCell
+
+@property (nonatomic, weak) id<OCCheckMissionTableViewCellDelegate> delegate;
 
 @property (nonatomic, weak) IBOutlet UILabel *missionLabel;
 @property (nonatomic, weak) IBOutlet UIImageView *houseworkIcon;

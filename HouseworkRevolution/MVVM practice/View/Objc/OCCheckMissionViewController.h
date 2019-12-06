@@ -15,7 +15,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface OCCheckMissionViewController : UIViewController <OCCheckMissionViewModelDelegate>
+@interface OCCheckMissionViewController : UIViewController <OCCheckMissionViewModelDelegate,
+                                                            OCCheckMissionTableViewCellDelegate>
 
 @end
 

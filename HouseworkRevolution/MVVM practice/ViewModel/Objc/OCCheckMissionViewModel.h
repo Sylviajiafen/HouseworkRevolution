@@ -26,9 +26,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property NSDictionary <NSString *, id> *OCCellViewModel;
 
-- (void) getMissionObjects;
+- (void) getMissionObjects:(void (^)(void))completion;
 
-- (void) deleteMissionObject: (int)missionIndex onDayIndext: (int)day;
+- (void) deleteMissionObject: (int)missionIndex onDayIndex: (int)day;
 
 @end
 

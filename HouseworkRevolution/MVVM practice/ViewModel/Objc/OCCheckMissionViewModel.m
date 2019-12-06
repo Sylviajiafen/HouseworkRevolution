@@ -34,13 +34,17 @@
             @"Sunday", nil];
 }
 
-- (void) getMissionObjects {
+- (void) getMissionObjects:(void (^)(void))completion {
     
     FirebaseHelper *firebaseHelper = [[FirebaseHelper alloc]init];
     
     int count = [self.weekdays count];
     
     int i;
+    
+    dispatch_group_t group = dispatch_group_create();
+    
+    dispatch_group_enter(group);
     
     for (i = 0; i < count; i++) {
         
@@ -51,10 +55,17 @@
         dailyMissions = [firebaseHelper getAllMissionsForOCWithDay: weekday];
         
         [self.OCCellViewModel setValue:dailyMissions forKey: weekday];
+        
+        dispatch_group_leave(group);
     }
+    
+    dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+        
+        completion;
+    });
 }
 
-- (void) deleteMissionObject:(int)missionIndex onDayIndext:(int)day {
+- (void) deleteMissionObject:(int)missionIndex onDayIndex:(int)day {
     
     FirebaseHelper *firebaseHelper = [[FirebaseHelper alloc]init];
     

@@ -23,15 +23,30 @@
     
     self.OCMainViewModel = [[OCCheckMissionViewModel alloc]init];
     
+    self.OCMainViewModel.delegate = self;
+    
+    self.OCCheckMissionTableView.delegate = self;
+    
+    self.OCCheckMissionTableView.dataSource = self;
+    
     UINib *headerXib = [UINib nibWithNibName:@"WeekdaySectionHeaderView" bundle: nil];
     
     [self.OCCheckMissionTableView registerNib:headerXib
            forHeaderFooterViewReuseIdentifier: @" WeekdaySectionHeaderView"];
+    
+    [self.OCMainViewModel getMissionObjects:^{
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            [self.OCCheckMissionTableView reloadData];
+        });
+    }];
 }
 
 
 - (IBAction)backToPrevious:(id)sender {
     
+    [self dismissViewControllerAnimated: true completion: nil];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
@@ -84,6 +99,10 @@
             return cell;
         }
         
+        cell.delegate = self;
+        
+        [cell setByViewModel: [dailyMissions objectAtIndex: indexPath.row]];
+        
         return cell;
         
     } else {
@@ -128,6 +147,13 @@
         
         [self.OCCheckMissionTableView reloadData];
     });
+}
+
+- (void)removeMission:(UITableViewCell *)cell {
+    
+    NSIndexPath *indexPath = [self.OCCheckMissionTableView indexPathForCell:cell];
+    
+    [self.OCMainViewModel deleteMissionObject: (int) indexPath.row onDayIndex: (int) indexPath.section];
 }
 
 @end

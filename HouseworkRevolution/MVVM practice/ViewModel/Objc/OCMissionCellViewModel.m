@@ -74,6 +74,12 @@
     }
 }
 
+- (void) configure:(OCCheckMissionTableViewCell *)cell {
+    
+    cell.missionLabel.text = self.title;
+    
+    cell.tiredValueLabel.text = [@(self.tiredValue) stringValue];
+    
+    cell.houseworkIcon.image = self.icon;
+}
 @end
-
-// 差 configure METHOD 未轉成 objc

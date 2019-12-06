@@ -21,4 +21,8 @@
     // Configure the view for the selected state
 }
 
+- (void)setByViewModel: (OCMissionCellViewModel *)viewModel {
+    
+    
+}
 @end
