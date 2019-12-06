@@ -42,9 +42,9 @@
     
     int i;
     
-    dispatch_group_t group = dispatch_group_create();
+//    dispatch_group_t group = dispatch_group_create();
     
-    dispatch_group_enter(group);
+//    dispatch_group_enter(group);
     
     for (i = 0; i < count; i++) {
         
@@ -56,13 +56,13 @@
         
         [self.OCCellViewModel setValue:dailyMissions forKey: weekday];
         
-        dispatch_group_leave(group);
+//        dispatch_group_leave(group);
     }
     
-    dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+//    dispatch_group_notify(group, dispatch_get_main_queue(), ^{
         
         completion;
-    });
+//    });
 }
 
 - (void) deleteMissionObject:(int)missionIndex onDayIndex:(int)day {

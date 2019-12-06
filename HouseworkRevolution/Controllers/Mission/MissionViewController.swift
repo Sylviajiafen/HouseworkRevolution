@@ -32,7 +32,7 @@ class MissionViewController: UIViewController {
             withIdentifier: String(describing: CheckMissionViewController.self))
         
         guard let targetView = checkMissionViewController
-            as? CheckMissionViewController else { return }
+            as? OCCheckMissionViewController else { return }
         
         targetView.modalPresentationStyle = .fullScreen
         
