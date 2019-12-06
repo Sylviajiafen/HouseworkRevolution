@@ -64,5 +64,83 @@ class FirebaseHelper: NSObject {
         
         return dailyMission
     }
+    
+    @objc public
+    func deleteMission(title: String,
+                       tiredValue: Int,
+                       weekday: String) {
+        
+        let houseworksQuery = db.collection(DataCollection.houseGroup.rawValue)
+                                .document(StorageManager.userInfo.familyID)
+                                .collection(CollectionOfFamily.houseworks.rawValue)
+        
+        houseworksQuery.whereField(MissionData.title.rawValue, isEqualTo: title)
+            .whereField(MissionData.tiredValue.rawValue, isEqualTo: tiredValue)
+            .whereField(MissionData.weekday.rawValue, isEqualTo: weekday)
+            .getDocuments { (querySnapshot, err) in
+                
+                if let querySnapshot = querySnapshot {
+                    
+                    for document in querySnapshot.documents {
+                        
+                        houseworksQuery.document(document.documentID).delete() { (err) in
+                            
+                            if let err = err {
+                                
+                                print("Error deleting mission: \(err)")
+                            }
+                        }
+                    }
+                    
+                } else if let err = err {
+                    
+                    print("Error getting documents: \(err)")
+                }
+        }
+        
+        if weekday == DayManager.shared.weekday {
+            
+            self.deleteMissionFromMissionByDate(title: title,
+                                                tiredValue: tiredValue,
+                                                family: StorageManager.userInfo.familyID)
+        }
+    }
+    
+    @objc
+    private func deleteMissionFromMissionByDate(title: String, tiredValue: Int, family: String) {
+        
+        let query =  db.collection(DataCollection.houseGroup.rawValue)
+            .document(family)
+            .collection(CollectionOfFamily.missionByDate.rawValue)
+            .document(DayManager.shared.stringOfToday)
+            .collection(CollectionOfFamily.subCollectionMissions.rawValue)
+        
+        query.whereField(MissionData.title.rawValue, isEqualTo: title)
+            .whereField(MissionData.tiredValue.rawValue, isEqualTo: tiredValue)
+            .getDocuments { (querySnapshot, error) in
+                
+                if let querySnapshot = querySnapshot {
+                    
+                    if querySnapshot.count == 0 {
+                        
+                        return
+                    }
+                    
+                    for document in querySnapshot.documents {
+                        
+                        query.document(document.documentID).delete() { (err) in
+                            
+                            if let err = err {
+                                
+                                print("Error updating document: \(err)")
+                            }
+                        }
+                    }
+                    
+                } else if let err = error {
+                    
+                    print("Error getting documents: \(err)")
+                }
+        }
+    }
 }
-

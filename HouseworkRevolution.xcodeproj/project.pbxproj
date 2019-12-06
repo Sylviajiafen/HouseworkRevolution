@@ -79,6 +79,7 @@
 		03FEAC232326599A00722A34 /* List.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03FEAC222326599A00722A34 /* List.storyboard */; };
 		1235BE7E2398AD4100AA76BC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1235BE7D2398AD4100AA76BC /* GoogleService-Info.plist */; };
 		1261B4FE2398A6A40014AC7A /* OCMissionCellViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1261B4FD2398A6A40014AC7A /* OCMissionCellViewModel.m */; };
+		1282B184239A0756006E45B4 /* OCCheckMissionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1282B183239A0756006E45B4 /* OCCheckMissionTableViewCell.m */; };
 		1286BD642399106800064FF1 /* OCCheckMissionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1286BD632399106800064FF1 /* OCCheckMissionViewController.m */; };
 		128AB9D823995C0600AB7FDC /* FirebaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128AB9D723995C0600AB7FDC /* FirebaseHelper.swift */; };
 		12C2D8222398F10E006A1C9C /* OCCheckMissionViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 12C2D8212398F10E006A1C9C /* OCCheckMissionViewModel.m */; };
@@ -176,6 +177,8 @@
 		1261B4FB2398A6A40014AC7A /* HouseworkRevolution-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HouseworkRevolution-Bridging-Header.h"; sourceTree = "<group>"; };
 		1261B4FC2398A6A40014AC7A /* OCMissionCellViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OCMissionCellViewModel.h; sourceTree = "<group>"; };
 		1261B4FD2398A6A40014AC7A /* OCMissionCellViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OCMissionCellViewModel.m; sourceTree = "<group>"; };
+		1282B182239A0756006E45B4 /* OCCheckMissionTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OCCheckMissionTableViewCell.h; sourceTree = "<group>"; };
+		1282B183239A0756006E45B4 /* OCCheckMissionTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OCCheckMissionTableViewCell.m; sourceTree = "<group>"; };
 		1286BD622399106800064FF1 /* OCCheckMissionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OCCheckMissionViewController.h; sourceTree = "<group>"; };
 		1286BD632399106800064FF1 /* OCCheckMissionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OCCheckMissionViewController.m; sourceTree = "<group>"; };
 		128AB9D723995C0600AB7FDC /* FirebaseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseHelper.swift; sourceTree = "<group>"; };
@@ -609,6 +612,8 @@
 			children = (
 				1286BD622399106800064FF1 /* OCCheckMissionViewController.h */,
 				1286BD632399106800064FF1 /* OCCheckMissionViewController.m */,
+				1282B182239A0756006E45B4 /* OCCheckMissionTableViewCell.h */,
+				1282B183239A0756006E45B4 /* OCCheckMissionTableViewCell.m */,
 			);
 			path = Objc;
 			sourceTree = "<group>";
@@ -849,6 +854,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				03FEAC1E23226FFA00722A34 /* SearchUserTableViewCell.swift in Sources */,
+				1282B184239A0756006E45B4 /* OCCheckMissionTableViewCell.m in Sources */,
 				03006C1D2349BF520060AB30 /* Bundle+Extension.swift in Sources */,
 				0302D9C12318FBC800DE7921 /* HouseworkCollectionViewCell.swift in Sources */,
 				0302D9E6231E650600DE7921 /* DailyMissionCollectionViewCell.swift in Sources */,

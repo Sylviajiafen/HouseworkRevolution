@@ -8,7 +8,7 @@
 
 #import "OCCheckMissionViewController.h"
 
-@interface OCCheckMissionViewController ()
+@interface OCCheckMissionViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property OCCheckMissionViewModel *OCMainViewModel;
 

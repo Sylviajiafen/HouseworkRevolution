@@ -24,8 +24,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property NSDictionary <NSString *, id> *OCCellViewModel;
 
-- (OCMissionObject *) getMissionObjects: (NSString *)day;
+- (void) getMissionObjects;
+
+- (void) deleteMissionObject: (int)missionIndex onDayIndext: (int)day;
 
 @end
+
+@class FirebaseHelper;
 
 NS_ASSUME_NONNULL_END
