@@ -50,9 +50,10 @@
         
         NSString *weekday = [self.weekdays objectAtIndex: i];
         
-        NSArray *dailyMissions;
+        NSArray *dailyMissions = [firebaseHelper getAllMissionsForOCWithDay: weekday];
         
-        dailyMissions = [firebaseHelper getAllMissionsForOCWithDay: weekday];
+        NSLog(@"'%@' 的任務有：", weekday);
+        NSLog(@"家事：'%@'", dailyMissions);
         
         [self.OCCellViewModel setValue:dailyMissions forKey: weekday];
         

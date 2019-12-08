@@ -62,6 +62,10 @@ class FirebaseHelper: NSObject {
                 }
         }
         
+        for mission in dailyMission {
+            print("ＤＡＩＬＹＭＩＳＳＩＯＮ： \(mission.title), \(mission.tiredValue)")
+        }
+        
         return dailyMission
     }
     
