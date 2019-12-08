@@ -42,11 +42,11 @@
     
     int i;
     
-//    dispatch_group_t group = dispatch_group_create();
-    
-//    dispatch_group_enter(group);
+    dispatch_group_t group = dispatch_group_create();
     
     for (i = 0; i < count; i++) {
+        
+        dispatch_group_enter(group);
         
         NSString *weekday = [self.weekdays objectAtIndex: i];
         
@@ -55,15 +55,31 @@
         NSLog(@"'%@' 的任務有：", weekday);
         NSLog(@"家事：'%@'", dailyMissions);
         
-        [self.OCCellViewModel setValue:dailyMissions forKey: weekday];
+        int dailyMissionCount = [dailyMissions count];
         
-//        dispatch_group_leave(group);
+        int a;
+        
+        NSMutableArray *dailyMissionsVMArr;
+        
+        for (a = 0; a < dailyMissionCount; a++) {
+            
+            OCMissionObject *mission = [dailyMissions objectAtIndex: a];
+            
+            OCMissionCellViewModel * cellViewModel = [OCMissionCellViewModel initWithMissionObject: mission];
+            
+            [dailyMissionsVMArr addObject: cellViewModel];
+            
+            dispatch_group_leave(group);
+        }
+        
+        [self.OCCellViewModel setValue:dailyMissionsVMArr forKey: weekday];
+        
     }
     
-//    dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+    dispatch_group_notify(group, dispatch_get_main_queue(), ^{
         
         completion;
-//    });
+    });
 }
 
 - (void) deleteMissionObject:(int)missionIndex onDayIndex:(int)day {
