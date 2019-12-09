@@ -103,8 +103,6 @@
         
         cell.delegate = self;
         
-        NSLog(@"CELL: %@", dailyMissions);
-        
         [cell setByViewModel: [dailyMissions objectAtIndex: indexPath.row]];
         
         return cell;

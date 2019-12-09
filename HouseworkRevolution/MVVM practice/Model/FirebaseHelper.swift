@@ -11,10 +11,6 @@ import Firebase
 
 class FirebaseHelper: NSObject {
     
-//    static let shared = FirebaseHelper()
-    
-//    private override init() {}
-    
     private let db = Firestore.firestore()
     
     @objc public
