@@ -29,10 +29,12 @@
     
     self.OCCheckMissionTableView.dataSource = self;
     
-    UINib *headerXib = [UINib nibWithNibName:@"WeekdaySectionHeaderView" bundle: nil];
+    self.OCCheckMissionTableView.backgroundColor = [UIColor colorNamed: @"projectBackground"];
+    
+    UINib *headerXib = [UINib nibWithNibName: @"WeekdaySectionHeaderView" bundle: nil];
     
     [self.OCCheckMissionTableView registerNib:headerXib
-           forHeaderFooterViewReuseIdentifier: @" WeekdaySectionHeaderView"];
+           forHeaderFooterViewReuseIdentifier: @"WeekdaySectionHeaderView"];
     
     [self.OCMainViewModel getMissionObjects:^{
         
@@ -64,7 +66,7 @@
     OCWeekdaySectionHeaderView *header = [self.OCCheckMissionTableView
                       dequeueReusableHeaderFooterViewWithIdentifier: @"WeekdaySectionHeaderView"];
     
-    NSString *day = [self.OCMainViewModel.weekdays objectAtIndex: section];
+    NSString *day = [self.OCMainViewModel.weekdaysInCH objectAtIndex: section];
     
     header.weekdayLabel.text = day;
     
@@ -73,7 +75,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     
-    return [self.OCMainViewModel.weekdays count];
+    return [self.OCMainViewModel.weekdaysInCH count];
 }
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView

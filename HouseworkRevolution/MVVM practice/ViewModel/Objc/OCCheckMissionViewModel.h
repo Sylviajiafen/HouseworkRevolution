@@ -22,6 +22,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic) NSArray *weekdays;
 
+@property (nonatomic) NSArray *weekdaysInCH;
+
 @property (nonatomic, weak) id<OCCheckMissionViewModelDelegate> delegate;
 
 @property NSDictionary <NSString *, id> *OCCellViewModel;

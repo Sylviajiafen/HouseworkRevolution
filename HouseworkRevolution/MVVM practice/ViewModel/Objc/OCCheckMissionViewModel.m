@@ -11,8 +11,6 @@
 
 @interface OCCheckMissionViewModel()
 
-//@property (nonatomic) NSArray *weekdays;
-
 @end
 
 // ?
@@ -32,6 +30,18 @@
             @"Friday",
             @"Saturday",
             @"Sunday", nil];
+}
+
+- (NSArray *)weekdaysInCH {
+    
+    return [NSArray arrayWithObjects:
+            @"星期一",
+            @"星期二",
+            @"星期三",
+            @"星期四",
+            @"星期五",
+            @"星期六",
+            @"星期日", nil];
 }
 
 - (void) getMissionObjects:(void (^)(void))completion {
