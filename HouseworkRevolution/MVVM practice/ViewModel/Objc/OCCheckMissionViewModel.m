@@ -48,6 +48,8 @@
     
     FirebaseHelper *firebaseHelper = [[FirebaseHelper alloc]init];
     
+    self.OCCellViewModel = [NSMutableDictionary dictionary];
+    
     int count = [self.weekdays count];
     
     int i;
@@ -60,35 +62,37 @@
         
         NSString *weekday = [self.weekdays objectAtIndex: i];
         
-        NSArray *dailyMissions = [firebaseHelper getAllMissionsForOCWithDay: weekday];
+        __block NSArray *dailyMissions;
         
-        NSLog(@"'%@' 的任務有：", weekday);
-        NSLog(@"家事：'%@'", dailyMissions);
-        
-        int dailyMissionCount = [dailyMissions count];
-        
-        int a;
-        
-        NSMutableArray *dailyMissionsVMArr;
-        
-        for (a = 0; a < dailyMissionCount; a++) {
+        [firebaseHelper getAllMissionsForOCWithDay: weekday completion:^(NSArray<OCMissionObject *>* dailys) {
             
-            OCMissionObject *mission = [dailyMissions objectAtIndex: a];
+            dailyMissions = dailys;
             
-            OCMissionCellViewModel * cellViewModel = [OCMissionCellViewModel initWithMissionObject: mission];
+            int dailyMissionCount = [dailyMissions count];
             
-            [dailyMissionsVMArr addObject: cellViewModel];
+            int a;
+            
+            NSMutableArray *dailyMissionsVMArr = [NSMutableArray array];
+            
+            for (a = 0; a < dailyMissionCount; a++) {
+                
+                OCMissionObject *mission = [dailyMissions objectAtIndex: a];
+                
+                OCMissionCellViewModel * cellViewModel = [OCMissionCellViewModel initWithMissionObject: mission];
+                
+                [dailyMissionsVMArr addObject: cellViewModel];
+            
+            }
+            
+            [self.OCCellViewModel setValue: dailyMissionsVMArr forKey: weekday];
             
             dispatch_group_leave(group);
-        }
-        
-        [self.OCCellViewModel setValue:dailyMissionsVMArr forKey: weekday];
-        
+        }];
     }
     
     dispatch_group_notify(group, dispatch_get_main_queue(), ^{
         
-        completion;
+        completion();
     });
 }
 

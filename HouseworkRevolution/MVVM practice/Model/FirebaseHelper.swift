@@ -18,7 +18,7 @@ class FirebaseHelper: NSObject {
     private let db = Firestore.firestore()
     
     @objc public
-    func getAllMissionsForOC(day: String) -> [OCMissionObject] {
+    func getAllMissionsForOC(day: String, completion: @escaping ([OCMissionObject]) -> Void) {
         
         FirebaseManager.allMission[day]?.removeAll()
         
@@ -37,6 +37,8 @@ class FirebaseHelper: NSObject {
                         
                         dailyMission = []
                         
+                        completion(dailyMission)
+                        
                     } else {
                     
                         for index in 0..<querySnapshot.count {
@@ -54,19 +56,17 @@ class FirebaseHelper: NSObject {
                             
                             dailyMission.append(mission)
                         }
+                        
+                        completion(dailyMission)
                     }
                     
                 } else if let err = err {
                     
                     print("Error getting all missions: \(err)")
+                    
+                    completion(dailyMission)
                 }
         }
-        
-        for mission in dailyMission {
-            print("ＤＡＩＬＹＭＩＳＳＩＯＮ： \(mission.title), \(mission.tiredValue)")
-        }
-        
-        return dailyMission
     }
     
     @objc public

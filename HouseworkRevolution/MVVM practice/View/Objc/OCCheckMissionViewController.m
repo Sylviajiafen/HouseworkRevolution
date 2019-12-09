@@ -103,6 +103,8 @@
         
         cell.delegate = self;
         
+        NSLog(@"CELL: %@", dailyMissions);
+        
         [cell setByViewModel: [dailyMissions objectAtIndex: indexPath.row]];
         
         return cell;
@@ -117,7 +119,7 @@
             
             cell = [[OCEmptyMissionTableViewCell alloc] initWithStyle: UITableViewCellStyleDefault
                                                         reuseIdentifier: emptyCellIdentifier];
-            
+
             return cell;
         }
         

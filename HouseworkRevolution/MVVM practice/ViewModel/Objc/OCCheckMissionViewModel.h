@@ -26,7 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, weak) id<OCCheckMissionViewModelDelegate> delegate;
 
-@property NSDictionary <NSString *, id> *OCCellViewModel;
+@property NSMutableDictionary <NSString *, id> *OCCellViewModel;
 
 - (void) getMissionObjects:(void (^)(void))completion;
 
